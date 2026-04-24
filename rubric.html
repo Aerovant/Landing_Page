@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="ThreatReady's public scoring rubric. Exactly how the three dimensions — Technical Depth, Communication, Decision-Making — are scored, with examples at each tier.">
+<meta name="robots" content="index, follow">
+<title>Scoring Rubric — ThreatReady</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c3aed'/%3E%3Cpath d='M16 6 L24 10 V17 C24 22 20.5 25.5 16 27 C11.5 25.5 8 22 8 17 V10 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>
+(function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+
+<nav class="lnav">
+<div class="lnav-c">
+<div class="brand-stack">
+<a href="index.html" class="logo">
+<span class="logo-i"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+<span class="logo-t">ThreatReady<span class="dot">.</span>io</span>
+</a>
+<a href="https://aerovanttech.com/" target="_blank" rel="noopener" class="brand-tag" aria-label="Visit Aerovant Technologies"><span class="brand-tag-pre">By</span> AEROVANT TECHNOLOGIES</a>
+</div>
+<div class="lnav-r">
+<button class="theme-tog" id="themeTog" aria-label="Toggle dark mode" title="Toggle dark mode">
+<svg class="sun-i" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="moon-i" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<a href="index.html" class="back"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to home</a>
+</div>
+</div>
+</nav>
+
+<header class="lhead">
+<div class="lhead-c">
+<span class="eyebrow">Transparent evaluation</span>
+<h1>The ThreatReady Scoring Rubric</h1>
+<p class="meta">Version 1.0 · Published 22 April 2026</p>
+<p class="intro">We publish our scoring rubric because transparency is how we earn the trust of hiring managers and candidates alike. Read it. Challenge it. Calibrate against it. If we can't defend how we arrived at a score, we don't deserve to give it.</p>
+</div>
+</header>
+
+<main class="lbody">
+
+<div class="ltoc">
+<h4>On this page</h4>
+<ol>
+<li><a href="#how">How scoring works</a></li>
+<li><a href="#dim">The three dimensions</a></li>
+<li><a href="#tech">Technical Depth (40%)</a></li>
+<li><a href="#comm">Communication (30%)</a></li>
+<li><a href="#dec">Decision-Making (30%)</a></li>
+<li><a href="#example">A worked example</a></li>
+<li><a href="#adaptive">Adaptive questioning logic</a></li>
+<li><a href="#not">What we deliberately do not score</a></li>
+<li><a href="#calib">Consistency &amp; calibration</a></li>
+<li><a href="#challenge">Score challenges</a></li>
+<li><a href="#versions">Version history</a></li>
+</ol>
+</div>
+
+<h2 id="how">1. How scoring works</h2>
+<p>A ThreatReady assessment consists of a single scenario — a real architecture with an active attack chain — followed by five adaptive questions. Each question is scored on three dimensions, each on a 1–10 integer scale. The final score is the weighted average of the three dimension scores across all five questions.</p>
+<div class="callout">
+<strong>The formula</strong>
+<p>Final Score = (Technical Depth × 0.40) + (Communication × 0.30) + (Decision-Making × 0.30)</p>
+</div>
+<p>A score below 5 means the candidate has gaps that would concern a hiring manager. A score of 5–7 means they are competent but not yet senior. A score of 7–8.5 means strong senior-ready performance. A score above 8.5 indicates expert-level reasoning — rare and worth noting. These are guidelines, not promises; final hiring decisions are always yours.</p>
+
+<h2 id="dim">2. The three dimensions</h2>
+<p>We measure three things, and we weight them deliberately. Technical Depth carries the most weight (40%) because it is the floor — without it, the other two don't matter. But we refuse to give it 100%, because an engineer who can reason technically but can't communicate or prioritize will fail the job anyway.</p>
+
+<div class="dim-card">
+<div class="dim-card-h"><h3>Technical Depth</h3><span class="dim-weight">40%</span></div>
+<p><strong>What we score:</strong> Accuracy of threat identification, completeness of mitigation strategy, understanding of relevant frameworks (MITRE ATT&amp;CK, OWASP, cloud-native controls), and the technical precision of specific recommendations.</p>
+</div>
+
+<div class="dim-card">
+<div class="dim-card-h"><h3>Communication</h3><span class="dim-weight">30%</span></div>
+<p><strong>What we score:</strong> Structure of the answer, clarity of explanation, correct use of terminology, ability to explain technical issues at the right altitude for the audience, concise summarization of impact.</p>
+</div>
+
+<div class="dim-card">
+<div class="dim-card-h"><h3>Decision-Making</h3><span class="dim-weight">30%</span></div>
+<p><strong>What we score:</strong> Soundness of prioritization, explicit trade-offs, risk-informed judgment, business-context awareness, willingness to make a call with incomplete information.</p>
+</div>
+
+<h2 id="tech">3. Technical Depth — detailed scale</h2>
+<p>We score technical depth on what is actually present in the answer. Silence on a relevant issue is not neutral — it's a gap.</p>
+<table>
+<thead><tr><th style="width:100px">Score</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><strong>1–3</strong></td><td>Misidentifies the threat or suggests mitigations that would fail or cause harm. No grounding in the specific architecture shown.</td></tr>
+<tr><td><strong>4–5</strong></td><td>Identifies the general category of threat but not the specific attack path. Mitigations are generic textbook advice ("use least privilege") without specifics tied to the diagram.</td></tr>
+<tr><td><strong>6–7</strong></td><td>Correctly identifies the specific attack path shown. Mitigations are concrete and actionable ("revoke the Lambda's secrets:* permission, scope s3:* to customers-bucket"). Some framework references.</td></tr>
+<tr><td><strong>8–9</strong></td><td>All of 6–7, plus reasoning about defense-in-depth, forensic preservation, and downstream implications. Considers what could fail in the mitigation itself. Uses MITRE ATT&amp;CK tactics by name, correctly.</td></tr>
+<tr><td><strong>10</strong></td><td>Senior-engineer level. Identifies attack path, reasons about attacker adaptability, proposes layered mitigations with trade-offs, flags second-order effects (e.g., logging gaps after revocation), and demonstrates knowledge of specific control gaps across the architecture.</td></tr>
+</tbody>
+</table>
+
+<h2 id="comm">4. Communication — detailed scale</h2>
+<table>
+<thead><tr><th style="width:100px">Score</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><strong>1–3</strong></td><td>Answer is fragmented, unstructured, or relies on jargon without grounding. A non-security reader could not extract the point.</td></tr>
+<tr><td><strong>4–5</strong></td><td>Readable, but meandering. Terminology is used correctly but not defined. Impact is implicit rather than stated.</td></tr>
+<tr><td><strong>6–7</strong></td><td>Clear structure: what, why, impact, what-to-do. Correct terminology. A technical non-security reader could follow the logic.</td></tr>
+<tr><td><strong>8–9</strong></td><td>All of 6–7, plus explicit sequencing ("first, then, because"), impact quantified where possible, confidence levels stated ("likely" vs "certain"), and the answer scales to different audiences if asked.</td></tr>
+<tr><td><strong>10</strong></td><td>Exceptional clarity. The answer could be directly read in an incident-response call or copied into a runbook without editing.</td></tr>
+</tbody>
+</table>
+
+<h2 id="dec">5. Decision-Making — detailed scale</h2>
+<table>
+<thead><tr><th style="width:100px">Score</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><strong>1–3</strong></td><td>No prioritization. Lists all possible actions with equal weight, or refuses to commit to a sequence. Ignores time pressure.</td></tr>
+<tr><td><strong>4–5</strong></td><td>Attempts to prioritize but misses critical sequencing (e.g., investigates before containing during active exfiltration). Treats every issue as equally urgent.</td></tr>
+<tr><td><strong>6–7</strong></td><td>Correct sequence for the scenario. Reasons about "contain first, investigate second" under active attack. Acknowledges at least one trade-off.</td></tr>
+<tr><td><strong>8–9</strong></td><td>All of 6–7, plus explicit risk-versus-business-impact reasoning, identifies compensating controls if the primary action fails, and flags who needs to be informed (on-call, legal, comms).</td></tr>
+<tr><td><strong>10</strong></td><td>Senior-judgment level. Weighs speed vs forensic preservation explicitly, anticipates second-order consequences of the chosen action (alerting the attacker, breaking production), and is willing to state a defensible position even with imperfect information.</td></tr>
+</tbody>
+</table>
+
+<h2 id="example">6. A worked example</h2>
+<p>Scenario: A Lambda function has unusual outbound traffic. The IAM role attached has <code>s3:*</code> and <code>secrets:*</code>. The S3 bucket contains customer PII.</p>
+<p>Question: <em>What is your first containment step, and why does sequence matter here?</em></p>
+
+<div class="example">
+<div class="example-label">Candidate A<span class="example-score weak">3.8 / 10</span></div>
+<p>"I would look at CloudTrail to see what happened and then maybe change the IAM role."</p>
+<p class="muted"><strong>Why:</strong> Technical Depth 3 — investigation-first during active exfiltration. Communication 5 — clear but unstructured. Decision-Making 3 — no sequence rationale, no urgency framing.</p>
+</div>
+
+<div class="example">
+<div class="example-label">Candidate B<span class="example-score mid">6.5 / 10</span></div>
+<p>"First, I'd scope down the IAM role by removing secrets:* and narrowing s3:* to only the specific bucket. Then I'd check CloudTrail for what was accessed and rotate any credentials the Lambda could have read."</p>
+<p class="muted"><strong>Why:</strong> Technical Depth 7 — specific, correct mitigations. Communication 7 — clear structure. Decision-Making 5 — moves in the right direction but doesn't explain why sequence matters.</p>
+</div>
+
+<div class="example">
+<div class="example-label">Candidate C<span class="example-score strong">8.9 / 10</span></div>
+<p>"Disable the Lambda function first — remove its trigger or set concurrency to zero. That stops active exfiltration without destroying forensic state, which matters because wiping the role before preserving evidence loses the CloudTrail correlation we'll need later. After that: scope the role (remove secrets:*, narrow s3:* to the specific bucket), rotate credentials the role could have accessed, snapshot the Lambda environment for forensics, and review CloudTrail for scope of what was already taken. Sequence matters because investigation before containment lets the attacker keep reading PII the whole time we're triaging."</p>
+<p class="muted"><strong>Why:</strong> Technical Depth 9 — specific mitigations with defense-in-depth and forensic awareness. Communication 9 — explicit sequencing and rationale. Decision-Making 9 — names the trade-off (speed vs forensics) and picks a defensible side.</p>
+</div>
+
+<h2 id="adaptive">7. Adaptive questioning logic</h2>
+<p>After each answer, the AI generates a follow-up question based on what the candidate actually said. This serves two purposes:</p>
+<ul>
+<li><strong>Prevents pre-prepared answers.</strong> Generic responses trigger probing follow-ups that can't be anticipated.</li>
+<li><strong>Explores depth.</strong> Strong answers earn harder follow-ups; shallow answers trigger clarifying ones.</li>
+</ul>
+<p>Adaptive questions are bounded by the scenario's MITRE ATT&amp;CK tactics and the role's competency map — the AI cannot wander off-topic into unrelated domains.</p>
+
+<h2 id="not">8. What we deliberately do not score</h2>
+<ul>
+<li><strong>Grammar or spelling</strong>, beyond the threshold where clarity suffers</li>
+<li><strong>Typing speed</strong> or answer length for its own sake</li>
+<li><strong>Regional English or accent</strong> when voice mode is used</li>
+<li><strong>Specific tool preferences</strong> (AWS vs Azure terminology, Splunk vs Elastic) — we score on the reasoning, not the brand</li>
+<li><strong>"Correct" answers that depend on organizational context we haven't given</strong> — we score the reasoning, not the guess</li>
+<li><strong>Agreeing with our model answer</strong> — a well-reasoned alternative can score as well as the model answer if defensible</li>
+</ul>
+
+<h2 id="calib">9. Consistency &amp; calibration</h2>
+<p>We take rubric consistency seriously. Concrete measures:</p>
+<ul>
+<li>All scoring prompts to the AI include the full rubric text (not a summary)</li>
+<li>Each question includes a role-specific and difficulty-specific rubric anchor</li>
+<li>Every week, we randomly sample ~50 scored assessments for manual review by security engineers. Patterns of drift trigger rubric updates or model-answer revisions.</li>
+<li>We test scoring consistency by running the same answer through the system multiple times; variance of more than 0.5 on any dimension triggers investigation.</li>
+</ul>
+
+<h2 id="challenge">10. Score challenges</h2>
+<p>If you believe your score is wrong, you can challenge it. Here's how:</p>
+<ol>
+<li>Within 14 days of receiving the score, email <a href="mailto:admin@aerovanttech.com">admin@aerovanttech.com</a> with your session ID and a specific explanation of what you believe was mis-scored and why</li>
+<li>A security engineer reviews the full transcript and rubric application within 7 business days</li>
+<li>We respond with either a confirmed score (with a rubric-grounded explanation) or a revised score</li>
+<li>All challenges and outcomes are logged. Patterns are fed back into rubric refinement</li>
+</ol>
+
+<h2 id="versions">11. Version history</h2>
+<table>
+<thead><tr><th>Version</th><th>Date</th><th>Summary of changes</th></tr></thead>
+<tbody>
+<tr><td>1.0</td><td>22 April 2026</td><td>Initial publication.</td></tr>
+</tbody>
+</table>
+
+</main>
+
+<footer class="lft">
+<div class="lft-c">
+<a href="index.html" class="logo">
+<span class="logo-i"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+<span class="logo-t">ThreatReady<span class="dot">.</span>io</span>
+</a>
+<ul class="lft-l">
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="terms.html">Terms</a></li>
+<li><a href="security.html">Security</a></li>
+<li><a href="rubric.html">Scoring Rubric</a></li>
+<li><a href="report-sample.html">Sample Report</a></li>
+<li><a href="dpa.html">DPA</a></li>
+</ul>
+</div>
+<div class="aprod"><span>A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div><div class="lft-bot">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aerovant Technologies Pvt. Ltd.</a> All rights reserved.</div>
+</footer>
+
+<script>
+(function(){var t=document.getElementById('themeTog');if(!t)return;t.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tr-theme',n);}catch(e){}});})();
+</script>
+
+<script>
+/* Smart back link — remember where the visitor came from.
+   Priority:  ?from=<id>  >  referrer hash  >  plain index.html  */
+(function(){
+  var back = document.querySelector('a.back');
+  if(!back) return;
+  var target = 'index.html';
+  var label = 'Back to home';
+  try{
+    var params = new URLSearchParams(location.search);
+    var from = params.get('from');
+    if(from && /^[a-z0-9_-]+$/i.test(from)){
+      target = 'index.html#' + from;
+      label = 'Back to site';
+    } else if(document.referrer){
+      var r = new URL(document.referrer, location.href);
+      if(r.origin === location.origin && (r.pathname.endsWith('/index.html') || r.pathname === '/' || r.pathname === '')){
+        if(r.hash){
+          target = 'index.html' + r.hash;
+          label = 'Back to site';
+        }
+      }
+    }
+  }catch(e){}
+  // only update href (keep the arrow SVG + text intact)
+  back.setAttribute('href', target);
+  // update the trailing text node after the SVG
+  var tn = null;
+  back.childNodes.forEach(function(n){ if(n.nodeType === 3 && n.nodeValue.trim()) tn = n; });
+  if(tn) tn.nodeValue = label;
+})();
+</script>
+</body>
+</html>

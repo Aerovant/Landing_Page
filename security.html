@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="ThreatReady security practices — infrastructure, encryption, access controls, and responsible disclosure program.">
+<meta name="robots" content="index, follow">
+<title>Security — ThreatReady</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c3aed'/%3E%3Cpath d='M16 6 L24 10 V17 C24 22 20.5 25.5 16 27 C11.5 25.5 8 22 8 17 V10 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>
+(function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+
+<nav class="lnav">
+<div class="lnav-c">
+<div class="brand-stack">
+<a href="index.html" class="logo">
+<span class="logo-i"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+<span class="logo-t">ThreatReady<span class="dot">.</span>io</span>
+</a>
+<a href="https://aerovanttech.com/" target="_blank" rel="noopener" class="brand-tag" aria-label="Visit Aerovant Technologies"><span class="brand-tag-pre">By</span> AEROVANT TECHNOLOGIES</a>
+</div>
+<div class="lnav-r">
+<button class="theme-tog" id="themeTog" aria-label="Toggle dark mode" title="Toggle dark mode">
+<svg class="sun-i" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="moon-i" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<a href="index.html" class="back"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to home</a>
+</div>
+</div>
+</nav>
+
+<header class="lhead">
+<div class="lhead-c">
+<span class="eyebrow">Trust</span>
+<h1>Security at ThreatReady</h1>
+<p class="meta">Last updated: 22 April 2026</p>
+<p class="intro">We build a platform that measures how well security engineers think. The least we can do is take our own security seriously. This page is a factual, ongoing account of how we protect your data — not a marketing statement.</p>
+</div>
+</header>
+
+<main class="lbody">
+
+<div class="ltoc">
+<h4>On this page</h4>
+<ol>
+<li><a href="#infra">Infrastructure</a></li>
+<li><a href="#encrypt">Encryption</a></li>
+<li><a href="#access">Access controls</a></li>
+<li><a href="#app">Application security</a></li>
+<li><a href="#data">Data handling</a></li>
+<li><a href="#integrity">Assessment integrity controls</a></li>
+<li><a href="#ir">Incident response</a></li>
+<li><a href="#compliance">Compliance &amp; attestations</a></li>
+<li><a href="#disclose">Responsible disclosure</a></li>
+<li><a href="#contact">Security contact</a></li>
+</ol>
+</div>
+
+<h2 id="infra">1. Infrastructure</h2>
+<ul>
+<li><strong>Primary hosting:</strong> Amazon Web Services, ap-south-1 (Mumbai). Data residency for all production user data is in India.</li>
+<li><strong>AI evaluation:</strong> Assessment text is transmitted to Anthropic's Claude API (US) for scoring. Disclosed in-product before each assessment. Anthropic does not train on data submitted via their API.</li>
+<li><strong>DNS &amp; edge:</strong> DNSSEC-enabled DNS provider with DDoS protection at the edge.</li>
+<li><strong>Environment isolation:</strong> Production, staging, and development environments are fully isolated. Engineers have no default production access.</li>
+</ul>
+
+<h2 id="encrypt">2. Encryption</h2>
+<ul>
+<li><strong>In transit:</strong> TLS 1.3 for all client-server connections. HSTS enforced. TLS 1.2 accepted only for legacy compatibility; TLS 1.0 and 1.1 blocked. All API-to-API traffic (us → Anthropic, us → payment processor) uses TLS 1.3.</li>
+<li><strong>At rest:</strong> AES-256 encryption for all data at rest, including databases, object storage, and backups. Keys managed via AWS KMS with periodic rotation.</li>
+<li><strong>Passwords:</strong> Stored using Argon2id with per-user salt. Never logged, never transmitted, never viewable by our team.</li>
+<li><strong>Secrets:</strong> Application secrets are stored in a dedicated secret manager, rotated on a schedule, and never committed to source control.</li>
+</ul>
+
+<h2 id="access">3. Access controls</h2>
+<ul>
+<li><strong>Least privilege:</strong> Internal access to production is restricted to a small, named set of engineers with business need. Reviewed quarterly.</li>
+<li><strong>MFA:</strong> Mandatory multi-factor authentication on all internal tools (source control, cloud console, observability, email).</li>
+<li><strong>Audit logging:</strong> All production access and privileged actions are logged to an immutable audit trail with 12-month retention.</li>
+<li><strong>Session management:</strong> Sessions expire after inactivity. Active sessions can be revoked from your account settings. Suspicious logins trigger re-authentication.</li>
+<li><strong>B2B SSO:</strong> SAML and OIDC SSO (Google Workspace, Microsoft Entra) available on Enterprise plans. SCIM provisioning on roadmap.</li>
+</ul>
+
+<h2 id="app">4. Application security</h2>
+<ul>
+<li><strong>Secure development:</strong> Code review required on every change. Branch protection on main branch.</li>
+<li><strong>Dependency scanning:</strong> Automated vulnerability scanning on all third-party dependencies on every pull request and daily.</li>
+<li><strong>Static analysis:</strong> SAST tooling runs on every pull request for common security issues.</li>
+<li><strong>Web application defenses:</strong> CSRF tokens, Content Security Policy headers, SameSite cookies, input validation, output encoding, rate limiting on authentication and scoring endpoints.</li>
+<li><strong>Penetration testing:</strong> External penetration test on roadmap before SOC 2 audit.</li>
+</ul>
+
+<h2 id="data">5. Data handling</h2>
+<ul>
+<li><strong>Tenant isolation:</strong> B2B customer data is logically isolated per account. No cross-tenant reads in application queries.</li>
+<li><strong>Backups:</strong> Encrypted daily backups with 30-day retention. Quarterly restore testing.</li>
+<li><strong>Data residency:</strong> Production data remains in ap-south-1 (Mumbai). Customers requiring specific residency beyond this should contact sales before subscribing.</li>
+<li><strong>Data deletion:</strong> Account deletion removes personal data within 30 days. Anonymized usage data may be retained for product improvement.</li>
+<li><strong>Exports:</strong> Self-service JSON and CSV exports available from account settings.</li>
+</ul>
+
+<h2 id="integrity">6. Assessment integrity controls</h2>
+<p>These are specific to our product — they protect the scoring signal, which is the thing customers pay us for:</p>
+<ul>
+<li>Copy-paste is disabled on all answer inputs</li>
+<li>Forward-only navigation — candidates cannot revise an answer after seeing the next question</li>
+<li>Architecture diagrams are drawn from a pool and selected randomly per session</li>
+<li>Adaptive AI follow-ups prevent pre-prepared or generic AI-generated answers from scoring well</li>
+<li>Continuous timer — no pause option — to prevent long external research windows</li>
+<li>Session tokens bind a specific assessment to a specific candidate and cannot be shared</li>
+</ul>
+
+<h2 id="ir">7. Incident response</h2>
+<ul>
+<li><strong>IR plan:</strong> We maintain a written incident response plan covering detection, triage, containment, eradication, recovery, and post-mortem.</li>
+<li><strong>Breach notification:</strong> If we confirm a personal-data breach affecting your account, we will notify you within 72 hours of confirmation, in line with GDPR Art. 33 and DPDPA 2023 requirements.</li>
+<li><strong>On-call:</strong> A designated on-call engineer responds to security alerts. Escalation paths are documented.</li>
+<li><strong>Post-incident:</strong> We publish redacted post-mortems for any incident that affects customers.</li>
+</ul>
+
+<h2 id="compliance">8. Compliance &amp; attestations</h2>
+<ul>
+<li><strong>GDPR:</strong> Aligned. See our <a href="privacy.html">Privacy Policy</a> for data subject rights and legal bases.</li>
+<li><strong>India DPDPA 2023:</strong> Aligned. Grievance Officer contact is listed in our <a href="privacy.html#contact">Privacy Policy</a>.</li>
+<li><strong>SOC 2 Type 1:</strong> On roadmap. Planned audit in 2026.</li>
+<li><strong>ISO 27001:</strong> Under evaluation based on customer demand.</li>
+</ul>
+<div class="callout">
+<strong>Transparency note</strong>
+We will not claim certifications we do not hold. If this page says something is "on roadmap," it is not yet completed. Customers with specific compliance requirements should confirm current status with <a href="mailto:admin@aerovanttech.com">admin@aerovanttech.com</a> before subscribing.
+</div>
+
+<h2 id="disclose">9. Responsible disclosure</h2>
+<p>We welcome good-faith security research. If you believe you have found a vulnerability in ThreatReady, please report it to us privately:</p>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:admin@aerovanttech.com">admin@aerovanttech.com</a></li>
+<li><strong>Encryption:</strong> PGP key available on request (to be published at /.well-known/security.txt)</li>
+<li><strong>Response SLA:</strong> Acknowledgement within 2 business days. Initial assessment within 7 business days.</li>
+</ul>
+
+<h3>Safe harbor</h3>
+<p>We will not pursue legal action against researchers who:</p>
+<ul>
+<li>Report in good faith and give us reasonable time to fix before public disclosure (at least 90 days unless actively exploited)</li>
+<li>Do not access, modify, or exfiltrate data beyond what is necessary to demonstrate the issue</li>
+<li>Do not use the vulnerability to disrupt service for others</li>
+<li>Do not attempt social engineering of our staff</li>
+</ul>
+
+<h3>Out of scope</h3>
+<ul>
+<li>Denial-of-service attacks (do not test these)</li>
+<li>Brute-force or rate-limit testing against production</li>
+<li>Reports based on outdated third-party libraries without a demonstrable exploit</li>
+<li>Missing best-practice headers without evidence of exploitability (nice-to-know, not in scope for bounty)</li>
+</ul>
+<p>We currently do not run a paid bug bounty program, but we credit reporters publicly in our security acknowledgements unless they prefer anonymity.</p>
+
+<h2 id="contact">10. Security contact</h2>
+<p>For security disclosures: <a href="mailto:admin@aerovanttech.com">admin@aerovanttech.com</a><br>
+For business inquiries about security posture, SIG / CAIQ / security questionnaires: <a href="mailto:humanresource@aerovanttech.com">humanresource@aerovanttech.com</a></p>
+
+</main>
+
+<footer class="lft">
+<div class="lft-c">
+<a href="index.html" class="logo">
+<span class="logo-i"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+<span class="logo-t">ThreatReady<span class="dot">.</span>io</span>
+</a>
+<ul class="lft-l">
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="terms.html">Terms</a></li>
+<li><a href="security.html">Security</a></li>
+<li><a href="rubric.html">Scoring Rubric</a></li>
+<li><a href="report-sample.html">Sample Report</a></li>
+<li><a href="dpa.html">DPA</a></li>
+</ul>
+</div>
+<div class="aprod"><span>A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div><div class="lft-bot">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aerovant Technologies Pvt. Ltd.</a> All rights reserved.</div>
+</footer>
+
+<script>
+(function(){var t=document.getElementById('themeTog');if(!t)return;t.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tr-theme',n);}catch(e){}});})();
+</script>
+
+<script>
+/* Smart back link — remember where the visitor came from.
+   Priority:  ?from=<id>  >  referrer hash  >  plain index.html  */
+(function(){
+  var back = document.querySelector('a.back');
+  if(!back) return;
+  var target = 'index.html';
+  var label = 'Back to home';
+  try{
+    var params = new URLSearchParams(location.search);
+    var from = params.get('from');
+    if(from && /^[a-z0-9_-]+$/i.test(from)){
+      target = 'index.html#' + from;
+      label = 'Back to site';
+    } else if(document.referrer){
+      var r = new URL(document.referrer, location.href);
+      if(r.origin === location.origin && (r.pathname.endsWith('/index.html') || r.pathname === '/' || r.pathname === '')){
+        if(r.hash){
+          target = 'index.html' + r.hash;
+          label = 'Back to site';
+        }
+      }
+    }
+  }catch(e){}
+  // only update href (keep the arrow SVG + text intact)
+  back.setAttribute('href', target);
+  // update the trailing text node after the SVG
+  var tn = null;
+  back.childNodes.forEach(function(n){ if(n.nodeType === 3 && n.nodeValue.trim()) tn = n; });
+  if(tn) tn.nodeValue = label;
+})();
+</script>
+</body>
+</html>
