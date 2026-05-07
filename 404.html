@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ThreatReady</title>
+  <script type="text/javascript">
+    var pathSegmentsToKeep = 1;
+    var l = window.location;
+    if (l.pathname.indexOf('/app/') === 0 || l.pathname === '/app') {
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    } else {
+      document.body.innerHTML = '<div style="font-family:system-ui;text-align:center;padding:60px 20px;"><h1 style="color:#7c3aed;">404</h1><p>Page not found.</p><p><a href="/" style="color:#7c3aed;">Back to ThreatReady</a></p></div>';
+    }
+  </script>
+</head>
+<body></body>
+</html>
