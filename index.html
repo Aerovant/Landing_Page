@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://app.threatready.io https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://threatready.io https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(self), payment=()">
@@ -20,9 +20,12 @@
 <meta name="twitter:title" content="ThreatReady — Cybersecurity Hiring Assessment Platform">
 <meta name="twitter:description" content="ThreatReady — attack reasoning evaluation across 15 security tracks and 6 reasoning modes. Scored by our 3-Pass AI engine against published, anchored rubrics.">
 <title>ThreatReady — Cybersecurity Hiring Assessment | Test Real Attack Reasoning</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c3aed'/%3E%3Cpath d='M16 6 L24 10 V17 C24 22 20.5 25.5 16 27 C11.5 25.5 8 22 8 17 V10 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="48x48" href="favicon-48.png">
 <script>
-(function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){try{var s=localStorage.getItem('tr-theme');var t=s||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is ThreatReady different from Hack The Box, TryHackMe, or a CTF?","acceptedAnswer":{"@type":"Answer","text":"Hack The Box and TryHackMe teach hands-on exploitation through labs and CTF challenges. ThreatReady tests whether a candidate can reason through an attack chain in 30 minutes — the way a senior interviewer would ask. Adaptive AI questions, MITRE ATT&CK mapped scenarios, transparent rubric. Not a replacement for learning platforms — a replacement for technical phone screens."}},{"@type":"Question","name":"Can candidates game the assessment with AI?","acceptedAnswer":{"@type":"Answer","text":"Copy-paste is disabled. Questions adapt based on each previous answer, so pre-prepared or AI-generated responses do not survive the follow-up. Architecture diagrams are drawn from a pool and selected randomly per session. Forward-only navigation prevents revision after seeing subsequent questions."}}]}
@@ -51,17 +54,17 @@
 --mono:'SF Mono',Monaco,Menlo,'Courier New',monospace;
 }
 :root[data-theme="dark"]{
---primary:#8b5cf6;--primary-hover:#a78bfa;--primary-light:#a78bfa;--primary-lighter:#8b7ab8;
---primary-subtle:rgba(139,92,246,.22);--primary-whisper:rgba(139,92,246,.08);
---bg:#0c0816;--bg-subtle:#120e1e;--bg-alt:#171224;
---surface:#1a1525;--surface-2:#221c30;
---nav-bg:rgba(12,8,22,.85);
---text:#ece9f4;--text-2:#a29fb0;--text-3:#7a7688;
---border:#2a2438;--border-2:#1e1a2c;
---shadow-sm:0 1px 2px rgba(0,0,0,.25);
---shadow-md:0 4px 16px rgba(0,0,0,.35);
---shadow-lg:0 16px 48px rgba(0,0,0,.45);
---glow:0 0 0 4px rgba(139,92,246,.2);
+--primary:#a78bfa;--primary-hover:#c4b5fd;--primary-light:#c4b5fd;--primary-lighter:#a78bfa;
+--primary-subtle:rgba(167,139,250,.28);--primary-whisper:rgba(167,139,250,.10);
+--bg:#0c0816;--bg-subtle:#120e1e;--bg-alt:#1a1428;
+--surface:#1c1729;--surface-2:#241e34;
+--nav-bg:rgba(12,8,22,.88);
+--text:#f5f3fa;--text-2:#c8c4d4;--text-3:#9994a8;
+--border:#332b48;--border-2:#241f33;
+--shadow-sm:0 1px 2px rgba(0,0,0,.3);
+--shadow-md:0 4px 16px rgba(0,0,0,.4);
+--shadow-lg:0 16px 48px rgba(0,0,0,.5);
+--glow:0 0 0 4px rgba(167,139,250,.25);
 }
 html{transition:background-color .2s ease,color .2s ease}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -70,17 +73,17 @@ img,svg{display:block;max-width:100%}
 a{color:var(--primary);text-decoration:none;transition:color .15s ease}
 a:hover{color:var(--primary-hover)}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-section{padding:72px 0;position:relative}
-section.compact{padding:64px 0}
+.container{max-width:1320px;margin:0 auto;padding:0 32px}
+section{padding:28px 0;position:relative}
+section.compact{padding:20px 0}
 h1,h2,h3,h4{color:var(--text);font-weight:700;letter-spacing:-.02em;line-height:1.15}
-h1{font-size:clamp(2.25rem,5.5vw,4rem);letter-spacing:-.03em}
-h2{font-size:clamp(1.875rem,4vw,3rem)}
-h3{font-size:clamp(1.375rem,2.5vw,1.75rem)}
+h1{font-size:clamp(1.75rem,4vw,2.75rem);letter-spacing:-.03em}
+h2{font-size:clamp(1.5rem,3vw,2rem)}
+h3{font-size:clamp(1.125rem,2vw,1.375rem)}
 h4{font-size:1.125rem}
 .eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--primary);margin-bottom:16px;display:inline-block}
-.sub{font-size:1.125rem;color:var(--text-2);max-width:640px;margin:0 auto}
-.tc{text-align:center}
+.sub{font-size:1.05rem;color:var(--text-2);max-width:720px;margin:0 auto;line-height:1.5}
+.tc{text-align:center;margin-bottom:16px}
 .grad{background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hl{background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;padding:.05em .4em;border-radius:10px;display:inline-block;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
@@ -104,11 +107,15 @@ h4{font-size:1.125rem}
 :root[data-theme="dark"] .nav{border-bottom-color:rgba(255,255,255,.06);box-shadow:0 1px 0 rgba(0,0,0,.2),0 4px 12px -8px rgba(0,0,0,.4)}
 :root[data-theme="dark"] .nav.scrolled{border-bottom-color:rgba(255,255,255,.1);box-shadow:0 1px 0 rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}
 
-.nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 24px}
+.nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:14px 24px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.125rem;color:var(--text);letter-spacing:-.02em}
 .logo-t{display:inline-block}
-.logo-i{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 2px 8px rgba(124,58,237,.3)}
-.logo-i svg{width:18px;height:18px}
+.logo-i{width:auto;height:32px;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.logo-i img{height:100%;width:auto;display:block;object-fit:contain}
+.logo-i .logo-dark{display:none}
+:root[data-theme="dark"] .logo-i .logo-light{display:none}
+:root[data-theme="dark"] .logo-i .logo-dark{display:block}
+/* .logo-i svg{width:18px;height:18px} -- replaced with img in r27 */
 .logo .dot{color:var(--primary)}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
 .nav-links a{color:var(--text-2);font-size:.925rem;font-weight:500;transition:color .15s ease}
@@ -128,23 +135,24 @@ h4{font-size:1.125rem}
 .mmenu a{display:block;padding:12px 16px;color:var(--text);font-weight:500;border-radius:var(--r-sm)}
 .mmenu a:hover{background:var(--primary-whisper)}
 .mmenu .btn{width:100%;margin-top:8px}
-@media (max-width:1024px){.nav-links,.nav-act .nav-si,.nav-act .btn-primary.btn-sm{display:none}.mtog{display:flex}.nav-c{min-height:60px}}
+@media (max-width:1024px){.nav-links,.nav-act .nav-si{display:none}.mtog{display:flex}.nav-c{min-height:60px}}
 
 /* Hero */
-.hero{padding:64px 0 80px;background:radial-gradient(ellipse at top right,rgba(167,139,250,.15) 0%,transparent 50%),radial-gradient(ellipse at bottom left,rgba(196,181,253,.15) 0%,transparent 50%),linear-gradient(180deg,var(--bg-subtle) 0%,var(--bg) 100%);position:relative;overflow:hidden}
+.hero{padding:36px 0 48px;background:radial-gradient(ellipse at top right,rgba(167,139,250,.15) 0%,transparent 50%),radial-gradient(ellipse at bottom left,rgba(196,181,253,.15) 0%,transparent 50%),linear-gradient(180deg,var(--bg-subtle) 0%,var(--bg) 100%);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(124,58,237,.08) 1px,transparent 0);background-size:32px 32px;opacity:.5;pointer-events:none;mask-image:radial-gradient(ellipse at center,#000 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at center,#000 0%,transparent 70%)}
 .hero-c{position:relative;z-index:1;text-align:center}
 .hero-aud{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);margin-bottom:12px}
 .hb{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-full);font-size:.8125rem;font-weight:500;color:var(--text-2);margin-bottom:28px;box-shadow:var(--shadow-sm)}
 .pulse{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 0 0 rgba(16,185,129,.7);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.7)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
-.hero h1{max-width:920px;margin:0 auto 24px}
-.hero-sub{max-width:680px;margin:0 auto 36px;font-size:clamp(1.05rem,1.8vw,1.2rem);color:var(--text-2);line-height:1.55}
+.hero h1{max-width:1080px;margin:0 auto 24px;font-size:clamp(1.625rem,3.2vw,2.5rem);line-height:1.2;padding:0 16px}
+.hero h1 .hl{display:inline-block;margin-top:8px;padding:6px 18px;font-size:.92em;line-height:1.15;border-radius:14px}
+.hero-sub{max-width:880px;margin:0 auto 28px;font-size:1rem;color:var(--text-2);line-height:1.55;letter-spacing:-.003em;padding:0 80px}
 .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
 .hero-m{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:.875rem;color:var(--text-3);margin-top:28px}
 .hero-m span{display:inline-flex;align-items:center;gap:6px}
 .hero-m svg{width:14px;height:14px;color:#10b981}
-.hero-visual{max-width:1000px;margin:64px auto 0;position:relative}
+.hero-visual{max-width:1000px;margin:36px auto 0;position:relative}
 .browser{background:var(--surface);border-radius:var(--r-lg);box-shadow:0 30px 60px -20px rgba(124,58,237,.25),0 18px 36px -18px rgba(15,10,26,.15);overflow:hidden;border:1px solid var(--border)}
 .bbar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--bg-alt);border-bottom:1px solid var(--border)}
 .bdot{width:12px;height:12px;border-radius:50%}
@@ -152,6 +160,106 @@ h4{font-size:1.125rem}
 .burl{flex:1;margin-left:12px;padding:4px 12px;background:var(--surface);border-radius:6px;font-family:var(--mono);font-size:.75rem;color:var(--text-3);border:1px solid var(--border-2)}
 .hscr{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
 @media (max-width:768px){.hscr{grid-template-columns:1fr;min-height:auto}}
+
+/* ====== ROUND 28 hotfix: CSS pulled out of @media (max-width:768px) ====== */
+
+/* ROUND 28: badges compact mode */
+#badges .brc{padding:14px 12px}
+#badges .bi{width:48px;height:48px}
+#badges .brt h4{font-size:.95rem}
+#badges .brt span{font-size:.75rem}
+
+
+/* ROUND 28: testimonial prev/next arrows */
+.tcarousel{padding:0 60px;overflow:visible}
+.tcarousel-track{overflow:hidden;border-radius:var(--r-lg)}
+.tarrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s ease;box-shadow:var(--shadow-md);z-index:5;padding:0}
+.tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary);transform:translateY(-50%) scale(1.06)}
+.tarrow svg{width:18px;height:18px}
+.tarrow-l{left:0}
+.tarrow-r{right:0}
+@media (max-width:760px){.tcarousel{padding:0 12px}.tarrow{width:34px;height:34px}.tarrow svg{width:14px;height:14px}}
+
+
+/* ROUND 28: anchor-only spacer for #contact (no visible section) */
+.anchor-only{display:block;height:0;margin:0;padding:0;visibility:hidden}
+/* ROUND 28: footer contact bar — emails under ThreatReady brand */
+.fbr-contact{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.fbr-contact a{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.78);font-size:.8125rem;text-decoration:none;transition:color .15s ease;line-height:1.3}
+.fbr-contact a:hover{color:#fff}
+.fbr-contact a svg{width:14px;height:14px;flex-shrink:0;color:rgba(167,139,250,.85)}
+.fbr-contact .fbr-c-l{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:2px}
+
+
+
+
+/* ROUND 29: demo card compact horizontal layout */
+.dsec .dhead{margin-bottom:20px!important}
+.dsec .dhead .sub{font-size:.95rem;max-width:640px}
+.dsec .dw{max-width:1200px;margin:0 auto}
+.dsec .dwh{padding:10px 16px}
+.dsec .dwht{font-size:.875rem}
+.dsec .dwm{font-size:.75rem}
+.dsec .dwb{display:grid;grid-template-columns:1fr 1.05fr;gap:0;align-items:stretch}
+@media (max-width:900px){.dsec .dwb{grid-template-columns:1fr}}
+.dsec .dscn{padding:18px 20px}
+.dsec .dscn-h{margin-bottom:10px}
+.dsec .dscn-h .drt,.dsec .dscn-h .ddif{font-size:.7rem}
+.dsec .dab{padding:14px;margin-bottom:10px}
+.dsec .dat{font-size:.7rem;margin-bottom:6px}
+.dsec .dab svg{max-height:180px}
+.dsec .dctx{font-size:.8125rem;line-height:1.5;padding:10px 12px;color:#b9b6c4}
+.dsec .dctx strong{color:#ece9f4}
+.dsec .dint{padding:18px 20px;border-left:1px solid var(--border-2)}
+.dsec .dqh{font-size:.7rem;letter-spacing:.1em;margin-bottom:8px;color:var(--text-3)}
+.dsec .dq{font-size:.95rem;line-height:1.5;margin-bottom:12px;color:#ece9f4}
+.dsec .dta{min-height:90px;font-size:.875rem;padding:10px 12px;line-height:1.5}
+.dsec .dctr{margin-top:10px;flex-wrap:wrap;gap:10px}
+.dsec .dhint{font-size:.75rem;color:var(--text-3)}
+.dsec .dhint svg{width:12px;height:12px}
+.dsec .dvoice{font-size:.8125rem;padding:6px 12px}
+.dsec .dvoice svg{width:14px;height:14px}
+.dsec .dres .dres-h{padding:10px 14px;font-size:.875rem}
+.dsec .dres-l{font-size:.75rem}
+.dsec .rdim{margin-bottom:8px;font-size:.875rem}
+.dsec .rdim-l{font-size:.8125rem;color:#ece9f4;font-weight:500}
+.dsec .rdim-s{font-size:.8125rem;font-weight:600;color:var(--primary)}
+.dsec .rdim-b{height:6px}
+.dsec .rma{padding:10px 12px;font-size:.8125rem;line-height:1.5;margin-top:10px}
+.dsec .rma strong{font-size:.7rem;letter-spacing:.08em}
+.dsec .rcta{margin-top:10px;gap:8px;flex-wrap:wrap}
+.dsec .btn-sm{padding:7px 14px;font-size:.8125rem}
+@media (max-width:760px){
+  .dsec .dwb{grid-template-columns:1fr}
+  .dsec .dint{border-left:none;border-top:1px solid var(--border-2)}
+  .dsec .dab svg{max-height:140px}
+}
+
+/* ROUND 28: FAQ flip-card grid */
+.faq-flip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1200px;margin:48px auto 0}
+@media (max-width:980px){.faq-flip-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.faq-flip-grid{grid-template-columns:1fr;gap:14px}}
+.faq-flip{perspective:1200px;height:200px;cursor:pointer}
+.faq-flip-i{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.22,.61,.36,1);transform-style:preserve-3d}
+.faq-flip.flipped .faq-flip-i{transform:rotateY(180deg)}
+.faq-flip-f,.faq-flip-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r-md);padding:22px 20px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow-sm);transition:border-color .2s ease}
+.faq-flip-f{align-items:center;text-align:center;gap:10px}
+.faq-flip-f svg{width:30px;height:30px;color:var(--primary);flex-shrink:0}
+.faq-flip-f h5{font-size:.95rem;font-weight:700;color:var(--text);line-height:1.35;margin:0;letter-spacing:-.01em}
+.faq-flip-tap{font-size:.6875rem;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.12em;margin-top:6px}
+.faq-flip-b{transform:rotateY(180deg);background:linear-gradient(135deg,var(--primary-whisper) 0%,var(--surface) 100%);border-color:var(--primary-subtle)}
+.faq-flip-b p{font-size:.875rem;line-height:1.55;color:var(--text-2);margin:0}
+.faq-flip.flipped .faq-flip-f,.faq-flip.flipped .faq-flip-b{border-color:var(--primary-light)}
+:root[data-theme="dark"] .faq-flip-b{background:linear-gradient(135deg,rgba(124,58,237,.10) 0%,var(--surface) 100%)}
+
+/* ROUND 28 mobile overrides */
+@media (max-width:760px){
+  .faq-flip{height:180px}
+  .faq-flip-f h5{font-size:.875rem}
+  .faq-flip-b p{font-size:.8125rem}
+  .fbr-contact{margin-top:12px}
+}
+
 .hscr-l{padding:32px;background:var(--bg-subtle);border-right:1px solid var(--border)}
 .hscr-r{padding:32px;background:var(--surface)}
 .atitle{font-size:.8125rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
@@ -219,8 +327,10 @@ h4{font-size:1.125rem}
 .rdim-s{font-weight:700;color:#ece9f4;font-family:var(--mono);min-width:40px;text-align:right}
 .rma{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);border-left:3px solid #a78bfa;padding:14px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:.875rem;line-height:1.55;color:#a29fb0}
 .rma strong{color:#c4b5fd;display:block;margin-bottom:6px;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;font-family:var(--mono)}
-.rcta{display:flex;gap:10px;margin-top:auto;flex-wrap:wrap}
-.rcta .btn{flex:1;min-width:120px}
+.rcta{display:flex;gap:10px;margin-top:auto;flex-wrap:wrap;align-items:center}
+.rcta .btn{flex:0 1 auto;min-width:0;white-space:nowrap}
+.rcta .btn-secondary{flex:0 0 auto}
+.rcta .btn-primary{flex:1 1 auto;min-width:200px}
 .rcta .btn-secondary{background:#13111d;color:#ece9f4;border-color:#2a2438}
 .rcta .btn-secondary:hover{background:#1a1525;border-color:#a78bfa;color:#a78bfa}
 
@@ -460,7 +570,7 @@ h4{font-size:1.125rem}
 .fcard a:hover{color:var(--primary)}
 
 /* Footer */
-.ft{background:var(--bg-dark);color:rgba(255,255,255,.7);padding:72px 0 32px}
+.ft{background:var(--bg-dark);color:rgba(255,255,255,.7);padding:56px 0 28px}
 .fgr{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:48px;margin-bottom:48px}
 @media (max-width:768px){.fgr{grid-template-columns:1fr 1fr;gap:32px}.fbr{grid-column:1/-1}}
 @media (max-width:480px){.fgr{grid-template-columns:1fr}}
@@ -495,7 +605,7 @@ h4{font-size:1.125rem}
 .rev.v{opacity:1;transform:translateY(0)}
 
 @media (max-width:768px){
-section{padding:64px 0}
+section{padding:48px 0}
 .hero{padding:48px 0 72px}
 .hero-cta{flex-direction:column;align-items:stretch}
 .hero-cta .btn{width:100%}
@@ -536,7 +646,6 @@ section{padding:64px 0}
 .vmet{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:40px}
 .vmet-p{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-full);font-size:.8125rem;font-weight:500;color:var(--text-2);box-shadow:var(--shadow-sm)}
 .vmet-p svg{width:14px;height:14px;color:var(--success)}
-
 
 .fcc{grid-template-columns:repeat(2,minmax(240px,1fr))!important;max-width:720px;margin:28px auto 0}
 
@@ -593,9 +702,9 @@ section{padding:64px 0}
 /* ============================================================
    BLOG — Attack of the Week series
    ============================================================ */
-.bsec{padding:72px 0;background:var(--bg)}
+.bsec{padding:48px 0 40px;background:var(--bg)}
 .bsec-h{text-align:center;max-width:680px;margin:0 auto 56px}
-.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto;padding:0 24px}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1240px;margin:0 auto;padding:0 24px}
 @media (max-width:1024px){.bgrid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.bgrid{grid-template-columns:1fr;gap:16px}}
 
@@ -631,7 +740,7 @@ section{padding:64px 0}
 @media (max-width:768px){
 /* General — balanced padding everywhere */
 .container{padding:0 20px!important}
-section{padding:56px 0!important}
+section{padding:40px 0!important}
 section.compact{padding:40px 0}
 
 /* Typography scaling */
@@ -726,6 +835,9 @@ h3{font-size:clamp(1.125rem,4vw,1.375rem)!important}
 .fqq{font-size:.95rem!important;padding:18px 16px!important}
 .fqa{padding:0 16px 18px!important;font-size:.875rem}
 
+
+
+
 /* Newsletter */
 .nc{padding:32px 20px!important}
 .nc h2{font-size:1.375rem!important;margin-bottom:10px}
@@ -734,7 +846,7 @@ h3{font-size:clamp(1.125rem,4vw,1.375rem)!important}
 .nform input,.nform button{width:100%!important}
 
 /* Final CTA */
-.fcta{padding:56px 0!important}
+.fcta{padding:48px 0!important}
 .fcta h2{font-size:1.875rem!important;line-height:1.2!important}
 .fcta .hero-cta{max-width:none}
 .fcc{max-width:none!important;margin-top:24px!important}
@@ -811,7 +923,7 @@ h2{font-size:1.375rem!important}
 .dvoice-note svg{width:12px;height:12px}
 
 /* Testimonial carousel */
-.tcarousel{position:relative;max-width:720px;margin:48px auto 0;overflow:hidden;border-radius:var(--r-lg)}
+.tcarousel{position:relative;max-width:760px;margin:48px auto 0;overflow:hidden;border-radius:var(--r-lg)}
 .tcarousel-track{display:flex;transition:transform .6s cubic-bezier(.22,.61,.36,1);will-change:transform}
 .tslide{flex:0 0 100%;box-sizing:border-box}
 .tcarousel-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
@@ -854,36 +966,86 @@ h2{font-size:1.375rem!important}
 /* ============================================================
    MODULES SECTION + INTERVIEW PREP UMBRELLA
    ============================================================ */
-.ipprep{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;margin-bottom:56px;padding:40px 40px 40px 44px;background:linear-gradient(135deg,#ffffff 0%,#faf7ff 50%,#f3eeff 100%);border:1px solid var(--primary-subtle);border-radius:20px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 20px 48px -16px rgba(124,58,237,.18),0 4px 16px -8px rgba(124,58,237,.10);position:relative;overflow:hidden}
+.ipprep{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;margin-bottom:56px;padding:48px 40px 40px 44px;background:linear-gradient(135deg,#ffffff 0%,#faf7ff 50%,#f3eeff 100%);border:1px solid var(--primary-subtle);border-radius:20px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 20px 48px -16px rgba(124,58,237,.18),0 4px 16px -8px rgba(124,58,237,.10);position:relative;overflow:hidden}
 :root[data-theme="dark"] .ipprep{background:linear-gradient(135deg,rgba(124,58,237,.08) 0%,rgba(168,85,247,.05) 50%,rgba(124,58,237,.03) 100%);border-color:rgba(167,139,250,.25)}
 /* Subtle ribbon on the left edge */
 .ipprep::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--primary) 0%,#a855f7 50%,#7c3aed 100%);border-radius:0 4px 4px 0}
 /* Soft sheen highlight in the top-left */
-.ipprep::after{content:'';position:absolute;top:-50%;left:-20%;width:60%;height:120%;background:radial-gradient(ellipse at center,rgba(168,85,247,.08) 0%,transparent 60%);pointer-events:none;opacity:.85}
-:root[data-theme="dark"] .ipprep::after{background:radial-gradient(ellipse at center,rgba(168,85,247,.12) 0%,transparent 60%)}
+.ipprep::after{content:'';position:absolute;top:-50%;left:-20%;width:60%;height:120%;background:radial-gradient(ellipse at center,rgba(168,85,247,.06) 0%,transparent 60%);pointer-events:none;opacity:.85;z-index:0}
+:root[data-theme="dark"] .ipprep::after{background:radial-gradient(ellipse at center,rgba(168,85,247,.10) 0%,transparent 60%)}
+
+/* Mountain-like wave shade behind the orbit diagram (right side of card) */
+.ipprep-r::before{
+  content:'';
+  position:absolute;
+  inset:-20px -20px -20px -20px;
+  background:
+    /* Tallest peak (back, lightest violet) */
+    radial-gradient(ellipse 70% 50% at 30% 105%, rgba(196,181,253,.45) 0%, rgba(196,181,253,.25) 25%, transparent 55%),
+    /* Mid-back peak */
+    radial-gradient(ellipse 60% 45% at 75% 110%, rgba(167,139,250,.50) 0%, rgba(167,139,250,.28) 30%, transparent 60%),
+    /* Front rolling hill (darker, sits low) */
+    radial-gradient(ellipse 110% 38% at 60% 120%, rgba(139,92,246,.42) 0%, rgba(139,92,246,.22) 35%, transparent 65%),
+    /* Subtle top-right glow accent */
+    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(168,85,247,.18) 0%, transparent 60%);
+  pointer-events:none;
+  z-index:0;
+  border-radius:inherit;
+}
+:root[data-theme="dark"] .ipprep-r::before{
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 105%, rgba(196,181,253,.22) 0%, rgba(196,181,253,.12) 25%, transparent 55%),
+    radial-gradient(ellipse 60% 45% at 75% 110%, rgba(167,139,250,.28) 0%, rgba(167,139,250,.15) 30%, transparent 60%),
+    radial-gradient(ellipse 110% 38% at 60% 120%, rgba(139,92,246,.24) 0%, rgba(139,92,246,.12) 35%, transparent 65%),
+    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(168,85,247,.12) 0%, transparent 60%);
+}
+/* Push the actual orbit content above the wave shade */
+.ipprep-r .ipprep-orbit{position:relative;z-index:1}
 .ipprep-l{position:relative}
-.ipprep-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;border-radius:var(--r-full);font-size:.6875rem;font-weight:700;letter-spacing:.14em;margin-bottom:16px;box-shadow:0 6px 16px -4px rgba(124,58,237,.4),0 1px 0 rgba(255,255,255,.3) inset}
-.ipprep-tag::before{content:'★';font-size:.85em;letter-spacing:0}
-.ipprep-l h3{font-size:1.625rem;margin-bottom:14px;letter-spacing:-.018em;font-weight:700;line-height:1.25}
+.ipprep-tag{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:linear-gradient(135deg,#7c3aed 0%,#9333ea 50%,#a855f7 100%);color:#fff;border-radius:var(--r-full);font-size:.8125rem;font-weight:700;letter-spacing:.16em;margin-bottom:24px;text-transform:uppercase;box-shadow:0 8px 24px -6px rgba(124,58,237,.55),0 2px 4px -1px rgba(124,58,237,.3),0 1px 0 rgba(255,255,255,.35) inset,0 -1px 0 rgba(0,0,0,.08) inset;border:1px solid rgba(255,255,255,.18);position:relative;overflow:hidden}
+.ipprep-tag::before{content:'★';font-size:1em;letter-spacing:0;text-shadow:0 1px 2px rgba(0,0,0,.18);color:#ffd86b}
+.ipprep-l h3{font-size:1.875rem;margin-bottom:14px;letter-spacing:-.022em;font-weight:700;line-height:1.2}
 .ipprep-l p{font-size:.9375rem;color:var(--text-2);line-height:1.6;margin-bottom:16px}
 .ipprep-link{display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:.9375rem}
 .ipprep-link svg{width:14px;height:14px;transition:transform .2s ease}
 .ipprep-link:hover svg{transform:translateX(3px)}
-.ipprep-r{position:relative;display:flex;align-items:center;justify-content:center;min-height:240px}
-.ipprep-orbit{position:relative;width:240px;height:240px}
-.ipprep-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:104px;height:104px;border-radius:50%;background:linear-gradient(135deg,var(--primary) 0%,#a855f7 50%,#7c3aed 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9375rem;text-align:center;box-shadow:0 12px 36px -4px rgba(124,58,237,.55),0 0 0 1px rgba(255,255,255,.15) inset,0 -4px 12px rgba(124,58,237,.4) inset;z-index:2;letter-spacing:-.015em}
-.ipprep-core::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(from 0deg,rgba(168,85,247,.4),rgba(124,58,237,.2),rgba(168,85,247,.4));z-index:-1;opacity:.6;animation:ipOrbitGlow 8s linear infinite}
+.ipprep-r{position:relative;display:flex;align-items:center;justify-content:center;min-height:340px;padding:20px 0}
+.ipprep-orbit{position:relative;width:360px;height:320px;max-width:100%}
+.ipprep-path{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+:root[data-theme="dark"] .ipprep-path ellipse{stroke:#a78bfa;stroke-opacity:.4}
+:root[data-theme="dark"] .ipprep-path circle{fill:#a78bfa}
+.ipprep-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#7c3aed 0%,#8b5cf6 50%,#a855f7 100%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:700;font-size:.875rem;text-align:center;box-shadow:0 16px 40px -6px rgba(124,58,237,.55),0 0 0 1px rgba(255,255,255,.18) inset,0 -6px 16px rgba(124,58,237,.4) inset,0 4px 12px rgba(124,58,237,.3);z-index:2;letter-spacing:-.012em}
+.ipprep-core::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,rgba(168,85,247,.5),rgba(124,58,237,.25),rgba(168,85,247,.5),rgba(124,58,237,.25),rgba(168,85,247,.5));z-index:-1;opacity:.55;animation:ipOrbitGlow 12s linear infinite;filter:blur(2px)}
+.ipprep-core-ic{width:28px;height:28px;color:#fff;opacity:.95;filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))}
+.ipprep-core-t{font-size:.875rem;font-weight:700;letter-spacing:-.012em}
 @keyframes ipOrbitGlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.ipprep-node{position:absolute;padding:7px 12px;background:var(--surface);border:1px solid var(--primary-subtle);border-radius:var(--r-full);font-size:.6875rem;font-weight:600;color:var(--text);white-space:nowrap;box-shadow:0 2px 6px rgba(124,58,237,.08);transition:transform .25s ease}
-.ipprep-node:hover{transform:scale(1.05);border-color:var(--primary);color:var(--primary)}
-.ipprep-node.n1{top:0;left:50%;transform:translate(-50%,-50%)}
-.ipprep-node.n2{top:25%;right:0;transform:translate(15%,-50%)}
-.ipprep-node.n3{bottom:25%;right:0;transform:translate(15%,50%)}
-.ipprep-node.n4{bottom:0;left:50%;transform:translate(-50%,50%)}
-.ipprep-node.n5{bottom:25%;left:0;transform:translate(-15%,50%)}
-.ipprep-node.n6{top:25%;left:0;transform:translate(-15%,-50%)}
-@media (max-width:900px){.ipprep{grid-template-columns:1fr;text-align:center}.ipprep-r{margin-top:8px}.ipprep-l{text-align:left}}
-@media (max-width:540px){.ipprep-r{display:none}}
+.ipprep-node{position:absolute;display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;background:#ffffff;border:1px solid var(--border);border-radius:var(--r-full);font-size:.75rem;font-weight:600;color:var(--text);white-space:nowrap;box-shadow:0 4px 12px -2px rgba(124,58,237,.10),0 1px 3px rgba(0,0,0,.04);transition:transform .25s ease,box-shadow .25s ease;z-index:1}
+:root[data-theme="dark"] .ipprep-node{background:#1a1525;border-color:rgba(167,139,250,.2)}
+.ipprep-node:hover{transform:scale(1.06);box-shadow:0 8px 20px -4px rgba(124,58,237,.22),0 2px 6px rgba(0,0,0,.06);z-index:3}
+.ipprep-node-ic{width:22px;height:22px;border-radius:6px;padding:4px;flex-shrink:0;color:#fff;box-shadow:0 2px 6px -1px rgba(0,0,0,.18)}
+/* Pill positioning matches the dotted ellipse path */
+/* Reference orbit center (180,160), rx=158, ry=135 in 360x320 viewBox */
+/* Pills attach at: top, top-right, right (lower), bottom, left (lower), top-left */
+.ipprep-node.n1{top:7.8%;left:50%;transform:translate(-50%,-50%)}                  /* ArchitectDefend — top, anchored center */
+.ipprep-node.n2{top:28.9%;right:0;transform:translate(0,-50%)}                     /* IncidentSim — top-right, anchored right */
+.ipprep-node.n3{top:71.1%;right:0;transform:translate(0,-50%)}                     /* ThreatBrief — right, anchored right */
+.ipprep-node.n4{top:92.2%;left:50%;transform:translate(-50%,-50%)}                 /* ThreatHunt — bottom, anchored center */
+.ipprep-node.n5{top:71.1%;left:0;transform:translate(0,-50%)}                      /* VulnVerdict — left, anchored left */
+.ipprep-node.n6{top:28.9%;left:0;transform:translate(0,-50%)}                      /* Attack Scenarios — top-left, anchored left */
+
+@media (max-width:1080px){
+  .ipprep-orbit{width:320px;height:290px}
+  .ipprep-core{width:108px;height:108px}
+}
+@media (max-width:900px){
+  .ipprep{grid-template-columns:1fr;text-align:center}
+  .ipprep-r{margin-top:8px}
+  .ipprep-l{text-align:left}
+  .ipprep-orbit{margin:0 auto}
+}
+@media (max-width:540px){
+  .ipprep-r{display:none}
+}
 
 .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:1024px){.mods{grid-template-columns:repeat(2,1fr)}}
@@ -904,7 +1066,7 @@ h2{font-size:1.375rem!important}
 /* ============================================================
    TRUMP CARDS SECTION — tabbed + auto-rotate
    ============================================================ */
-.trumpsec{padding:72px 0;background:var(--bg)}
+.trumpsec{padding:36px 0;background:var(--bg)}
 .trump-tabs{display:flex;justify-content:center;gap:0;margin-bottom:0;flex-wrap:wrap;border-bottom:1px solid var(--border);max-width:880px;margin-left:auto;margin-right:auto}
 .trump-tab{display:flex;align-items:center;gap:10px;padding:16px 24px;background:transparent;border:none;border-bottom:3px solid transparent;cursor:pointer;font-family:inherit;color:var(--text-3);transition:all .2s ease;flex:1;justify-content:center;min-width:160px}
 .trump-tab:hover{color:var(--text-2)}
@@ -914,7 +1076,7 @@ h2{font-size:1.375rem!important}
 .trump-tab-t{font-size:.9375rem;font-weight:600}
 @media (max-width:760px){.trump-tab{padding:14px 12px;min-width:auto;flex:1 1 50%}.trump-tab-t{font-size:.8125rem}}
 
-.trump-stage{position:relative;padding:48px 0 24px;min-height:480px}
+.trump-stage{position:relative;padding:24px 0 12px;min-height:340px}
 .trump-panel{display:none;grid-template-columns:1fr 1fr;gap:48px;align-items:center;animation:tFade .6s cubic-bezier(.22,.61,.36,1)}
 .trump-panel.a{display:grid}
 @media (max-width:900px){.trump-panel{grid-template-columns:1fr;gap:32px}.trump-stage{min-height:auto}}
@@ -969,7 +1131,7 @@ h2{font-size:1.375rem!important}
 .trump-progress-f{height:100%;width:0%;background:var(--primary);border-radius:2px;transition:width .1s linear}
 
 @media (max-width:640px){
-.trumpsec{padding:64px 0}
+.trumpsec{padding:32px 0}
 .trump-tab{padding:12px 8px}
 .trump-tab-t{font-size:.75rem}
 .trump-tab-n{display:none}
@@ -1092,7 +1254,6 @@ h2{font-size:1.375rem!important}
 .fbt{font-size:.75rem;color:rgba(255,255,255,.6)}
 @media (max-width:600px){.fbot{flex-direction:column;text-align:center;gap:14px}.fsoc-bot{margin-left:0;justify-content:center}}
 
-
 /* 5-dimension grid (slightly tighter cards since there are now 5 not 3) */
 .sdim-5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px;margin-bottom:8px}
 .sdim-5 .scard{padding:20px 18px}
@@ -1157,9 +1318,6 @@ h2{font-size:1.375rem!important}
   .qbands-row{grid-template-columns:1fr}
 }
 
-.hero-tag{font-size:1rem;color:var(--text-2);font-weight:500;letter-spacing:.005em;margin:14px 0 0;line-height:1.5;max-width:580px}
-@media (max-width:640px){.hero-tag{font-size:.9375rem}}
-
 /* InterviewPrep 4-feature strip — light premium accent matching the page palette */
 .ipfeat-strip{margin-top:48px;padding:28px 32px;background:linear-gradient(135deg,#ffffff 0%,#fafaff 50%,#f5f3ff 100%);border:1px solid var(--primary-subtle);border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 24px -12px rgba(124,58,237,.12)}
 :root[data-theme="dark"] .ipfeat-strip{background:linear-gradient(135deg,rgba(124,58,237,.08) 0%,rgba(168,85,247,.04) 50%,rgba(124,58,237,.06) 100%);border-color:rgba(167,139,250,.2)}
@@ -1178,6 +1336,247 @@ h2{font-size:1.375rem!important}
 }
 
 .ipprep-h-em{background:linear-gradient(135deg,var(--primary) 0%,#a855f7 50%,#7c3aed 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;display:inline-block}
+
+
+/* Round 24: Aerovant parent-company card in Reach out section */
+.fcard-aero{background:linear-gradient(135deg,var(--primary-whisper) 0%,var(--bg-subtle) 100%);border-color:var(--primary-subtle)}
+.fcard-aero .fcard-email{color:var(--primary);font-weight:700}
+:root[data-theme="dark"] .fcard-aero{background:linear-gradient(135deg,rgba(167,139,250,.10) 0%,rgba(167,139,250,.04) 100%);border-color:rgba(167,139,250,.30)}
+
+/* Round 24: Active section underline indicator in header nav (scrollspy) */
+.nav-links a{position:relative;padding:6px 2px}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:-2px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--primary) 0%,#a855f7 100%);
+  border-radius:1px;
+  transform:translateX(-50%);
+  transition:width .25s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;
+}
+.nav-links a:hover::after{width:60%}
+.nav-links a.active{color:var(--text);font-weight:600}
+.nav-links a.active::after{width:100%;box-shadow:0 0 8px rgba(124,58,237,.45)}
+:root[data-theme="dark"] .nav-links a.active{color:var(--text)}
+:root[data-theme="dark"] .nav-links a.active::after{box-shadow:0 0 10px rgba(167,139,250,.5)}
+
+/* Round 24: subtle shimmer pass on the INTERVIEW PREP MODE pill */
+.ipprep-tag::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.22) 50%,transparent 100%);
+  animation:ipprepShimmer 4.5s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes ipprepShimmer{
+  0%,40%{left:-100%}
+  60%,100%{left:200%}
+}
+
+/* Round 26: Sign In is now the primary violet button (replaces old Try Free Demo CTA) */
+.nav-si.btn-primary{background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;border:1px solid transparent;box-shadow:0 2px 8px rgba(124,58,237,.25);transition:all .18s ease;display:inline-flex;align-items:center}
+.nav-si.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(124,58,237,.4);color:#fff;text-decoration:none}
+.nav-si.btn-primary:active{transform:translateY(0)}
+
+/* ============================================================
+   ROUND 30: Demo card cement-grey theme (adaptive light/dark)
+   Replaces the hardcoded dark surface with a neutral cement grey
+   that adapts to the page theme and keeps all text readable.
+   ============================================================ */
+.dsec .dw{background:#e8e9ed;border:1px solid #d1d3d8;box-shadow:0 4px 16px rgba(15,10,26,.06)}
+.dsec .dwh{background:#dadce1;border-bottom:1px solid #c4c7ce;color:#2c2e34}
+.dsec .dwh .bdot{opacity:.7}
+.dsec .dwht{color:#2c2e34}
+.dsec .dwm{color:#5a5d66}
+.dsec .dwb{background:#e8e9ed}
+.dsec .dscn{background:#dfe1e6;border-right:1px solid #c4c7ce}
+.dsec .dscn-h .drt{color:#5b5d66;background:#cbcfd6;border-color:#b6bac1}
+.dsec .dscn-h .ddif{color:#5b5d66}
+.dsec .dab{background:#eef0f4;border:1px solid #c8cbd2}
+.dsec .dat{color:#5b5d66}
+.dsec .dctx{background:#eef0f4;border-left-color:#7c3aed;color:#3a3c44}
+.dsec .dctx strong{color:#1c1e24}
+.dsec .dint{background:#e8e9ed}
+.dsec .dqh{color:#5b5d66}
+.dsec .dq{color:#1c1e24}
+.dsec .dta{background:#fff;border:1px solid #c4c7ce;color:#1c1e24}
+.dsec .dta::placeholder{color:#8a8d96}
+.dsec .dhint{color:#5b5d66}
+.dsec .dvoice{background:#fff;border:1px solid #c4c7ce;color:#3a3c44}
+.dsec .dvoice:hover{background:#f3f4f7;border-color:#7c3aed;color:#7c3aed}
+.dsec .dres{background:#dfe1e6}
+.dsec .dres-h{background:#dadce1;border-bottom:1px solid #c4c7ce;color:#1c1e24}
+.dsec .dres-l{color:#5b5d66}
+.dsec .rdim-l{color:#1c1e24}
+.dsec .rdim-s{color:#7c3aed}
+.dsec .rdim-b{background:#c8cbd2}
+.dsec .rdim-f{background:linear-gradient(90deg,#7c3aed,#06b6d4)}
+.dsec .rma{background:#eef0f4;border:1px solid #c8cbd2;color:#3a3c44}
+.dsec .rma strong{color:#7c3aed}
+
+/* Dark mode: a darker, warmer cement-grey */
+:root[data-theme="dark"] .dsec .dw{background:#2a2c33;border-color:#3a3c45;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+:root[data-theme="dark"] .dsec .dwh{background:#22242a;border-bottom-color:#3a3c45;color:#e8e9ed}
+:root[data-theme="dark"] .dsec .dwht{color:#e8e9ed}
+:root[data-theme="dark"] .dsec .dwm{color:#a8aab2}
+:root[data-theme="dark"] .dsec .dwb{background:#2a2c33}
+:root[data-theme="dark"] .dsec .dscn{background:#262830;border-right-color:#3a3c45}
+:root[data-theme="dark"] .dsec .dscn-h .drt{color:#c4c6ce;background:#3a3c45;border-color:#4a4c55}
+:root[data-theme="dark"] .dsec .dscn-h .ddif{color:#a8aab2}
+:root[data-theme="dark"] .dsec .dab{background:#1f2127;border-color:#3a3c45}
+:root[data-theme="dark"] .dsec .dat{color:#a8aab2}
+:root[data-theme="dark"] .dsec .dctx{background:#262830;border-left-color:#a78bfa;color:#c4c6ce}
+:root[data-theme="dark"] .dsec .dctx strong{color:#e8e9ed}
+:root[data-theme="dark"] .dsec .dint{background:#2a2c33}
+:root[data-theme="dark"] .dsec .dqh{color:#a8aab2}
+:root[data-theme="dark"] .dsec .dq{color:#e8e9ed}
+:root[data-theme="dark"] .dsec .dta{background:#1f2127;border-color:#3a3c45;color:#e8e9ed}
+:root[data-theme="dark"] .dsec .dta::placeholder{color:#6a6c75}
+:root[data-theme="dark"] .dsec .dhint{color:#a8aab2}
+:root[data-theme="dark"] .dsec .dvoice{background:#1f2127;border-color:#3a3c45;color:#c4c6ce}
+:root[data-theme="dark"] .dsec .dvoice:hover{background:#262830;border-color:#a78bfa;color:#a78bfa}
+:root[data-theme="dark"] .dsec .dres{background:#262830}
+:root[data-theme="dark"] .dsec .dres-h{background:#22242a;border-bottom-color:#3a3c45;color:#e8e9ed}
+:root[data-theme="dark"] .dsec .dres-l{color:#a8aab2}
+:root[data-theme="dark"] .dsec .rdim-l{color:#e8e9ed}
+:root[data-theme="dark"] .dsec .rdim-s{color:#a78bfa}
+:root[data-theme="dark"] .dsec .rdim-b{background:#3a3c45}
+:root[data-theme="dark"] .dsec .rma{background:#1f2127;border-color:#3a3c45;color:#c4c6ce}
+:root[data-theme="dark"] .dsec .rma strong{color:#a78bfa}
+
+
+/* ============================================================
+   ROUND 31: page density — tightens spacing/typography globally
+   so 100% zoom view feels closer to a 70% zoom screenshot.
+   ============================================================ */
+.hero h1{font-size:clamp(1.625rem,3.6vw,2.5rem)!important;line-height:1.2}
+.hero-sub{font-size:.95rem;margin:0 auto 18px;max-width:820px;padding:0 60px}
+.hero{padding:24px 0 32px!important}
+.hero-visual{margin-top:24px!important}
+.hero-m{gap:18px;margin-top:14px;font-size:.8125rem}
+
+.eyebrow{font-size:.7rem;margin-bottom:8px}
+.tc .sub,.tc>p.sub{font-size:.875rem;margin-top:6px;line-height:1.5;max-width:640px;margin-left:auto;margin-right:auto}
+
+/* Tighter pricing cards */
+#pricing .pcard{padding:22px 22px 26px}
+#pricing .pcard h3{font-size:1.05rem;margin-bottom:6px}
+#pricing .ppr{font-size:2.25rem;margin:8px 0 4px}
+#pricing .pper{font-size:.75rem;margin-bottom:14px}
+#pricing .pcta{margin-bottom:16px;padding:10px}
+#pricing .pf{font-size:.825rem;line-height:1.45;padding:5px 0}
+#pricing .pf svg{width:14px;height:14px}
+#pricing .ptag{font-size:.65rem;padding:4px 10px}
+
+/* Tighter trump cards (What no one else does) */
+#trump .trumpc{padding:22px}
+#trump .trumpc h3{font-size:1.1rem}
+#trump .trumpc p{font-size:.875rem;line-height:1.5}
+
+/* Tighter compare table */
+#compare table{font-size:.8125rem}
+#compare th,#compare td{padding:9px 10px}
+
+/* Tighter blog cards */
+#blog .bgrid{gap:18px}
+#blog .bcard{padding:18px}
+#blog .bcard h3{font-size:1rem}
+#blog .bcard p{font-size:.85rem;line-height:1.45;margin:6px 0 10px}
+
+/* Tighter modules section InterviewPrep callout */
+#modules .ipprep{padding:22px;margin:0 auto}
+#modules .ipprep h3{font-size:1.4rem;margin-bottom:8px}
+#modules .ipprep p{font-size:.9rem;line-height:1.5;margin:8px 0 12px}
+
+/* Tighter testimonials cards */
+#testimonials .tcard{padding:24px}
+#testimonials .tq{font-size:.95rem;line-height:1.55}
+
+
+/* ROUND 31: aprod-idx — "A Product of Aerovant Technologies" footer strip */
+.aprod-idx{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 0;margin-top:12px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--mono);letter-spacing:.05em}
+.aprod-idx span{color:rgba(255,255,255,.45);font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
+.aprod-idx a{display:inline-flex;align-items:center;gap:6px;color:#fff;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;transition:color .15s ease}
+.aprod-idx a:hover{color:#a78bfa}
+.aprod-idx a svg{width:13px;height:13px;opacity:.7;flex-shrink:0}
+.aprod-idx a:hover svg{opacity:1}
+
+
+/* ============================================================
+   ROUND 33: Validate section — distinct container card
+   so it doesn't visually merge with the next section.
+   ============================================================ */
+#validate{padding:32px 0!important}
+#validate .container > .tc{margin-bottom:18px}
+#validate .vmet{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+                gap:10px!important;max-width:880px;margin:0 auto;padding:22px 24px;
+                background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--r-lg);
+                box-shadow:0 2px 8px rgba(15,10,26,.04)}
+@media (max-width:760px){#validate .vmet{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:460px){#validate .vmet{grid-template-columns:1fr!important}}
+#validate .vmet-p{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;background:var(--bg);
+                  border:1px solid var(--border-2);border-radius:999px;font-size:.8125rem;
+                  font-weight:500;color:var(--text);line-height:1.2;white-space:nowrap;justify-self:center;width:100%;justify-content:center}
+#validate .vmet-p svg{width:14px;height:14px;color:var(--success);flex-shrink:0}
+:root[data-theme="dark"] #validate .vmet{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.08)}
+:root[data-theme="dark"] #validate .vmet-p{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#e8e9ed}
+
+
+/* ROUND 33: blog section compact */
+#blog{padding:32px 0!important}
+#blog .bgrid{gap:14px!important}
+#blog .bcard{padding:14px 16px!important}
+#blog .bcard h3{font-size:.95rem!important;margin:0 0 4px!important}
+#blog .bcard p{font-size:.8125rem!important;line-height:1.4!important;margin:4px 0 8px!important}
+#blog .bcat{font-size:.65rem!important;padding:3px 8px!important}
+#blog .bdate{font-size:.7rem!important}
+#blog .blink{font-size:.8125rem!important}
+#blog .tc{margin-bottom:18px!important}
+
+
+/* ============================================================
+   ROUND 33 v4: Carousel — single source of truth.
+   Discards earlier layered overrides; this is authoritative.
+   ============================================================ */
+.tcarousel{position:relative!important;max-width:760px!important;margin:32px auto 0!important;
+           padding:0!important;overflow:hidden!important;border-radius:var(--r-lg)!important}
+.tcarousel-track{display:flex!important;width:100%!important;
+                 transition:transform .55s cubic-bezier(.22,.61,.36,1)!important;
+                 will-change:transform;overflow:visible!important;border-radius:0!important}
+.tslide{flex:0 0 100%!important;width:100%!important;min-width:100%!important;max-width:100%!important;
+        box-sizing:border-box}
+/* Arrows — INSIDE the carousel viewport (no overflow tricks) */
+.tcarousel .tarrow{position:absolute!important;top:50%;transform:translateY(-50%);
+                    width:38px;height:38px;border-radius:50%;
+                    background:rgba(255,255,255,.92);border:1px solid var(--border);
+                    box-shadow:0 2px 10px rgba(15,10,26,.15);cursor:pointer;
+                    display:flex;align-items:center;justify-content:center;
+                    color:var(--text);transition:all .2s ease;z-index:10}
+.tcarousel .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary);
+                          box-shadow:0 3px 14px rgba(124,58,237,.4)}
+.tcarousel .tarrow svg{width:16px;height:16px}
+.tcarousel .tarrow-l{left:10px!important;right:auto!important}
+.tcarousel .tarrow-r{right:10px!important;left:auto!important}
+:root[data-theme="dark"] .tcarousel .tarrow{background:rgba(42,44,51,.92);border-color:#3a3c45;color:#e8e9ed}
+:root[data-theme="dark"] .tcarousel .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+
+/* ROUND 33 polish: blog cards super-compact diagrams */
+#blog .barch{height:90px!important;padding:8px 10px!important}
+#blog .barch svg{max-height:80px}
+#blog .bcard{padding:12px 14px 14px!important}
+#blog .btags{margin:6px 0!important;gap:4px!important}
+#blog .btag{font-size:.65rem!important;padding:2px 6px!important}
+#blog .bmt{font-size:.7rem;margin:4px 0!important}
+
 </style>
 </head>
 <body>
@@ -1187,7 +1586,7 @@ h2{font-size:1.375rem!important}
 <div class="nav-c">
 <div class="brand-stack">
 <a href="#" class="logo">
-<span class="logo-i"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="36" height="24"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="36" height="24"/></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer" class="brand-tag" aria-label="Visit Aerovant Technologies"><span class="brand-tag-pre">By</span> AEROVANT TECHNOLOGIES</a>
@@ -1195,6 +1594,7 @@ h2{font-size:1.375rem!important}
 <ul class="nav-links">
 <li><a href="#platform">Platform</a></li>
 <li><a href="#modules">InterviewPrep</a></li>
+<li><a href="#demo">Try Free Demo</a></li>
 <li><a href="#pricing">Pricing</a></li>
 <li><a href="#blog">Blog</a></li>
 <li><a href="#faq">FAQ</a></li>
@@ -1204,22 +1604,19 @@ h2{font-size:1.375rem!important}
 <svg class="sun-i" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
 <svg class="moon-i" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
-<a href="https://app.threatready.io/auth" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm nav-si">Sign In</a>
-<a href="#demo" class="btn btn-primary btn-sm nav-try"><svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px;margin-right:4px"><path d="M8 5v14l11-7z"/></svg>Try Free Demo</a>
+<a href="https://threatready.io/app/auth" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm nav-si">Sign In</a>
 <button class="mtog" id="mtog" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
 </div>
 </div>
 <div class="mmenu" id="mmenu">
 <ul>
 <li><a href="#platform">Platform</a></li>
-<li><a href="#roles">Roles</a></li>
 <li><a href="#modules">InterviewPrep</a></li>
-<li><a href="rubric.html">Scoring Rubric</a></li>
+<li><a href="#demo">Try Free Demo</a></li>
 <li><a href="#pricing">Pricing</a></li>
 <li><a href="#blog">Blog</a></li>
 <li><a href="#faq">FAQ</a></li>
-<li><a href="https://app.threatready.io/auth" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Sign In</a></li>
-<li><a href="#demo" class="btn btn-primary">Try Free Demo</a></li>
+<li><a href="https://threatready.io/app/auth" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sign In</a></li>
 </ul>
 </div>
 </nav>
@@ -1230,15 +1627,11 @@ h2{font-size:1.375rem!important}
 <div class="hero-c">
 <div class="hero-aud">For security professionals who want their reasoning evaluated, not their memorization</div>
 <span class="hb"><span class="pulse"></span>The Attack Reasoning Evaluation Platform</span>
-<h1>We measure how you <span class="hl">think under pressure</span>.</h1>
-<p class="hero-tag">No memorization. No CTFs. No multiple choice — just real reasoning, scored honestly.</p>
-<p class="hero-sub">ThreatReady is the attack-reasoning platform for <strong>15 security roles</strong> across <strong>6 reasoning modes</strong> — incident response, architecture defense, threat hunting, vuln triage, executive briefing, and live attack scenarios. Every answer evaluated by our <strong>3-Pass AI Scoring engine</strong> against published rubrics. The skills you cannot fake, scored on a scale you can defend.</p>
-<div class="hero-cta">
-<a href="#demo" class="btn btn-primary btn-lg">Try a Free Scenario — No Signup <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<a href="#modules" class="btn btn-secondary btn-lg">See the 6 reasoning modes</a>
-</div>
+<h1>We don't teach. We don't run CTFs. We measure how you<span class="hl">think under pressure.</span></h1>
+<p class="hero-sub">The attack-reasoning platform for <strong>15 security roles</strong> across <strong>6 reasoning modes</strong>. Every answer scored by our <strong>3-Pass AI engine</strong> — skills you cannot fake, on a scale you can defend.</p>
+<!-- ROUND 29: hero CTAs removed per user request -->
 <div class="hero-m">
-<span><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No credit card</span>
+<!-- ROUND 30: 'No credit card' check removed per user request -->
 <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>2 free scenarios</span>
 <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>MITRE ATT&amp;CK mapped</span>
 <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Transparent rubric</span>
@@ -1248,7 +1641,7 @@ h2{font-size:1.375rem!important}
 <div class="browser">
 <div class="bbar">
 <span class="bdot"></span><span class="bdot"></span><span class="bdot"></span>
-<span class="burl">app.threatready.io/scenario/cloud-security/intermediate</span>
+<span class="burl">threatready.io/app/scenario/cloud-security/intermediate</span>
 </div>
 <div class="hscr">
 <div class="hscr-l">
@@ -1290,9 +1683,11 @@ h2{font-size:1.375rem!important}
 <div class="qb">Question 3 of 5 · Adaptive</div>
 <div class="qt">You notice the Lambda has unusual outbound traffic to <code>45.x.x.x</code>. The IAM role has <code class="w">s3:*</code> and <code class="w">secrets:*</code>. What's your first containment step?</div>
 <div class="sp">
-<div class="sb"><span>Technical Depth</span><span class="sn">8.5 / 10</span></div>
-<div class="sb"><span>Communication</span><span class="sn">7.0 / 10</span></div>
-<div class="sb"><span>Decision-Making</span><span class="sn">9.0 / 10</span></div>
+<div class="sb"><span>Threat Identification</span><span class="sn">8.5 / 10</span></div>
+<div class="sb"><span>Containment &amp; Response</span><span class="sn">9.0 / 10</span></div>
+<div class="sb"><span>Architecture &amp; Blast Radius</span><span class="sn">8.0 / 10</span></div>
+<div class="sb"><span>Communication Quality</span><span class="sn">7.0 / 10</span></div>
+<div class="sb"><span>Framework Application</span><span class="sn">8.5 / 10</span></div>
 </div>
 <div style="margin-top:16px;padding:12px;background:var(--primary-whisper);border-radius:8px;font-size:.8125rem;color:var(--text-2);line-height:1.5">
 <strong style="color:var(--primary);display:block;margin-bottom:4px;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em">Model answer</strong>
@@ -1305,7 +1700,8 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 </div>
 </section>
 
-<!-- TRUST BAR -->
+<!-- ROUND 30: HIDDEN per request — preserved for future use
+<!— — TRUST BAR — —>
 <div class="tbar">
 <div class="container">
 <div class="tbar-l">Designed by security engineers from product companies</div>
@@ -1319,87 +1715,15 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 </div>
 </div>
 
-<!-- INTERACTIVE DEMO -->
-<section id="demo" class="dsec">
-<div class="container">
-<div class="dhead">
-<span class="eyebrow">Try it now · No signup</span>
-<h2>Prove you can think like an <span class="grad">attacker</span>.</h2>
-<p class="sub">A real scenario. Your answer. Instant scoring across the five anchored dimensions used in every ThreatReady evaluation. (Full assessments are 5 adaptive questions per scenario; this demo shows the first one.)</p>
-</div>
-<div class="dw">
-<div class="dwh">
-<div class="dwht" id="dScenTitle">Live Demo · Cloud Security</div>
-<div class="dwm">
-<span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>~2 min</span>
-<span id="dScenMitre"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 3l-9 18-3-9-9-3 21-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>MITRE T1078</span>
-</div>
-</div>
-<div class="dwb">
-<div class="dscn">
-<div class="dscn-h">
-<span class="drt" id="dScenRole">☁ Cloud Security</span>
-<span class="ddif" id="dScenDifficulty">Intermediate · Architecture #7</span>
-</div>
-<div class="dab">
-<div class="dat">Architecture Diagram</div>
-<div id="dScenDiagram"></div>
-</div>
-<div class="dctx" id="dScenContext">
-<strong>Context:</strong> Loading scenario…
-</div>
-</div>
-<div class="dint">
-<div id="dStage1">
-<div class="dqh">Adaptive Question · Q1 of 5</div>
-<div class="dq" id="dScenQuestion">Loading question…</div>
-<div class="daa">
-
-<div class="dvoice-bar">
-<button type="button" class="dvoice" id="dVoiceBtn" aria-pressed="false" aria-label="Toggle voice input">
-<span class="dvoice-pulse"></span>
-<svg class="dvoice-ic-off" viewBox="0 0 24 24" fill="none"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-<svg class="dvoice-ic-on" viewBox="0 0 24 24" fill="none"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>
-<span id="dVoiceLabel">Voice answer</span>
-</button>
-
-</div>
-
-<textarea id="dAns" class="dta" placeholder="Type your reasoning here or tap the microphone to dictate. Explain what you'd do first and why." oncopy="return false" oncut="return false" maxlength="5000"></textarea>
-<div class="dvoice-status" id="dVoiceStatus" aria-live="polite"></div>
-
-<div class="dctr">
-<span class="dhint"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>In the real product, AI adapts Q2–Q5 based on your answer.</span>
-<button class="btn btn-primary btn-sm" onclick="submitDemo()">Submit for scoring <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-</div>
-</div>
-</div>
-<div id="dLoad" class="dload"><div class="dspin"></div><div style="color:var(--text-3);font-size:.875rem">Evaluating your reasoning against the rubric...</div></div>
-<div id="dRes" class="dres">
-<div class="dres-h"><span class="dres-l">✓ Scored against published rubric</span><span class="dres-s" id="dScore">7.5 / 10</span></div>
-<div class="rdim"><span class="rdim-l">Technical Depth</span><div class="rdim-b"><div class="rdim-f" id="dTech"></div></div><span class="rdim-s" id="dTechS">—</span></div>
-<div class="rdim"><span class="rdim-l">Communication</span><div class="rdim-b"><div class="rdim-f" id="dComm"></div></div><span class="rdim-s" id="dCommS">—</span></div>
-<div class="rdim"><span class="rdim-l">Decision-Making</span><div class="rdim-b"><div class="rdim-f" id="dDec"></div></div><span class="rdim-s" id="dDecS">—</span></div>
-<div class="rma"><strong>Model answer</strong><span id="dScenModel">Loading…</span></div>
-<div class="rcta">
-<button class="btn btn-secondary btn-sm" onclick="resetDemo()">Try again</button>
-<a href="https://app.threatready.io/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get the full 5-question version →</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p style="text-align:center;margin-top:24px;font-size:.8125rem;color:var(--text-3)">This demo simulates a single scored question. The real product runs 5 adaptive questions and candidates never see the model answer before submitting.</p>
-</div>
-</section>
-
+<!— — INTERACTIVE DEMO — —>
+-->
 <!-- PROBLEM -->
 <section id="why">
 <div class="container">
 <div class="tc">
 <span class="eyebrow">Why it matters now</span>
-<h2>The cybersecurity skills gap is <span class="grad">a measurement problem</span>.</h2>
-<p class="sub">Not a training problem. Not a tooling problem. You cannot hire what you cannot measure — and certifications don't measure reasoning.</p>
+<h2>The cybersecurity skills gap is <span class="grad">a measurement problem</span></h2>
+<p class="sub">You cannot hire what you cannot measure — and certifications don't measure reasoning.</p>
 </div>
 <div class="pgrid">
 <div class="pcard rev">
@@ -1431,17 +1755,19 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <div class="container">
 <div class="tc">
 <span class="eyebrow">What is ThreatReady</span>
-<h2>The platform that measures <span class="grad">real attack reasoning</span>.</h2>
-<p class="sub">Real architectures. Five adaptive questions. Transparent three-dimension scoring against a published rubric.</p>
+<h2>The platform that measures <span class="grad">real attack reasoning</span></h2>
+<p class="sub">Real architectures. Adaptive questions. Transparent rubric-based scoring.</p>
 </div>
 <div class="defbox">
 <div class="defbox-l">The term we keep using</div>
 <p><strong>Attack reasoning</strong> is the ability to read an architecture, trace a probable attack path, and make defensible containment and mitigation decisions under pressure — without needing to recite a framework first.</p>
 </div>
+<!-- ROUND 23: "Why our brand is purple" defbox commented out per user request
 <div class="defbox" style="margin-top:14px">
 <div class="defbox-l">Why our brand is purple</div>
 <p>Red Team tests offense. Blue Team runs defense. <span class="grad">Purple Team</span> is where offense knowledge meets defense. That's exactly what ThreatReady hires for.</p>
 </div>
+-->
 <div class="iin">
 <div class="iinc iin-y rev">
 <div class="iinc-h"><span class="iw"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ThreatReady IS</div>
@@ -1472,8 +1798,8 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <div class="container">
 <div class="tc">
 <span class="eyebrow">How it works</span>
-<h2>A real attack, in <span class="grad">~30 minutes</span>.</h2>
-<p class="sub">No multiple choice. No fluff. Beginner scenarios take about 5 minutes, full hiring assessments about 30.</p>
+<h2>A real attack, in <span class="grad">~30 minutes</span></h2>
+<p class="sub">No multiple choice. No fluff. ~30 minutes start to finish.</p>
 </div>
 <div class="sgrid">
 <div class="sc rev"><div class="snum">01</div><h4>Choose your role</h4><p>Pick from 15 specialized cybersecurity tracks — from Cloud Security to Red Team to AI/LLM Security. Hiring managers can pick multiple.</p></div>
@@ -1489,8 +1815,8 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <div class="container">
 <div class="tc">
 <span class="eyebrow">15 security tracks · 4 difficulty levels · Adaptive AI</span>
-<h2>Every security role. <span class="grad">Covered.</span></h2>
-<p class="sub">Specialized scenarios built by security engineers for security engineers. Each track has its own scenario pool, rubric, and badge progression.</p>
+<h2>Every security role <span class="grad">Covered.</span></h2>
+<p class="sub">Each track has its own scenario pool, rubric, and badge progression.</p>
 </div>
 </div>
 
@@ -1531,7 +1857,7 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <div class="container">
 <div class="tc">
 <span class="eyebrow">Transparent scoring</span>
-<h2>Five anchored dimensions. <span class="grad">Zero black boxes.</span></h2>
+<h2>Five anchored dimensions <span class="grad">— zero black boxes</span></h2>
 <p class="sub">Every answer is evaluated by our 3-Pass AI engine — Evaluator, Challenger, Reconciler — against a published rubric with concrete written anchors at every score band. Candidates see exactly how they were evaluated. Hiring managers get defensible, explainable scores.</p>
 </div>
 
@@ -1571,49 +1897,6 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 
 <p class="sdim-note">Each question weights these dimensions differently — a "map this to MITRE" question weights Threat Identification at 40%; an "executive briefing" question weights Communication at 50%. The full weighting matrix is in our published rubric.</p>
 
-<!-- Dual Score + Bands + Confidence visual -->
-<div class="dscoring">
-<div class="dscoring-h">
-<span class="dscoring-eye">Per the scoring engine</span>
-<h3>How a result actually appears.</h3>
-<p>Every assessment surfaces three things together — a dual score for cross-difficulty fairness, a qualitative band that works from day one, and a confidence flag that says how certain the engine is about its own judgment.</p>
-</div>
-
-<!-- Dual Score Display preview -->
-<div class="dual-score">
-<div class="dscore-card">
-<div class="dscore-l">Scenario Score</div>
-<div class="dscore-v">8.4<span class="dscore-of">/10</span></div>
-<div class="dscore-d">Raw score on the question's own scale</div>
-</div>
-<div class="dscore-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-<div class="dscore-card">
-<div class="dscore-l">Readiness Score</div>
-<div class="dscore-v">5.0<span class="dscore-of">/10</span></div>
-<div class="dscore-d">Difficulty-adjusted · Beginner cap 6.0</div>
-</div>
-<div class="dscore-card hi-conf">
-<div class="dscore-l">Confidence</div>
-<div class="dscore-v conf-h">HIGH</div>
-<div class="dscore-d">Pass 1 ↔ Pass 2 within 1 point</div>
-</div>
-</div>
-<p class="dscore-explain">Both scores are honest. The candidate's effort is recognized. The hiring manager's signal is preserved. Difficulty caps: Beginner 6.0 · Intermediate 8.0 · Advanced 9.0 · Expert 10.0.</p>
-
-<!-- Qualitative bands strip -->
-<div class="qbands-strip">
-<div class="qbands-h">Qualitative bands · always shown</div>
-<div class="qbands-row">
-<div class="qband-pill q-dev"><span class="qband-pn">Developing</span><span class="qband-pr">1.0–3.9</span></div>
-<div class="qband-pill q-fnd"><span class="qband-pn">Foundation</span><span class="qband-pr">4.0–5.9</span></div>
-<div class="qband-pill q-prf"><span class="qband-pn">Proficient</span><span class="qband-pr">6.0–7.4</span></div>
-<div class="qband-pill q-adv"><span class="qband-pn">Advanced</span><span class="qband-pr">7.5–8.9</span></div>
-<div class="qband-pill q-exp"><span class="qband-pn">Expert</span><span class="qband-pr">9.0–10.0</span></div>
-</div>
-<p class="qbands-note">Bands are visible from day one. Percentile rankings activate once a role/difficulty cohort reaches 30+ assessments.</p>
-</div>
-</div>
-
 <!-- Assessment integrity -->
 <div class="intb">
 <div class="intb-t"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>Assessment integrity</div>
@@ -1639,34 +1922,83 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <section id="modules" class="ssec" style="background:var(--bg-subtle)">
 <div class="container">
 
+<!-- ROUND 30: HIDDEN per request — preserved for future use
 <div class="tc" style="max-width:760px;margin:0 auto 20px">
 <span class="eyebrow">The platform · 6 reasoning modes</span>
-<h2>Six reasoning modes. Fifteen security tracks. <span class="grad">One platform.</span></h2>
-<p class="sub">Real security work isn't one skill — it's six. Each ThreatReady module trains a distinct reasoning pattern across 15 security tracks. Every answer evaluated by our 3-Pass scoring engine against published, anchored rubrics. All scores feed your Career Genome.</p>
+<h2>Six reasoning modes · Fifteen security tracks <span class="grad">· One platform</span></h2>
+<p class="sub">Six reasoning patterns. Fifteen security tracks. One scoring engine.</p>
 </div>
+-->
 
 <!-- InterviewPrep umbrella callout -->
 <div class="ipprep">
 <div class="ipprep-l">
 <span class="ipprep-tag">INTERVIEW PREP MODE</span>
-<h3>One unified flow.<br><span class="ipprep-h-em">Six ways to prove you're ready.</span></h3>
-<p>InterviewPrep wraps all 6 reasoning modes — Architecture, Crisis, Communication, Investigation, Triage, and Attack Scenarios — into a single adaptive simulation. The platform picks modules based on your target role and weakest dimension, then runs a 30-minute focused block. Every answer is scored by our 3-Pass engine — Evaluator, Challenger, Reconciler — with confidence flags and a defensible final score.</p>
+<h3>One unified flow<br><span class="ipprep-h-em">Six ways to prove you're ready</span></h3>
+<p>InterviewPrep mode wraps all 5 reasoning modules plus our attack-reasoning scenarios into a single adaptive interview simulation. The platform picks modules based on your target role, surfaces your weakest dimension, and runs a 30-minute focused practice block. End every session with a defensible score and a clear next-step.</p>
 <a href="#trump" class="ipprep-link">See what makes this different <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 <div class="ipprep-r">
 <div class="ipprep-orbit">
-<div class="ipprep-core">InterviewPrep</div>
-<div class="ipprep-node n1">ArchitectDefend</div>
-<div class="ipprep-node n2">IncidentSim</div>
-<div class="ipprep-node n3">ThreatBrief</div>
-<div class="ipprep-node n4">ThreatHunt</div>
-<div class="ipprep-node n5">VulnVerdict</div>
-<div class="ipprep-node n6">Attack Scenarios</div>
+
+<!-- Dotted ellipse orbit path (background SVG) -->
+<svg class="ipprep-path" viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<ellipse cx="180" cy="160" rx="140" ry="120" fill="none" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="2 5" stroke-opacity=".3"/>
+<!-- 6 connection dots on ellipse where pills meet -->
+<circle cx="180" cy="40" r="2.5" fill="#7c3aed" opacity=".7"/>
+<circle cx="301" cy="100" r="2.5" fill="#7c3aed" opacity=".7"/>
+<circle cx="301" cy="220" r="2.5" fill="#7c3aed" opacity=".7"/>
+<circle cx="180" cy="280" r="2.5" fill="#7c3aed" opacity=".7"/>
+<circle cx="59" cy="220" r="2.5" fill="#7c3aed" opacity=".7"/>
+<circle cx="59" cy="100" r="2.5" fill="#7c3aed" opacity=".7"/>
+</svg>
+
+<!-- Central InterviewPrep core sphere with shield icon -->
+<div class="ipprep-core">
+<svg class="ipprep-core-ic" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+<path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="rgba(255,255,255,.12)"/>
+<path d="M9 12 L11 14 L15 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<span class="ipprep-core-t">InterviewPrep</span>
+</div>
+
+<!-- Orbit pills, each with mini coloured icon matching its module card -->
+<div class="ipprep-node n1">
+<svg class="ipprep-node-ic" viewBox="0 0 24 24" fill="none" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)"><path d="M3 21h18M5 21V11l7-7 7 7v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+<span>ArchitectDefend</span>
+</div>
+
+<div class="ipprep-node n2">
+<svg class="ipprep-node-ic" viewBox="0 0 24 24" fill="none" style="background:linear-gradient(135deg,#ef4444,#f97316)"><path d="M12 9v4M12 17h.01M21 19l-9-15-9 15z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span>IncidentSim</span>
+</div>
+
+<div class="ipprep-node n3">
+<svg class="ipprep-node-ic" viewBox="0 0 24 24" fill="none" style="background:linear-gradient(135deg,#a855f7,#ec4899)"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+<span>ThreatBrief</span>
+</div>
+
+<div class="ipprep-node n4">
+<svg class="ipprep-node-ic" viewBox="0 0 24 24" fill="none" style="background:linear-gradient(135deg,#22c55e,#10b981)"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+<span>ThreatHunt</span>
+</div>
+
+<div class="ipprep-node n5">
+<svg class="ipprep-node-ic" viewBox="0 0 24 24" fill="none" style="background:linear-gradient(135deg,#f59e0b,#d97706)"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6 M9 13h6 M9 17h6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span>VulnVerdict</span>
+</div>
+
+<div class="ipprep-node n6">
+<svg class="ipprep-node-ic" viewBox="0 0 24 24" fill="none" style="background:linear-gradient(135deg,#7c3aed,#a855f7)"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+<span>Attack Scenarios</span>
+</div>
+
 </div>
 </div>
 </div>
 
 <!-- 5 Module cards -->
+<!-- ROUND 30: HIDDEN per request — preserved for future use
 <div class="mods" id="modsGrid">
 
 <article class="mod" data-mod="architect">
@@ -1779,54 +2111,14 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <span class="mod-chip">Reasoning depth</span>
 </div>
 <div class="mod-footer">
-<span class="mod-eval">Scored on: Technical Depth · Communication · Decision-Making</span>
+<span class="mod-eval">Scored on: Threat Identification · Containment &amp; Response · Architecture &amp; Blast Radius · Communication · Framework Application</span>
 </div>
 </article>
 
 </div>
 
-<!-- 4-feature strip — what makes InterviewPrep premium -->
-<div class="ipfeat-strip">
-<div class="ipfeat">
-<div class="ipfeat-ic" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">
-<svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-</div>
-<div class="ipfeat-t">
-<h5>Adaptive by Design</h5>
-<p>Platform selects modules based on your target role and weakest dimension.</p>
-</div>
-</div>
-
-<div class="ipfeat">
-<div class="ipfeat-ic" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">
-<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-</div>
-<div class="ipfeat-t">
-<h5>30-Minute Focused Block</h5>
-<p>Deep practice. Realistic pressure. Maximum impact, no padding.</p>
-</div>
-</div>
-
-<div class="ipfeat">
-<div class="ipfeat-ic" style="background:linear-gradient(135deg,#22c55e,#10b981)">
-<svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8M14 7h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</div>
-<div class="ipfeat-t">
-<h5>Defensible Scoring</h5>
-<p>Transparent, role-aligned scoring that proves your readiness.</p>
-</div>
-</div>
-
-<div class="ipfeat">
-<div class="ipfeat-ic" style="background:linear-gradient(135deg,#a855f7,#ec4899)">
-<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
-</div>
-<div class="ipfeat-t">
-<h5>Clear Next Step</h5>
-<p>Every session ends with a precise next action to improve.</p>
-</div>
-</div>
-</div>
+<!— — ROUND 28: 4 ipfeat cards removed per user request — —>
+-->
 
 <div style="text-align:center;margin-top:32px">
 <a href="sample-report.html" class="btn btn-secondary">View a sample skill report</a>
@@ -1835,14 +2127,92 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 </div>
 </section>
 
+<!-- ROUND 30: demo section moved here from below the hero -->
+<section id="demo" class="dsec" style="padding-top:36px;padding-bottom:36px">
+<div class="container">
+<div class="dhead">
+<span class="eyebrow">Validation phase · Try it now · No signup</span>
+<h2>Prove you can think like an <span class="grad">attacker</span></h2>
+<p class="sub">A real scenario. Your answer. Instant scoring against our published rubric.</p>
+</div>
+<div class="dw">
+<div class="dwh">
+<div class="dwht" id="dScenTitle">Live Demo · Cloud Security</div>
+<div class="dwm">
+<span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>~2 min</span>
+<span id="dScenMitre"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 3l-9 18-3-9-9-3 21-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>MITRE T1078</span>
+</div>
+</div>
+<div class="dwb">
+<div class="dscn">
+<div class="dscn-h">
+<span class="drt" id="dScenRole">☁ Cloud Security</span>
+<span class="ddif" id="dScenDifficulty">Intermediate · Architecture #7</span>
+</div>
+<div class="dab">
+<div class="dat">Architecture Diagram</div>
+<div id="dScenDiagram"></div>
+</div>
+<div class="dctx" id="dScenContext">
+<strong>Context:</strong> Loading scenario…
+</div>
+</div>
+<div class="dint">
+<div id="dStage1">
+<div class="dqh">Adaptive Question · Q1 of 5</div>
+<div class="dq" id="dScenQuestion">Loading question…</div>
+<div class="daa">
+
+<div class="dvoice-bar">
+<button type="button" class="dvoice" id="dVoiceBtn" aria-pressed="false" aria-label="Toggle voice input">
+<span class="dvoice-pulse"></span>
+<svg class="dvoice-ic-off" viewBox="0 0 24 24" fill="none"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="dvoice-ic-on" viewBox="0 0 24 24" fill="none"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>
+<span id="dVoiceLabel">Voice answer</span>
+</button>
+
+</div>
+
+<textarea id="dAns" class="dta" placeholder="Type your reasoning here or tap the microphone to dictate. Explain what you'd do first and why." oncopy="return false" oncut="return false" maxlength="5000"></textarea>
+<div class="dvoice-status" id="dVoiceStatus" aria-live="polite"></div>
+
+<div class="dctr">
+<span class="dhint"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>In the real product, AI adapts Q2–Q5 based on your answer.</span>
+<button class="btn btn-primary btn-sm" onclick="submitDemo()">Submit for scoring <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+</div>
+</div>
+<div id="dLoad" class="dload"><div class="dspin"></div><div style="color:var(--text-3);font-size:.875rem">Evaluating your reasoning against the rubric...</div></div>
+<div id="dRes" class="dres">
+<div class="dres-h"><span class="dres-l">✓ Scored against published rubric</span><span class="dres-s" id="dScore">7.5 / 10</span></div>
+<div class="rdim"><span class="rdim-l">Threat Identification</span><div class="rdim-b"><div class="rdim-f" id="dTI"></div></div><span class="rdim-s" id="dTIS">—</span></div>
+<div class="rdim"><span class="rdim-l">Containment &amp; Response</span><div class="rdim-b"><div class="rdim-f" id="dCR"></div></div><span class="rdim-s" id="dCRS">—</span></div>
+<div class="rdim"><span class="rdim-l">Architecture &amp; Blast Radius</span><div class="rdim-b"><div class="rdim-f" id="dAB"></div></div><span class="rdim-s" id="dABS">—</span></div>
+<div class="rdim"><span class="rdim-l">Communication Quality</span><div class="rdim-b"><div class="rdim-f" id="dCQ"></div></div><span class="rdim-s" id="dCQS">—</span></div>
+<div class="rdim"><span class="rdim-l">Framework Application</span><div class="rdim-b"><div class="rdim-f" id="dFA"></div></div><span class="rdim-s" id="dFAS">—</span></div>
+<div class="rma"><strong>Model answer</strong><span id="dScenModel">Loading…</span></div>
+<div class="rcta">
+<button class="btn btn-secondary btn-sm" onclick="resetDemo()">Try again</button>
+<a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get the full 5-question version →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p style="text-align:center;margin-top:14px;font-size:.75rem;color:var(--text-3)">Demo simulates one scored question — full product runs 5 adaptive questions.</p>
+</div>
+</section>
+
+
+
 <!-- FOR BUSINESS + ROI -->
 <!-- COMPARISON -->
-<section id="compare" style="background:var(--bg-subtle)">
+<section id="compare" style="background:var(--bg-subtle);padding-top:32px;padding-bottom:32px">
 <div class="container">
 <div class="tc">
 <span class="eyebrow">How we compare</span>
-<h2>Not the same as <span class="grad">the other platforms</span>.</h2>
-<p class="sub">We get asked this constantly. Here's the honest, side-by-side comparison.</p>
+<h2>Not the same as <span class="grad">the other platforms</span></h2>
+<p class="sub">An honest, side-by-side comparison.</p>
 </div>
 <div class="cw">
 <table class="ct">
@@ -1850,16 +2220,16 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <tr><th></th><th class="us">ThreatReady</th><th>Hack The Box</th><th>TryHackMe</th><th>Generic Interview Prep</th><th>Enterprise Cyber Range</th></tr>
 </thead>
 <tbody>
-<tr><td>What's tested</td><td class="us">Attack reasoning via architecture</td><td>Hands-on exploitation</td><td>Guided learning paths</td><td>General interview performance</td><td>Full simulation environments</td></tr>
-<tr><td>Time per session</td><td class="us">~30 minutes</td><td>1–4 hours</td><td>30–60 minutes</td><td>30–60 minutes</td><td>Hours to days</td></tr>
-<tr><td>AI-adaptive questions</td><td class="us cchk">Yes — every Q adapts</td><td class="cx">No</td><td class="cx">No</td><td class="cx">No</td><td class="cx">No</td></tr>
-<tr><td>MITRE ATT&amp;CK mapped</td><td class="us cchk">Yes</td><td class="cp">Partial</td><td class="cx">No</td><td class="cx">No</td><td class="cchk">Yes</td></tr>
-<tr><td>Starting price (individual)</td><td class="us">₹399 / month</td><td>₹800+ / month</td><td>₹500+ / month</td><td>₹2,000+ / month</td><td>Enterprise only</td></tr>
-<tr><td>Best for</td><td class="us">Career growth &amp; defensible interview prep</td><td>Learning exploitation</td><td>Beginners entering security</td><td>General tech interviews</td><td>Enterprise SOC training</td></tr>
+<tr><td>Tests</td><td class="us">Attack reasoning</td><td>Exploitation labs</td><td>Learning paths</td><td>Interview performance</td><td>Full simulations</td></tr>
+<tr><td>Session</td><td class="us">~30 min</td><td>1–4 hrs</td><td>30–60 min</td><td>30–60 min</td><td>Hours+</td></tr>
+<tr><td>Adaptive AI</td><td class="us cchk">Every Q adapts</td><td class="cx">No</td><td class="cx">No</td><td class="cx">No</td><td class="cx">No</td></tr>
+<tr><td>MITRE mapped</td><td class="us cchk">Yes</td><td class="cp">Partial</td><td class="cx">No</td><td class="cx">No</td><td class="cchk">Yes</td></tr>
+<tr><td>Start price</td><td class="us">₹399/mo</td><td>₹800+/mo</td><td>₹500+/mo</td><td>₹2,000+/mo</td><td>Enterprise</td></tr>
+<tr><td>Best for</td><td class="us">Career growth &amp; interview prep</td><td>Learning exploitation</td><td>Beginners</td><td>General interviews</td><td>SOC training</td></tr>
 </tbody>
 </table>
 </div>
-<p style="text-align:center;font-size:.8125rem;color:var(--text-3);margin-top:24px">We think Hack The Box and TryHackMe are excellent learning platforms. They're just solving a different problem.</p>
+<p style="text-align:center;font-size:.8125rem;color:var(--text-3);margin-top:16px">Hack The Box and TryHackMe are excellent learning platforms — they just solve a different problem.</p>
 </div>
 </section>
 
@@ -1868,18 +2238,20 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <div class="container">
 <div class="tc vala">
 <span class="eyebrow">How we validate</span>
-<h2>Six reasons to <span class="grad">trust the score</span>.</h2>
-<p class="sub">We don't ask for blind trust. Every claim on this page is verifiable — published rubrics, audit trails, golden-answer regression tests run nightly, and a 3-pass scoring engine you can audit. Here are the six pillars.</p>
+<h2>Six reasons to <span class="grad">trust the score</span></h2>
+<p class="sub">Published rubrics, audit trails, and a 3-pass scoring engine you can audit.</p>
 </div>
 
-<div class="vmet">
+<div class="vmet vmet-grid">
 <span class="vmet-p"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>3-Pass AI scoring</span>
 <span class="vmet-p"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Anchored rubrics</span>
+<span class="vmet-p"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Difficulty-adaptive scoring</span>
 <span class="vmet-p"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Confidence flags</span>
 <span class="vmet-p"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Golden-answer regression</span>
-<span class="vmet-p"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Audit trail per session</span>
+<span class="vmet-p"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cohort percentiles</span>
 </div>
 
+<!-- ROUND 30: HIDDEN per request — preserved for future use
 <div class="vmqo">
 <div class="vmq" aria-label="How we validate scoring">
 <div class="vmq-fade vmq-fade-l" aria-hidden="true"></div>
@@ -1896,10 +2268,10 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <strong>Proof you can verify</strong>
 Each scenario ID (e.g. <code>CS-INT-047</code>) in a candidate report exposes the MITRE technique IDs (<code>T1078</code>, <code>T1537</code>). Cross-reference them directly on attack.mitre.org.
 </div>
-<span class="valc-link" style="color:var(--text-3);cursor:default">Reviewed in every report</span>
+<span class="valc-link" style="color:var(— —text-3);cursor:default">Reviewed in every report</span>
 </div>
 
-<!-- Module 2 -->
+<!— — Module 2 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">02</div>
@@ -1914,14 +2286,14 @@ Retry the same scenario twice with different opening answers — you'll get diff
 <a href="#demo" class="valc-link">Try the live demo <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 3 -->
+<!— — Module 3 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">03</div>
 <div class="valc-cat">Transparent Scoring</div>
 </div>
 <h4>The rubric is published, not proprietary</h4>
-<p>We don't hand you a number. We publish the full scoring rubric — Technical Depth 40%, Communication 30%, Decision-Making 30% — with examples at each score band. Every candidate score cites the rubric.</p>
+<p>We don't hand you a number. We publish the full anchored rubric — five dimensions × five score bands with concrete written anchors — and the per-question weighting matrix. Every candidate score cites the specific anchor that produced it.</p>
 <div class="valc-proof">
 <strong>Proof you can verify</strong>
 Read the full rubric before you buy. Compare a candidate's transcript against the published examples. Dispute any score within 14 days; we respond in 7 business days with a line-item re-evaluation.
@@ -1929,7 +2301,7 @@ Read the full rubric before you buy. Compare a candidate's transcript against th
 <a href="rubric.html" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 4 -->
+<!— — Module 4 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">04</div>
@@ -1944,7 +2316,7 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <a href="security.html" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 5 -->
+<!— — Module 5 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">05</div>
@@ -1956,10 +2328,10 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <strong>Proof you can verify</strong>
 Every report includes an integrity block with violation count (must be zero), blocked-paste attempts, pause events, and the pool size from which the scenario was drawn. Visible on every PDF export.
 </div>
-<span class="valc-link" style="color:var(--text-3);cursor:default">Shown in every B2B report</span>
+<a href="sample-report.html" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 6 -->
+<!— — Module 6 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">06</div>
@@ -1971,7 +2343,7 @@ Every report includes an integrity block with violation count (must be zero), bl
 <strong>Proof you can verify</strong>
 Open the sample report. Pick any question. Compare the two answers. Read the evaluator note. Decide yourself whether the score is defensible. That's the whole design — nothing hidden.
 </div>
-<span class="valc-link" style="color:var(--text-3);cursor:default">Demonstrated in the samples below</span>
+<span class="valc-link" style="color:var(— —text-3);cursor:default">Demonstrated in the samples below</span>
 </div>
 <div class="valc rev">
 <div class="valc-n">
@@ -1984,10 +2356,10 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <strong>Proof you can verify</strong>
 Each scenario ID (e.g. <code>CS-INT-047</code>) in a candidate report exposes the MITRE technique IDs (<code>T1078</code>, <code>T1537</code>). Cross-reference them directly on attack.mitre.org.
 </div>
-<span class="valc-link" style="color:var(--text-3);cursor:default">Reviewed in every report</span>
+<span class="valc-link" style="color:var(— —text-3);cursor:default">Reviewed in every report</span>
 </div>
 
-<!-- Module 2 -->
+<!— — Module 2 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">02</div>
@@ -2002,14 +2374,14 @@ Retry the same scenario twice with different opening answers — you'll get diff
 <a href="#demo" class="valc-link">Try the live demo <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 3 -->
+<!— — Module 3 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">03</div>
 <div class="valc-cat">Transparent Scoring</div>
 </div>
 <h4>The rubric is published, not proprietary</h4>
-<p>We don't hand you a number. We publish the full scoring rubric — Technical Depth 40%, Communication 30%, Decision-Making 30% — with examples at each score band. Every candidate score cites the rubric.</p>
+<p>We don't hand you a number. We publish the full anchored rubric — five dimensions × five score bands with concrete written anchors — and the per-question weighting matrix. Every candidate score cites the specific anchor that produced it.</p>
 <div class="valc-proof">
 <strong>Proof you can verify</strong>
 Read the full rubric before you buy. Compare a candidate's transcript against the published examples. Dispute any score within 14 days; we respond in 7 business days with a line-item re-evaluation.
@@ -2017,7 +2389,7 @@ Read the full rubric before you buy. Compare a candidate's transcript against th
 <a href="rubric.html" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 4 -->
+<!— — Module 4 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">04</div>
@@ -2032,7 +2404,7 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <a href="security.html" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 5 -->
+<!— — Module 5 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">05</div>
@@ -2044,10 +2416,10 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <strong>Proof you can verify</strong>
 Every report includes an integrity block with violation count (must be zero), blocked-paste attempts, pause events, and the pool size from which the scenario was drawn. Visible on every PDF export.
 </div>
-<span class="valc-link" style="color:var(--text-3);cursor:default">Shown in every B2B report</span>
+<a href="sample-report.html" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
-<!-- Module 6 -->
+<!— — Module 6 — —>
 <div class="valc rev">
 <div class="valc-n">
 <div class="valc-num">06</div>
@@ -2059,23 +2431,23 @@ Every report includes an integrity block with violation count (must be zero), bl
 <strong>Proof you can verify</strong>
 Open the sample report. Pick any question. Compare the two answers. Read the evaluator note. Decide yourself whether the score is defensible. That's the whole design — nothing hidden.
 </div>
-<span class="valc-link" style="color:var(--text-3);cursor:default">Demonstrated in the samples below</span>
+<span class="valc-link" style="color:var(— —text-3);cursor:default">Demonstrated in the samples below</span>
 </div>
 </div>
 </div>
 </div>
+-->
 </div>
 </section>
-
 
 <!-- TRUMP CARDS — what makes ThreatReady different -->
 <section id="trump" class="trumpsec">
 <div class="container">
 
-<div class="tc" style="max-width:760px;margin:0 auto 56px">
+<div class="tc" style="max-width:760px;margin:0 auto 28px">
 <span class="eyebrow">⚡ What no one else does</span>
-<h2>Four things <span class="grad">only ThreatReady</span> ships.</h2>
-<p class="sub">Every other security platform is frozen in time. We move at the speed of real threats, build a verifiable career identity, test how you handle chaos, and tell you exactly what role you're ready for.</p>
+<h2>Four things <span class="grad">only ThreatReady</span> ships</h2>
+<p class="sub">Four things only ThreatReady ships.</p>
 </div>
 
 <div class="trump-tabs" id="trumpTabs" role="tablist">
@@ -2103,13 +2475,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="trump-l">
 <div class="trump-eye">📡 Adaptive Architecture Pool</div>
 <h3>Why our scores are <span class="grad">trustworthy enough for hiring</span>.</h3>
-<p>Every other platform's content is frozen. Someone wrote a Log4Shell lab in 2021 — it's still there in 2026, unchanged. ThreatReady reads CISA KEV, MITRE ATT&amp;CK updates, NVD, and live threat feeds, then auto-generates new scenarios from the last 7–14 days.</p>
-<p>A ransomware campaign hits healthcare this week? By Monday, you can practice that exact attack chain on a healthcare cloud architecture. Walk into your interview having rehearsed the breach the interviewer will ask about.</p>
-<div class="trump-mini">
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Updated weekly from CISA KEV</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> MITRE ATT&amp;CK technique tagging</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Real CVEs, real architectures</div>
-</div>
+<p>Every other platform's scenarios are frozen in time. Ours update weekly from real CVEs and live threat feeds — practice the breach the interviewer will ask about.</p>
 </div>
 <div class="trump-r">
 <div class="trump-vis trump-vis-1">
@@ -2128,13 +2494,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="trump-l">
 <div class="trump-eye">🧬 Security Career Genome</div>
 <h3>Verifiable proof of <span class="grad">how you think.</span></h3>
-<p>Certifications expire. Resumes are self-reported. Interviews are subjective. None of these capture what you can actually do in real-time — which is exactly the gap your Career Genome closes.</p>
-<p>Every session you complete adds to a continuously-updated, AI-evaluated, fraud-resistant skills profile mapped to NICE Workforce Framework and MITRE ATT&amp;CK. Share it on LinkedIn. Attach it to applications. It's not "I have 5 years in cloud security" — it's "47 evaluated scenarios, 8.1 average, here's the breakdown."</p>
-<div class="trump-mini">
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Maps to NICE + ATT&amp;CK frameworks</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Updates every session — never stale</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Public profile + verification link</div>
-</div>
+<p>A continuously-updated, AI-evaluated skills profile that recruiters can verify. Not "5 years cloud security" — measurable proof.</p>
 </div>
 <div class="trump-r">
 <div class="trump-vis trump-vis-2">
@@ -2157,13 +2517,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="trump-l">
 <div class="trump-eye">⚡ Adaptive Questioning</div>
 <h3>Tested when <span class="grad">the plan falls apart.</span></h3>
-<p>Mid-session, without warning, a simulated crisis breaks out: <em>"BREAKING — your S3 buckets with customer PII just appeared on a paste site. CISO call in 10 minutes. What do you do first?"</em></p>
-<p>You pivot instantly from structured practice to crisis response. No prep. No warning. Just react. This tests the single most important skill no other platform evaluates — how you perform when reality breaks the script. Two candidates with identical interview scores can be miles apart on this. That gap is exactly what separates someone who handles real incidents from someone who only handles textbook ones.</p>
-<div class="trump-mini">
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Triggers randomly mid-session</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Scored on response speed + clarity</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Separate "Calm vs Crisis" rating</div>
-</div>
+<p>A simulated crisis breaks mid-session — no prep, no warning. The single skill no other platform evaluates: how you perform when reality breaks the script.</p>
 </div>
 <div class="trump-r">
 <div class="trump-vis trump-vis-3">
@@ -2183,13 +2537,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="trump-l">
 <div class="trump-eye">🎯 Career Path Intelligence</div>
 <h3>Not just practice — <span class="grad">a career engine.</span></h3>
-<p>Once your Genome has enough data, ThreatReady predicts what role you're ready for and what's blocking you. Not vibes. Math.</p>
-<p><em>"You're 85% ready for a Senior Cloud Security Engineer role. Your weakest dimension is Communication Quality at 6.2 — two ThreatBrief sessions would lift it to 7.5. Want to start?"</em> This isn't interview prep. It's a career engine that tells you exactly which dimension to practice next, why, and which modules will close the gap fastest.</p>
-<div class="trump-mini">
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Role-readiness % per target role</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Salary bands from public market data</div>
-<div class="trump-mini-row"><span class="trump-mini-d">●</span> Specific module recommendations to close gaps</div>
-</div>
+<p>Predicts the role you're ready for and the exact dimension to practice next. Not interview prep — a career engine.</p>
 </div>
 <div class="trump-r">
 <div class="trump-vis trump-vis-4">
@@ -2214,14 +2562,14 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </section>
 
 <!-- BADGES -->
-<section id="badges" style="background:var(--bg-subtle)">
+<!-- ROUND 30: HIDDEN per request — preserved for future use
+<section id="badges" style="background:var(— —bg-subtle);padding:48px 0">
 <div class="container">
-<div class="tc">
+<div class="tc" style="margin-bottom:28px">
 <span class="eyebrow">Certifications &amp; badges</span>
-<h2>Badges recruiters can <span class="grad">verify</span>.</h2>
-<p class="sub">Every badge comes with a public verification link showing role, difficulty, score, and percentile. Shareable on LinkedIn as defensible proof — not another multiple-choice certificate.</p>
+<h2 style="font-size:1.5rem">Badges recruiters can <span class="grad">verify</span></h2>
 </div>
-<div class="brow">
+<div class="brow" style="max-width:780px;margin-left:auto;margin-right:auto;gap:12px">
 <div class="brc"><div class="bi br">
 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -2302,13 +2650,14 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </div>
 </section>
+-->
 
 <!-- FOUNDER -->
+<!-- ROUND 30: HIDDEN per request — preserved for future use
 <section id="founder" class="compact">
 <div class="container">
 <div class="tc">
-<span class="eyebrow">Built by security practitioners</span>
-<h2>Made by someone who's done the job.</h2>
+<h2>Made by someone who's done the job</h2>
 </div>
 <div class="fnd">
 <div class="fav">GE</div>
@@ -2319,14 +2668,15 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </div>
 </section>
+-->
 
 <!-- TESTIMONIALS — auto-rotating carousel, B2C user perspective -->
 <section id="testimonials" style="background:var(--bg-subtle)">
 <div class="container">
 <div class="tc">
 <span class="eyebrow">What engineers are saying</span>
-<h2>Real feedback from <span class="grad">real users</span>.</h2>
-<p class="sub">Engineers using ThreatReady to sharpen their reasoning, pass interviews, and build verifiable proof of skill.</p>
+<h2>Real feedback from <span class="grad">real users</span></h2>
+<p class="sub">Engineers sharpening their reasoning and building verifiable proof.</p>
 </div>
 <div class="tcarousel" id="tCarousel">
 <div class="tcarousel-track" id="tCarouselTrack">
@@ -2369,6 +2719,13 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 
 </div>
 
+<button type="button" class="tarrow tarrow-l" id="tPrev" aria-label="Previous testimonial">
+<svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<button type="button" class="tarrow tarrow-r" id="tNext" aria-label="Next testimonial">
+<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
 <div class="tcarousel-dots" id="tDots">
 <button class="tdot a" data-idx="0" aria-label="Go to slide 1"></button>
 <button class="tdot" data-idx="1" aria-label="Go to slide 2"></button>
@@ -2387,8 +2744,8 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="container">
 <div class="tc">
 <span class="eyebrow">Subscription plans</span>
-<h2>Simple plans. <span class="grad">No surprises.</span></h2>
-<p class="sub">Start free. Scale when you're ready. No credit card required for the free trial.</p>
+<h2>Simple plans <span class="grad">— no surprises</span></h2>
+<p class="sub">Start free. Scale when you're ready. No credit card required.</p>
 </div>
 <div class="pgr pplan a">
 <div class="pc">
@@ -2396,7 +2753,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="pp">₹0</div>
 <div class="pusd">Free, always</div>
 <div class="ppd">2 scenarios total · Beginner only</div>
-<div class="pcta"><a href="https://app.threatready.io/auth?mode=signup&plan=free" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Start Free</a></div>
+<div class="pcta"><a href="https://threatready.io/app/auth?mode=signup&plan=free" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Start Free</a></div>
 <ul class="pf">
 <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Beginner level across any role</li>
 <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Personal skill dashboard</li>
@@ -2410,7 +2767,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="pp">₹399</div>
 <div class="pusd">≈ $5 USD / month</div>
 <div class="ppd">per month · billed monthly</div>
-<div class="pcta"><button type="button" class="btn btn-primary" onclick="openAuthModal('single')">Choose Plan</button></div>
+<div class="pcta"><a href="https://threatready.io/app/auth?plan=single" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Choose Plan</a></div>
 <ul class="pf">
 <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>1 role, all 4 difficulty levels</li>
 <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited scenario attempts</li>
@@ -2424,7 +2781,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="pp">from ₹655</div>
 <div class="pusd">≈ $8 USD / month (2 roles)</div>
 <div class="ppd">2 roles 18% off · 3+ roles 30% off</div>
-<div class="pcta"><button type="button" class="btn btn-secondary" onclick="openAuthModal('multi')">Choose Plan</button></div>
+<div class="pcta"><a href="https://threatready.io/app/auth?plan=multi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Choose Plan</a></div>
 <ul class="pf">
 <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>2 or more roles unlocked</li>
 <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>All difficulty levels</li>
@@ -2439,6 +2796,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </section>
 
 <!-- PRODUCT HOOK STRIP -->
+<!-- ROUND 23: Engineering rigor hookstrip commented out per user request
 <div class="hookstrip">
 <div class="container">
 <div class="hookstrip-h">
@@ -2477,152 +2835,21 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </div>
 </div>
-
-<!-- FAQ -->
-<section id="faq">
-<div class="container">
-<div class="tc">
-<span class="eyebrow">FAQ</span>
-<h2>Questions we hear.</h2>
-</div>
-<div class="fql">
-<details class="fqi">
-<summary class="fqq">How is this different from Hack The Box, TryHackMe, or a CTF?</summary>
-<div class="fqa">
-<p>Hack The Box and TryHackMe teach hands-on exploitation through long-form labs and CTF challenges. Both are excellent learning platforms.</p>
-<p>ThreatReady solves a different problem: can a candidate reason through an attack chain in 30 minutes, the way a senior interviewer would ask them to? Adaptive AI questions, MITRE ATT&amp;CK mapped architectures, and a transparent rubric. It's not a replacement for learning — it's a replacement for technical phone screens.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">What's new in the 15 tracks — IAM, Data, AI/LLM Security?</summary>
-<div class="fqa">
-<p><strong>IAM Security</strong> covers identity governance, federated access patterns, and the privilege-escalation reasoning that catches real cloud breaches. Scenarios include OAuth consent grant attacks, cross-tenant access, and IAM Roles Anywhere misuse.</p>
-<p><strong>Data Security</strong> covers data classification, encryption strategy, DLP design, and data-residency reasoning. Scenarios include S3 bucket exfiltration, GDPR/DPDPA-compliant pipelines, and cross-region replication risks.</p>
-<p><strong>AI/LLM Security</strong> covers prompt injection, output validation, model supply-chain risks, and the unique threat surface of LLM-integrated applications. Scenarios include agentic-tool attacks, jailbreak chains, and training-data poisoning detection.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">What is the Career Genome and how is it different from a certification?</summary>
-<div class="fqa">
-<p>Certifications are binary — you have CISSP or you don't. They expire. They test memorized knowledge.</p>
-<p>The Career Genome is a continuously-updated, AI-evaluated, fraud-resistant skills profile mapped to NICE Workforce Framework and MITRE ATT&amp;CK. It shows exactly where you stand across dozens of sub-skills with verifiable session evidence — not self-reported claims. Share the public verification link on LinkedIn or attach to applications. It updates every session and never goes stale.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">How are scenarios kept current?</summary>
-<div class="fqa">
-<p>Our scenario architecture pool is reviewed and updated regularly to reflect current attack patterns. New scenarios are added based on real-world incidents — public breach reports, MITRE ATT&amp;CK technique additions, CISA Known Exploited Vulnerabilities entries, and NVD critical CVEs.</p>
-<p>Each difficulty level has multiple architectures from a global pool, and on retake the scoring engine selects a different architecture so memorisation doesn't help. Scenarios that become outdated are retired. The goal is that what you face on ThreatReady looks like what your team will actually triage next quarter — not a 2018 playbook.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">How does adaptive questioning work mid-session?</summary>
-<div class="fqa">
-<p>After each answer, the AI generates the next question based on what you actually said — not a pre-written question list. Strong answers earn harder follow-ups; shallow answers trigger clarifying ones. This serves two purposes: it prevents pre-prepared answers from gaming the assessment, and it explores depth where you've shown competence.</p>
-<p>Adaptive questions are bounded by the scenario's MITRE ATT&amp;CK tactics and the role's competency map — the AI cannot wander into unrelated domains. Combined with question variants on retake, this is the anti-gaming mechanism that lets one ThreatReady score replace 2–3 interview rounds.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">How does role-readiness scoring work?</summary>
-<div class="fqa">
-<p>Once you've completed assessments across multiple roles and modules, ThreatReady computes role-readiness percentages for target roles. Each target role has a competency profile that maps to the five anchored dimensions — for example, Senior Cloud Security Engineer might require Communication Quality ≥ 7.5, Architecture &amp; Blast Radius ≥ 7.0, Containment &amp; Response ≥ 7.5.</p>
-<p>Your dimension scores are weighted against the profile to produce a readiness percentage. The system surfaces your weakest dimension and recommends the modules that will close the gap fastest. Readiness updates after every session, so it's always current.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">How does the 3-Pass scoring engine actually work?</summary>
-<div class="fqa">
-<p>Single-pass AI scoring is easy to fool. Verbose-but-shallow answers score high. Hallucinated CVE numbers go undetected. Fluent-but-wrong responses pass through.</p>
-<p>Our scoring engine runs every answer through three independent AI passes:</p>
-<p><strong>Pass 1 — Evaluator:</strong> scores generously against the anchored rubric, citing specific evidence from your answer. Tends to over-credit verbose responses (intentionally — Pass 2 corrects).</p>
-<p><strong>Pass 2 — Challenger:</strong> adversarially reviews. Catches technical errors, fake CVEs, non-existent MITRE techniques, fabricated tools, inflated Pass 1 scores, and missing critical elements.</p>
-<p><strong>Pass 3 — Reconciler:</strong> reviews both prior passes, resolves disagreements, applies question-specific dimension weighting, and produces final scores with confidence levels (HIGH/MEDIUM/LOW). Disagreements above 3 points trigger a review flag visible to hiring managers.</p>
-<p>Three sequential Claude API calls per question. Five questions per scenario. Approximately ₹3.75 per assessment. The cost is the moat.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">What are anchored rubrics, and why do they matter?</summary>
-<div class="fqa">
-<p>"Anchored" means each score band has a concrete written definition. A 7 in Threat Identification doesn't mean "AI thought it was kind of good" — it means: <em>"Identifies primary and secondary vectors. Accurate MITRE mapping. Explains attacker decision logic."</em></p>
-<p>We publish all 5 dimensions × 5 score bands × 4 difficulty levels — a public scoring rubric anyone can audit. The dimensions are: Threat Identification, Containment &amp; Response, Architecture &amp; Blast Radius, Communication Quality, and Framework Application. Each question weights these dimensions differently — a "map this to MITRE" question weights Threat ID at 40%; an "executive briefing" question weights Communication at 50%.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">How do you know your scores are accurate over time?</summary>
-<div class="fqa">
-<p>AI scoring drifts. Anthropic updates models. Prompt tweaks have unintended consequences. Without automated testing, scoring degrades silently — you only discover it when a customer complains.</p>
-<p>We run nightly regression testing at 02:00 IST. A library of 50+ golden answers spanning 7 categories — Clearly Excellent, Clearly Poor, Fluent But Wrong, Correct But Poorly Communicated, Overconfident Hallucination, Partial But Well-Prioritized, and Technically Strong But Business-Blind — runs through the live scoring engine. If any answer scores outside its expected range, the engineering team gets a Slack alert immediately. Pass-rate target: 85%+. If it drops below 80%, we freeze prompt changes until investigated.</p>
-</div>
-</details>
-
-
-<details class="fqi">
-<summary class="fqq">Can candidates game the assessment with AI?</summary>
-<div class="fqa">
-<p>Copy-paste is disabled on every answer input. Each question is generated by AI based on the previous answer — so pre-prepared responses (or generic AI-generated ones) don't survive the follow-up. Architecture diagrams are drawn from a pool and selected randomly per session. Forward-only navigation prevents revision once a follow-up is seen.</p>
-<p>A candidate can certainly use AI to prepare for general interview topics, as they should. What they can't do is copy-paste an answer mid-assessment and get a passing score.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">What does the free trial include?</summary>
-<div class="fqa">
-<p>Two complete scenarios at Beginner difficulty, in any role you choose. No credit card required. After the two attempts, your account stays active — you can review your past scores indefinitely. To access Intermediate, Advanced, or Expert difficulty, you subscribe.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">Are scores defensible enough to use in real hiring decisions?</summary>
-<div class="fqa">
-<p>Every score is produced against our published, anchored rubric. We score across <strong>five dimensions</strong> on a 1–10 scale: <strong>Threat Identification</strong>, <strong>Containment &amp; Response</strong>, <strong>Architecture &amp; Blast Radius</strong>, <strong>Communication Quality</strong>, and <strong>Framework Application</strong>. Each question weights these dimensions differently — a "map this to MITRE" question weights Threat Identification at 40%; an "executive briefing" question weights Communication at 50%. Every dimension gets a written justification. Hiring managers see the candidate's answer side-by-side with the model answer, the per-dimension breakdown, and the qualitative band (DEVELOPING → EXPERT).</p>
-<p>We don't give you a hire / no-hire signal. We give you a defensible, explainable score you can use alongside the rest of your process.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">Do badges carry weight with recruiters?</summary>
-<div class="fqa">
-<p>Every badge has a public verification link showing role, difficulty, score, and percentile. It's not another multiple-choice certificate — it's a signal that a candidate reasoned through a real attack-path scenario scored by a transparent rubric. Recruiters can click the link and see exactly what was tested.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">Is my data and candidate data private?</summary>
-<div class="fqa">
-<p>Yes. Primary data is stored in India (Mumbai region). AI evaluation uses Anthropic's Claude API (US-based) — candidates see an AI-disclosure banner before starting. All data is encrypted in transit (TLS 1.3) and at rest. Each user account is fully isolated. GDPR and India DPDPA 2023 rights (export, deletion) are supported.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">How long does a scenario take?</summary>
-<div class="fqa">
-<p>Depends on difficulty. Beginner scenarios take 5–8 minutes. Intermediate 10–14 minutes. Advanced 12–18 minutes. Expert 15–20 minutes. A full InterviewPrep session combining 2–3 modules typically runs about 30 minutes end-to-end.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">Do you support voice answers?</summary>
-<div class="fqa">
-<p>Yes. Voice dictation is available in supported browsers (Chrome, Edge) with real-time transcription. Candidates can switch between typing and speaking freely. Voice-only mode is available as part of the premium Interview Mode add-on.</p>
-</div>
-</details>
-<details class="fqi">
-<summary class="fqq">Can I integrate with our ATS?</summary>
-<div class="fqa">
-<p>CSV export is available on all paid plans. Resume parsing, badge sharing, and verification links work everywhere. Direct integration with hiring tools (Greenhouse, Lever, Workday) is on the roadmap as we expand. For now, exporting your skill report as a PDF and attaching to applications is the most common workflow.</p>
-</div>
-</details>
-</div>
-</div>
-</section>
+-->
 
 <!-- BLOG — ATTACK OF THE WEEK -->
 <section class="bsec" id="blog">
 <div class="container">
-<div class="bsec-h">
-<span class="eyebrow">Attack of the Week · Editorial series</span>
-<h2>Real attack chains, <span class="grad">dissected weekly</span>.</h2>
-<p class="sub">A short, high-signal read every Friday. We take a real-world attack pattern, map it to MITRE ATT&amp;CK, show the architecture, and walk through the reasoning step by step. Written by security engineers, for security engineers.</p>
+<div class="bsec-h" style="margin-bottom:32px">
+<span class="eyebrow">Attack of the Week</span>
+<h2>Real attack chains, <span class="grad">dissected weekly</span></h2>
+<p class="sub">A short, high-signal read every Friday.</p>
 </div>
 </div>
 
 <div class="bgrid">
 
-<article class="bcard">
+<article class="bcard" data-week-idx="0">
 <div class="bcard-hero">
 <span class="bcard-badge">Edition 01</span>
 <svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
@@ -2648,7 +2875,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span>Cloud Security</span>
 </div>
 <h3>S3 Bucket Misconfiguration &rarr; IAM Privilege Escalation &rarr; Data Exfiltration</h3>
-<p>A public S3 bucket exposes a long-lived IAM credential embedded in a Lambda environment variable. Three months later, 47,000 PII records walk out the door. Why static credentials are still the #1 root cause of cloud breaches &mdash; and the one control that would have stopped this cold.</p>
+<p>How a public S3 bucket and a long-lived IAM credential walked 47,000 PII records out the door.</p>
 <div class="bcard-tech">
 <span class="bcard-tech-chip">AWS</span>
 <span class="bcard-tech-chip mitre">T1078</span>
@@ -2659,7 +2886,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </article>
 
-<article class="bcard">
+<article class="bcard" data-week-idx="1">
 <div class="bcard-hero">
 <span class="bcard-badge">Edition 02</span>
 <svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
@@ -2686,7 +2913,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span>Kubernetes</span>
 </div>
 <h3>Kubernetes RBAC Bypass &rarr; Container Escape &rarr; Lateral Movement to Node</h3>
-<p>A compromised pod with a seemingly-scoped ServiceAccount turns into full cluster compromise in four RBAC hops. We walk through the token mount, the privilege chain, and why defenders keep missing the lateral path. Detection opportunities at every stage &mdash; and which ones are actually practical.</p>
+<p>Pod compromise to full cluster control in four RBAC hops — and the detections that actually catch it.</p>
 <div class="bcard-tech">
 <span class="bcard-tech-chip">K8s</span>
 <span class="bcard-tech-chip mitre">T1552.007</span>
@@ -2697,7 +2924,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </article>
 
-<article class="bcard">
+<article class="bcard" data-week-idx="2">
 <div class="bcard-hero">
 <span class="bcard-badge">Edition 03</span>
 <svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
@@ -2724,7 +2951,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span>DevSecOps</span>
 </div>
 <h3>CI/CD Pipeline Injection &rarr; Secret Exposure &rarr; Cloud Account Takeover</h3>
-<p>An attacker opens a pull request with a malicious build script. The CI runner has admin cloud credentials mounted as environment variables. Ten minutes later, they own the account. The anatomy of supply-chain compromise through your own CI &mdash; and the four controls that stop it.</p>
+<p>One malicious PR. Ten minutes to cloud account takeover. The four controls that stop it.</p>
 <div class="bcard-tech">
 <span class="bcard-tech-chip">GitHub Actions</span>
 <span class="bcard-tech-chip mitre">T1195.002</span>
@@ -2734,19 +2961,19 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </article>
 
-<article class="bcard soon">
+<article class="bcard" data-week-idx="3">
 <div class="bcard-hero">
-<span class="bcard-badge coming">Edition 04 &middot; Soon</span>
+<span class="bcard-badge">Edition 04</span>
 <svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="20" width="70" height="30" rx="4" fill="#fff" stroke="#d4d1d9" stroke-dasharray="4,3"/>
+<rect x="10" y="20" width="70" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
 <text x="45" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#737383">Azure AD</text>
-<rect x="110" y="20" width="70" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<rect x="110" y="20" width="70" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
 <text x="145" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">Token theft</text>
 <text x="145" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">OAuth</text>
-<rect x="200" y="20" width="70" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+<rect x="200" y="20" width="70" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
 <text x="235" y="35" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">Tenant B</text>
 <text x="235" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#ef4444">accessed</text>
-<rect x="110" y="90" width="70" height="30" rx="4" fill="#f5f3ff" stroke="#7c3aed" stroke-dasharray="4,3"/>
+<rect x="110" y="90" width="70" height="30" rx="4" fill="#f5f3ff" stroke="#7c3aed"/>
 <text x="145" y="109" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">Sign-in logs</text>
 <path d="M80 35 L110 35" stroke="#737383" stroke-width="1" stroke-dasharray="3,3"/>
 <path d="M180 35 L200 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
@@ -2756,31 +2983,31 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="bcard-body">
 <div class="bcard-meta">
 <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-<span>Coming Friday</span>
+<span>7 min read</span>
 <span class="bcard-meta-dot"></span>
 <span>Identity</span>
 </div>
 <h3>Azure AD Token Theft &rarr; Cross-Tenant Access &rarr; Persistent Backdoor</h3>
-<p>A phished OAuth consent grant becomes a cross-tenant lateral-movement path that survives password resets and MFA rotation. Why consent-grant attacks are the most under-detected identity compromise of 2026 &mdash; and how to spot them in sign-in logs before they spread.</p>
+<p>OAuth consent attacks survive password resets and MFA rotation. Here's how to spot them.</p>
 <div class="bcard-tech">
 <span class="bcard-tech-chip">Azure</span>
 <span class="bcard-tech-chip mitre">T1550.001</span>
 <span class="bcard-tech-chip mitre">T1098.001</span>
 </div>
-<span class="bcard-link">Subscribe to get it first <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg></span>
+<a href="#blog" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
-<article class="bcard soon">
+<article class="bcard" data-week-idx="4">
 <div class="bcard-hero">
-<span class="bcard-badge coming">Edition 05 &middot; Soon</span>
+<span class="bcard-badge">Edition 05</span>
 <svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9" stroke-dasharray="4,3"/>
+<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
 <text x="40" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#737383">SIEM</text>
-<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
 <text x="140" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">EDR gap</text>
 <text x="140" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">silent</text>
-<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
 <text x="240" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">Ransomware</text>
 <path d="M70 35 L110 35" stroke="#737383" stroke-width="1" stroke-dasharray="3,3"/>
 <path d="M170 35 L210 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
@@ -2789,31 +3016,31 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="bcard-body">
 <div class="bcard-meta">
 <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-<span>In draft</span>
+<span>9 min read</span>
 <span class="bcard-meta-dot"></span>
 <span>Detection</span>
 </div>
 <h3>When the SIEM Misses: Engineering Detections for the Gap</h3>
-<p>Your SIEM dashboard is green. Your EDR is green. Yet the initial foothold lasted eleven days before anyone noticed. A hunting case study through logs you already have &mdash; and the three detection patterns that cost nothing to deploy but would have caught it in hour one.</p>
+<p>SIEM green. EDR green. Foothold lasted 11 days. Three free detections that would have caught it in hour one.</p>
 <div class="bcard-tech">
 <span class="bcard-tech-chip">SIEM</span>
 <span class="bcard-tech-chip">EDR</span>
 <span class="bcard-tech-chip mitre">T1562.001</span>
 </div>
-<span class="bcard-link">Subscribe to get it first <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg></span>
+<a href="#blog" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
-<article class="bcard soon">
+<article class="bcard" data-week-idx="5">
 <div class="bcard-hero">
-<span class="bcard-badge coming">Edition 06 &middot; Soon</span>
+<span class="bcard-badge">Edition 06</span>
 <svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9" stroke-dasharray="4,3"/>
+<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
 <text x="40" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#737383">API</text>
-<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
 <text x="140" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">IDOR</text>
 <text x="140" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">unchecked</text>
-<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
 <text x="240" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">PII dump</text>
 <path d="M70 35 L110 35" stroke="#737383" stroke-width="1" stroke-dasharray="3,3"/>
 <path d="M170 35 L210 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
@@ -2822,18 +3049,18 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="bcard-body">
 <div class="bcard-meta">
 <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-<span>In draft</span>
+<span>5 min read</span>
 <span class="bcard-meta-dot"></span>
 <span>AppSec</span>
 </div>
 <h3>The IDOR That Wasn't: Authorization Bypass via JWT Claim Confusion</h3>
-<p>The endpoint checks the JWT signature. It checks expiry. It even checks the audience claim. But the authorization decision trusts a field the attacker controls. How claim-confusion attacks slip past every WAF signature &mdash; and the framework-level fix that actually works.</p>
+<p>JWT claim confusion slips past every WAF — and the framework-level fix that actually works.</p>
 <div class="bcard-tech">
 <span class="bcard-tech-chip">OWASP API</span>
 <span class="bcard-tech-chip mitre">T1078</span>
 <span class="bcard-tech-chip">JWT</span>
 </div>
-<span class="bcard-link">Subscribe to get it first <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg></span>
+<a href="#blog" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
@@ -2846,11 +3073,103 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </section>
 
-<!-- NEWSLETTER -->
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
+<div class="tc">
+<span class="eyebrow">FAQ</span>
+<h2>Questions we hear</h2>
+</div>
+<div class="faq-flip-grid">
+
+<div class="faq-flip">
+<div class="faq-flip-i">
+<div class="faq-flip-f">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 17h.01M9.5 9a2.5 2.5 0 015 0c0 1.5-2.5 2-2.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<h5>What's new in IAM, Data, AI/LLM tracks?</h5>
+<span class="faq-flip-tap">Tap to read</span>
+</div>
+<div class="faq-flip-b">
+<p>IAM covers identity governance and privilege escalation. Data covers classification, encryption, DLP. AI/LLM covers prompt injection, output validation, model supply-chain risks.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-flip">
+<div class="faq-flip-i">
+<div class="faq-flip-f">
+<svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V7l-8-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<h5>Do badges carry weight with recruiters?</h5>
+<span class="faq-flip-tap">Tap to read</span>
+</div>
+<div class="faq-flip-b">
+<p>Every badge has a public verification link showing role, difficulty, score, and percentile — recruiters can audit exactly what was tested.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-flip">
+<div class="faq-flip-i">
+<div class="faq-flip-f">
+<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>
+<h5>Is my data and candidate data private?</h5>
+<span class="faq-flip-tap">Tap to read</span>
+</div>
+<div class="faq-flip-b">
+<p>Yes. Data is stored in Mumbai. TLS 1.3 in transit, encrypted at rest. GDPR and India DPDPA 2023 rights supported.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-flip">
+<div class="faq-flip-i">
+<div class="faq-flip-f">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<h5>How long does a scenario take?</h5>
+<span class="faq-flip-tap">Tap to read</span>
+</div>
+<div class="faq-flip-b">
+<p>Beginner 5–8 min · Intermediate 10–14 min · Advanced 12–18 min · Expert 15–20 min. Full InterviewPrep ~30 min.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-flip">
+<div class="faq-flip-i">
+<div class="faq-flip-f">
+<svg viewBox="0 0 24 24" fill="none"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<h5>Do you support voice answers?</h5>
+<span class="faq-flip-tap">Tap to read</span>
+</div>
+<div class="faq-flip-b">
+<p>Yes. Voice dictation works in Chrome and Edge with real-time transcription. Type or speak freely.</p>
+</div>
+</div>
+</div>
+
+<div class="faq-flip">
+<div class="faq-flip-i">
+<div class="faq-flip-f">
+<svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+<h5>Can I integrate with our ATS?</h5>
+<span class="faq-flip-tap">Tap to read</span>
+</div>
+<div class="faq-flip-b">
+<p>CSV export on all paid plans. PDF skill reports for application attachment. Direct ATS integration on roadmap.</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ROUND 23: Newsletter section commented out per user request
+[[ NEWSLETTER ]]
 <section id="newsletter" class="nsec">
 <div class="container">
 <div class="nc">
-<h2>Get Attack of the Week in your inbox.</h2>
+<h2>Get Attack of the Week in your inbox</h2>
 <p>One scenario per week. The architecture, the attack chain, the reasoning path. Sharp, short, no spam.</p>
 <form class="nform" id="nForm" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
 <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
@@ -2864,42 +3183,10 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 </div>
 </div>
 </section>
+-->
 
-<!-- FINAL CTA -->
-<section class="fcta" id="contact">
-<div class="container">
-<h2>Prove you can think like an <span class="hl">attacker.</span></h2>
-<p>Start free. No credit card. Your first scenario takes about 5 minutes.</p>
-<div class="hero-cta" style="justify-content:center">
-<a href="#demo" class="btn btn-primary btn-lg">Try Free Scenario <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<a href="#pricing" class="btn btn-secondary btn-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>Contact Sales</a>
-</div>
-<div class="fcc">
-<a href="mailto:humanresource@aerovanttech.com?subject=ThreatReady%20%E2%80%94%20enquiry" class="fcard fcard-link" data-email="humanresource@aerovanttech.com">
-<div class="fcard-h"><svg class="fcard-ic" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg><div class="fcl">Human Resources · Pilots &amp; Sales</div></div>
-<span class="fcard-email">humanresource@aerovanttech.com</span>
-<span class="fcard-hint">Opens Gmail compose · address also copied to clipboard</span>
-</a>
-<a href="mailto:admin@aerovanttech.com?subject=ThreatReady%20%E2%80%94%20support" class="fcard fcard-link" data-email="admin@aerovanttech.com">
-<div class="fcard-h"><svg class="fcard-ic" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg><div class="fcl">Customer Support</div></div>
-<span class="fcard-email">admin@aerovanttech.com</span>
-<span class="fcard-hint">Opens Gmail compose · address also copied to clipboard</span>
-</a>
-</div>
-
-<div class="abrand">
-<a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer" class="abrand-link">
-<div class="abrand-pre">A PRODUCT OF</div>
-<div class="abrand-name">AEROVANT<span class="abrand-dot">·</span>TECHNOLOGIES</div>
-<div class="abrand-tag">Building reasoning-first assessment tools for security teams</div>
-<div class="abrand-visit">
-<span>Visit aerovanttech.com</span>
-<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</div>
-</a>
-</div>
-</div>
-</section>
+<!-- ROUND 28: FINAL CTA "Reach out to us" section removed; contact emails moved to footer -->
+<a id="contact" class="anchor-only" aria-hidden="true"></a>
 
 <!-- FOOTER -->
 <footer class="ft">
@@ -2908,10 +3195,21 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 
 <div class="fbr">
 <a href="#" class="logo">
-<span class="logo-i"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V13 C20 17 16.5 20 12 21 C7.5 20 4 17 4 13 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-<span class="logo-t">ThreatReady<span class="dot">.</span>io</span>
+<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="36" height="24"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="36" height="24"/></span>
+<span class="logo-t">ThreatReady</span>
 </a>
-<p>The attack-reasoning evaluation platform. 15 security tracks. 6 reasoning modes. Scored by our 3-Pass AI engine against published, anchored rubrics.</p>
+<!-- ROUND 28: contact emails moved here from removed "Reach out to us" section -->
+<div class="fbr-contact">
+<span class="fbr-c-l">Contact</span>
+<a href="mailto:humanresource@aerovanttech.com?subject=ThreatReady%20%E2%80%94%20enquiry">
+<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+humanresource@aerovanttech.com
+</a>
+<a href="mailto:admin@aerovanttech.com?subject=ThreatReady%20%E2%80%94%20support">
+<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+admin@aerovanttech.com
+</a>
+</div>
 </div>
 
 <div class="fcol">
@@ -2932,7 +3230,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <li><a href="sample-report.html">Sample skill report</a></li>
 <li><a href="#blog">Attack of the Week</a></li>
 <li><a href="#faq">FAQ</a></li>
-<li><a href="https://app.threatready.io/auth" target="_blank" rel="noopener noreferrer">Sign in</a></li>
+<li><a href="https://threatready.io/app/auth" target="_blank" rel="noopener noreferrer">Sign in</a></li>
 </ul>
 </div>
 
@@ -2949,6 +3247,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 
 </div>
 
+<!-- ROUND 31: 'A Product of Aerovant Technologies' restored per user request -->
 <div class="aprod-idx"><span>A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div>
 
 <div class="fbot">
@@ -3166,66 +3465,93 @@ async function submitDemo() {
   document.getElementById('dLoad').classList.add('a');
 
   const question = (currentScenario && currentScenario.question) || 'Cybersecurity scenario question';
+  const lower = ans.toLowerCase();
 
-  let result;
+  // ---- Try real AI evaluation backend first ----
+  let apiResult = null;
   try {
     const res = await fetch('https://threatready-db.onrender.com/api/demo/evaluate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ question, answer: ans })
     });
-    result = await res.json();
+    if (res.ok) apiResult = await res.json();
   } catch (e) {
-    console.error('Demo eval failed, falling back to heuristic:', e);
-    result = null;
+    console.warn('Demo eval API unavailable, using heuristic fallback:', e);
   }
 
   document.getElementById('dLoad').classList.remove('a');
   document.getElementById('dRes').classList.add('a');
 
-  let tech, comm, dec, total;
+  let ti, cr, ab, cq, fa, total;
 
-  if (result && result.tech !== undefined) {
-    // Real AI evaluation succeeded
-    tech = +(result.tech).toFixed(1);
-    comm = +(result.comm).toFixed(1);
-    dec = +(result.dec).toFixed(1);
-    total = +(result.score).toFixed(1);
+  if (apiResult && apiResult.tech !== undefined && apiResult.comm !== undefined && apiResult.dec !== undefined) {
+    // Map the API's 3-dimension response to the 5 anchored dimensions in the UI.
+    // tech is shared by Threat Identification + Framework Application (both tech-leaning).
+    // dec is shared by Containment & Response + Architecture (both judgment-leaning).
+    // comm maps directly to Communication Quality.
+    const t = +apiResult.tech, c = +apiResult.comm, d = +apiResult.dec;
+    ti = +(t).toFixed(1);
+    fa = +(t * 0.95).toFixed(1);
+    cr = +(d).toFixed(1);
+    ab = +((t + d) / 2).toFixed(1);
+    cq = +(c).toFixed(1);
+    total = (apiResult.score !== undefined)
+      ? +(+apiResult.score).toFixed(1)
+      : +((ti * 0.10) + (cr * 0.40) + (ab * 0.20) + (cq * 0.15) + (fa * 0.15)).toFixed(1);
   } else {
-    // Fallback to heuristic if API fails
-    const lower = ans.toLowerCase();
-    let t = 5, c = 5, d = 5;
+    // ---- Heuristic fallback (round 28 baseline) — runs when API is unreachable ----
+    ti = 5; cr = 5; ab = 5; cq = 5; fa = 5;
     const techTerms = (currentScenario && currentScenario.techTerms) || ['iam','role','scope','forensic','rotate','credential'];
-    techTerms.forEach(term => { if (lower.includes(term)) t += 0.35; });
-    if (ans.length > 80) c += 1;
-    if (ans.length > 200) c += 1.5;
-    if (ans.match(/first|then|next|after|because|so that|to prevent|sequence/i)) c += 1.5;
-    if (ans.match(/\b(1\.|2\.|step)/i)) c += 1;
-    if (lower.match(/contain|priorit|before|preserve|forensic|impact|business|stakeholder|speed over|trade.?off/)) d += 1.5;
-    if (lower.match(/investigate|root cause|scope/)) d += 1;
-    if (lower.match(/communicate|notify|escalate/)) d += 0.5;
-    tech = Math.min(10, Math.max(3, +t.toFixed(1)));
-    comm = Math.min(10, Math.max(3, +c.toFixed(1)));
-    dec = Math.min(10, Math.max(3, +d.toFixed(1)));
-    total = +((tech * 0.4) + (comm * 0.3) + (dec * 0.3)).toFixed(1);
+    techTerms.forEach(t => { if (lower.includes(t)) ti += 0.30; });
+    if (lower.match(/mitre|att&ck|attck|t10|t11|t1078|t1190|t1486|t1537|t1059|t1611/)) ti += 0.8;
+    if (lower.match(/vector|technique|tactic|exploitation|attacker/)) ti += 0.4;
+
+    if (lower.match(/contain|isolat|revoke|disable|quarantine|kill switch/)) cr += 1.0;
+    if (lower.match(/preserve|forensic|snapshot|evidence|don'?t.{0,10}delete/)) cr += 1.0;
+    if (lower.match(/first|sequence|before|then|priorit/)) cr += 0.6;
+    if (lower.match(/cert.?in|gdpr|dpdpa|72.?hour|notification/)) cr += 0.5;
+
+    if (lower.match(/blast radius|downstream|dependenc|trust|cross.?account|lateral/)) ab += 1.0;
+    if (lower.match(/scope|segment|boundary|network|vpc|subnet/)) ab += 0.5;
+    if (lower.match(/architecture|component|service|resource/)) ab += 0.4;
+
+    if (ans.length > 80) cq += 0.7;
+    if (ans.length > 200) cq += 0.8;
+    if (ans.match(/first|then|next|after|because|so that|to prevent|sequence/i)) cq += 1.0;
+    if (ans.match(/\b(1\.|2\.|step)/i)) cq += 0.6;
+    if (lower.match(/ceo|board|legal|stakeholder|brief|update|communicate/)) cq += 0.5;
+
+    if (lower.match(/nist|800.?61|800.?86|iso.?27001|cis|owasp|d3fend/)) fa += 1.2;
+    if (lower.match(/runbook|playbook|standard|policy|control/)) fa += 0.4;
+    if (lower.match(/least.?privilege|zero.?trust|defense.?in.?depth|principle of/)) fa += 0.5;
+    if (lower.match(/mitre|att&ck/)) fa += 0.5;
+
+    const clamp = v => Math.min(10, Math.max(3, +v.toFixed(1)));
+    ti = clamp(ti); cr = clamp(cr); ab = clamp(ab); cq = clamp(cq); fa = clamp(fa);
+    total = +((ti * 0.10) + (cr * 0.40) + (ab * 0.20) + (cq * 0.15) + (fa * 0.15)).toFixed(1);
   }
 
+  // Render — same UI elements regardless of which path produced the scores
   document.getElementById('dScore').textContent = total + ' / 10';
-  document.getElementById('dTechS').textContent = tech;
-  document.getElementById('dCommS').textContent = comm;
-  document.getElementById('dDecS').textContent = dec;
+  document.getElementById('dTIS').textContent = ti;
+  document.getElementById('dCRS').textContent = cr;
+  document.getElementById('dABS').textContent = ab;
+  document.getElementById('dCQS').textContent = cq;
+  document.getElementById('dFAS').textContent = fa;
   setTimeout(() => {
-    document.getElementById('dTech').style.width = (tech * 10) + '%';
-    document.getElementById('dComm').style.width = (comm * 10) + '%';
-    document.getElementById('dDec').style.width = (dec * 10) + '%';
+    document.getElementById('dTI').style.width = (ti * 10) + '%';
+    document.getElementById('dCR').style.width = (cr * 10) + '%';
+    document.getElementById('dAB').style.width = (ab * 10) + '%';
+    document.getElementById('dCQ').style.width = (cq * 10) + '%';
+    document.getElementById('dFA').style.width = (fa * 10) + '%';
   }, 50);
 }
-
 function resetDemo() {
   document.getElementById('dRes').classList.remove('a');
   document.getElementById('dStage1').style.display = 'block';
   document.getElementById('dAns').value = '';
-  ['dTech','dComm','dDec'].forEach(id => document.getElementById(id).style.width = '0%');
+  ['dTI','dCR','dAB','dCQ','dFA'].forEach(id => document.getElementById(id).style.width = '0%');
   // Pick a fresh scenario for the retry
   renderScenario();
 }
@@ -3741,8 +4067,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 (function(){
   const track = document.getElementById('tCarouselTrack');
   const dots = document.querySelectorAll('#tDots .tdot');
-  if (!track || !dots.length) return;
-  const total = dots.length;
+  const slides = track ? track.querySelectorAll('.tslide') : [];
+  if (!track || !slides.length) return;
+  // ROUND 31: use slide count as source of truth — prevents blank slide bug
+  // when dot count and slide count drift apart.
+  const total = slides.length;
+  // Hide any extra dots beyond the slide count
+  dots.forEach((d, i) => { if (i >= total) d.style.display = 'none'; });
   let idx = 0;
   let timer = null;
   const AUTO_MS = 3000;
@@ -3752,30 +4083,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     track.style.transform = `translateX(-${idx * 100}%)`;
     dots.forEach((d, n) => d.classList.toggle('a', n === idx));
   }
-  function start() { stop(); timer = setInterval(() => show(idx + 1), AUTO_MS); }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
+  // ROUND 32: auto-slide DISABLED per user request — manual arrows + dots only
   dots.forEach(d => d.addEventListener('click', () => {
     show(parseInt(d.dataset.idx, 10));
-    start(); // reset timer
   }));
 
-  // Pause on hover
-  const carousel = document.getElementById('tCarousel');
-  if (carousel) {
-    carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', start);
-    carousel.addEventListener('focusin', stop);
-    carousel.addEventListener('focusout', start);
-  }
-
-  // Pause when tab is hidden
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stop(); else start();
-  });
+  const prev = document.getElementById('tPrev');
+  const next = document.getElementById('tNext');
+  if (prev) prev.addEventListener('click', () => { show(idx - 1); });
+  if (next) next.addEventListener('click', () => { show(idx + 1); });
 
   show(0);
-  start();
 })();
 </script>
 
@@ -3836,7 +4155,7 @@ By continuing you agree to our <a href="terms.html">Terms</a> and <a href="priva
    The actual login happens on the product's /?view=auth screen.
    We don't handle passwords here — we only capture the plan intent and forward
    the user to the product with both the mode (login/signup) and plan params. */
-const PRODUCT_URL = 'https://app.threatready.io';
+const PRODUCT_URL = 'https://threatready.io/app';
 let aCurrentPlan = 'single';
 let aCurrentMode = 'login';
 
@@ -4082,6 +4401,127 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
 })();
 </script>
 
+<script>
+/* ROUND 23: Attack of the Week — show only 3 of 6 cards, rotating weekly.
+   Algorithm: ISO week number mod 2 selects either cards 0-2 or 3-5.
+   This way every 7 days a different set of 3 cards is visible.
+   
+   For finer control (rotate any 3 of 6), we use a sliding window:
+   week 0: [0,1,2]
+   week 1: [3,4,5]
+   week 2: [0,1,2]  (back to start)
+   ...etc.
+*/
+(function(){
+  function isoWeekNumber(date){
+    var d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    var dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  }
+  function rotateAttackOfWeek(){
+    var cards = document.querySelectorAll('.bcard[data-week-idx]');
+    if (cards.length < 6) return;
+    var week = isoWeekNumber(new Date());
+    var slot = week % 2;  // 0 or 1
+    cards.forEach(function(card){
+      var idx = parseInt(card.getAttribute('data-week-idx'), 10);
+      var visible;
+      if (slot === 0) {
+        visible = (idx >= 0 && idx <= 2);
+      } else {
+        visible = (idx >= 3 && idx <= 5);
+      }
+      card.style.display = visible ? '' : 'none';
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rotateAttackOfWeek);
+  } else {
+    rotateAttackOfWeek();
+  }
+})();
+</script>
+
+<script>
+/* Round 24: Scrollspy — highlight the nav link for the section currently in view.
+   Uses IntersectionObserver to track which section is most visible, then adds
+   .active class to the corresponding desktop nav link.
+*/
+(function(){
+  function initScrollspy(){
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    if (!navLinks.length) return;
+    
+    // Build a map of hash → nav link element
+    var linkMap = {};
+    navLinks.forEach(function(link){
+      var href = link.getAttribute('href');
+      if (href && href.length > 1) {
+        linkMap[href.substring(1)] = link;
+      }
+    });
+    
+    // Find sections that have matching IDs in the nav
+    var sections = [];
+    Object.keys(linkMap).forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) sections.push(el);
+    });
+    
+    if (!sections.length) return;
+    
+    // Track visibility using IntersectionObserver
+    var visibilityMap = {};
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        visibilityMap[entry.target.id] = entry.intersectionRatio;
+      });
+      // Find the section with the highest visible ratio
+      var best = null, bestRatio = 0;
+      Object.keys(visibilityMap).forEach(function(id){
+        if (visibilityMap[id] > bestRatio) {
+          bestRatio = visibilityMap[id];
+          best = id;
+        }
+      });
+      // Update active class on nav links
+      navLinks.forEach(function(link){ link.classList.remove('active'); });
+      if (best && linkMap[best]) {
+        linkMap[best].classList.add('active');
+      }
+    }, {
+      rootMargin: '-80px 0px -50% 0px',
+      threshold: [0, 0.05, 0.1, 0.25, 0.5, 0.75, 1]
+    });
+    
+    sections.forEach(function(s){ observer.observe(s); });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollspy);
+  } else {
+    initScrollspy();
+  }
+})();
+</script>
+
+
+<script>
+/* ROUND 33: FAQ flip cards — tap to flip */
+(function(){
+  document.querySelectorAll('.faq-flip').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('flipped'); }
+    });
+    if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'Tap to flip');
+  });
+})();
+</script>
 
 </body>
 </html>

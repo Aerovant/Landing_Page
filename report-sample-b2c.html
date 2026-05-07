@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Sample ThreatReady skill report — see exactly what your detailed report looks like after a session. Fictional user, real format.">
+<meta name="description" content="Sample ThreatReady candidate assessment report — see exactly what a you receives after a candidate completes a scenario. Fictional candidate, real format.">
 <meta name="robots" content="index, follow">
-<title>Sample Skill Report · ThreatReady</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<title>Sample Candidate Report — ThreatReady</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c3aed'/%3E%3Cpath d='M16 6 L24 10 V17 C24 22 20.5 25.5 16 27 C11.5 25.5 8 22 8 17 V10 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
 <script>
 (function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
@@ -215,25 +213,13 @@
 .rsnap{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
 .rsnap svg{width:50%;height:50%;color:rgba(255,255,255,.25)}
 .rsnap-t{position:absolute;bottom:4px;left:4px;right:4px;font-family:var(--mono);font-size:.625rem;color:#ece9f4;background:rgba(0,0,0,.7);padding:1px 4px;border-radius:3px;text-align:center}
-
-/* Q&A references panel — added in round 16 */
-.rrefs{margin-top:14px;padding:14px 16px;background:linear-gradient(135deg,rgba(124,58,237,.04) 0%,rgba(168,85,247,.06) 100%);border:1px solid rgba(124,58,237,.12);border-radius:var(--r-md);font-size:.8125rem;line-height:1.6}
-:root[data-theme="dark"] .rrefs{background:linear-gradient(135deg,rgba(124,58,237,.1) 0%,rgba(168,85,247,.06) 100%);border-color:rgba(167,139,250,.2)}
-.rrefs-h{display:flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-.rrefs-h svg{width:13px;height:13px}
-.rrefs-grid{display:grid;grid-template-columns:140px 1fr;gap:6px 14px;color:var(--text-2)}
-@media (max-width:520px){.rrefs-grid{grid-template-columns:1fr;gap:2px 0}.rrefs-grid > *:nth-child(odd){font-weight:700;color:var(--primary);margin-top:8px}.rrefs-grid > *:first-child{margin-top:0}}
-.rrefs-grid > *:nth-child(odd){font-weight:600;color:var(--text);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
-.rrefs-grid code{font-family:var(--mono);font-size:.85em;background:var(--surface);padding:1px 6px;border-radius:4px;color:var(--text);border:1px solid var(--border-2)}
-.rrefs-grid a{color:var(--primary);text-decoration:none;border-bottom:1px solid rgba(124,58,237,.3)}
-.rrefs-grid a:hover{border-bottom-color:var(--primary)}
 </style>
 </head>
 <body>
 
 <!-- Public-sample banner -->
 <div class="rbanner">
-📄 This is a <strong>sample report</strong> with a fictional user — the exact format you receive after each session. <a href="https://app.threatready.io/" target="_blank" rel="noopener">Start your first session</a> to generate yours.
+📄 This is a <strong>sample report</strong> with a fictional candidate — the exact format yous receive. <a href="pilot.html">Start a free pilot</a> to generate real ones.
 </div>
 
 <nav class="lnav">
@@ -261,33 +247,21 @@
 <div class="rhead">
 <div class="rhead-top">
 <div class="rcandid-wrap">
-<div class="rcandid-photo" title="Identity-verified headshot captured at session start">
-<!-- Representative silhouette. Real reports show the webcam frame from session start, timestamped. -->
-<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-<rect width="72" height="72" fill="#ede9fe"/>
-<circle cx="36" cy="30" r="13" fill="#a78bfa"/>
-<path d="M8 72 C8 54 20 46 36 46 C52 46 64 54 64 72 Z" fill="#a78bfa"/>
-</svg>
-<svg class="cap" viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" fill="currentColor"/><circle cx="12" cy="13" r="4" fill="#fff"/></svg>
-</div>
+<div class="ravatar" style="background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;font-weight:700">PR</div>
 <div style="flex:1">
 <div class="rcname">Priya Ramanathan <span style="font-weight:400;color:var(--text-3);font-size:.875rem">(sample)</span></div>
 <div class="rcmeta">
 <span>📧 priya.r@example.com</span>
 <span>🎯 Cloud Security · Intermediate</span>
 </div>
-<div class="rcandid-ids">
-<span class="rcandid-id"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ID verified</span>
-<span class="rcandid-id"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>Webcam active throughout</span>
-<span class="rcandid-id"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Screen recorded</span>
-</div>
+
 </div>
 </div>
 <div class="rlogo-org">
 <div class="rlogo-org-i">NW</div>
 <div class="rlogo-org-t">
-<strong>Cloud Security · Intermediate</strong>
-<span>Practice session · Career Genome update</span>
+<strong>Your Practice Account</strong>
+<span>Role track: Cloud Security · Intermediate</span>
 </div>
 </div>
 </div>
@@ -300,29 +274,19 @@
 </div>
 <div class="rbars">
 <div class="rbar">
-<div class="rbar-l">Threat Identification<small>Weighted across questions</small></div>
+<div class="rbar-l">Technical Depth<small>Weight: 40%</small></div>
 <div class="rbar-t"><div class="rbar-f" style="width:82%"></div></div>
 <div class="rbar-v">8.2<small>/10</small></div>
 </div>
 <div class="rbar">
-<div class="rbar-l">Containment &amp; Response<small>Weighted across questions</small></div>
-<div class="rbar-t"><div class="rbar-f" style="width:78%"></div></div>
-<div class="rbar-v">7.8<small>/10</small></div>
-</div>
-<div class="rbar">
-<div class="rbar-l">Architecture &amp; Blast Radius<small>Weighted across questions</small></div>
-<div class="rbar-t"><div class="rbar-f" style="width:75%"></div></div>
-<div class="rbar-v">7.5<small>/10</small></div>
-</div>
-<div class="rbar">
-<div class="rbar-l">Communication Quality<small>Weighted across questions</small></div>
+<div class="rbar-l">Communication<small>Weight: 30%</small></div>
 <div class="rbar-t"><div class="rbar-f" style="width:72%"></div></div>
 <div class="rbar-v">7.2<small>/10</small></div>
 </div>
 <div class="rbar">
-<div class="rbar-l">Framework Application<small>Weighted across questions</small></div>
-<div class="rbar-t"><div class="rbar-f" style="width:80%"></div></div>
-<div class="rbar-v">8.0<small>/10</small></div>
+<div class="rbar-l">Decision-Making<small>Weight: 30%</small></div>
+<div class="rbar-t"><div class="rbar-f" style="width:75%"></div></div>
+<div class="rbar-v">7.5<small>/10</small></div>
 </div>
 </div>
 </div>
@@ -340,81 +304,18 @@
 </div>
 
 <!-- Resume + LinkedIn -->
-<div class="rdocs">
-<a href="#" class="rdoc" onclick="return false" aria-label="Candidate resume (requires authenticated access)">
-<div class="rdoc-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6M9 9h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-<div class="rdoc-t"><strong>Candidate resume</strong><span>priya-ramanathan-resume.pdf · 312 KB</span></div>
-<span class="rdoc-go"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-</a>
-<a href="#" class="rdoc" onclick="return false" aria-label="Candidate LinkedIn profile">
-<div class="rdoc-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 17V10H6v7h2.34zM7.17 8.97a1.36 1.36 0 100-2.72 1.36 1.36 0 000 2.72zM18 17v-3.82c0-2.12-1.14-3.1-2.65-3.1-1.22 0-1.77.67-2.07 1.15V10H10.93c.03.66 0 7 0 7h2.35v-3.91c0-.21.01-.42.08-.57.17-.42.56-.86 1.22-.86.86 0 1.2.66 1.2 1.62V17H18z"/></svg></div>
-<div class="rdoc-t"><strong>LinkedIn profile</strong><span>linkedin.com/in/priya-ramanathan-sample</span></div>
-<span class="rdoc-go"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-</a>
-</div>
+
 
 <!-- Access control notice -->
-<div class="raccess">
-<div class="raccess-ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg></div>
-<div><strong>Report access is restricted.</strong> This report, the session recording, the resume, and the webcam footage are visible only to the hiring-manager seats on the Northwind Security account. Candidate-facing reports show scores and feedback only — never the recording or resume. Access is logged and retained for 12 months.</div>
-</div>
+
 </div>
 
-
-<!-- ===== NEW: SESSION RECORDING ===== -->
-<div class="rsec">
-<div class="rsec-h">
-<span class="eyebrow">§1 · Session recording</span>
-<h2>Full proctored session available for playback</h2>
-</div>
-<p style="font-size:.9375rem;color:var(--text-2);line-height:1.6;margin-bottom:8px">Every ThreatReady assessment is recorded end-to-end with webcam + screen + audio. Recordings are available to hiring-manager seats on this account and can be replayed in-browser or requested as a signed download link.</p>
-
-<div class="rrec">
-<div class="rrec-player">
-<div class="rrec-badge">REC 27:18</div>
-<div class="rrec-thumb">
-<button class="rrec-play" aria-label="Play session recording" onclick="alert('In production: launches the in-browser player with authenticated streaming. Demo link is disabled in this public sample.')">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-</button>
-<div class="rrec-thumb-lbl">Proctored session recording<small>Click play to review · 27 min 18 sec · 1080p</small></div>
-</div>
-<div class="rrec-ctl">
-<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-<span>00:00</span>
-<div class="rrec-ctl-bar"></div>
-<span>27:18</span>
-<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M21 3l-7 7M9 21H3v-6M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-</div>
-</div>
-
-<div class="rrec-meta">
-<div class="rrec-mcell"><div class="l">Recording ID</div><div class="v">rec_01HQWX93Y2N6K4T</div></div>
-<div class="rrec-mcell"><div class="l">Streams captured</div><div class="v">Webcam · Screen · Audio</div></div>
-<div class="rrec-mcell"><div class="l">Resolution · bitrate</div><div class="v">1920×1080 · 2.5 Mbps</div></div>
-</div>
-
-<!-- Timeline snapshots -->
-<p style="font-size:.75rem;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-top:22px;margin-bottom:8px">Timeline snapshots (auto-captured at each question)</p>
-<div class="rsnaps">
-<div class="rsnap"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2" stroke="currentColor" stroke-width="2"/></svg><div class="rsnap-t">Q1 · 14:06</div></div>
-<div class="rsnap"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2" stroke="currentColor" stroke-width="2"/></svg><div class="rsnap-t">Q2 · 14:11</div></div>
-<div class="rsnap"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2" stroke="currentColor" stroke-width="2"/></svg><div class="rsnap-t">Q3 · 14:17</div></div>
-<div class="rsnap"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2" stroke="currentColor" stroke-width="2"/></svg><div class="rsnap-t">Q4 · 14:23</div></div>
-<div class="rsnap"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2" stroke="currentColor" stroke-width="2"/></svg><div class="rsnap-t">Q5 · 14:29</div></div>
-</div>
-
-<div class="rrec-access">
-<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>
-<div><strong>Consent &amp; access.</strong> You explicitly consented to webcam + screen recording before starting, per our <a href="privacy.html">Privacy Policy</a>. Recordings are encrypted at rest, auto-deleted after 90 days unless you extend retention from settings. Your reports are visible only to you — and to anyone you choose to share a verification link with. Account access is logged for 12 months.</div>
-</div>
-</div>
-</div>
 
 <!-- ===== SECTION 2: SCENARIO ===== -->
 <div class="rsec">
 <div class="rsec-h">
-<span class="eyebrow">§2 · Scenario context</span>
-<h2>What you faced in this session</h2>
+<span class="eyebrow">§1 · Scenario context</span>
+<h2>What you faced</h2>
 </div>
 <div class="rscen-info">
 <span class="rscen-chip">Cloud Security</span>
@@ -474,7 +375,7 @@
 </div>
 
 <div class="rnar">
-<strong>Scenario narrative shown at session start</strong>
+<strong>Scenario narrative shown to candidate</strong>
 Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffic from <code style="font-family:var(--mono)">invoice-svc</code> (a customer-facing Lambda) to <code style="font-family:var(--mono)">45.x.x.x</code>, an IP not in your egress allow-list. The Lambda's execution role carries <code style="font-family:var(--mono)">s3:*</code> and <code style="font-family:var(--mono)">secrets:*</code> — both wider than intended. CloudTrail is enabled. No pages from anyone else. What do you do first?
 </div>
 </div>
@@ -482,7 +383,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <!-- ===== SECTION 3: Q&A TRANSCRIPT ===== -->
 <div class="rsec">
 <div class="rsec-h">
-<span class="eyebrow">§3 · Full transcript · 5 Adaptive Questions</span>
+<span class="eyebrow">§2 · Your transcript · 5 Adaptive Questions</span>
 <h2>Question-by-question breakdown</h2>
 </div>
 
@@ -491,9 +392,9 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <div class="rqa-h">
 <span class="rqn">Question 1 of 5 · Containment</span>
 <div class="rqscore">
-<span class="rqscore-chip good" title="Containment & Response (primary, 40%)">CR 8.5</span>
-<span class="rqscore-chip good" title="Architecture & Blast Radius (20%)">AB 8.0</span>
-<span class="rqscore-chip good" title="Framework Application (15%)">FA 8.5</span>
+<span class="rqscore-chip good">Tech 8.5</span>
+<span class="rqscore-chip good">Comm 8.0</span>
+<span class="rqscore-chip good">Dec 8.5</span>
 </div>
 </div>
 <div class="rqt">What is your <em>first</em> containment action, and why?</div>
@@ -510,15 +411,6 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <div class="rfeedback">
 <strong>Evaluator note:</strong> Excellent prioritization. Candidate correctly distinguished policy replacement from role deletion — a nuance most junior engineers miss because they conflate "revoke" with "delete." Explicit reasoning about preserving CloudTrail for forensics is exactly the senior-level thinking this question tests for.
 </div>
-<div class="rrefs">
-<div class="rrefs-h"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.09-2.5a8.5 8.5 0 11-13.18 0M3 12h.01M21 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>References &amp; Sources</div>
-<div class="rrefs-grid">
-<div>MITRE ATT&amp;CK</div><div><code>T1078.004</code> Valid Accounts: Cloud Accounts · <code>T1098.001</code> Account Manipulation: Additional Cloud Credentials</div>
-<div>Framework</div><div>NIST SP 800-61r2 §3.3.1 (Containment Strategy) · AWS IR Playbook §4 (Compromised IAM)</div>
-<div>Real-world parallel</div><div>Capital One breach (2019) — over-permissive IAM role on Lambda exfiltrated 100M records</div>
-<div>AWS docs</div><div><a href="#">IAM PutRolePolicy vs DeleteRole</a> — policy replacement preserves CloudTrail attribution</div>
-</div>
-</div>
 </div>
 
 <!-- Q2 -->
@@ -526,9 +418,9 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <div class="rqa-h">
 <span class="rqn">Question 2 of 5 · Investigation (adaptive follow-up)</span>
 <div class="rqscore">
-<span class="rqscore-chip good" title="Threat Identification (primary, 40%)">TI 8.0</span>
-<span class="rqscore-chip good" title="Architecture & Blast Radius (15%)">AB 7.5</span>
-<span class="rqscore-chip mid" title="Framework Application (25%)">FA 6.5</span>
+<span class="rqscore-chip good">Tech 8.0</span>
+<span class="rqscore-chip mid">Comm 6.5</span>
+<span class="rqscore-chip good">Dec 7.5</span>
 </div>
 </div>
 <div class="rqt">You pull CloudTrail. Which three events are you looking for first, and what would each tell you?</div>
@@ -543,16 +435,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 </div>
 </div>
 <div class="rfeedback">
-<strong>Evaluator note:</strong> Technical content is strong — all three events identified correctly with correct reasoning. Communication loses a point for terse structure — senior engineers explaining to a non-technical CISO need to frame "why" more explicitly. Missed the bucket-policy-change signal that an advanced reasoner would catch.
-</div>
-<div class="rrefs">
-<div class="rrefs-h"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.09-2.5a8.5 8.5 0 11-13.18 0M3 12h.01M21 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>References &amp; Sources</div>
-<div class="rrefs-grid">
-<div>MITRE ATT&amp;CK</div><div><code>T1530</code> Data from Cloud Storage · <code>T1537</code> Transfer Data to Cloud Account · <code>T1552.005</code> Cloud Instance Metadata API</div>
-<div>Framework</div><div>NIST SP 800-86 (Computer Security Incident Handling) · CIS AWS Foundations 1.5 §3.x logging</div>
-<div>AWS event reference</div><div><code>secretsmanager:GetSecretValue</code> · <code>s3:GetObject</code> · <code>sts:AssumeRole</code> · <code>s3:PutBucketPolicy</code></div>
-<div>Real-world parallel</div><div>Pegasus Airlines (2022) — S3 exfiltration discovered via CloudTrail GetObject anomaly detection</div>
-</div>
+<strong>Evaluator note:</strong> Technical content is strong — all three events identified correctly with correct reasoning. Communication loses a point for terse structure — senior engineers explaining to a non-technical CISO need to frame "why" more explicitly. Missed the bucket-policy-change signal which an advanced candidate would catch.
 </div>
 </div>
 
@@ -561,9 +444,9 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <div class="rqa-h">
 <span class="rqn">Question 3 of 5 · Stakeholder Communication (adaptive follow-up)</span>
 <div class="rqscore">
-<span class="rqscore-chip mid" title="Communication Quality (primary, 50%)">CQ 6.5</span>
-<span class="rqscore-chip good" title="Containment & Response (10%)">CR 7.5</span>
-<span class="rqscore-chip mid" title="Framework Application (25%)">FA 7.0</span>
+<span class="rqscore-chip mid">Tech 7.0</span>
+<span class="rqscore-chip mid">Comm 6.5</span>
+<span class="rqscore-chip good">Dec 7.5</span>
 </div>
 </div>
 <div class="rqt">CloudTrail confirms ~47,000 objects were read from <code>customer-pii-prod</code>. It is 03:10. Who do you page next, and what do you say in the first 60 seconds of that call?</div>
@@ -578,27 +461,18 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 </div>
 </div>
 <div class="rfeedback">
-<strong>Evaluator note:</strong> You correctly identified DPDPA 72-hour notification — strong regulatory awareness. However the initial communication is a little flat: missed the "immediate asks" structure that senior IR calls use. Under pressure, structuring a stakeholder update in 60 seconds saves hours. This is trainable.
-</div>
-<div class="rrefs">
-<div class="rrefs-h"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.09-2.5a8.5 8.5 0 11-13.18 0M3 12h.01M21 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>References &amp; Sources</div>
-<div class="rrefs-grid">
-<div>Regulation</div><div>India DPDPA 2023 §8(6) — 72-hour breach notification to Data Protection Board · GDPR Art. 33 — 72-hour to supervisory authority</div>
-<div>Framework</div><div>NIST SP 800-61r2 §3.3.4 (Recovery and Reporting) · ISO/IEC 27035:2023 §6 (Communication during incidents)</div>
-<div>Communication template</div><div>SANS IR Communication Cheat Sheet · AWS Incident Response Runbook §6 (Stakeholder Briefings)</div>
-<div>Real-world parallel</div><div>Capital One (2019) — CISO escalation timing studied as a positive reference case</div>
-</div>
+<strong>Evaluator note:</strong> Candidate correctly identified DPDPA 72-hour notification — strong regulatory awareness. However the initial communication is a little flat: missed the "immediate asks" structure that senior IR calls use. Under pressure, a candidate who can structure a stakeholder update in 60 seconds saves hours. This is trainable.
 </div>
 </div>
 
 <!-- Q4 -->
 <div class="rqa">
 <div class="rqa-h">
-<span class="rqn" title="Architecture & Blast Radius (primary, 40%)">Question 4 of 5 · Root Cause (adaptive follow-up)</span>
-<div class="rqscore" title="Architecture & Blast Radius (primary, 40%)">
-<span class="rqscore-chip good" title="Architecture & Blast Radius (primary, 40%)">AB 8.5</span>
-<span class="rqscore-chip good" title="Threat Identification (15%)">TI 7.5</span>
-<span class="rqscore-chip mid" title="Framework Application (25%)">FA 7.0</span>
+<span class="rqn">Question 4 of 5 · Root Cause (adaptive follow-up)</span>
+<div class="rqscore">
+<span class="rqscore-chip good">Tech 8.5</span>
+<span class="rqscore-chip good">Comm 7.5</span>
+<span class="rqscore-chip mid">Dec 7.0</span>
 </div>
 </div>
 <div class="rqt">Forensics reveal the Lambda's environment variable <code>DB_CONN_STRING</code> was exposed via a public GitHub commit 3 months ago. How did that lead to this incident, and what single control would have blocked it?</div>
@@ -613,27 +487,18 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 </div>
 </div>
 <div class="rfeedback">
-<strong>Evaluator note:</strong> Strong technical chain. You correctly prioritized short-lived credentials over secrets scanning — this is senior-level judgment. Minor deduction on decision-making because you didn't address that the wide IAM role is the enabler even with short-lived credentials; IRSA alone doesn't fix over-permissioning. Would be a perfect answer if both controls had been named as necessary.
-</div>
-<div class="rrefs">
-<div class="rrefs-h"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.09-2.5a8.5 8.5 0 11-13.18 0M3 12h.01M21 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>References &amp; Sources</div>
-<div class="rrefs-grid">
-<div>MITRE ATT&amp;CK</div><div><code>T1199</code> Trusted Relationship · <code>T1556.006</code> MFA Auth · <code>T1098.001</code> Cloud Account Manipulation</div>
-<div>Framework</div><div>AWS Well-Architected Framework — Security Pillar §SEC03 (Permissions Management) · Zero Trust Architecture (NIST SP 800-207)</div>
-<div>AWS docs</div><div><a href="#">IAM Roles for Service Accounts (IRSA)</a> · <a href="#">Short-lived credentials via STS</a> · <a href="#">SCPs for blast-radius containment</a></div>
-<div>Real-world parallel</div><div>Datadog Agent compromise (2023) — IRSA + IAM right-sizing recovery pattern documented</div>
-</div>
+<strong>Evaluator note:</strong> Strong technical chain. Candidate correctly prioritized short-lived credentials over secrets scanning — this is senior-level judgment. Minor deduction on decision-making because you didn't address that the wide IAM role is the enabler even with short-lived credentials; IRSA alone doesn't fix over-permissioning. Would be a perfect answer if you had named both controls as necessary.
 </div>
 </div>
 
 <!-- Q5 -->
 <div class="rqa">
 <div class="rqa-h">
-<span class="rqn" title="Architecture & Blast Radius (primary, 40%)">Question 5 of 5 · Prioritization (adaptive follow-up)</span>
-<div class="rqscore" title="Architecture & Blast Radius (primary, 40%)">
-<span class="rqscore-chip good" title="Architecture & Blast Radius (primary, 40%)">AB 8.0</span>
-<span class="rqscore-chip good" title="Communication Quality (10%)">CQ 7.5</span>
-<span class="rqscore-chip good" title="Framework Application (25%)">FA 7.0</span>
+<span class="rqn">Question 5 of 5 · Prioritization (adaptive follow-up)</span>
+<div class="rqscore">
+<span class="rqscore-chip good">Tech 8.0</span>
+<span class="rqscore-chip good">Comm 7.5</span>
+<span class="rqscore-chip good">Dec 7.0</span>
 </div>
 </div>
 <div class="rqt">You have 5 days of senior engineer time to harden this architecture against a repeat. Rank the top three changes in order of priority.</div>
@@ -648,16 +513,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 </div>
 </div>
 <div class="rfeedback">
-<strong>Evaluator note:</strong> Your ordering is defensible — IRSA first is a valid call if the org already has the OIDC infrastructure. Model answer puts IAM right-sizing first because it ships faster in most environments. Both answers would be accepted by a senior interviewer. Clear explanation of trade-offs earned the point.
-</div>
-<div class="rrefs">
-<div class="rrefs-h"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.09-2.5a8.5 8.5 0 11-13.18 0M3 12h.01M21 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>References &amp; Sources</div>
-<div class="rrefs-grid">
-<div>MITRE ATT&amp;CK D3FEND</div><div><code>D3-RAPA</code> Resource Access Pattern Analysis · <code>D3-CH</code> Credential Hardening</div>
-<div>Framework</div><div>NIST SP 800-207 Zero Trust Architecture · CIS Controls v8 §5 (Account Management) · §6 (Access Control)</div>
-<div>AWS docs</div><div><a href="#">IAM Access Analyzer</a> for least-privilege validation · <a href="#">Lambda execution role best practices</a></div>
-<div>Industry guidance</div><div>OWASP Cloud-Native Application Security Top 10 — CNAS-1 (Insecure Cloud Resources)</div>
-</div>
+<strong>Evaluator note:</strong> You's ordering is defensible — IRSA first is a valid call if the org already has the OIDC infrastructure. Model answer puts IAM right-sizing first because it ships faster in most environments. Both answers would be accepted by a senior interviewer. Clear explanation of trade-offs earned the point.
 </div>
 </div>
 </div>
@@ -665,7 +521,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <!-- ===== SECTION 4: RADAR ===== -->
 <div class="rsec">
 <div class="rsec-h">
-<span class="eyebrow">§4 · Sub-skill radar</span>
+<span class="eyebrow">§3 · Sub-skill radar</span>
 <h2>Where Priya is strong and where she can grow</h2>
 </div>
 <div class="rradar-wrap">
@@ -713,10 +569,10 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <!-- ===== SECTION 5: INTEGRITY ===== -->
 <div class="rsec" id="integrity">
 <div class="rsec-h">
-<span class="eyebrow">§5 · Integrity &amp; validation</span>
-<h2>Proof this score is defensible</h2>
+<span class="eyebrow">§4 · How your score was calculated</span>
+<h2>How your score was calculated</h2>
 </div>
-<p style="font-size:.9375rem;color:var(--text-2);line-height:1.6;margin-bottom:12px">Every ThreatReady session runs under the same six integrity controls. If a score is recorded on your Career Genome, all six passed. Any violation invalidates the attempt — the score is never recorded and the session is returned for retry.</p>
+<p style="font-size:.9375rem;color:var(--text-2);line-height:1.6;margin-bottom:12px">Every ThreatReady assessment is run under the same six integrity controls. If a score reaches you, all six passed. Any violation invalidates the attempt and returns you to the queue.</p>
 <div class="rintl">
 <div class="rintl-i">
 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -758,7 +614,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <!-- ===== SECTION 6: RECOMMENDATION ===== -->
 <div class="rfin">
 <div class="rsec-h" style="padding-bottom:0;border:none;margin-bottom:12px">
-<span class="eyebrow" style="color:var(--primary)">§6 · Hiring signal</span>
+<span class="eyebrow" style="color:var(--primary)">§5 · What to focus on next</span>
 <h2>Recommendation &amp; summary</h2>
 </div>
 
@@ -768,7 +624,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 </div>
 <div class="rfin-rec-t">
 <strong>Recommended to advance to the next round</strong>
-<span>Score of 78/100 puts you in the top 23% of users who attempted Cloud Security · Intermediate. No integrity concerns. Career Genome updated.</span>
+<span>Score of 78/100 is in the top 23% of Cloud Security · Intermediate candidates. No integrity concerns.</span>
 </div>
 </div>
 
@@ -797,7 +653,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <p class="rfin-s" style="margin-top:20px"><strong>Suggested interview focus:</strong> Behavioral questions on past incident communication, and a live whiteboard on designing the hardened architecture from Q5. Her scoring suggests she will perform well on design whiteboards and less strongly on executive-presence moments — shape your loop accordingly.</p>
 
 <div class="ractions">
-<a href="https://app.threatready.io/" target="_blank" rel="noopener" class="btn btn-primary">Start your free pilot</a>
+<a href="pilot.html" class="btn btn-primary">Start your free pilot</a>
 <a href="rubric.html" class="btn btn-secondary">Read the scoring rubric</a>
 </div>
 </div>
@@ -805,7 +661,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <!-- footer note -->
 <div class="raudit" style="text-align:center">
 <strong>About this sample</strong>
-<p style="color:var(--text-2);font-size:.8125rem;line-height:1.6;margin:0">Priya Ramanathan and the specific answers above are fictional. The architecture (CS-INT-047), the MITRE ATT&amp;CK mapping, the scoring rubric, the integrity controls, and the report format are real — this is exactly what you receive after every ThreatReady session.</p>
+<p style="color:var(--text-2);font-size:.8125rem;line-height:1.6;margin:0">Priya Ramanathan, Your Practice Account, and the specific answers above are fictional. The architecture (CS-INT-047), the MITRE ATT&amp;CK mapping, the scoring rubric, the integrity controls, and the report format are real — this is exactly what your your next step receives when a candidate completes a ThreatReady assessment.</p>
 </div>
 
 </div>
@@ -821,7 +677,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <li><a href="terms.html">Terms</a></li>
 <li><a href="security.html">Security</a></li>
 <li><a href="rubric.html">Scoring Rubric</a></li>
-<li><a href="sample-report.html">Sample Report</a></li>
+<li><a href="report-sample.html">Sample Report</a></li>
 <li><a href="dpa.html">DPA</a></li>
 </ul>
 </div>
