@@ -3467,13 +3467,25 @@ async function submitDemo() {
   const question = (currentScenario && currentScenario.question) || 'Cybersecurity scenario question';
   const lower = ans.toLowerCase();
 
-  // ---- Try real AI evaluation backend first ----
+  // ---- Try rich AI evaluation backend (/api/evaluate) ----
   let apiResult = null;
   try {
-    const res = await fetch('https://threatready-db.onrender.com/api/demo/evaluate', {
+    // Strip HTML from context for clean prompt
+    const cleanContext = (currentScenario?.context || '').replace(/<[^>]*>/g, '').trim();
+    const res = await fetch('https://threatready-db.onrender.com/api/evaluate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question, answer: ans })
+      body: JSON.stringify({
+        question,
+        answer: ans,
+        difficulty: 'intermediate',
+        scenario_context: {
+          title: currentScenario?.title || 'Demo Scenario',
+          description: cleanContext,
+          category: currentScenario?.role || 'Security'
+        }
+        // No session_id / question_id → API won't save to DB (anonymous demo)
+      })
     });
     if (res.ok) apiResult = await res.json();
   } catch (e) {
@@ -3485,22 +3497,23 @@ async function submitDemo() {
 
   let ti, cr, ab, cq, fa, total;
 
-  if (apiResult && apiResult.tech !== undefined && apiResult.comm !== undefined && apiResult.dec !== undefined) {
-    // Map the API's 3-dimension response to the 5 anchored dimensions in the UI.
-    // tech is shared by Threat Identification + Framework Application (both tech-leaning).
-    // dec is shared by Containment & Response + Architecture (both judgment-leaning).
-    // comm maps directly to Communication Quality.
-    const t = +apiResult.tech, c = +apiResult.comm, d = +apiResult.dec;
-    ti = +(t).toFixed(1);
-    fa = +(t * 0.95).toFixed(1);
-    cr = +(d).toFixed(1);
-    ab = +((t + d) / 2).toFixed(1);
-    cq = +(c).toFixed(1);
-    total = (apiResult.score !== undefined)
-      ? +(+apiResult.score).toFixed(1)
-      : +((ti * 0.10) + (cr * 0.40) + (ab * 0.20) + (cq * 0.15) + (fa * 0.15)).toFixed(1);
+  // Use real AI scores if available — these are the 5 actual skill scores from the AI
+  if (apiResult && !apiResult.ai_failed && apiResult.score !== null && apiResult.score !== undefined) {
+    // Map the 5 AI skill scores to the 5 UI dimensions
+    ti = +(apiResult.detection_score ?? apiResult.score).toFixed(1);              // Threat Identification → detection
+    cr = +(apiResult.remediation_score ?? apiResult.score).toFixed(1);            // Containment & Response → remediation
+    ab = +(apiResult.architecture_score ?? apiResult.score).toFixed(1);           // Architecture & Blast Radius → architecture
+    cq = +(apiResult.communication_skill_score ?? apiResult.communication_score ?? apiResult.score).toFixed(1); // Communication
+    fa = +(apiResult.iam_score ?? apiResult.score).toFixed(1);                    // Framework Application → IAM/policy
+    total = +(+apiResult.score).toFixed(1);
+
+    // Bonus: show real model answer + strengths/weaknesses if available
+    if (apiResult.improved_answer) {
+      const modelEl = document.getElementById('dScenModel');
+      if (modelEl) modelEl.textContent = apiResult.improved_answer;
+    }
   } else {
-    // ---- Heuristic fallback (round 28 baseline) — runs when API is unreachable ----
+    // ---- Heuristic fallback (when API unavailable) ----
     ti = 5; cr = 5; ab = 5; cq = 5; fa = 5;
     const techTerms = (currentScenario && currentScenario.techTerms) || ['iam','role','scope','forensic','rotate','credential'];
     techTerms.forEach(t => { if (lower.includes(t)) ti += 0.30; });
@@ -3544,9 +3557,8 @@ async function submitDemo() {
     document.getElementById('dCR').style.width = (cr * 10) + '%';
     document.getElementById('dAB').style.width = (ab * 10) + '%';
     document.getElementById('dCQ').style.width = (cq * 10) + '%';
-    document.getElementById('dFA').style.width = (fa * 10) + '%';
-  }, 50);
-}
+  });
+
 function resetDemo() {
   document.getElementById('dRes').classList.remove('a');
   document.getElementById('dStage1').style.display = 'block';
