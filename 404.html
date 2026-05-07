@@ -1,31 +1,27 @@
+ 
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>ThreatReady</title>
-    <script type="text/javascript">
-      var l = window.location;
-      if (l.pathname.indexOf('/app/') === 0) {
-        var pathSegmentsToKeep = 1;
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        );
-      }
-    </script>
-    <style>
-      body { font-family: system-ui, sans-serif; text-align: center; margin-top: 100px; color: #333; }
-      h1 { font-size: 48px; margin-bottom: 16px; }
-      a { color: #00b4d8; text-decoration: none; font-weight: 600; }
-      a:hover { text-decoration: underline; }
-    </style>
-  </head>
-  <body>
-    <h1>404</h1>
-    <p>Page Not Found</p>
-    <p><a href="/">← Back to ThreatReady</a></p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ThreatReady</title>
+  <script type="text/javascript">
+    // SPA redirect for GitHub Pages
+    // If URL contains /app/, redirect to root index.html with the path preserved as query string
+    var pathSegmentsToKeep = 1;
+    var l = window.location;
+    if (l.pathname.indexOf('/app/') === 0) {
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    } else {
+      // Not an app path - show simple 404
+      document.body.innerHTML = '<div style="font-family:system-ui;text-align:center;padding:60px 20px;"><h1 style="color:#7c3aed;">404</h1><p>Page not found.</p><p><a href="/" style="color:#7c3aed;">← Back to ThreatReady</a></p></div>';
+    }
+  </script>
+</head>
+<body></body>
 </html>

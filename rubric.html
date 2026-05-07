@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="ThreatReady's public scoring rubric. Exactly how the three dimensions — Technical Depth, Communication, Decision-Making — are scored, with examples at each tier.">
+<meta name="description" content="ThreatReady's public scoring rubric. The five anchored dimensions used by our 3-Pass AI engine — Threat Identification, Containment & Response, Architecture & Blast Radius, Communication Quality, Framework Application — with concrete score-band definitions for each.">
 <meta name="robots" content="index, follow">
 <title>Scoring Rubric — ThreatReady</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c3aed'/%3E%3Cpath d='M16 6 L24 10 V17 C24 22 20.5 25.5 16 27 C11.5 25.5 8 22 8 17 V10 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -11,6 +11,24 @@
 (function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="legal.css">
+<style>
+.rdim{margin:24px 0 32px;padding:20px 22px;background:var(--surface);border:1px solid var(--border);border-radius:12px}
+.rdim h3{margin:0 0 6px;font-size:1.0625rem;letter-spacing:-.005em}
+.rdim-desc{margin:0 0 12px;color:var(--text-2);font-size:.9rem;line-height:1.55}
+.rband{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--border-2);font-size:.875rem;line-height:1.5}
+.rband:first-of-type{border-top:none;padding-top:6px}
+.rband-l{font-family:var(--mono);font-weight:700;font-size:.75rem;color:var(--primary);letter-spacing:.02em;padding-top:1px}
+.rband-t{color:var(--text-2)}
+@media (max-width:520px){.rband{grid-template-columns:1fr;gap:2px}.rband-l{font-size:.7rem}}
+.qband{display:grid;grid-template-columns:120px 130px 1fr;gap:14px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:8px;align-items:center}
+.qband-r{font-family:var(--mono);font-weight:600;font-size:.8125rem;color:var(--text-2)}
+.qband-l{font-weight:700;font-size:.8125rem;letter-spacing:.06em;color:var(--primary);text-transform:uppercase}
+.qband-d{font-size:.875rem;color:var(--text-2)}
+@media (max-width:600px){.qband{grid-template-columns:1fr;gap:4px}.qband-l{order:1}.qband-r{order:2;color:var(--text-3)}.qband-d{order:3}}
+.cflag{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:8px;font-size:.875rem;line-height:1.55}
+.cflag-h{font-weight:700;font-size:.75rem;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;padding-top:2px}
+.cflag-d{color:var(--text-2)}
+</style>
 </head>
 <body>
 
@@ -48,13 +66,13 @@
 <h4>On this page</h4>
 <ol>
 <li><a href="#how">How scoring works</a></li>
-<li><a href="#dim">The three dimensions</a></li>
-<li><a href="#tech">Technical Depth (40%)</a></li>
-<li><a href="#comm">Communication (30%)</a></li>
-<li><a href="#dec">Decision-Making (30%)</a></li>
-<li><a href="#example">A worked example</a></li>
-<li><a href="#adaptive">Adaptive questioning logic</a></li>
-<li><a href="#not">What we deliberately do not score</a></li>
+<li><a href="#dim">The five anchored dimensions</a></li>
+<li><a href="#bands">Qualitative bands</a></li>
+<li><a href="#confidence">Confidence levels &amp; dual score</a></li>
+<li><a href="#weights">Question-specific weighting</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#adaptive">Adaptive questioning</a></li>
+<li><a href="#not">What we don't score</a></li>
 <li><a href="#calib">Consistency &amp; calibration</a></li>
 <li><a href="#challenge">Score challenges</a></li>
 <li><a href="#versions">Version history</a></li>
@@ -62,67 +80,98 @@
 </div>
 
 <h2 id="how">1. How scoring works</h2>
-<p>A ThreatReady assessment consists of a single scenario — a real architecture with an active attack chain — followed by five adaptive questions. Each question is scored on three dimensions, each on a 1–10 integer scale. The final score is the weighted average of the three dimension scores across all five questions.</p>
+<p>A ThreatReady assessment consists of a single scenario — a real architecture with an active attack chain — followed by five adaptive questions. Each answer is evaluated by our <strong>3-Pass AI engine</strong> (Evaluator → Challenger → Reconciler) against five anchored dimensions, each on a 1–10 integer scale. Every score band has a concrete written definition — a 7 in Threat Identification means something specific and verifiable, not arbitrary AI judgment.</p>
+<p>This page is the canonical reference. We publish it because we want our scores to be auditable. If you ever question a result, every score traces back to one of these bands.</p>
 <div class="callout">
-<strong>The formula</strong>
-<p>Final Score = (Technical Depth × 0.40) + (Communication × 0.30) + (Decision-Making × 0.30)</p>
+<strong>The 3-Pass scoring engine</strong>
+<p>Every answer passes through three independent AI evaluations:</p>
+<p><strong>Pass 1 — Evaluator</strong> · Scores generously against the anchored rubric, citing specific evidence from the answer. Tends to over-credit verbose responses (intentional — Pass 2 corrects).</p>
+<p><strong>Pass 2 — Challenger</strong> · Adversarially reviews. Catches technical errors, hallucinated CVEs, non-existent MITRE techniques, fabricated tools, inflated scores, and missing critical elements.</p>
+<p><strong>Pass 3 — Reconciler</strong> · Reviews both passes, resolves disagreements, applies question-specific dimension weighting, generates the model answer, and assigns a confidence level (HIGH / MEDIUM / LOW) based on inter-pass agreement.</p>
 </div>
 <p>A score below 5 means the candidate has gaps that would concern a hiring manager. A score of 5–7 means they are competent but not yet senior. A score of 7–8.5 means strong senior-ready performance. A score above 8.5 indicates expert-level reasoning — rare and worth noting. These are guidelines, not promises; final hiring decisions are always yours.</p>
 
-<h2 id="dim">2. The three dimensions</h2>
-<p>We measure three things, and we weight them deliberately. Technical Depth carries the most weight (40%) because it is the floor — without it, the other two don't matter. But we refuse to give it 100%, because an engineer who can reason technically but can't communicate or prioritize will fail the job anyway.</p>
+<h2 id="dim">2. The five anchored dimensions</h2>
 
-<div class="dim-card">
-<div class="dim-card-h"><h3>Technical Depth</h3><span class="dim-weight">40%</span></div>
-<p><strong>What we score:</strong> Accuracy of threat identification, completeness of mitigation strategy, understanding of relevant frameworks (MITRE ATT&amp;CK, OWASP, cloud-native controls), and the technical precision of specific recommendations.</p>
+<div class="rdim">
+<h3>Dimension 1 · Threat Identification</h3>
+<p class="rdim-desc">Measures whether the candidate correctly identifies attack vectors, techniques, and threat actor behavior.</p>
+<div class="rband"><span class="rband-l">Score 1–2</span><span class="rband-t">Cannot identify the primary attack vector. Names incorrect or irrelevant techniques.</span></div>
+<div class="rband"><span class="rband-l">Score 3–4</span><span class="rband-t">Identifies general attack category but cannot specify technique, tooling, or path. No MITRE mapping.</span></div>
+<div class="rband"><span class="rband-l">Score 5–6</span><span class="rband-t">Correctly identifies primary vector with reasonable MITRE mapping. May miss secondary vectors.</span></div>
+<div class="rband"><span class="rband-l">Score 7–8</span><span class="rband-t">Identifies primary and secondary vectors. Accurate MITRE mapping. Explains attacker decision logic.</span></div>
+<div class="rband"><span class="rband-l">Score 9–10</span><span class="rband-t">Identifies all vectors including non-obvious. Precise MITRE technique IDs. References real-world parallels. Rules out false positives.</span></div>
 </div>
 
-<div class="dim-card">
-<div class="dim-card-h"><h3>Communication</h3><span class="dim-weight">30%</span></div>
-<p><strong>What we score:</strong> Structure of the answer, clarity of explanation, correct use of terminology, ability to explain technical issues at the right altitude for the audience, concise summarization of impact.</p>
+<div class="rdim">
+<h3>Dimension 2 · Containment &amp; Response Logic</h3>
+<p class="rdim-desc">Measures whether the candidate can design an effective containment strategy that minimizes blast radius while preserving evidence.</p>
+<div class="rband"><span class="rband-l">Score 1–2</span><span class="rband-t">No containment strategy or actions that worsen the situation.</span></div>
+<div class="rband"><span class="rband-l">Score 3–4</span><span class="rband-t">Strategy exists but too aggressive (nuclear option) or too passive. No evidence preservation.</span></div>
+<div class="rband"><span class="rband-l">Score 5–6</span><span class="rband-t">Reasonable containment. Considers evidence OR business continuity but not both.</span></div>
+<div class="rband"><span class="rband-l">Score 7–8</span><span class="rband-t">Proportional containment. Balances evidence and business. Correct order of operations.</span></div>
+<div class="rband"><span class="rband-l">Score 9–10</span><span class="rband-t">Operational depth. Second-order effects. Communication protocols. Compliance timelines (CERT-In, GDPR, DPDPA).</span></div>
 </div>
 
-<div class="dim-card">
-<div class="dim-card-h"><h3>Decision-Making</h3><span class="dim-weight">30%</span></div>
-<p><strong>What we score:</strong> Soundness of prioritization, explicit trade-offs, risk-informed judgment, business-context awareness, willingness to make a call with incomplete information.</p>
+<div class="rdim">
+<h3>Dimension 3 · Architecture &amp; Blast Radius Analysis</h3>
+<p class="rdim-desc">Measures understanding of architectural interconnections and accurate impact assessment.</p>
+<div class="rband"><span class="rband-l">Score 1–2</span><span class="rband-t">No understanding of how architecture components connect.</span></div>
+<div class="rband"><span class="rband-l">Score 3–4</span><span class="rband-t">Identifies compromised component but misses dependencies. Treats components as isolated.</span></div>
+<div class="rband"><span class="rband-l">Score 5–6</span><span class="rband-t">Identifies 1–2 downstream dependencies. Basic blast radius.</span></div>
+<div class="rband"><span class="rband-l">Score 7–8</span><span class="rband-t">Maps full blast radius. Traces data flows, credential reuse, trust relationships. Indirect paths.</span></div>
+<div class="rband"><span class="rband-l">Score 9–10</span><span class="rband-t">Complete analysis including third-party impact. Identifies architectural weaknesses. Proposes segmentation improvements.</span></div>
 </div>
 
-<h2 id="tech">3. Technical Depth — detailed scale</h2>
-<p>We score technical depth on what is actually present in the answer. Silence on a relevant issue is not neutral — it's a gap.</p>
-<table>
-<thead><tr><th style="width:100px">Score</th><th>Meaning</th></tr></thead>
-<tbody>
-<tr><td><strong>1–3</strong></td><td>Misidentifies the threat or suggests mitigations that would fail or cause harm. No grounding in the specific architecture shown.</td></tr>
-<tr><td><strong>4–5</strong></td><td>Identifies the general category of threat but not the specific attack path. Mitigations are generic textbook advice ("use least privilege") without specifics tied to the diagram.</td></tr>
-<tr><td><strong>6–7</strong></td><td>Correctly identifies the specific attack path shown. Mitigations are concrete and actionable ("revoke the Lambda's secrets:* permission, scope s3:* to customers-bucket"). Some framework references.</td></tr>
-<tr><td><strong>8–9</strong></td><td>All of 6–7, plus reasoning about defense-in-depth, forensic preservation, and downstream implications. Considers what could fail in the mitigation itself. Uses MITRE ATT&amp;CK tactics by name, correctly.</td></tr>
-<tr><td><strong>10</strong></td><td>Senior-engineer level. Identifies attack path, reasons about attacker adaptability, proposes layered mitigations with trade-offs, flags second-order effects (e.g., logging gaps after revocation), and demonstrates knowledge of specific control gaps across the architecture.</td></tr>
-</tbody>
-</table>
+<div class="rdim">
+<h3>Dimension 4 · Communication Quality</h3>
+<p class="rdim-desc">Measures clarity of reasoning, structural organization, and audience-appropriateness.</p>
+<div class="rband"><span class="rband-l">Score 1–2</span><span class="rband-t">Incoherent or incomprehensible response.</span></div>
+<div class="rband"><span class="rband-l">Score 3–4</span><span class="rband-t">Ideas present but poorly organized. Excessive jargon without explanation.</span></div>
+<div class="rband"><span class="rband-l">Score 5–6</span><span class="rband-t">Reasonably clear. Technical peer would understand; manager might struggle.</span></div>
+<div class="rband"><span class="rband-l">Score 7–8</span><span class="rband-t">Well-structured. Clear logical flow. Both peer and manager would understand key points.</span></div>
+<div class="rband"><span class="rband-l">Score 9–10</span><span class="rband-t">Exceptionally clear. Adapts language to audience. Effective in board briefing or technical deep-dive.</span></div>
+</div>
 
-<h2 id="comm">4. Communication — detailed scale</h2>
-<table>
-<thead><tr><th style="width:100px">Score</th><th>Meaning</th></tr></thead>
-<tbody>
-<tr><td><strong>1–3</strong></td><td>Answer is fragmented, unstructured, or relies on jargon without grounding. A non-security reader could not extract the point.</td></tr>
-<tr><td><strong>4–5</strong></td><td>Readable, but meandering. Terminology is used correctly but not defined. Impact is implicit rather than stated.</td></tr>
-<tr><td><strong>6–7</strong></td><td>Clear structure: what, why, impact, what-to-do. Correct terminology. A technical non-security reader could follow the logic.</td></tr>
-<tr><td><strong>8–9</strong></td><td>All of 6–7, plus explicit sequencing ("first, then, because"), impact quantified where possible, confidence levels stated ("likely" vs "certain"), and the answer scales to different audiences if asked.</td></tr>
-<tr><td><strong>10</strong></td><td>Exceptional clarity. The answer could be directly read in an incident-response call or copied into a runbook without editing.</td></tr>
-</tbody>
-</table>
+<div class="rdim">
+<h3>Dimension 5 · Framework &amp; Best Practice Application</h3>
+<p class="rdim-desc">Measures correct reference to and application of security frameworks (MITRE ATT&amp;CK, NIST, CIS, ISO 27001).</p>
+<div class="rband"><span class="rband-l">Score 1–2</span><span class="rband-t">No reference to any framework, standard, or established methodology.</span></div>
+<div class="rband"><span class="rband-l">Score 3–4</span><span class="rband-t">Name-drops frameworks without applying them. References superficial or incorrect.</span></div>
+<div class="rband"><span class="rband-l">Score 5–6</span><span class="rband-t">Correctly references 1–2 frameworks. Applies them at surface level.</span></div>
+<div class="rband"><span class="rband-l">Score 7–8</span><span class="rband-t">Applies multiple frameworks correctly and specifically. Accurate technique IDs and control references.</span></div>
+<div class="rband"><span class="rband-l">Score 9–10</span><span class="rband-t">Seamlessly integrates multiple frameworks. Knows when frameworks apply and when they don't. Working vocabulary.</span></div>
+</div>
 
-<h2 id="dec">5. Decision-Making — detailed scale</h2>
+<h2 id="bands">3. Qualitative bands</h2>
+<p>Every score also maps to a qualitative band that's visible from day one — even before the platform has enough cohort data for percentile rankings. Bands describe what a score means in plain language, so candidates and hiring managers don't need to interpret a 7.2 in isolation.</p>
+<div class="qband"><span class="qband-l">Developing</span><span class="qband-r">1.0 – 3.9</span><span class="qband-d">Early-stage security reasoning. Foundational gaps to close.</span></div>
+<div class="qband"><span class="qband-l">Foundation</span><span class="qband-r">4.0 – 5.9</span><span class="qband-d">Developing security reasoning. Building toward independent judgment.</span></div>
+<div class="qband"><span class="qband-l">Proficient</span><span class="qband-r">6.0 – 7.4</span><span class="qband-d">Mid-level security reasoning. Capable of handling routine incidents.</span></div>
+<div class="qband"><span class="qband-l">Advanced</span><span class="qband-r">7.5 – 8.9</span><span class="qband-d">Senior-level security reasoning. Interview-grade decision quality.</span></div>
+<div class="qband"><span class="qband-l">Expert</span><span class="qband-r">9.0 – 10.0</span><span class="qband-d">Principal-level security reasoning. Leads incident response or architecture.</span></div>
+
+<h2 id="confidence">4. Confidence levels &amp; dual score display</h2>
+<p>Not every score is equally certain. When the Evaluator (Pass 1) and Challenger (Pass 2) disagree significantly, the final score carries that uncertainty forward as a confidence flag. Pretending every AI score is equally reliable destroys trust the moment a buyer catches a bad one — so we publish it.</p>
+<div class="cflag"><span class="cflag-h">High</span><span class="cflag-d">All five dimensions agreed within 1 point between Pass 1 and Pass 2. No critical errors flagged.</span></div>
+<div class="cflag"><span class="cflag-h">Medium</span><span class="cflag-d">1–2 dimensions disagreed by 2 points; remaining dimensions within 1 point. No critical errors.</span></div>
+<div class="cflag"><span class="cflag-h">Low</span><span class="cflag-d">Any dimension disagreed by 3+ points, or Pass 2 flagged critical technical errors that Pass 1 missed. The hiring manager dashboard shows a "Review Recommended" tag and the score is added to the internal QA queue.</span></div>
+<p style="margin-top:14px"><strong>Dual score display.</strong> Every result also shows two scores side by side: <em>Scenario Score</em> (raw, on the question's own scale) and <em>Readiness Score</em> (difficulty-adjusted with caps — Beginner 6.0, Intermediate 8.0, Advanced 9.0, Expert 10.0). Both numbers are honest. The candidate's effort is recognized; the hiring manager's signal is preserved.</p>
+
+<h2 id="weights">5. Question-specific dimension weighting</h2>
+<p>Not every question tests all five dimensions equally. A "map this attack to MITRE" question should weight Threat Identification at 40%. A "write an executive brief" question should weight Communication at 50%. Without per-question weighting, scoring would feel wrong even when the engine works correctly.</p>
 <table>
-<thead><tr><th style="width:100px">Score</th><th>Meaning</th></tr></thead>
+<thead><tr><th>Question category</th><th>TI</th><th>CR</th><th>AB</th><th>CQ</th><th>FA</th></tr></thead>
 <tbody>
-<tr><td><strong>1–3</strong></td><td>No prioritization. Lists all possible actions with equal weight, or refuses to commit to a sequence. Ignores time pressure.</td></tr>
-<tr><td><strong>4–5</strong></td><td>Attempts to prioritize but misses critical sequencing (e.g., investigates before containing during active exfiltration). Treats every issue as equally urgent.</td></tr>
-<tr><td><strong>6–7</strong></td><td>Correct sequence for the scenario. Reasons about "contain first, investigate second" under active attack. Acknowledges at least one trade-off.</td></tr>
-<tr><td><strong>8–9</strong></td><td>All of 6–7, plus explicit risk-versus-business-impact reasoning, identifies compensating controls if the primary action fails, and flags who needs to be informed (on-call, legal, comms).</td></tr>
-<tr><td><strong>10</strong></td><td>Senior-judgment level. Weighs speed vs forensic preservation explicitly, anticipates second-order consequences of the chosen action (alerting the attacker, breaking production), and is willing to state a defensible position even with imperfect information.</td></tr>
+<tr><td>Threat Identification</td><td><strong>40%</strong></td><td>10%</td><td>15%</td><td>10%</td><td>25%</td></tr>
+<tr><td>Containment &amp; Response</td><td>10%</td><td><strong>40%</strong></td><td>20%</td><td>15%</td><td>15%</td></tr>
+<tr><td>Architecture Analysis</td><td>15%</td><td>10%</td><td><strong>40%</strong></td><td>10%</td><td>25%</td></tr>
+<tr><td>Executive Communication</td><td>10%</td><td>10%</td><td>5%</td><td><strong>50%</strong></td><td>25%</td></tr>
+<tr><td>Incident Response</td><td>15%</td><td><strong>35%</strong></td><td>15%</td><td>20%</td><td>15%</td></tr>
+<tr><td>Default (balanced)</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td></tr>
 </tbody>
 </table>
+<p class="muted" style="font-size:.875rem;margin-top:8px"><em>TI = Threat Identification · CR = Containment &amp; Response · AB = Architecture &amp; Blast Radius · CQ = Communication Quality · FA = Framework Application</em></p>
 
 <h2 id="example">6. A worked example</h2>
 <p>Scenario: A Lambda function has unusual outbound traffic. The IAM role attached has <code>s3:*</code> and <code>secrets:*</code>. The S3 bucket contains customer PII.</p>
@@ -131,19 +180,19 @@
 <div class="example">
 <div class="example-label">Candidate A<span class="example-score weak">3.8 / 10</span></div>
 <p>"I would look at CloudTrail to see what happened and then maybe change the IAM role."</p>
-<p class="muted"><strong>Why:</strong> Technical Depth 3 — investigation-first during active exfiltration. Communication 5 — clear but unstructured. Decision-Making 3 — no sequence rationale, no urgency framing.</p>
+<p class="muted"><strong>Why:</strong> Threat Identification 4 — recognises something is wrong but no specific attack path. Containment &amp; Response 3 — investigation-first during active exfiltration. Communication Quality 5 — readable but unstructured. Architecture &amp; Blast Radius 3 — no awareness of dependencies. Framework Application 2 — no MITRE or NIST reference.</p>
 </div>
 
 <div class="example">
 <div class="example-label">Candidate B<span class="example-score mid">6.5 / 10</span></div>
 <p>"First, I'd scope down the IAM role by removing secrets:* and narrowing s3:* to only the specific bucket. Then I'd check CloudTrail for what was accessed and rotate any credentials the Lambda could have read."</p>
-<p class="muted"><strong>Why:</strong> Technical Depth 7 — specific, correct mitigations. Communication 7 — clear structure. Decision-Making 5 — moves in the right direction but doesn't explain why sequence matters.</p>
+<p class="muted"><strong>Why:</strong> Threat Identification 7 — names the IAM over-permission path. Containment &amp; Response 6 — specific, correct mitigations but doesn't justify sequence. Architecture &amp; Blast Radius 6 — names what the role can reach. Communication Quality 7 — clear structure. Framework Application 5 — implicit least-privilege but no explicit standard cited.</p>
 </div>
 
 <div class="example">
 <div class="example-label">Candidate C<span class="example-score strong">8.9 / 10</span></div>
 <p>"Disable the Lambda function first — remove its trigger or set concurrency to zero. That stops active exfiltration without destroying forensic state, which matters because wiping the role before preserving evidence loses the CloudTrail correlation we'll need later. After that: scope the role (remove secrets:*, narrow s3:* to the specific bucket), rotate credentials the role could have accessed, snapshot the Lambda environment for forensics, and review CloudTrail for scope of what was already taken. Sequence matters because investigation before containment lets the attacker keep reading PII the whole time we're triaging."</p>
-<p class="muted"><strong>Why:</strong> Technical Depth 9 — specific mitigations with defense-in-depth and forensic awareness. Communication 9 — explicit sequencing and rationale. Decision-Making 9 — names the trade-off (speed vs forensics) and picks a defensible side.</p>
+<p class="muted"><strong>Why:</strong> Threat Identification 9 — names primary and secondary vectors. Containment &amp; Response 9 — proportional, evidence-preserving, sequenced. Architecture &amp; Blast Radius 9 — full credential reuse map. Communication Quality 9 — explicit sequencing and rationale. Framework Application 8 — implicit MITRE alignment, NIST 800-61 sequencing visible.</p>
 </div>
 
 <h2 id="adaptive">7. Adaptive questioning logic</h2>
@@ -167,10 +216,11 @@
 <h2 id="calib">9. Consistency &amp; calibration</h2>
 <p>We take rubric consistency seriously. Concrete measures:</p>
 <ul>
-<li>All scoring prompts to the AI include the full rubric text (not a summary)</li>
+<li>All scoring prompts include the full anchored rubric (not a summary)</li>
 <li>Each question includes a role-specific and difficulty-specific rubric anchor</li>
-<li>Every week, we randomly sample ~50 scored assessments for manual review by security engineers. Patterns of drift trigger rubric updates or model-answer revisions.</li>
-<li>We test scoring consistency by running the same answer through the system multiple times; variance of more than 0.5 on any dimension triggers investigation.</li>
+<li><strong>Nightly regression at 02:00 IST:</strong> 50+ golden answers across 7 categories — Clearly Excellent, Clearly Poor, Fluent But Wrong, Correct But Poorly Communicated, Overconfident Hallucination, Partial But Well-Prioritized, Technically Strong But Business-Blind — run through the live engine. If pass-rate drops below 80%, we freeze prompt changes until investigated.</li>
+<li>Pass 1, 2, 3 raw outputs are stored for 90 days for auditability. Hiring managers can request explanation of any score; the system regenerates the full Pass 1 / Pass 2 / Pass 3 trace.</li>
+<li>Every month, the founder and 2 core engineers manually review 20–30 flagged evaluations to track AI-vs-human agreement.</li>
 </ul>
 
 <h2 id="challenge">10. Score challenges</h2>
@@ -187,6 +237,7 @@
 <thead><tr><th>Version</th><th>Date</th><th>Summary of changes</th></tr></thead>
 <tbody>
 <tr><td>1.0</td><td>22 April 2026</td><td>Initial publication.</td></tr>
+<tr><td>2.0</td><td>May 2026</td><td>Updated to v4 spec — five anchored dimensions, 3-Pass scoring engine, qualitative bands, confidence levels, dual score display, question-specific weighting, golden-answer regression. Replaces the v1 three-dimension model.</td></tr>
 </tbody>
 </table>
 
