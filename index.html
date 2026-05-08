@@ -2013,6 +2013,37 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 #pricing .tc .sub{font-size:.825rem!important}
 #pricing .picon{width:36px;height:36px;margin-bottom:8px}
 
+/* ============================================================
+   ROUND 51 — Pricing single-screen fit
+   Target: heading + 3 cards + disclaimer all visible in ~800px
+   viewport at 100% zoom on desktop. Tightens section padding,
+   heading→cards gap, card internals, and pulls the disclaimer
+   up close to the card row so it visually anchors to pricing.
+   ============================================================ */
+#pricing{padding:16px 0!important}
+#pricing .tc{margin-bottom:8px!important}
+#pricing .tc .eyebrow{font-size:.75rem!important;margin-bottom:4px!important;display:inline-block}
+#pricing .tc h2{font-size:clamp(1.25rem,2.4vw,1.6rem)!important;margin-bottom:2px!important;line-height:1.15!important}
+#pricing .tc .sub{font-size:.8rem!important;margin-top:2px!important;line-height:1.4!important}
+#pricing .pgr{gap:14px!important;margin-top:6px!important}
+#pricing .pc{padding:14px 18px 16px!important;border-radius:14px!important}
+#pricing .pc.feat{padding-top:24px!important;margin-top:10px!important}
+#pricing .pn{font-size:.825rem!important;margin-bottom:2px!important}
+#pricing .pp{font-size:1.625rem!important;margin-bottom:0!important;line-height:1.05!important}
+#pricing .pusd{font-size:.7rem!important;margin-bottom:6px!important}
+#pricing .ppd{font-size:.72rem!important;margin-bottom:10px!important}
+#pricing .pcta{margin-bottom:10px!important}
+#pricing .pcta .btn{padding:8px 14px!important;font-size:.825rem!important}
+#pricing .pf{gap:3px!important;margin:0!important}
+#pricing .pf li{font-size:.74rem!important;line-height:1.3!important;padding:1px 0!important;display:flex;align-items:flex-start;gap:7px}
+#pricing .pf li svg{width:12px!important;height:12px!important;flex-shrink:0;margin-top:3px}
+#pricing .ppop{font-size:.58rem!important;padding:3px 10px!important;top:-9px!important;letter-spacing:.1em!important}
+#pricing .pn-note{margin-top:14px!important;font-size:.72rem!important;line-height:1.4!important;padding:0 24px!important}
+@media (max-width:760px){
+  #pricing{padding:24px 0!important}
+  #pricing .pn-note{margin-top:18px!important}
+}
+
 </style>
 <!--
   SECURITY HEADERS — RECOMMENDED ORIGIN-LEVEL CONFIGURATION
