@@ -210,9 +210,9 @@ h4{font-size:1.125rem}
 .dsec .dscn{padding:18px 20px}
 .dsec .dscn-h{margin-bottom:10px}
 .dsec .dscn-h .drt,.dsec .dscn-h .ddif{font-size:.7rem}
-.dsec .dab{padding:14px;margin-bottom:10px}
-.dsec .dat{font-size:.7rem;margin-bottom:6px}
-.dsec .dab svg{max-height:180px}
+.dsec .dab{padding:18px 16px;margin-bottom:12px}
+.dsec .dat{font-size:.78rem;margin-bottom:10px;letter-spacing:.06em}
+.dsec .dab svg{max-height:280px;width:100%;height:auto}
 .dsec .dctx{font-size:.8125rem;line-height:1.5;padding:10px 12px;color:#b9b6c4}
 .dsec .dctx strong{color:#ece9f4}
 .dsec .dint{padding:18px 20px;border-left:1px solid var(--border-2)}
@@ -226,10 +226,10 @@ h4{font-size:1.125rem}
 .dsec .dvoice svg{width:14px;height:14px}
 .dsec .dres .dres-h{padding:10px 14px;font-size:.875rem}
 .dsec .dres-l{font-size:.75rem}
-.dsec .rdim{margin-bottom:8px;font-size:.875rem}
-.dsec .rdim-l{font-size:.8125rem;color:#ece9f4;font-weight:500}
-.dsec .rdim-s{font-size:.8125rem;font-weight:600;color:var(--primary)}
-.dsec .rdim-b{height:6px}
+.dsec .rdim{margin-bottom:10px;font-size:.875rem;grid-template-columns:140px 1fr 32px}
+.dsec .rdim-l{font-size:.78rem;color:#1c1e24;font-weight:600;letter-spacing:-.01em}
+.dsec .rdim-s{font-size:.85rem;font-weight:700;color:#7c3aed}
+.dsec .rdim-b{height:8px;border-radius:4px}
 .dsec .rma{padding:10px 12px;font-size:.8125rem;line-height:1.5;margin-top:10px}
 .dsec .rma strong{font-size:.7rem;letter-spacing:.08em}
 .dsec .rcta{margin-top:10px;gap:8px;flex-wrap:wrap}
@@ -237,31 +237,34 @@ h4{font-size:1.125rem}
 @media (max-width:760px){
   .dsec .dwb{grid-template-columns:1fr}
   .dsec .dint{border-left:none;border-top:1px solid var(--border-2)}
-  .dsec .dab svg{max-height:140px}
+  .dsec .dab svg{max-height:220px}
 }
 
-/* ROUND 28: FAQ flip-card grid */
-.faq-flip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1200px;margin:48px auto 0}
-@media (max-width:980px){.faq-flip-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:620px){.faq-flip-grid{grid-template-columns:1fr;gap:14px}}
-.faq-flip{perspective:1200px;height:200px;cursor:pointer}
-.faq-flip-i{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.22,.61,.36,1);transform-style:preserve-3d}
+/* ROUND 39: FAQ flip-card grid — tighter gaps, click only on card itself */
+.faq-flip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:24px auto 0;padding:0 24px}
+@media (max-width:980px){.faq-flip-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media (max-width:620px){.faq-flip-grid{grid-template-columns:1fr;gap:10px}}
+/* The OUTER element is a passive grid item — pointer-events disabled so empty
+   space inside the grid item doesn't trigger flips. Only the inner card receives clicks. */
+.faq-flip{perspective:1200px;height:140px;pointer-events:none}
+.faq-flip-i{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.22,.61,.36,1);transform-style:preserve-3d;cursor:pointer;pointer-events:auto}
 .faq-flip.flipped .faq-flip-i{transform:rotateY(180deg)}
-.faq-flip-f,.faq-flip-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r-md);padding:22px 20px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow-sm);transition:border-color .2s ease}
-.faq-flip-f{align-items:center;text-align:center;gap:10px}
-.faq-flip-f svg{width:30px;height:30px;color:var(--primary);flex-shrink:0}
-.faq-flip-f h5{font-size:.95rem;font-weight:700;color:var(--text);line-height:1.35;margin:0;letter-spacing:-.01em}
-.faq-flip-tap{font-size:.6875rem;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.12em;margin-top:6px}
+.faq-flip-f,.faq-flip-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r-md);padding:18px 16px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow-sm);transition:border-color .2s ease}
+.faq-flip-f{align-items:center;text-align:center;gap:8px}
+.faq-flip-f svg{width:24px;height:24px;color:var(--primary);flex-shrink:0}
+.faq-flip-f h5{font-size:.875rem;font-weight:700;color:var(--text);line-height:1.3;margin:0;letter-spacing:-.01em}
+.faq-flip-tap{font-size:.625rem;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
 .faq-flip-b{transform:rotateY(180deg);background:linear-gradient(135deg,var(--primary-whisper) 0%,var(--surface) 100%);border-color:var(--primary-subtle)}
-.faq-flip-b p{font-size:.875rem;line-height:1.55;color:var(--text-2);margin:0}
+.faq-flip-b p{font-size:.8125rem;line-height:1.5;color:var(--text-2);margin:0}
+.faq-flip-i:hover .faq-flip-f,.faq-flip-i:hover .faq-flip-b{border-color:var(--primary-light)}
 .faq-flip.flipped .faq-flip-f,.faq-flip.flipped .faq-flip-b{border-color:var(--primary-light)}
 :root[data-theme="dark"] .faq-flip-b{background:linear-gradient(135deg,rgba(124,58,237,.10) 0%,var(--surface) 100%)}
 
-/* ROUND 28 mobile overrides */
+/* ROUND 39: mobile FAQ overrides — tighter heights */
 @media (max-width:760px){
-  .faq-flip{height:180px}
-  .faq-flip-f h5{font-size:.875rem}
-  .faq-flip-b p{font-size:.8125rem}
+  .faq-flip{height:130px}
+  .faq-flip-f h5{font-size:.85rem}
+  .faq-flip-b p{font-size:.8rem;line-height:1.45}
   .fbr-contact{margin-top:12px}
 }
 
@@ -273,9 +276,9 @@ h4{font-size:1.125rem}
 .qt{font-size:1rem;font-weight:500;color:var(--text);margin-bottom:20px;line-height:1.5}
 .qt code{background:#fef2f2;padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:.85em;color:#ef4444}
 .qt code.w{background:#fef3c7;color:#d97706}
-.sp{display:flex;flex-direction:column;gap:10px}
-.sb{display:flex;justify-content:space-between;align-items:center;font-size:.875rem;padding:10px 14px;background:var(--bg-subtle);border-radius:var(--r-sm);font-weight:500}
-.sb .sn{color:var(--primary);font-weight:700}
+.sp{display:flex;flex-direction:column;gap:8px}
+.sb{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.875rem;padding:10px 14px;background:var(--bg-subtle);border-radius:var(--r-sm);font-weight:500}
+.sb .sn{color:var(--primary);font-weight:700;flex-shrink:0;font-family:var(--mono);font-size:.85rem}
 .mitre{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;background:var(--primary-subtle);border-radius:4px;font-family:var(--mono);font-size:.7rem;color:var(--primary);font-weight:600}
 
 /* Trust bar */
@@ -325,11 +328,11 @@ h4{font-size:1.125rem}
 .dres-h{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid #2a2438}
 .dres-l{font-size:.7rem;font-weight:600;color:#34d399;text-transform:uppercase;letter-spacing:.15em;font-family:var(--mono)}
 .dres-s{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:#a78bfa}
-.rdim{display:flex;align-items:center;justify-content:space-between;font-size:.875rem}
-.rdim-l{color:#a29fb0;font-weight:500;min-width:130px}
-.rdim-b{flex:1;height:6px;background:#1e1a2c;border-radius:3px;margin:0 12px;overflow:hidden}
-.rdim-f{height:100%;background:linear-gradient(90deg,#a78bfa 0%,#c084fc 100%);border-radius:3px;transition:width .8s ease;width:0;box-shadow:0 0 8px rgba(167,139,250,.4)}
-.rdim-s{font-weight:700;color:#ece9f4;font-family:var(--mono);min-width:40px;text-align:right}
+.rdim{display:grid;grid-template-columns:150px 1fr 36px;gap:10px;align-items:center;font-size:.875rem}
+.rdim-l{color:#a29fb0;font-weight:500;line-height:1.2}
+.rdim-b{height:8px;background:#1e1a2c;border-radius:4px;overflow:hidden}
+.rdim-f{height:100%;background:linear-gradient(90deg,#a78bfa 0%,#c084fc 100%);border-radius:4px;transition:width .8s ease;width:0;box-shadow:0 0 8px rgba(167,139,250,.4)}
+.rdim-s{font-weight:700;color:#ece9f4;font-family:var(--mono);text-align:right;font-size:.875rem;line-height:1}
 .rma{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);border-left:3px solid #a78bfa;padding:14px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:.875rem;line-height:1.55;color:#a29fb0}
 .rma strong{color:#c4b5fd;display:block;margin-bottom:6px;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;font-family:var(--mono)}
 .rcta{display:flex;gap:10px;margin-top:auto;flex-wrap:wrap;align-items:center}
@@ -1535,43 +1538,79 @@ h2{font-size:1.375rem!important}
 :root[data-theme="dark"] #validate .vmet-p{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#e8e9ed}
 
 
-/* ROUND 33: blog section compact */
-#blog{padding:32px 0!important}
-#blog .bgrid{gap:14px!important}
-#blog .bcard{padding:14px 16px!important}
-#blog .bcard h3{font-size:.95rem!important;margin:0 0 4px!important}
-#blog .bcard p{font-size:.8125rem!important;line-height:1.4!important;margin:4px 0 8px!important}
-#blog .bcat{font-size:.65rem!important;padding:3px 8px!important}
-#blog .bdate{font-size:.7rem!important}
+/* ROUND 39: blog — fit fully in viewport at 100% zoom */
+#blog{padding:24px 0 32px!important}
+#blog .bsec-h{margin-bottom:18px!important}
+#blog .bsec-h h2{font-size:1.625rem!important;margin-bottom:4px!important}
+#blog .bsec-h .sub{font-size:.85rem!important;margin:0!important}
+#blog .bgrid{gap:14px!important;padding:0 24px!important}
+#blog .bcard{padding:0!important;border-radius:12px!important}
+#blog .bcard-hero{padding:14px!important;min-height:auto!important}
+#blog .bcard-hero svg.diag{max-width:240px;max-height:90px}
+#blog .bcard-badge{top:10px!important;left:10px!important;font-size:.625rem!important;padding:3px 8px!important}
+#blog .bcard-body{padding:14px 16px 14px!important}
+#blog .bcard-meta{font-size:.7rem!important;margin-bottom:6px!important;gap:8px!important}
+#blog .bcard h3{font-size:.92rem!important;margin:0 0 6px!important;line-height:1.3!important;letter-spacing:-.01em!important}
+#blog .bcard p{font-size:.78rem!important;line-height:1.4!important;margin:0 0 8px!important}
+#blog .bcard-tech{margin-bottom:8px!important;gap:4px!important}
+#blog .bcard-tech-chip{font-size:.62rem!important;padding:2px 6px!important}
+#blog .bcard-link{font-size:.78rem!important;gap:4px!important}
+#blog .bcard-link svg{width:12px;height:12px}
 #blog .blink{font-size:.8125rem!important}
 #blog .tc{margin-bottom:18px!important}
 
 
 /* ============================================================
-   ROUND 33 v4: Carousel — single source of truth.
-   Discards earlier layered overrides; this is authoritative.
+   ROUND 39 v3: Carousel — 3-up, clean clip, arrows hang outside
+   .tcarousel = clipping viewport (overflow hidden, no padding)
+   Arrows are absolutely positioned BUT positioned outside the
+   carousel by using transform offsets, sitting on the section
+   side gutters where there's empty space.
    ============================================================ */
-.tcarousel{position:relative!important;max-width:760px!important;margin:32px auto 0!important;
-           padding:0!important;overflow:hidden!important;border-radius:var(--r-lg)!important}
-.tcarousel-track{display:flex!important;width:100%!important;
+.tcarousel{position:relative!important;max-width:1080px!important;margin:28px auto 0!important;
+           padding:0!important;overflow:hidden!important;border-radius:var(--r-md)!important;
+           box-shadow:none!important;background:transparent!important}
+.tcarousel-track{display:flex!important;width:100%!important;gap:18px!important;
                  transition:transform .55s cubic-bezier(.22,.61,.36,1)!important;
-                 will-change:transform;overflow:visible!important;border-radius:0!important}
-.tslide{flex:0 0 100%!important;width:100%!important;min-width:100%!important;max-width:100%!important;
+                 will-change:transform;overflow:visible!important;border-radius:0!important;
+                 padding:6px 4px!important}
+/* Each slide takes ~1/3 of the visible area, so 3 cards show at once */
+.tslide{flex:0 0 calc((100% - 36px) / 3)!important;
+        width:calc((100% - 36px) / 3)!important;
+        min-width:calc((100% - 36px) / 3)!important;
+        max-width:calc((100% - 36px) / 3)!important;
         box-sizing:border-box}
-/* Arrows — INSIDE the carousel viewport (no overflow tricks) */
-.tcarousel .tarrow{position:absolute!important;top:50%;transform:translateY(-50%);
-                    width:38px;height:38px;border-radius:50%;
-                    background:rgba(255,255,255,.92);border:1px solid var(--border);
-                    box-shadow:0 2px 10px rgba(15,10,26,.15);cursor:pointer;
+@media (max-width:980px){
+  .tcarousel{max-width:680px!important}
+  .tslide{flex:0 0 calc((100% - 18px) / 2)!important;
+          width:calc((100% - 18px) / 2)!important;
+          min-width:calc((100% - 18px) / 2)!important;
+          max-width:calc((100% - 18px) / 2)!important}
+}
+@media (max-width:640px){
+  .tcarousel{max-width:100%!important}
+  .tslide{flex:0 0 100%!important;width:100%!important;min-width:100%!important;max-width:100%!important}
+}
+/* Arrows — wrapper sits OUTSIDE .tcarousel via the carousel-row container */
+.tcarousel-row{position:relative;max-width:1180px;margin:28px auto 0}
+.tcarousel-row .tarrow{position:absolute!important;top:50%;transform:translateY(-50%);
+                    width:40px;height:40px;border-radius:50%;
+                    background:rgba(255,255,255,.96);border:1px solid var(--border);
+                    box-shadow:0 4px 14px rgba(15,10,26,.10);cursor:pointer;
                     display:flex;align-items:center;justify-content:center;
                     color:var(--text);transition:all .2s ease;z-index:10}
-.tcarousel .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary);
-                          box-shadow:0 3px 14px rgba(124,58,237,.4)}
-.tcarousel .tarrow svg{width:16px;height:16px}
-.tcarousel .tarrow-l{left:10px!important;right:auto!important}
-.tcarousel .tarrow-r{right:10px!important;left:auto!important}
-:root[data-theme="dark"] .tcarousel .tarrow{background:rgba(42,44,51,.92);border-color:#3a3c45;color:#e8e9ed}
-:root[data-theme="dark"] .tcarousel .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tcarousel-row .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary);
+                          box-shadow:0 4px 16px rgba(124,58,237,.35)}
+.tcarousel-row .tarrow:disabled{opacity:.35;cursor:not-allowed;background:rgba(255,255,255,.7)}
+.tcarousel-row .tarrow:disabled:hover{background:rgba(255,255,255,.7);color:var(--text);border-color:var(--border);box-shadow:0 4px 14px rgba(15,10,26,.10)}
+.tcarousel-row .tarrow svg{width:16px;height:16px}
+.tcarousel-row .tarrow-l{left:0!important;right:auto!important}
+.tcarousel-row .tarrow-r{right:0!important;left:auto!important}
+.tcarousel-row .tcarousel{margin-top:0!important}
+:root[data-theme="dark"] .tcarousel-row .tarrow{background:rgba(42,44,51,.96);border-color:#3a3c45;color:#e8e9ed}
+:root[data-theme="dark"] .tcarousel-row .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+:root[data-theme="dark"] .tcarousel-row .tarrow:disabled{background:rgba(42,44,51,.5)}
+:root[data-theme="dark"] .tcarousel-row .tarrow:disabled:hover{background:rgba(42,44,51,.5);color:#e8e9ed;border-color:#3a3c45}
 
 
 /* ROUND 33 polish: blog cards super-compact diagrams */
@@ -1640,14 +1679,20 @@ section.compact{padding:16px 0!important}
 #validate{padding:24px 0!important}
 #validate .vmet{padding:16px 18px!important}
 
-/* Testimonials — smaller card */
-#testimonials .tcard{padding:20px 22px!important}
-#testimonials .tq{font-size:.9rem!important;line-height:1.5!important;margin:10px 0!important}
+/* Testimonials — slightly tighter for 3-up layout */
+#testimonials .tcard{padding:22px 22px!important;height:100%!important}
+#testimonials .tq{font-size:.86rem!important;line-height:1.55!important;margin:10px 0!important}
 #testimonials .tcarousel{margin-top:18px!important}
+#testimonials .tst svg{width:14px;height:14px}
+#testimonials .tauth{padding-top:14px}
+#testimonials .tav{width:36px;height:36px;font-size:.8rem}
+#testimonials .tan{font-size:.825rem}
+#testimonials .tar{font-size:.75rem}
 
-/* FAQ — shorter cards */
-#faq .faq-flip{min-height:140px!important}
-#faq .faq-flip-i{height:140px!important}
+/* FAQ — height matches flex grid alignment */
+#faq{padding:32px 0!important}
+#faq .container > .tc{margin-bottom:8px!important}
+#faq .container > .tc h2{font-size:1.625rem!important;margin-bottom:0!important}
 
 /* Blog — already compact, just trim more */
 #blog .bcard{padding:10px 12px 12px!important}
@@ -1661,6 +1706,14 @@ section.compact{padding:16px 0!important}
 .nav .logo-i img{width:32px;height:32px;object-fit:contain}
 .nav .logo-t{font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
 
+
+/* ROUND 39: bigger architecture diagram text (light + dark) */
+.dsec .dab svg text{font-size:11px!important;font-weight:600}
+.dsec .dab svg text[font-size="7"]{font-size:9px!important;font-weight:500}
+.dsec .dab svg text[font-size="8"]{font-size:10px!important}
+.dsec .dab svg text[font-size="9"]{font-size:11px!important}
+.dsec .dab svg text[font-size="10"]{font-size:12px!important}
+.dsec .dab svg rect{stroke-width:1.8!important}
 
 /* ROUND 35: dark-mode tweaks for demo architecture diagram */
 :root[data-theme="dark"] .dsec rect[fill="#f0f1f4"]{fill:#262830}
@@ -2128,7 +2181,7 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 </div>
 
 <div class="rbl">
-<a href="rubric.html" class="btn btn-secondary">Read the full scoring rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="rubric.html" target="_self" class="btn btn-secondary">Read the full scoring rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <p>Assessments are evaluated by Anthropic's Claude API across three sequential passes per question. The full anchored rubric, qualitative bands, confidence calculation, and per-category weighting are published. Transparency is the trust differentiator.</p>
 </div>
 </div>
@@ -2338,7 +2391,7 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 -->
 
 <div style="text-align:center;margin-top:32px">
-<a href="sample-report.html" class="btn btn-secondary">View a sample skill report</a>
+<a href="sample-report.html" target="_self" class="btn btn-secondary">View a sample skill report</a>
 </div>
 
 </div>
@@ -2584,7 +2637,7 @@ Retry the same scenario twice with different opening answers — you'll get diff
 <strong>Proof you can verify</strong>
 Read the full rubric before you buy. Compare a candidate's transcript against the published examples. Dispute any score within 14 days; we respond in 7 business days with a line-item re-evaluation.
 </div>
-<a href="rubric.html" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="rubric.html" target="_self" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 4 — —>
@@ -2599,7 +2652,7 @@ Read the full rubric before you buy. Compare a candidate's transcript against th
 <strong>Proof you can verify</strong>
 Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) and the rubric version. Re-run the same transcript; you get the same score within a small, documented variance band.
 </div>
-<a href="security.html" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="security.html" target="_self" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 5 — —>
@@ -2614,7 +2667,7 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <strong>Proof you can verify</strong>
 Every report includes an integrity block with violation count (must be zero), blocked-paste attempts, pause events, and the pool size from which the scenario was drawn. Visible on every PDF export.
 </div>
-<a href="sample-report.html" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="sample-report.html" target="_self" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 6 — —>
@@ -2672,7 +2725,7 @@ Retry the same scenario twice with different opening answers — you'll get diff
 <strong>Proof you can verify</strong>
 Read the full rubric before you buy. Compare a candidate's transcript against the published examples. Dispute any score within 14 days; we respond in 7 business days with a line-item re-evaluation.
 </div>
-<a href="rubric.html" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="rubric.html" target="_self" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 4 — —>
@@ -2687,7 +2740,7 @@ Read the full rubric before you buy. Compare a candidate's transcript against th
 <strong>Proof you can verify</strong>
 Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) and the rubric version. Re-run the same transcript; you get the same score within a small, documented variance band.
 </div>
-<a href="security.html" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="security.html" target="_self" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 5 — —>
@@ -2702,7 +2755,7 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <strong>Proof you can verify</strong>
 Every report includes an integrity block with violation count (must be zero), blocked-paste attempts, pause events, and the pool size from which the scenario was drawn. Visible on every PDF export.
 </div>
-<a href="sample-report.html" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="sample-report.html" target="_self" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 6 — —>
@@ -2964,6 +3017,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <h2>Real feedback from <span class="grad">real users</span></h2>
 <p class="sub">Engineers sharpening their reasoning and building verifiable proof.</p>
 </div>
+<div class="tcarousel-row">
 <div class="tcarousel" id="tCarousel">
 <div class="tcarousel-track" id="tCarouselTrack">
 
@@ -3005,12 +3059,16 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 
 </div>
 
+</div>
+
 <button type="button" class="tarrow tarrow-l" id="tPrev" aria-label="Previous testimonial">
 <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 <button type="button" class="tarrow tarrow-r" id="tNext" aria-label="Next testimonial">
 <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
+
+</div>
 
 <div class="tcarousel-dots" id="tDots">
 <button class="tdot a" data-idx="0" aria-label="Go to slide 1"></button>
@@ -3021,7 +3079,6 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <button class="tdot" data-idx="5" aria-label="Go to slide 6"></button>
 </div>
 
-</div>
 </div>
 </section>
 
@@ -3520,8 +3577,8 @@ admin@aerovanttech.com
 <div class="fcol">
 <h5>Product</h5>
 <ul>
-<li><a href="rubric.html">Scoring rubric</a></li>
-<li><a href="sample-report.html">Sample skill report</a></li>
+<li><a href="rubric.html" target="_self">Scoring rubric</a></li>
+<li><a href="sample-report.html" target="_self">Sample skill report</a></li>
 <li><a href="#blog">Attack of the Week</a></li>
 <li><a href="#faq">FAQ</a></li>
 <li><a href="https://threatready.io/app/auth" target="_blank" rel="noopener noreferrer">Sign in</a></li>
@@ -3531,10 +3588,10 @@ admin@aerovanttech.com
 <div class="fcol">
 <h5>Trust &amp; Legal</h5>
 <ul>
-<li><a href="privacy.html">Privacy policy</a></li>
-<li><a href="terms.html">Terms of service</a></li>
-<li><a href="security.html">Security</a></li>
-<li><a href="dpa.html">Data processing addendum</a></li>
+<li><a href="privacy.html" target="_self">Privacy policy</a></li>
+<li><a href="terms.html" target="_self">Terms of service</a></li>
+<li><a href="security.html" target="_self">Security</a></li>
+<li><a href="dpa.html" target="_self">Data processing addendum</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </div>
@@ -4409,38 +4466,81 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 
 <script>
-/* Testimonial auto-carousel */
+/* Testimonial carousel — ROUND 39: 3-up (or 2-up / 1-up responsive),
+   moves ONE card per arrow click, no auto-slide, bounds-aware.
+   Key formula: each slide is ~1/N of visible width; idx is current FIRST visible card. */
 (function(){
+  const carousel = document.getElementById('tCarousel');
   const track = document.getElementById('tCarouselTrack');
   const dots = document.querySelectorAll('#tDots .tdot');
   const slides = track ? track.querySelectorAll('.tslide') : [];
-  if (!track || !slides.length) return;
-  // ROUND 31: use slide count as source of truth — prevents blank slide bug
-  // when dot count and slide count drift apart.
+  if (!carousel || !track || !slides.length) return;
   const total = slides.length;
-  // Hide any extra dots beyond the slide count
-  dots.forEach((d, i) => { if (i >= total) d.style.display = 'none'; });
   let idx = 0;
-  let timer = null;
-  const AUTO_MS = 3000;
-
-  function show(i) {
-    idx = ((i % total) + total) % total;
-    track.style.transform = `translateX(-${idx * 100}%)`;
-    dots.forEach((d, n) => d.classList.toggle('a', n === idx));
-  }
-
-  // ROUND 32: auto-slide DISABLED per user request — manual arrows + dots only
-  dots.forEach(d => d.addEventListener('click', () => {
-    show(parseInt(d.dataset.idx, 10));
-  }));
-
   const prev = document.getElementById('tPrev');
   const next = document.getElementById('tNext');
-  if (prev) prev.addEventListener('click', () => { show(idx - 1); });
-  if (next) next.addEventListener('click', () => { show(idx + 1); });
 
-  show(0);
+  function visibleCount(){
+    const w = window.innerWidth;
+    if (w <= 640) return 1;
+    if (w <= 980) return 2;
+    return 3;
+  }
+
+  function maxIdx(){ return Math.max(0, total - visibleCount()); }
+
+  function applyTransform(){
+    const vc = visibleCount();
+    // each slide width = (100% - (vc-1)*gap) / vc; with track using gap
+    // To shift: translate by idx slides + idx gaps
+    const gapPx = (vc > 1) ? 18 : 0;
+    const trackEl = track;
+    const wrapEl = carousel;
+    // measure: the visible area is the carousel padded box
+    const slideW = slides[0].getBoundingClientRect().width;
+    const offset = idx * (slideW + gapPx);
+    trackEl.style.transform = `translateX(-${offset}px)`;
+  }
+
+  function syncDots(){
+    // dot N highlights the "page" the user is on (in 3-up: pages of 3)
+    const vc = visibleCount();
+    const pageIdx = Math.round(idx / vc);
+    dots.forEach((d, n) => {
+      d.classList.toggle('a', n === pageIdx);
+      d.style.display = (n * vc < total) ? '' : 'none';
+    });
+  }
+
+  function syncArrows(){
+    if (prev) prev.disabled = (idx <= 0);
+    if (next) next.disabled = (idx >= maxIdx());
+  }
+
+  function show(i){
+    idx = Math.max(0, Math.min(maxIdx(), i));
+    applyTransform();
+    syncDots();
+    syncArrows();
+  }
+
+  if (prev) prev.addEventListener('click', () => show(idx - 1));
+  if (next) next.addEventListener('click', () => show(idx + 1));
+
+  dots.forEach(d => d.addEventListener('click', () => {
+    const target = parseInt(d.dataset.idx, 10) * visibleCount();
+    show(target);
+  }));
+
+  // Re-clamp on resize (visibleCount can change)
+  let resizeT = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(() => show(idx), 120);
+  });
+
+  // Initial render after images/fonts settle (so getBoundingClientRect is accurate)
+  requestAnimationFrame(() => show(0));
 })();
 </script>
 
@@ -4487,7 +4587,7 @@ Continue with Google
 </div>
 
 <div class="amodal-foot">
-By continuing you agree to our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.
+By continuing you agree to our <a href="terms.html" target="_self">Terms</a> and <a href="privacy.html" target="_self">Privacy Policy</a>.
 </div>
 
 </div>
@@ -4855,16 +4955,20 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
 
 
 <script>
-/* ROUND 33: FAQ flip cards — tap to flip */
+/* ROUND 39: FAQ flip cards — click handler bound to INNER element only.
+   The outer .faq-flip has pointer-events:none (CSS) so clicks on grid-item
+   empty space below the card no longer trigger flips. */
 (function(){
   document.querySelectorAll('.faq-flip').forEach(card => {
-    card.addEventListener('click', () => card.classList.toggle('flipped'));
-    card.addEventListener('keydown', e => {
+    const inner = card.querySelector('.faq-flip-i');
+    if (!inner) return;
+    inner.addEventListener('click', () => card.classList.toggle('flipped'));
+    inner.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('flipped'); }
     });
-    if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', 'Tap to flip');
+    if (!inner.hasAttribute('tabindex')) inner.setAttribute('tabindex', '0');
+    inner.setAttribute('role', 'button');
+    inner.setAttribute('aria-label', 'Tap to flip');
   });
 })();
 </script>
