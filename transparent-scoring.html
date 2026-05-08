@@ -10,26 +10,27 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-48.png"/>
 <link rel="stylesheet" href="legal.css"/>
 <style>
-.ts-hero{padding:48px 0 28px;text-align:center}
+.ts-hero{padding:32px 0 20px;text-align:center}
 .ts-hero .eyebrow{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.18em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;font-family:var(--mono)}
-.ts-hero h1{font-size:clamp(1.75rem,3.6vw,2.625rem);line-height:1.15;margin:0 0 14px;letter-spacing:-.02em;font-weight:800}
+.ts-hero h1{font-size:clamp(1.5rem,2.6vw,1.875rem);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em;font-weight:800}
 .ts-hero .grad{background:linear-gradient(135deg,var(--primary),#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.ts-hero p{font-size:1rem;color:var(--text-2);max-width:780px;margin:0 auto;line-height:1.6}
-.ts-dims{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:32px 0 28px}
-@media (max-width:980px){.ts-dims{grid-template-columns:repeat(2,1fr)}}
+.ts-hero p{font-size:.925rem;color:var(--text-2);max-width:640px;margin:0 auto;line-height:1.55}
+.ts-dims{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin:22px 0 20px}
+@media (max-width:980px){.ts-dims{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.ts-dims{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.ts-dims{grid-template-columns:1fr}}
-.ts-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 18px;position:relative;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.ts-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 14px;position:relative;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 .ts-card:hover{transform:translateY(-2px);border-color:var(--primary-light);box-shadow:0 10px 28px -10px rgba(124,58,237,.18)}
-.ts-card-w{font-family:var(--mono);font-size:.6875rem;font-weight:700;letter-spacing:.14em;color:var(--text-3);text-transform:uppercase;margin-bottom:10px}
-.ts-card-ic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:14px;box-shadow:0 6px 16px -4px rgba(15,10,26,.18)}
-.ts-card-ic svg{width:22px;height:22px}
-.ts-card h3{font-size:1rem;margin:0 0 6px;color:var(--text);font-weight:700;line-height:1.25}
-.ts-card p{font-size:.875rem;color:var(--text-2);line-height:1.55;margin:0}
-.ts-note{font-size:.875rem;color:var(--text-2);text-align:center;max-width:780px;margin:0 auto 36px;line-height:1.6;padding:14px 18px;background:var(--bg-subtle);border:1px dashed var(--border-2);border-radius:12px}
+.ts-card-w{font-family:var(--mono);font-size:.625rem;font-weight:700;letter-spacing:.14em;color:var(--text-3);text-transform:uppercase;margin-bottom:8px}
+.ts-card-ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:10px;box-shadow:0 4px 12px -3px rgba(15,10,26,.18)}
+.ts-card-ic svg{width:17px;height:17px}
+.ts-card h3{font-size:.9rem;margin:0 0 4px;color:var(--text);font-weight:700;line-height:1.25}
+.ts-card p{font-size:.8rem;color:var(--text-2);line-height:1.5;margin:0}
+.ts-note{font-size:.825rem;color:var(--text-2);text-align:center;max-width:680px;margin:0 auto 24px;line-height:1.55;padding:12px 16px;background:var(--bg-subtle);border:1px dashed var(--border-2);border-radius:10px}
 :root[data-theme="dark"] .ts-note{background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.2)}
-.ts-engine{background:linear-gradient(135deg,rgba(124,58,237,.05),rgba(168,85,247,.06));border:1px solid var(--border-2);border-radius:18px;padding:26px;margin-bottom:36px}
+.ts-engine{background:linear-gradient(135deg,rgba(124,58,237,.05),rgba(168,85,247,.06));border:1px solid var(--border-2);border-radius:14px;padding:20px;margin-bottom:24px}
 :root[data-theme="dark"] .ts-engine{background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(168,85,247,.06));border-color:rgba(124,58,237,.18)}
-.ts-engine h2{font-size:1.25rem;margin:0 0 16px;color:var(--text);text-align:center}
+.ts-engine h2{font-size:1.125rem;margin:0 0 14px;color:var(--text);text-align:center}
 .ts-engine-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media (max-width:760px){.ts-engine-row{grid-template-columns:1fr}}
 .ts-engine-step{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;position:relative}
@@ -50,7 +51,7 @@
 <nav class="lnav">
 <div class="lnav-c">
 <a href="index.html" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <div class="lnav-r">

@@ -5046,6 +5046,15 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
       if (el) sections.push({id: id, el: el});
     });
 
+    // ROUND 48: sort sections by their actual document Y position so the
+    // 'at-bottom' special-case correctly picks the bottom-most section (FAQ),
+    // not whichever section was inserted last in the array.
+    sections.sort(function(a, b){
+      var ay = a.el.getBoundingClientRect().top + window.scrollY;
+      var by = b.el.getBoundingClientRect().top + window.scrollY;
+      return ay - by;
+    });
+
     if (!sections.length) return;
 
     var navOffset = 100; // sticky-nav clearance + breathing room
@@ -5067,11 +5076,15 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
         return;
       }
 
-      // Special case: if at the bottom of the page, highlight the last section
-      // (covers cases where the last section is shorter than the viewport).
+      // ROUND 48 fix: At absolute bottom of page, highlight the last NAV-LINKED
+      // section (skip platform-group helper sections like #scoring/#roles/#platform
+      // which were appended to `sections` for tracking but don't have nav anchors).
+      // The previous version returned sections[length-1] which after round 46 was
+      // 'scoring' — wrongly lighting up the Platform dropdown at the footer.
       if (scrollTop + viewportH >= document.documentElement.scrollHeight - 8) {
-        var last = sections[sections.length - 1];
-        if (last) { setActive(last.id); return; }
+        for (var i = sections.length - 1; i >= 0; i--) {
+          if (linkMap[sections[i].id]) { setActive(sections[i].id); return; }
+        }
       }
 
       // Find the section whose top is at or above probeY but closest to it
