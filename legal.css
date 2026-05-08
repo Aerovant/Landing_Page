@@ -18,6 +18,7 @@
 --mono:'SF Mono',Monaco,Menlo,'Courier New',monospace;
 }
 :root[data-theme="dark"]{
+color-scheme: dark;
 --primary:#8b5cf6;--primary-hover:#a78bfa;--primary-light:#a78bfa;
 --primary-subtle:rgba(139,92,246,.22);--primary-whisper:rgba(139,92,246,.08);
 --bg:#0c0816;--bg-subtle:#120e1e;--bg-alt:#171224;
@@ -40,11 +41,15 @@ img,svg{display:block;max-width:100%}
 /* Nav */
 .lnav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--border-2)}
 .lnav-c{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.5rem;color:var(--text);letter-spacing:-.025em;line-height:1}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.75rem;color:var(--text);letter-spacing:-.025em;line-height:1}
 .logo-t{display:inline-block}
 .logo:hover{text-decoration:none}
-.logo-i{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 2px 8px rgba(124,58,237,.3)}
-.logo-i svg{width:18px;height:18px}
+/* ROUND 41: replaced gradient-pill SVG with transparent PNG (light/dark variants) */
+.logo-i{width:auto;height:36px;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.logo-i img{height:100%;width:auto;display:block;object-fit:contain}
+.logo-i .logo-dark{display:none}
+:root[data-theme="dark"] .logo-i .logo-light{display:none}
+:root[data-theme="dark"] .logo-i .logo-dark{display:block}
 .logo .dot{color:var(--primary)}
 .lnav a.back{font-size:.875rem;color:var(--text-2);font-weight:500;display:inline-flex;align-items:center;gap:6px}
 .lnav a.back:hover{color:var(--primary);text-decoration:none}
@@ -124,7 +129,13 @@ img,svg{display:block;max-width:100%}
 .pilot-field.full{grid-column:1/-1}
 .pilot-field label{display:block;font-size:.8125rem;font-weight:600;color:var(--text);margin-bottom:6px}
 .pilot-field label .req{color:var(--danger);margin-left:2px}
-.pilot-field input[type=text],.pilot-field input[type=email],.pilot-field select,.pilot-field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:inherit;font-size:.95rem;color:var(--text);background:var(--surface);transition:border-color .15s ease}
+.pilot-field input[type=text],.pilot-field input[type=email],.pilot-field input[type=number],.pilot-field select,.pilot-field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:inherit;font-size:.95rem;color:var(--text);background:var(--surface);transition:border-color .15s ease;color-scheme:light dark}
+:root[data-theme="dark"] .pilot-field input,
+:root[data-theme="dark"] .pilot-field select,
+:root[data-theme="dark"] .pilot-field textarea{background:var(--surface);color:var(--text);border-color:var(--border)}
+:root[data-theme="dark"] .pilot-field select option{background:var(--surface);color:var(--text)}
+:root[data-theme="dark"] .pilot-field input::placeholder,
+:root[data-theme="dark"] .pilot-field textarea::placeholder{color:var(--text-3)}
 .pilot-field input:focus,.pilot-field select:focus,.pilot-field textarea:focus{outline:none;border-color:var(--primary);box-shadow:var(--glow)}
 .pilot-field textarea{min-height:100px;resize:vertical;line-height:1.5}
 .pilot-roles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
@@ -165,13 +176,7 @@ img,svg{display:block;max-width:100%}
 .aprod a:hover{color:var(--primary-light);text-decoration:none}
 .aprod a svg{width:12px;height:12px;opacity:.7}
 
-/* Brand stack — ThreatReady + 'By AEROVANT TECHNOLOGIES' under logo */
-.brand-stack{display:inline-flex;flex-direction:column;gap:1px;align-items:flex-start;line-height:1}
-.brand-stack .logo{margin:0;line-height:1.2}
-.brand-tag{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);text-decoration:none;display:inline-block;padding-left:42px;transition:color .15s ease;line-height:1.1;margin-top:1px;white-space:nowrap}
-.brand-tag:hover{color:var(--primary);text-decoration:none}
-.brand-tag-pre{color:var(--text-3);font-weight:500;letter-spacing:.1em;margin-right:3px;text-transform:none;font-size:.85em}
-.brand-tag:hover .brand-tag-pre{color:var(--primary-light)}
-/* Ensure nav bar centers both sides vertically */
+/* ROUND 41: brand-stack/brand-tag deprecated — render as plain logo only */
+.brand-stack{display:inline-flex;align-items:center}
+.brand-tag{display:none!important}
 .lnav-c{align-items:center;min-height:60px}
-@media (max-width:480px){.brand-tag{padding-left:0;font-size:.625rem;letter-spacing:.1em}}

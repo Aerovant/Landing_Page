@@ -25,9 +25,9 @@
 <meta name="twitter:title" content="ThreatReady — Cybersecurity Hiring Assessment Platform">
 <meta name="twitter:description" content="ThreatReady — attack reasoning evaluation across 15 security tracks and 6 reasoning modes. Scored by our 3-Pass AI engine against published, anchored rubrics.">
 <title>ThreatReady — Cybersecurity Hiring Assessment | Test Real Attack Reasoning</title>
-<link rel="icon" type="image/x-icon" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="48x48" href="favicon-48.png">
 <script>
 (function(){try{var s=localStorage.getItem('tr-theme');var t=s||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
@@ -59,6 +59,7 @@
 --mono:'SF Mono',Monaco,Menlo,'Courier New',monospace;
 }
 :root[data-theme="dark"]{
+color-scheme: dark;
 --primary:#a78bfa;--primary-hover:#c4b5fd;--primary-light:#c4b5fd;--primary-lighter:#a78bfa;
 --primary-subtle:rgba(167,139,250,.28);--primary-whisper:rgba(167,139,250,.10);
 --bg:#0c0816;--bg-subtle:#120e1e;--bg-alt:#1a1428;
@@ -113,9 +114,9 @@ h4{font-size:1.125rem}
 :root[data-theme="dark"] .nav.scrolled{border-bottom-color:rgba(255,255,255,.1);box-shadow:0 1px 0 rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}
 
 .nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:14px 24px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.5rem;color:var(--text);letter-spacing:-.025em;line-height:1}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.75rem;color:var(--text);letter-spacing:-.025em;line-height:1}
 .logo-t{display:inline-block}
-.logo-i{width:auto;height:32px;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.logo-i{width:auto;height:36px;display:flex;align-items:center;justify-content:center;color:var(--text)}
 .logo-i img{height:100%;width:auto;display:block;object-fit:contain}
 .logo-i .logo-dark{display:none}
 :root[data-theme="dark"] .logo-i .logo-light{display:none}
@@ -583,7 +584,8 @@ h4{font-size:1.125rem}
 @media (max-width:768px){.fgr{grid-template-columns:1fr 1fr;gap:32px}.fbr{grid-column:1/-1}}
 @media (max-width:480px){.fgr{grid-template-columns:1fr}}
 .fbr{max-width:360px}
-.fbr .logo{color:#fff;margin-bottom:16px}
+.fbr .logo{color:#fff;margin-bottom:14px;font-size:1.625rem!important;letter-spacing:-.025em;line-height:1}
+.fbr .logo-i{height:36px!important}
 .fbr p{font-size:.875rem;line-height:1.6;color:rgba(255,255,255,.6);margin-bottom:20px}
 .fcn{font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.05em}
 .fcn strong{color:rgba(255,255,255,.8)}
@@ -874,6 +876,7 @@ h3{font-size:clamp(1.125rem,4vw,1.375rem)!important}
 .fsoc{justify-content:center}
 .fsoc-bot{margin-left:0}
 .aprod-idx{padding:20px 20px 0!important;flex-direction:column;gap:6px}
+@media (max-width:768px){.aprod-col{margin-top:14px;padding:12px 0}.aprod-col-l{font-size:.625rem}.aprod-col-link{font-size:.8125rem}}
 
 /* Validation section */
 .valgrid{grid-template-columns:1fr!important;gap:14px!important}
@@ -1010,7 +1013,15 @@ h2{font-size:1.375rem!important}
 /* Push the actual orbit content above the wave shade */
 .ipprep-r .ipprep-orbit{position:relative;z-index:1}
 .ipprep-l{position:relative}
-.ipprep-tag{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:linear-gradient(135deg,#7c3aed 0%,#9333ea 50%,#a855f7 100%);color:#fff;border-radius:var(--r-full);font-size:.8125rem;font-weight:700;letter-spacing:.16em;margin-bottom:24px;text-transform:uppercase;box-shadow:0 8px 24px -6px rgba(124,58,237,.55),0 2px 4px -1px rgba(124,58,237,.3),0 1px 0 rgba(255,255,255,.35) inset,0 -1px 0 rgba(0,0,0,.08) inset;border:1px solid rgba(255,255,255,.18);position:relative;overflow:hidden}
+/* ROUND 42: banner row above the 2-col ipprep grid, pill centered */
+.ipprep-banner{grid-column:1/-1;display:flex;justify-content:center;margin-bottom:18px}
+.ipprep-tag{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:linear-gradient(135deg,#7c3aed 0%,#9333ea 50%,#a855f7 100%);color:#fff;border-radius:var(--r-full);font-size:.875rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 10px 28px -6px rgba(124,58,237,.55),0 2px 4px -1px rgba(124,58,237,.3),0 1px 0 rgba(255,255,255,.35) inset,0 -1px 0 rgba(0,0,0,.08) inset;border:1px solid rgba(255,255,255,.18);position:relative;overflow:hidden}
+/* ROUND 42: info chips */
+.ipprep-chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 18px}
+.ipprep-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-full);font-size:.8125rem;font-weight:600;color:var(--text-2);letter-spacing:.01em}
+.ipprep-chip svg{width:13px;height:13px;color:var(--primary);flex-shrink:0}
+:root[data-theme="dark"] .ipprep-chip{background:var(--surface-2);border-color:#3a3c45;color:var(--text-2)}
+@media (max-width:760px){.ipprep-chips{gap:8px;margin:14px 0}.ipprep-chip{padding:6px 11px;font-size:.75rem}.ipprep-chip svg{width:12px;height:12px}}
 .ipprep-tag::before{content:'★';font-size:1em;letter-spacing:0;text-shadow:0 1px 2px rgba(0,0,0,.18);color:#ffd86b}
 .ipprep-l h3{font-size:1.875rem;margin-bottom:14px;letter-spacing:-.022em;font-weight:700;line-height:1.2}
 .ipprep-l p{font-size:.9375rem;color:var(--text-2);line-height:1.6;margin-bottom:16px}
@@ -1501,13 +1512,30 @@ h2{font-size:1.375rem!important}
 
 /* Tighter modules section InterviewPrep callout */
 #modules .ipprep{padding:22px;margin:0 auto}
+#modules .ipprep{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:center}
 #modules .ipprep h3{font-size:1.4rem;margin-bottom:8px}
 #modules .ipprep p{font-size:.9rem;line-height:1.5;margin:8px 0 12px}
+@media (max-width:880px){#modules .ipprep{grid-template-columns:1fr}}
 
 /* Tighter testimonials cards */
 #testimonials .tcard{padding:24px}
 #testimonials .tq{font-size:.95rem;line-height:1.55}
 
+
+/* ROUND 41: aprod-col — compact left-column variant inside .fbr */
+.aprod-col{display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+           margin-top:18px;padding:14px 0;
+           border-top:1px solid rgba(255,255,255,.08);
+           border-bottom:1px solid rgba(255,255,255,.08)}
+.aprod-col-l{font-size:.65rem;font-weight:600;letter-spacing:.18em;
+             color:rgba(255,255,255,.45);text-transform:uppercase;
+             font-family:var(--mono)}
+.aprod-col-link{display:inline-flex;align-items:center;gap:6px;
+                color:#fff;font-size:.875rem;font-weight:700;
+                letter-spacing:.06em;text-transform:uppercase;
+                text-decoration:none;transition:color .15s ease}
+.aprod-col-link:hover{color:var(--primary-light);text-decoration:none}
+.aprod-col-link svg{width:12px;height:12px;opacity:.85}
 
 /* ROUND 31: aprod-idx — "A Product of Aerovant Technologies" footer strip */
 .aprod-idx{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 0;margin-top:12px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--mono);letter-spacing:.05em}
@@ -1665,8 +1693,8 @@ section.compact{padding:16px 0!important}
 
 /* InterviewPrep callout (modules) — tighter */
 #modules .ipprep{padding:18px!important;margin:0 auto!important}
-#modules .ipprep h3{font-size:1.25rem!important;margin-bottom:6px!important}
-#modules .ipprep p{font-size:.86rem!important;line-height:1.45!important;margin:6px 0 10px!important}
+#modules .ipprep h3{font-size:1.4rem!important;margin-bottom:8px!important}
+#modules .ipprep p{font-size:.9rem!important;line-height:1.5!important;margin:8px 0 12px!important}
 
 /* Trump section — even tighter */
 #trump .trump-stage{padding:16px 0 8px!important;min-height:300px!important}
@@ -1839,9 +1867,9 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 /* ROUND 38: scroll offset for #trydemo anchor (sticky nav clearance) */
 #trydemo{scroll-margin-top:80px}
 
-/* ROUND 40: header product name responsive sizing */
-@media (max-width:760px){.logo{font-size:1.25rem!important}}
-@media (max-width:480px){.logo{font-size:1.125rem!important}.logo-i{height:28px!important}}
+/* ROUND 42: header product name responsive sizing (bumped baseline) */
+@media (max-width:760px){.logo{font-size:1.375rem!important}.logo-i{height:32px!important}}
+@media (max-width:480px){.logo{font-size:1.25rem!important}.logo-i{height:28px!important}}
 
 
 /* ============================================================
@@ -2202,12 +2230,17 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 </div>
 -->
 
-<!-- InterviewPrep umbrella callout -->
+<!-- InterviewPrep umbrella callout — ROUND 42: pill moved to top banner, info chips added -->
 <div class="ipprep">
+<div class="ipprep-banner"><span class="ipprep-tag">INTERVIEW PREP MODE</span></div>
 <div class="ipprep-l">
-<span class="ipprep-tag">INTERVIEW PREP MODE</span>
 <h3>One unified flow<br><span class="ipprep-h-em">Six ways to prove you're ready</span></h3>
-<p>InterviewPrep mode wraps all 5 reasoning modules plus our attack-reasoning scenarios into a single adaptive interview simulation. The platform picks modules based on your target role, surfaces your weakest dimension, and runs a 30-minute focused practice block. End every session with a defensible score and a clear next-step.</p>
+<p>InterviewPrep wraps all 5 reasoning modules plus our attack-reasoning scenarios into a single adaptive interview simulation. The platform picks modules by your target role, surfaces your weakest dimension, and runs a 30-minute focused practice block — ending with a defensible score and a clear next-step.</p>
+<div class="ipprep-chips">
+<span class="ipprep-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>30-min session</span>
+<span class="ipprep-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12l4 4 14-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Adapts to your role</span>
+<span class="ipprep-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Defensible score</span>
+</div>
 <a href="#trump" class="ipprep-link">See what makes this different <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 <div class="ipprep-r">
@@ -3540,9 +3573,11 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 
 <div class="fbr">
 <a href="#" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="36" height="24"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="36" height="24"/></span>
+<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
 <span class="logo-t">ThreatReady</span>
 </a>
+<!-- ROUND 41: 'A Product of Aerovant' moved here, above Contact -->
+<div class="aprod-col"><span class="aprod-col-l">A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer" class="aprod-col-link">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div>
 <!-- ROUND 28: contact emails moved here from removed "Reach out to us" section -->
 <div class="fbr-contact">
 <span class="fbr-c-l">Contact</span>
@@ -3598,9 +3633,6 @@ admin@aerovanttech.com
 </div>
 
 </div>
-
-<!-- ROUND 31: 'A Product of Aerovant Technologies' restored per user request -->
-<div class="aprod-idx"><span>A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div>
 
 <div class="fbot">
 <div class="fbt-center">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer" class="fbt-link"><strong>Aerovant Technologies Pvt. Ltd.</strong></a> All rights reserved.</div>
@@ -4891,60 +4923,85 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
 </script>
 
 <script>
-/* Round 24: Scrollspy — highlight the nav link for the section currently in view.
-   Uses IntersectionObserver to track which section is most visible, then adds
-   .active class to the corresponding desktop nav link.
-*/
+/* ROUND 42: Scrollspy — position-based. Tracks the section whose top edge
+   is closest above the viewport-top + sticky-nav offset, and keeps that
+   section's link active for the ENTIRE duration the user is within it.
+   Replaces the ratio-based observer that lost the active state when
+   scrolling deep into tall sections. */
 (function(){
   function initScrollspy(){
     var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     if (!navLinks.length) return;
-    
-    // Build a map of hash → nav link element
-    var linkMap = {};
+
+    // Build hash → link map and ordered list of section elements
+    var linkMap = {}, sections = [];
     navLinks.forEach(function(link){
       var href = link.getAttribute('href');
-      if (href && href.length > 1) {
-        linkMap[href.substring(1)] = link;
+      if (!href || href.length <= 1) return;
+      var id = href.substring(1);
+      var el = document.getElementById(id);
+      if (el) {
+        linkMap[id] = link;
+        sections.push({id: id, el: el});
       }
     });
-    
-    // Find sections that have matching IDs in the nav
-    var sections = [];
-    Object.keys(linkMap).forEach(function(id){
-      var el = document.getElementById(id);
-      if (el) sections.push(el);
-    });
-    
     if (!sections.length) return;
-    
-    // Track visibility using IntersectionObserver
-    var visibilityMap = {};
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        visibilityMap[entry.target.id] = entry.intersectionRatio;
-      });
-      // Find the section with the highest visible ratio
-      var best = null, bestRatio = 0;
-      Object.keys(visibilityMap).forEach(function(id){
-        if (visibilityMap[id] > bestRatio) {
-          bestRatio = visibilityMap[id];
-          best = id;
+
+    var navOffset = 100; // sticky-nav clearance + breathing room
+    var lastActive = null;
+    var rafScheduled = false;
+
+    function update(){
+      rafScheduled = false;
+      var scrollTop = window.scrollY || window.pageYOffset;
+      var viewportH = window.innerHeight;
+      var probeY = scrollTop + navOffset;
+
+      // Special case: if at the very top of the page, highlight the first
+      // section (#top / Home) regardless of computed positions.
+      if (scrollTop < 30 && linkMap['top']) {
+        setActive('top');
+        return;
+      }
+
+      // Special case: if at the bottom of the page, highlight the last section
+      // (covers cases where the last section is shorter than the viewport).
+      if (scrollTop + viewportH >= document.documentElement.scrollHeight - 8) {
+        var last = sections[sections.length - 1];
+        if (last) { setActive(last.id); return; }
+      }
+
+      // Find the section whose top is at or above probeY but closest to it
+      var current = null, currentTop = -Infinity;
+      sections.forEach(function(s){
+        var top = s.el.getBoundingClientRect().top + scrollTop;
+        if (top <= probeY && top > currentTop) {
+          currentTop = top;
+          current = s.id;
         }
       });
-      // Update active class on nav links
-      navLinks.forEach(function(link){ link.classList.remove('active'); });
-      if (best && linkMap[best]) {
-        linkMap[best].classList.add('active');
+      if (current) setActive(current);
+    }
+
+    function setActive(id){
+      if (lastActive === id) return;
+      lastActive = id;
+      navLinks.forEach(function(l){ l.classList.remove('active'); });
+      if (linkMap[id]) linkMap[id].classList.add('active');
+    }
+
+    function onScroll(){
+      if (!rafScheduled) {
+        rafScheduled = true;
+        requestAnimationFrame(update);
       }
-    }, {
-      rootMargin: '-80px 0px -50% 0px',
-      threshold: [0, 0.05, 0.1, 0.25, 0.5, 0.75, 1]
-    });
-    
-    sections.forEach(function(s){ observer.observe(s); });
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onScroll, {passive: true});
+    update(); // initial
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initScrollspy);
   } else {
