@@ -79,7 +79,7 @@ img,svg{display:block;max-width:100%}
 a{color:var(--primary);text-decoration:none;transition:color .15s ease}
 a:hover{color:var(--primary-hover)}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
-.container{max-width:1320px;margin:0 auto;padding:0 32px}
+.container{max-width:1400px;margin:0 auto;padding:0 32px}
 section{padding:28px 0;position:relative}
 section.compact{padding:20px 0}
 h1,h2,h3,h4{color:var(--text);font-weight:700;letter-spacing:-.02em;line-height:1.15}
@@ -155,14 +155,14 @@ h4{font-size:1.125rem}
 .hb{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-full);font-size:.8125rem;font-weight:500;color:var(--text-2);margin-bottom:28px;box-shadow:var(--shadow-sm)}
 .pulse{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 0 0 rgba(16,185,129,.7);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.7)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
-.hero h1{max-width:1080px;margin:0 auto 24px;font-size:clamp(1.625rem,3.2vw,2.5rem);line-height:1.2;padding:0 16px}
+.hero h1{max-width:1280px;margin:0 auto 24px;font-size:clamp(1.625rem,3.4vw,2.875rem);line-height:1.2;padding:0 16px}
 .hero h1 .hl{display:inline-block;margin-top:8px;padding:6px 18px;font-size:.92em;line-height:1.15;border-radius:14px}
 .hero-sub{max-width:880px;margin:0 auto 28px;font-size:1rem;color:var(--text-2);line-height:1.55;letter-spacing:-.003em;padding:0 80px}
 .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
 .hero-m{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:.875rem;color:var(--text-3);margin-top:28px}
 .hero-m span{display:inline-flex;align-items:center;gap:6px}
 .hero-m svg{width:14px;height:14px;color:#10b981}
-.hero-visual{max-width:1000px;margin:36px auto 0;position:relative}
+.hero-visual{max-width:1280px;margin:32px auto 0;position:relative}
 .browser{background:var(--surface);border-radius:var(--r-lg);box-shadow:0 30px 60px -20px rgba(124,58,237,.25),0 18px 36px -18px rgba(15,10,26,.15);overflow:hidden;border:1px solid var(--border)}
 .bbar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--bg-alt);border-bottom:1px solid var(--border)}
 .bdot{width:12px;height:12px;border-radius:50%}
@@ -194,11 +194,11 @@ h4{font-size:1.125rem}
 /* ROUND 28: anchor-only spacer for #contact (no visible section) */
 .anchor-only{display:block;height:0;margin:0;padding:0;visibility:hidden}
 /* ROUND 28: footer contact bar — emails under ThreatReady brand */
-.fbr-contact{margin-top:18px;display:flex;flex-direction:column;gap:8px}
-.fbr-contact a{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.78);font-size:.8125rem;text-decoration:none;transition:color .15s ease;line-height:1.3}
+.fbr-contact{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.fbr-contact a{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.78);font-size:.8125rem;text-decoration:none;transition:color .15s ease;line-height:1.4}
 .fbr-contact a:hover{color:#fff}
 .fbr-contact a svg{width:14px;height:14px;flex-shrink:0;color:rgba(167,139,250,.85)}
-.fbr-contact .fbr-c-l{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:2px}
+.fbr-contact .fbr-c-l{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;font-family:var(--mono)}
 
 
 
@@ -231,7 +231,7 @@ h4{font-size:1.125rem}
 .dsec .dvoice svg{width:14px;height:14px}
 .dsec .dres .dres-h{padding:10px 14px;font-size:.875rem}
 .dsec .dres-l{font-size:.75rem}
-.dsec .rdim{margin-bottom:10px;font-size:.875rem;grid-template-columns:140px 1fr 32px}
+.dsec .rdim{margin-bottom:10px;font-size:.875rem;grid-template-columns:150px 1fr 28px}
 .dsec .rdim-l{font-size:.78rem;color:#1c1e24;font-weight:600;letter-spacing:-.01em}
 .dsec .rdim-s{font-size:.85rem;font-weight:700;color:#7c3aed}
 .dsec .rdim-b{height:8px;border-radius:4px}
@@ -246,7 +246,7 @@ h4{font-size:1.125rem}
 }
 
 /* ROUND 39: FAQ flip-card grid — tighter gaps, click only on card itself */
-.faq-flip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:24px auto 0;padding:0 24px}
+.faq-flip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1280px;margin:24px auto 0;padding:0 24px}
 @media (max-width:980px){.faq-flip-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
 @media (max-width:620px){.faq-flip-grid{grid-template-columns:1fr;gap:10px}}
 /* The OUTER element is a passive grid item — pointer-events disabled so empty
@@ -330,7 +330,7 @@ h4{font-size:1.125rem}
 @keyframes spin{to{transform:rotate(360deg)}}
 .dres{display:none;flex-direction:column;gap:16px}
 .dres.a{display:flex}
-.dres-h{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid #2a2438}
+.dres-h{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;margin-bottom:4px;border-bottom:1px solid #2a2438}
 .dres-l{font-size:.7rem;font-weight:600;color:#34d399;text-transform:uppercase;letter-spacing:.15em;font-family:var(--mono)}
 .dres-s{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:#a78bfa}
 .rdim{display:grid;grid-template-columns:150px 1fr 36px;gap:10px;align-items:center;font-size:.875rem}
@@ -357,7 +357,7 @@ h4{font-size:1.125rem}
 .pcard p{color:var(--text-2);font-size:.925rem;line-height:1.55}
 
 /* Definition box */
-.defbox{max-width:760px;margin:40px auto 0;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);text-align:center}
+.defbox{max-width:1140px;margin:32px auto 0;padding:28px 36px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);text-align:center}
 .defbox-l{font-size:.75rem;font-weight:700;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
 .defbox p{font-size:1.05rem;line-height:1.55;color:var(--text)}
 
@@ -399,7 +399,7 @@ h4{font-size:1.125rem}
 .sic svg{width:22px;height:22px}
 .scard h4{margin-bottom:10px}
 .scard p{color:var(--text-2);font-size:.925rem;line-height:1.55}
-.intb{max-width:960px;margin:40px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px}
+.intb{max-width:1200px;margin:32px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px 40px}
 .intb-t{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;margin-bottom:20px}
 .intb-t svg{width:18px;height:18px;color:var(--primary)}
 .inti{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px 24px}
@@ -451,7 +451,7 @@ h4{font-size:1.125rem}
 .roi-n{font-size:.75rem;color:rgba(255,255,255,.7);margin-top:20px;line-height:1.5}
 
 /* Comparison */
-.cw{max-width:1000px;margin:48px auto 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface)}
+.cw{max-width:1320px;margin:32px auto 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface)}
 .ct{width:100%;border-collapse:collapse;min-width:720px}
 .ct th,.ct td{padding:16px 20px;text-align:left;font-size:.875rem;border-bottom:1px solid var(--border-2)}
 .ct thead th{background:var(--bg-subtle);font-weight:600;color:var(--text-2);text-transform:uppercase;font-size:.75rem;letter-spacing:.08em;border-bottom:1px solid var(--border)}
@@ -464,7 +464,7 @@ h4{font-size:1.125rem}
 .cp{color:var(--warning)}
 
 /* B2B/B2C dimension table */
-.dtab{max-width:1000px;margin:48px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.dtab{max-width:1280px;margin:32px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
 .dtr{display:grid;grid-template-columns:1fr 1.3fr 1.3fr;border-bottom:1px solid var(--border-2)}
 .dtr:last-child{border-bottom:none}
 .dtr>div{padding:16px 20px;font-size:.925rem}
@@ -517,7 +517,7 @@ h4{font-size:1.125rem}
 .pt button{padding:10px 24px;font-size:.925rem;font-weight:600;color:var(--text-3);border-radius:var(--r-full);transition:all .2s ease;display:inline-flex;align-items:center;gap:8px}
 .pt button.a{background:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(124,58,237,.3)}
 .pt button svg{width:16px;height:16px}
-.pgr{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.pgr{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1320px;margin:0 auto}
 .pc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:36px 28px;display:flex;flex-direction:column;position:relative;transition:all .2s ease}
 .pc.feat{border-color:var(--primary);border-width:2px;padding-top:48px;margin-top:14px;box-shadow:0 12px 32px -8px rgba(124,58,237,.2)}
 .ppop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:6px 16px;background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;font-size:.6875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:var(--r-full);box-shadow:0 6px 16px -4px rgba(124,58,237,.5);white-space:nowrap;z-index:2}
@@ -583,19 +583,19 @@ h4{font-size:1.125rem}
 .fcard a:hover{color:var(--primary)}
 
 /* Footer */
-.ft{background:var(--bg-dark);color:rgba(255,255,255,.7);padding:56px 0 28px}
-.fgr{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:48px;margin-bottom:48px}
+.ft{background:var(--bg-dark);color:rgba(255,255,255,.7);padding:48px 0 18px}
+.fgr{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:48px;margin-bottom:24px}
 @media (max-width:768px){.fgr{grid-template-columns:1fr 1fr;gap:32px}.fbr{grid-column:1/-1}}
 @media (max-width:480px){.fgr{grid-template-columns:1fr}}
 .fbr{max-width:360px}
-.fbr .logo{color:#fff;margin-bottom:14px;font-size:1.625rem!important;letter-spacing:-.025em;line-height:1}
+.fbr .logo{color:#fff;margin-bottom:6px;font-size:1.625rem!important;letter-spacing:-.025em;line-height:1}
 .fbr .logo-i{width:46px!important;height:38px!important}
 .fbr p{font-size:.875rem;line-height:1.6;color:rgba(255,255,255,.6);margin-bottom:20px}
 .fcn{font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.05em}
 .fcn strong{color:rgba(255,255,255,.8)}
-.fcol h5{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
-.fcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.fcol a{color:rgba(255,255,255,.65);font-size:.875rem;transition:color .15s ease}
+.fcol h5{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fcol a{color:rgba(255,255,255,.65);font-size:.8125rem;transition:color .15s ease;line-height:1.5}
 .fcol a:hover{color:#fff}
 .fbot{padding-top:28px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .fbt{font-size:.8125rem;color:rgba(255,255,255,.5)}
@@ -880,7 +880,7 @@ h3{font-size:clamp(1.125rem,4vw,1.375rem)!important}
 .fsoc{justify-content:center}
 .fsoc-bot{margin-left:0}
 .aprod-idx{padding:20px 20px 0!important;flex-direction:column;gap:6px}
-@media (max-width:768px){.aprod-col{margin-top:14px;padding:12px 0}.aprod-col-l{font-size:.625rem}.aprod-col-link{font-size:.8125rem}}
+@media (max-width:768px){.aprod-col{margin-top:12px;padding:8px 0;gap:6px}.aprod-col-l{font-size:.625rem}.aprod-col-link{font-size:.75rem}}
 
 /* Validation section */
 .valgrid{grid-template-columns:1fr!important;gap:14px!important}
@@ -1361,7 +1361,7 @@ h2{font-size:1.375rem!important}
 }
 
 /* ROUND 43: comparison table corner cell styled subtly */
-.ct .ct-corner{font-size:.6875rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);font-family:var(--mono);text-align:left}
+.ct .ct-corner{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);text-align:left;font-family:inherit}
 :root[data-theme="dark"] .ct .ct-corner{color:rgba(255,255,255,.45)}
 
 /* InterviewPrep 4-feature strip — light premium accent matching the page palette */
@@ -1525,8 +1525,8 @@ h2{font-size:1.375rem!important}
 .dsec .dhint{color:#5b5d66}
 .dsec .dvoice{background:#fff;border:1px solid #c4c7ce;color:#3a3c44}
 .dsec .dvoice:hover{background:#f3f4f7;border-color:#7c3aed;color:#7c3aed}
-.dsec .dres{background:#dfe1e6}
-.dsec .dres-h{background:#dadce1;border-bottom:1px solid #c4c7ce;color:#1c1e24}
+.dsec .dres{background:#dfe1e6;padding:18px 22px;border-radius:10px}
+.dsec .dres-h{background:transparent;border-bottom:1px solid #c4c7ce;color:#1c1e24;padding-bottom:14px}
 .dsec .dres-l{color:#5b5d66}
 .dsec .rdim-l{color:#1c1e24}
 .dsec .rdim-s{color:#7c3aed}
@@ -1556,8 +1556,8 @@ h2{font-size:1.375rem!important}
 :root[data-theme="dark"] .dsec .dhint{color:#a8aab2}
 :root[data-theme="dark"] .dsec .dvoice{background:#1f2127;border-color:#3a3c45;color:#c4c6ce}
 :root[data-theme="dark"] .dsec .dvoice:hover{background:#262830;border-color:#a78bfa;color:#a78bfa}
-:root[data-theme="dark"] .dsec .dres{background:#262830}
-:root[data-theme="dark"] .dsec .dres-h{background:#22242a;border-bottom-color:#3a3c45;color:#e8e9ed}
+:root[data-theme="dark"] .dsec .dres{background:#262830;padding:18px 22px;border-radius:10px}
+:root[data-theme="dark"] .dsec .dres-h{background:transparent;border-bottom-color:#3a3c45;color:#e8e9ed}
 :root[data-theme="dark"] .dsec .dres-l{color:#a8aab2}
 :root[data-theme="dark"] .dsec .rdim-l{color:#e8e9ed}
 :root[data-theme="dark"] .dsec .rdim-s{color:#a78bfa}
@@ -1617,19 +1617,19 @@ h2{font-size:1.375rem!important}
 
 
 /* ROUND 41: aprod-col — compact left-column variant inside .fbr */
-.aprod-col{display:flex;flex-direction:column;align-items:flex-start;gap:4px;
-           margin-top:18px;padding:14px 0;
+.aprod-col{display:flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:8px;
+           margin-top:14px;padding:10px 0;
            border-top:1px solid rgba(255,255,255,.08);
            border-bottom:1px solid rgba(255,255,255,.08)}
-.aprod-col-l{font-size:.65rem;font-weight:600;letter-spacing:.18em;
-             color:rgba(255,255,255,.45);text-transform:uppercase;
-             font-family:var(--mono)}
-.aprod-col-link{display:inline-flex;align-items:center;gap:6px;
-                color:#fff;font-size:.875rem;font-weight:700;
-                letter-spacing:.06em;text-transform:uppercase;
-                text-decoration:none;transition:color .15s ease}
+.aprod-col-l{font-size:.6875rem;font-weight:600;letter-spacing:.14em;
+             color:rgba(255,255,255,.5);text-transform:uppercase;
+             font-family:var(--mono);white-space:nowrap}
+.aprod-col-link{display:inline-flex;align-items:center;gap:5px;
+                color:#fff;font-size:.8125rem;font-weight:700;
+                letter-spacing:.04em;text-transform:uppercase;
+                text-decoration:none;transition:color .15s ease;white-space:nowrap}
 .aprod-col-link:hover{color:var(--primary-light);text-decoration:none}
-.aprod-col-link svg{width:12px;height:12px;opacity:.85}
+.aprod-col-link svg{width:11px;height:11px;opacity:.85;flex-shrink:0}
 
 /* ROUND 31: aprod-idx — "A Product of Aerovant Technologies" footer strip */
 .aprod-idx{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 0;margin-top:12px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--mono);letter-spacing:.05em}
@@ -1863,16 +1863,16 @@ section.compact{padding:16px 0!important}
    ROUND 35: Footer reorganization — social under Contact,
    centered copyright, YouTube + Facebook added
    ============================================================ */
-.fbr-social{display:flex;gap:10px;margin-top:14px}
+.fbr-social{display:flex;gap:10px;margin-top:12px}
 .fbr-social a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;
               border-radius:8px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);
               transition:all .2s ease;text-decoration:none}
 .fbr-social a:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
 .fbr-social a svg{width:14px;height:14px}
 
-.fbot{display:flex;align-items:center;justify-content:center;padding:14px 0 4px;
-      border-top:1px solid rgba(255,255,255,.08);margin-top:18px}
-.fbt-center{font-size:.825rem;color:rgba(255,255,255,.7);text-align:center}
+.fbot{display:flex;align-items:center;justify-content:center;padding:12px 0 2px;
+      border-top:1px solid rgba(255,255,255,.08);margin-top:8px}
+.fbt-center{font-size:.75rem;color:rgba(255,255,255,.55);text-align:center;line-height:1.5}
 .fbt-link{color:#fff;text-decoration:none;transition:color .15s ease}
 .fbt-link:hover{color:#a78bfa}
 .fbt-link strong{font-weight:700}
@@ -1887,7 +1887,7 @@ section.compact{padding:16px 0!important}
 .hero{min-height:calc(100vh - 66px)!important;display:flex!important;align-items:center!important;
       justify-content:center!important;padding:24px 0!important}
 .hero .container{width:100%}
-.hero h1{font-size:clamp(1.75rem,4vw,2.875rem)!important;line-height:1.18!important;margin:14px 0 18px!important}
+.hero h1{font-size:clamp(1.875rem,4.4vw,3.25rem)!important;line-height:1.16!important;margin:14px 0 18px!important;max-width:1280px!important}
 .hero-sub{font-size:1rem!important;line-height:1.6!important;margin:0 auto 22px!important;max-width:760px!important}
 .hero-m{margin-top:18px!important;font-size:.9rem!important;gap:24px!important}
 .hero .eyebrow{margin-bottom:12px!important;font-size:.72rem!important;letter-spacing:.14em!important}
@@ -1978,7 +1978,7 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
    Constrain max-width so the line break happens at a natural
    point and the inline pill stays balanced.
    ============================================================ */
-.hero h1{max-width:1100px!important;margin-left:auto!important;margin-right:auto!important;
+.hero h1{max-width:1280px!important;margin-left:auto!important;margin-right:auto!important;
          text-align:center!important;text-wrap:balance!important;padding:0 16px!important}
 .hero .hl{display:inline-flex;align-items:center;justify-content:center;
           padding:.18em .5em;background:linear-gradient(135deg,var(--primary),#a855f7);
@@ -2013,6 +2013,13 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 #pricing .tc .sub{font-size:.825rem!important}
 #pricing .picon{width:36px;height:36px;margin-bottom:8px}
 
+
+
+/* ROUND 50: With the wider container, the heading subtitle/sub paragraph should
+   match the new wider content rhythm so they don't look squeezed-narrow under
+   wide cards. */
+.tc .sub{max-width:840px;margin-left:auto;margin-right:auto}
+.tc h2{max-width:1100px;margin-left:auto;margin-right:auto}
 </style>
 <!--
   SECURITY HEADERS — RECOMMENDED ORIGIN-LEVEL CONFIGURATION
