@@ -25,10 +25,10 @@
 <meta name="twitter:title" content="ThreatReady — Cybersecurity Hiring Assessment Platform">
 <meta name="twitter:description" content="ThreatReady — attack reasoning evaluation across 15 security tracks and 6 reasoning modes. Scored by our 3-Pass AI engine against published, anchored rubrics.">
 <title>ThreatReady — Cybersecurity Hiring Assessment | Test Real Attack Reasoning</title>
-<link rel="icon" href="favicon.svg">
-<!-- <link rel="icon" type="image/x-icon" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.svg"> -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="48x48" href="favicon-48.png">
 <script>
 (function(){try{var s=localStorage.getItem('tr-theme');var t=s||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
@@ -89,7 +89,7 @@ h3{font-size:clamp(1.125rem,2vw,1.375rem)}
 h4{font-size:1.125rem}
 .eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--primary);margin-bottom:16px;display:inline-block}
 .sub{font-size:1.05rem;color:var(--text-2);max-width:720px;margin:0 auto;line-height:1.5}
-.tc{text-align:center;margin-bottom:16px}
+.tc{text-align:center;margin-bottom:8px}
 .grad{background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hl{background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;padding:.05em .4em;border-radius:10px;display:inline-block;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
@@ -116,11 +116,15 @@ h4{font-size:1.125rem}
 .nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:14px 24px}
 .logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.75rem;color:var(--text);letter-spacing:-.025em;line-height:1}
 .logo-t{display:inline-block}
-.logo-i{width:auto;height:36px;display:flex;align-items:center;justify-content:center;color:var(--text)}
-.logo-i img{height:100%;width:auto;display:block;object-fit:contain}
-.logo-i .logo-dark{display:none}
-:root[data-theme="dark"] .logo-i .logo-light{display:none}
-:root[data-theme="dark"] .logo-i .logo-dark{display:block}
+/* ROUND 45: bulletproof logo — single CSS background-image (see r45 notes) */
+:root{--logo-img:url("logo.png")}
+:root[data-theme="dark"]{--logo-img:url("logo-dark.png")}
+.logo-i{width:42px;height:36px;display:inline-block;
+        background-image:var(--logo-img);
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-position:center;
+        flex-shrink:0}
 /* .logo-i svg{width:18px;height:18px} -- replaced with img in r27 */
 .logo .dot{color:var(--primary)}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
@@ -164,7 +168,7 @@ h4{font-size:1.125rem}
 .bdot{width:12px;height:12px;border-radius:50%}
 .bdot:nth-child(1){background:#fca5a5}.bdot:nth-child(2){background:#fcd34d}.bdot:nth-child(3){background:#86efac}
 .burl{flex:1;margin-left:12px;padding:4px 12px;background:var(--surface);border-radius:6px;font-family:var(--mono);font-size:.75rem;color:var(--text-3);border:1px solid var(--border-2)}
-.hscr{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+.hscr{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
 @media (max-width:768px){.hscr{grid-template-columns:1fr;min-height:auto}}
 
 /* ====== ROUND 28 hotfix: CSS pulled out of @media (max-width:768px) ====== */
@@ -585,7 +589,7 @@ h4{font-size:1.125rem}
 @media (max-width:480px){.fgr{grid-template-columns:1fr}}
 .fbr{max-width:360px}
 .fbr .logo{color:#fff;margin-bottom:14px;font-size:1.625rem!important;letter-spacing:-.025em;line-height:1}
-.fbr .logo-i{height:36px!important}
+.fbr .logo-i{width:46px!important;height:38px!important}
 .fbr p{font-size:.875rem;line-height:1.6;color:rgba(255,255,255,.6);margin-bottom:20px}
 .fcn{font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.05em}
 .fcn strong{color:rgba(255,255,255,.8)}
@@ -674,10 +678,10 @@ section{padding:48px 0}
 .nav-c{align-items:center;min-height:64px;gap:20px;flex-wrap:nowrap}
 .nav-c > .brand-stack{flex-shrink:0;margin-right:auto;padding-right:16px}
 .nav-c .nav-links{gap:18px;flex-wrap:nowrap;white-space:nowrap}
-.nav-c .nav-links a{font-size:.875rem;font-weight:500}
+.nav-c .nav-links a,.nav-c .nav-drop-trig{font-size:.875rem;font-weight:500}
 .nav-act{flex-shrink:0;gap:8px}
 .nav-act .btn-sm{padding:7px 14px;font-size:.8125rem}
-@media (max-width:1180px){.nav-c .nav-links{gap:14px}.nav-c .nav-links a{font-size:.825rem}.nav-act{gap:6px}}
+@media (max-width:1180px){.nav-c .nav-links{gap:14px}.nav-c .nav-links a,.nav-c .nav-drop-trig{font-size:.825rem}.nav-act{gap:6px}}
 @media (max-width:1080px){.nav-c > .brand-stack .brand-tag{font-size:.5625rem;letter-spacing:.1em}.nav-c .nav-links{gap:12px}}}
 @media (max-width:480px){.brand-tag{padding-left:0;font-size:.625rem;letter-spacing:.1em}}
 
@@ -1016,8 +1020,16 @@ h2{font-size:1.375rem!important}
 /* ROUND 42: banner row above the 2-col ipprep grid, pill centered */
 .ipprep-banner{grid-column:1/-1;display:flex;justify-content:center;margin-bottom:18px}
 .ipprep-tag{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:linear-gradient(135deg,#7c3aed 0%,#9333ea 50%,#a855f7 100%);color:#fff;border-radius:var(--r-full);font-size:.875rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 10px 28px -6px rgba(124,58,237,.55),0 2px 4px -1px rgba(124,58,237,.3),0 1px 0 rgba(255,255,255,.35) inset,0 -1px 0 rgba(0,0,0,.08) inset;border:1px solid rgba(255,255,255,.18);position:relative;overflow:hidden}
+/* ROUND 43: 'What gets evaluated' list */
+.ipprep-eval{margin:14px 0 18px;padding:14px 0;border-top:1px dashed var(--border)}
+.ipprep-eval-l{font-size:.6875rem;font-weight:700;letter-spacing:.14em;color:var(--text-3);text-transform:uppercase;margin-bottom:10px;font-family:var(--mono)}
+.ipprep-eval-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.ipprep-eval-list li{display:flex;align-items:flex-start;gap:9px;font-size:.875rem;color:var(--text-2);line-height:1.5}
+.ipprep-eval-list svg{width:14px;height:14px;color:var(--primary);flex-shrink:0;margin-top:3px}
+:root[data-theme="dark"] .ipprep-eval{border-top-color:#3a3c45}
+@media (max-width:760px){.ipprep-eval{margin:10px 0 14px;padding:10px 0}.ipprep-eval-list li{font-size:.8125rem}}
 /* ROUND 42: info chips */
-.ipprep-chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 18px}
+.ipprep-chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
 .ipprep-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-full);font-size:.8125rem;font-weight:600;color:var(--text-2);letter-spacing:.01em}
 .ipprep-chip svg{width:13px;height:13px;color:var(--primary);flex-shrink:0}
 :root[data-theme="dark"] .ipprep-chip{background:var(--surface-2);border-color:#3a3c45;color:var(--text-2)}
@@ -1185,7 +1197,18 @@ h2{font-size:1.375rem!important}
 .hki-t span{display:block;font-size:.8125rem;color:var(--text-2);line-height:1.55}
 
 /* Roles marquee — seamless infinite scroll, no glitch, 15 roles */
-.rmq-outer{padding:48px 24px;background:linear-gradient(135deg,rgba(124,58,237,.04) 0%,rgba(168,85,247,.06) 100%);max-width:1320px;margin:48px auto 0;border-radius:24px;border:1px solid var(--border-2);box-shadow:0 4px 24px -8px rgba(15,10,26,.06)}
+/* ROUND 44: top margin reduced (was 48px), padding-top reduced (was 48px)
+   to remove the unwanted gap above the marquee */
+.rmq-outer{padding:22px 24px 32px;background:linear-gradient(135deg,rgba(124,58,237,.04) 0%,rgba(168,85,247,.06) 100%);max-width:1320px;margin:14px auto 0;border-radius:24px;border:1px solid var(--border-2);box-shadow:0 4px 24px -8px rgba(15,10,26,.06)}
+/* ROUND 44: subtitle moved inside the marquee container, styled as
+   a centered label above the tracks. Same font-size as the original
+   .sub class so the visual weight is preserved; color tuned for the
+   tinted-purple background. */
+.rmq-sub{font-size:1.05rem;text-align:center;color:var(--text-2);max-width:720px;
+         margin:0 auto 22px;line-height:1.5}
+:root[data-theme="dark"] .rmq-sub{color:rgba(255,255,255,.72)}
+@media (max-width:760px){.rmq-sub{font-size:1rem;margin-bottom:18px;padding:0 8px}
+                         .rmq-outer{padding:18px 16px 28px;margin-top:14px}}
 :root[data-theme="dark"] .rmq-outer{background:linear-gradient(135deg,rgba(124,58,237,.08) 0%,rgba(168,85,247,.05) 100%);border-color:rgba(124,58,237,.15)}
 .rmq{position:relative;overflow:hidden}
 .rmq-row{position:relative;overflow:hidden;padding:6px 0;margin-bottom:14px}
@@ -1337,6 +1360,10 @@ h2{font-size:1.375rem!important}
   .qbands-row{grid-template-columns:1fr}
 }
 
+/* ROUND 43: comparison table corner cell styled subtly */
+.ct .ct-corner{font-size:.6875rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);font-family:var(--mono);text-align:left}
+:root[data-theme="dark"] .ct .ct-corner{color:rgba(255,255,255,.45)}
+
 /* InterviewPrep 4-feature strip — light premium accent matching the page palette */
 .ipfeat-strip{margin-top:48px;padding:28px 32px;background:linear-gradient(135deg,#ffffff 0%,#fafaff 50%,#f5f3ff 100%);border:1px solid var(--primary-subtle);border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 24px -12px rgba(124,58,237,.12)}
 :root[data-theme="dark"] .ipfeat-strip{background:linear-gradient(135deg,rgba(124,58,237,.08) 0%,rgba(168,85,247,.04) 50%,rgba(124,58,237,.06) 100%);border-color:rgba(167,139,250,.2)}
@@ -1362,8 +1389,75 @@ h2{font-size:1.375rem!important}
 .fcard-aero .fcard-email{color:var(--primary);font-weight:700}
 :root[data-theme="dark"] .fcard-aero{background:linear-gradient(135deg,rgba(167,139,250,.10) 0%,rgba(167,139,250,.04) 100%);border-color:rgba(167,139,250,.30)}
 
+/* ROUND 45: nav dropdown for Platform — ROUND 46: aligned baseline + active underline */
+.nav-drop{position:relative;display:flex;align-items:center}
+/* Match anchor metrics exactly so Platform sits on the same baseline as Home/InterviewPrep/etc. */
+.nav-drop-trig{display:inline-flex;align-items:center;gap:5px;padding:6px 2px;margin:0;
+  background:transparent;border:0;cursor:pointer;
+  font-family:inherit;font-size:.925rem;font-weight:500;line-height:1.6;
+  color:var(--text-2);
+  transition:color .15s ease;
+  position:relative;
+  -webkit-appearance:none;appearance:none;
+  vertical-align:baseline}
+.nav-drop-trig:focus{outline:none}
+.nav-drop-trig:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:4px}
+.nav-drop-trig:hover{color:var(--text)}
+.nav-drop-trig svg{width:12px;height:12px;transition:transform .2s ease;flex-shrink:0}
+.nav-drop:hover .nav-drop-trig svg,
+.nav-drop.open .nav-drop-trig svg,
+.nav-drop-trig.active svg{transform:rotate(180deg)}
+/* ROUND 46: Same underline mechanic as .nav-links a — uses ::after */
+.nav-drop-trig::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:-2px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--primary) 0%,#a855f7 100%);
+  border-radius:1px;
+  transform:translateX(-50%);
+  transition:width .25s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;
+}
+.nav-drop-trig:hover::after{width:60%}
+.nav-drop-trig.active{color:var(--text);font-weight:600}
+.nav-drop-trig.active::after{width:100%;box-shadow:0 0 8px rgba(124,58,237,.45)}
+:root[data-theme="dark"] .nav-drop-trig.active{color:var(--text)}
+:root[data-theme="dark"] .nav-drop-trig.active::after{box-shadow:0 0 10px rgba(167,139,250,.5)}
+.nav-drop-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-4px);
+  display:none;opacity:0;
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:8px;min-width:230px;list-style:none;margin:0;
+  box-shadow:0 16px 40px -10px rgba(15,10,26,.14),0 4px 12px -4px rgba(15,10,26,.08);
+  z-index:60;transition:opacity .18s ease,transform .18s ease}
+.nav-drop:hover .nav-drop-menu,
+.nav-drop:focus-within .nav-drop-menu,
+.nav-drop.open .nav-drop-menu{display:block;opacity:1;transform:translateX(-50%) translateY(0)}
+.nav-drop-menu li{margin:0}
+.nav-drop-menu a{display:flex!important;align-items:center;gap:10px;
+  padding:10px 12px!important;border-radius:9px;
+  color:var(--text-2);font-size:.875rem;font-weight:500;
+  text-decoration:none;transition:background .15s ease,color .15s ease;
+  white-space:nowrap}
+.nav-drop-menu a::after{display:none!important}
+.nav-drop-menu a:hover{background:var(--primary-whisper);color:var(--primary)}
+.nav-drop-menu a svg{width:15px;height:15px;color:var(--primary);flex-shrink:0;opacity:.85}
+:root[data-theme="dark"] .nav-drop-menu{background:var(--surface-2);border-color:#3a3c45;
+  box-shadow:0 16px 40px -10px rgba(0,0,0,.5),0 4px 12px -4px rgba(0,0,0,.3)}
+:root[data-theme="dark"] .nav-drop-menu a:hover{background:rgba(167,139,250,.16);color:var(--primary-light)}
+@media (max-width:1024px){.nav-drop{display:none}}
+
+.mmenu-grp{padding-top:6px}
+.mmenu-grp-l{display:block;font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  color:var(--text-3);text-transform:uppercase;font-family:var(--mono);padding:8px 0 4px}
+.mmenu-sub{padding-left:14px!important;font-size:.95rem!important}
+
 /* Round 24: Active section underline indicator in header nav (scrollspy) */
-.nav-links a{position:relative;padding:6px 2px}
+/* ROUND 46: explicit line-height + inline-flex so anchors share the exact metrics
+   as the Platform dropdown <button>, eliminating the 1-2px baseline drift. */
+.nav-links a{position:relative;padding:6px 2px;display:inline-flex;align-items:center;line-height:1.6}
 .nav-links a::after{
   content:'';
   position:absolute;
@@ -1599,6 +1693,7 @@ h2{font-size:1.375rem!important}
            padding:0!important;overflow:hidden!important;border-radius:var(--r-md)!important;
            box-shadow:none!important;background:transparent!important}
 .tcarousel-track{display:flex!important;width:100%!important;gap:18px!important;
+                 align-items:stretch!important;
                  transition:transform .55s cubic-bezier(.22,.61,.36,1)!important;
                  will-change:transform;overflow:visible!important;border-radius:0!important;
                  padding:6px 4px!important}
@@ -1668,7 +1763,7 @@ section.compact{padding:16px 0!important}
 #platform{padding:24px 0!important}
 #how{padding:20px 0!important}
 #roles{padding:24px 0!important}
-#scoring{padding:24px 0!important}
+#scoring{padding:16px 0!important}
 #modules{padding:24px 0!important}
 #demo{padding:24px 0!important}
 #compare{padding:20px 0!important}
@@ -1706,7 +1801,8 @@ section.compact{padding:16px 0!important}
 #validate .vmet{padding:16px 18px!important}
 
 /* Testimonials — slightly tighter for 3-up layout */
-#testimonials .tcard{padding:22px 22px!important;height:100%!important}
+#testimonials .tcard{padding:22px 22px!important;height:auto!important;min-height:340px!important;display:flex!important;flex-direction:column!important}
+#testimonials .tcard .tq{flex:1!important}
 #testimonials .tq{font-size:.86rem!important;line-height:1.55!important;margin:10px 0!important}
 #testimonials .tcarousel{margin-top:18px!important}
 #testimonials .tst svg{width:14px;height:14px}
@@ -1867,6 +1963,11 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 /* ROUND 38: scroll offset for #trydemo anchor (sticky nav clearance) */
 #trydemo{scroll-margin-top:80px}
 
+/* ROUND 43: equal container heights for #01 'How we validate' and #02 'Try the demo' */
+.dvshow .browser, .dw{min-height:600px;display:flex;flex-direction:column}
+.dvshow .browser .hscr, .dw .dwb{flex:1}
+@media (max-width:768px){.dvshow .browser, .dw{min-height:auto}}
+
 /* ROUND 42: header product name responsive sizing (bumped baseline) */
 @media (max-width:760px){.logo{font-size:1.375rem!important}.logo-i{height:32px!important}}
 @media (max-width:480px){.logo{font-size:1.25rem!important}.logo-i{height:28px!important}}
@@ -1942,14 +2043,20 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 <div class="nav-c">
 <div class="brand-stack">
 <a href="#" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="36" height="24"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="36" height="24"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <!-- ROUND 35: brand-tag removed per user request — Aerovant attribution lives in footer -->
 </div>
 <ul class="nav-links">
 <li><a href="#top" class="nav-home">Home</a></li>
-<li><a href="#platform">Platform</a></li>
+<li class="nav-drop">
+<button type="button" class="nav-drop-trig" aria-haspopup="true" aria-expanded="false">Platform <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<ul class="nav-drop-menu" role="menu">
+<li role="none"><a role="menuitem" href="how-it-works.html" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>How it works</a></li>
+<li role="none"><a role="menuitem" href="transparent-scoring.html" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Transparent scoring</a></li>
+</ul>
+</li>
 <li><a href="#modules">InterviewPrep</a></li>
 <li><a href="#trydemo">Try Free Demo</a></li>
 <li><a href="#pricing">Pricing</a></li>
@@ -1969,7 +2076,9 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 <div class="mmenu-inner">
 <ul>
 <li><a href="#top">Home</a></li>
-<li><a href="#platform">Platform</a></li>
+<li class="mmenu-grp"><span class="mmenu-grp-l">Platform</span></li>
+<li><a href="how-it-works.html" target="_blank" rel="noopener noreferrer" class="mmenu-sub">How it works ↗</a></li>
+<li><a href="transparent-scoring.html" target="_blank" rel="noopener noreferrer" class="mmenu-sub">Transparent scoring ↗</a></li>
 <li><a href="#modules">InterviewPrep</a></li>
 <li><a href="#trydemo">Try Free Demo</a></li>
 <li><a href="#pricing">Pricing</a></li>
@@ -2093,35 +2202,17 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-<div class="container">
-<div class="tc">
-<span class="eyebrow">How it works</span>
-<h2>A real attack, in <span class="grad">~30 minutes</span></h2>
-<p class="sub">No multiple choice. No fluff. ~30 minutes start to finish.</p>
-</div>
-<div class="sgrid">
-<div class="sc rev"><div class="snum">01</div><h4>Choose your role</h4><p>Pick from 15 specialized cybersecurity tracks — from Cloud Security to Red Team to AI/LLM Security. Hiring managers can pick multiple.</p></div>
-<div class="sc rev"><div class="snum">02</div><h4>Face a real architecture</h4><p>A random cloud or enterprise architecture loads with an attack chain mapped to MITRE ATT&amp;CK. No two sessions are identical.</p></div>
-<div class="sc rev"><div class="snum">03</div><h4>Answer 5 adaptive questions</h4><p>AI generates follow-ups based on what you just said. Pre-prepared answers don't survive. Neither does memorization.</p></div>
-<div class="sc rev"><div class="snum">04</div><h4>Get transparent scoring</h4><p>Scores across five anchored dimensions, side-by-side with the model answer, qualitative band, percentile ranking, and a shareable badge.</p></div>
-</div>
-</div>
-</section>
-
-<!-- ROLES -->
+<!-- ROLES (How it works moved to how-it-works.html) -->
 <section id="roles" style="background:var(--bg-subtle)">
 <div class="container">
-<div class="tc">
-<span class="eyebrow">15 security tracks · 4 difficulty levels · Adaptive AI</span>
+<div class="tc" style="margin-bottom:4px">
 <h2>Every security role <span class="grad">Covered.</span></h2>
-<p class="sub">Each track has its own scenario pool, rubric, and badge progression.</p>
 </div>
 </div>
 
 <!-- Marquee with outer container for professional shade -->
 <div class="rmq-outer">
+<p class="rmq-sub">Each track has its own scenario pool, rubric, and badge progression.</p>
 <div class="rmq" aria-label="15 security role tracks">
 <div class="rmq-fade rmq-fade-l" aria-hidden="true"></div>
 <div class="rmq-fade rmq-fade-r" aria-hidden="true"></div>
@@ -2155,49 +2246,13 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 <!-- SCORING -->
 <section id="scoring">
 <div class="container">
-<div class="tc">
-<span class="eyebrow">Transparent scoring</span>
-<h2>Five anchored dimensions <span class="grad">— zero black boxes</span></h2>
-<p class="sub">Every answer is evaluated by our 3-Pass AI engine — Evaluator, Challenger, Reconciler — against a published rubric with concrete written anchors at every score band. Candidates see exactly how they were evaluated. Hiring managers get defensible, explainable scores.</p>
+<!-- ROUND 45: Transparent Scoring content moved to transparent-scoring.html.
+     Only the Assessment integrity block remains on the landing page. -->
+<div class="tc" style="margin-bottom:14px">
+<span class="eyebrow">Assessment integrity</span>
+<h2>Built to be <span class="grad">trusted</span></h2>
 </div>
 
-<!-- 5 anchored dimensions -->
-<div class="sdim sdim-5">
-<div class="scard rev">
-<div class="sw">Dimension 1</div>
-<div class="sic" style="background:linear-gradient(135deg,#7c3aed,#a855f7)"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35M11 8v3l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-<h4>Threat Identification</h4>
-<p>Identifies attack vectors, techniques, and threat actor behavior — with precise MITRE mapping at top scores.</p>
-</div>
-<div class="scard rev">
-<div class="sw">Dimension 2</div>
-<div class="sic" style="background:linear-gradient(135deg,#ef4444,#f97316)"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
-<h4>Containment &amp; Response</h4>
-<p>Minimizes blast radius while preserving evidence — compliance-aware (CERT-In, GDPR, DPDPA).</p>
-</div>
-<div class="scard rev">
-<div class="sw">Dimension 3</div>
-<div class="sic" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V11l7-7 7 7v10M9 9h2m4 0h2M9 13h2m4 0h2M9 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-<h4>Architecture &amp; Blast Radius</h4>
-<p>Maps architectural interconnections and impact — surfaces weaknesses and suggests segmentation.</p>
-</div>
-<div class="scard rev">
-<div class="sw">Dimension 4</div>
-<div class="sic" style="background:linear-gradient(135deg,#a855f7,#ec4899)"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
-<h4>Communication Quality</h4>
-<p>Clear, structured, audience-appropriate — from board briefing to technical deep-dive.</p>
-</div>
-<div class="scard rev">
-<div class="sw">Dimension 5</div>
-<div class="sic" style="background:linear-gradient(135deg,#22c55e,#10b981)"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6M9 9h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-<h4>Framework Application</h4>
-<p>Correct application of MITRE ATT&amp;CK, NIST, CIS, ISO 27001 — and knows when they don't apply.</p>
-</div>
-</div>
-
-<p class="sdim-note">Each question weights these dimensions differently — a "map this to MITRE" question weights Threat Identification at 40%; an "executive briefing" question weights Communication at 50%. The full weighting matrix is in our published rubric.</p>
-
-<!-- Assessment integrity -->
 <div class="intb">
 <div class="intb-t"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>Assessment integrity</div>
 <div class="inti">
@@ -2210,10 +2265,6 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 </div>
 </div>
 
-<div class="rbl">
-<a href="rubric.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read the full scoring rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<p>Assessments are evaluated by Anthropic's Claude API across three sequential passes per question. The full anchored rubric, qualitative bands, confidence calculation, and per-category weighting are published. Transparency is the trust differentiator.</p>
-</div>
 </div>
 </section>
 
@@ -2240,6 +2291,15 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 <span class="ipprep-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>30-min session</span>
 <span class="ipprep-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12l4 4 14-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Adapts to your role</span>
 <span class="ipprep-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Defensible score</span>
+</div>
+<!-- ROUND 43: 'What gets evaluated' fills empty space -->
+<div class="ipprep-eval">
+<div class="ipprep-eval-l">What gets evaluated</div>
+<ul class="ipprep-eval-list">
+<li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Threat identification &amp; MITRE mapping</li>
+<li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Containment &amp; blast-radius reasoning</li>
+<li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Communication clarity for executive audiences</li>
+</ul>
 </div>
 <a href="#trump" class="ipprep-link">See what makes this different <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
@@ -2591,7 +2651,7 @@ Revoke the Lambda execution role's <code style="font-family:var(--mono);font-siz
 <div class="cw">
 <table class="ct">
 <thead>
-<tr><th></th><th class="us">ThreatReady</th><th>Hack The Box</th><th>TryHackMe</th><th>Generic Interview Prep</th><th>Enterprise Cyber Range</th></tr>
+<tr><th class="ct-corner">Feature</th><th class="us">ThreatReady</th><th>Hack The Box</th><th>TryHackMe</th><th>Generic Interview Prep</th><th>Enterprise Cyber Range</th></tr>
 </thead>
 <tbody>
 <tr><td>Tests</td><td class="us">Attack reasoning</td><td>Exploitation labs</td><td>Learning paths</td><td>Interview performance</td><td>Full simulations</td></tr>
@@ -3089,7 +3149,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <div class="tcard tslide">
 <div class="tst"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
 <p class="tq">"The voice-to-text on the demo convinced me. Most assessment platforms feel punishing. This one felt like a coach — the evaluator notes explained why certain reasoning patterns score higher. My communication score went from 5 to 8.5 in a month, and I actually use those reasoning patterns on the job now."</p>
-<div class="tauth"><div class="tav">AJ</div><div><div class="tan">Ajith J</div><div class="tar">Blue Team · Silver badge<span class="tbdg">Verified user</span></div></div></div>
+<div class="tauth"><div class="tav">ES</div><div><div class="tan">Ezhil S</div><div class="tar">Blue Team · Silver badge<span class="tbdg">Verified user</span></div></div></div>
 </div>
 
 </div>
@@ -3121,7 +3181,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <section id="pricing" class="psec">
 <div class="container">
 <div class="tc">
-<span class="eyebrow">Subscription plans</span>
+<span class="eyebrow">Invest in FUTURE</span>
 <h2>Simple plans <span class="grad">— no surprises</span></h2>
 <p class="sub">Start free. Scale when you're ready. No credit card required.</p>
 </div>
@@ -3260,7 +3320,6 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span class="bcard-tech-chip mitre">T1537</span>
 <span class="bcard-tech-chip mitre">T1552</span>
 </div>
-<a href="#newsletter" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
@@ -3298,7 +3357,6 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span class="bcard-tech-chip mitre">T1611</span>
 <span class="bcard-tech-chip mitre">T1068</span>
 </div>
-<a href="#newsletter" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
@@ -3335,7 +3393,6 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span class="bcard-tech-chip mitre">T1195.002</span>
 <span class="bcard-tech-chip mitre">T1552.004</span>
 </div>
-<a href="#newsletter" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
@@ -3372,7 +3429,6 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span class="bcard-tech-chip mitre">T1550.001</span>
 <span class="bcard-tech-chip mitre">T1098.001</span>
 </div>
-<a href="#blog" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
@@ -3405,7 +3461,6 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span class="bcard-tech-chip">EDR</span>
 <span class="bcard-tech-chip mitre">T1562.001</span>
 </div>
-<a href="#blog" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
@@ -3438,7 +3493,6 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <span class="bcard-tech-chip mitre">T1078</span>
 <span class="bcard-tech-chip">JWT</span>
 </div>
-<a href="#blog" class="bcard-link">Read the breakdown <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </article>
 
@@ -3573,7 +3627,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 
 <div class="fbr">
 <a href="#" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <!-- ROUND 41: 'A Product of Aerovant' moved here, above Contact -->
@@ -4923,6 +4977,40 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
 </script>
 
 <script>
+/* ROUND 45: nav dropdown click-toggle (works alongside hover for desktop) */
+(function(){
+  const drops = document.querySelectorAll('.nav-drop');
+  drops.forEach(drop => {
+    const trig = drop.querySelector('.nav-drop-trig');
+    if (!trig) return;
+    trig.addEventListener('click', e => {
+      e.preventDefault();
+      const open = drop.classList.toggle('open');
+      trig.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', e => {
+    drops.forEach(drop => {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+        const trig = drop.querySelector('.nav-drop-trig');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      drops.forEach(drop => {
+        drop.classList.remove('open');
+        const trig = drop.querySelector('.nav-drop-trig');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+})();
+</script>
+
+<script>
 /* ROUND 42: Scrollspy — position-based. Tracks the section whose top edge
    is closest above the viewport-top + sticky-nav offset, and keeps that
    section's link active for the ENTIRE duration the user is within it.
@@ -4931,7 +5019,12 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
 (function(){
   function initScrollspy(){
     var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    var dropTrig = document.querySelector('.nav-drop-trig');
     if (!navLinks.length) return;
+
+    // ROUND 46: Platform dropdown trigger maps to MULTIPLE sections (#platform, #roles, #scoring).
+    // When the scrollspy puts any of these as active, we light up the Platform trigger.
+    var platformGroup = ['platform','roles','scoring'];
 
     // Build hash → link map and ordered list of section elements
     var linkMap = {}, sections = [];
@@ -4945,6 +5038,14 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
         sections.push({id: id, el: el});
       }
     });
+
+    // Add platform-group sections to the tracking list (even though they have no nav link)
+    platformGroup.forEach(function(id){
+      if (linkMap[id]) return; // already linked, skip
+      var el = document.getElementById(id);
+      if (el) sections.push({id: id, el: el});
+    });
+
     if (!sections.length) return;
 
     var navOffset = 100; // sticky-nav clearance + breathing room
@@ -4957,9 +5058,11 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
       var viewportH = window.innerHeight;
       var probeY = scrollTop + navOffset;
 
-      // Special case: if at the very top of the page, highlight the first
-      // section (#top / Home) regardless of computed positions.
-      if (scrollTop < 30 && linkMap['top']) {
+      // Special case: only force Home active when actually at the very top.
+      // ROUND 46: tightened from 30 → 4px. The previous threshold was wide enough
+      // that scrolling halfway into the hero still locked Home, preventing
+      // #platform / Platform-trigger from activating on short hero variants.
+      if (scrollTop < 4 && linkMap['top']) {
         setActive('top');
         return;
       }
@@ -4987,7 +5090,13 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
       if (lastActive === id) return;
       lastActive = id;
       navLinks.forEach(function(l){ l.classList.remove('active'); });
-      if (linkMap[id]) linkMap[id].classList.add('active');
+      if (dropTrig) dropTrig.classList.remove('active');
+      if (linkMap[id]) {
+        linkMap[id].classList.add('active');
+      } else if (platformGroup.indexOf(id) !== -1 && dropTrig) {
+        // ROUND 46: any section in the Platform group lights up the dropdown trigger
+        dropTrig.classList.add('active');
+      }
     }
 
     function onScroll(){

@@ -6,10 +6,9 @@
 <meta name="description" content="ThreatReady security practices — infrastructure, encryption, access controls, and responsible disclosure program.">
 <meta name="robots" content="index, follow">
 <title>Security — ThreatReady</title>
-<link rel="icon" href="favicon.svg">
-<!-- <link rel="icon" type="image/x-icon" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.svg"> -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <script>
 (function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
@@ -20,7 +19,7 @@
 <nav class="lnav">
 <div class="lnav-c">
 <a href="index.html" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <div class="lnav-r">
@@ -33,14 +32,49 @@
 </div>
 </nav>
 
-<header class="lhead">
-<div class="lhead-c">
+<header class="lhero">
+<div class="lhero-c">
+<div class="lhero-text">
 <span class="eyebrow">Trust</span>
-<h1>Security at ThreatReady</h1>
-<p class="meta">Last updated: 22 April 2026</p>
+<h1>Security at <span class="grad">ThreatReady</span></h1>
+<p class="meta"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Last updated: 22 April 2026</p>
 <p class="intro">We build a platform that measures how well security engineers think. The least we can do is take our own security seriously. This page is a factual, ongoing account of how we protect your data — not a marketing statement.</p>
 </div>
+<div class="lhero-art" aria-hidden="true">
+<svg viewBox="0 0 280 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs>
+<linearGradient id="sec-1" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#a855f7" stop-opacity=".25"/><stop offset="100%" stop-color="#7c3aed" stop-opacity=".18"/>
+</linearGradient>
+<linearGradient id="sec-2" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#a855f7" stop-opacity=".55"/><stop offset="100%" stop-color="#7c3aed" stop-opacity=".55"/>
+</linearGradient>
+<linearGradient id="sec-3" x1="20%" y1="10%" x2="80%" y2="100%">
+<stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#6d28d9"/>
+</linearGradient>
+<linearGradient id="sec-bolt" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#fef3c7"/><stop offset="100%" stop-color="#fde68a"/>
+</linearGradient>
+<radialGradient id="sec-glow" cx="50%" cy="55%" r="52%">
+<stop offset="0%" stop-color="#a855f7" stop-opacity=".45"/><stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<circle cx="140" cy="125" r="100" fill="url(#sec-glow)"/>
+<circle cx="140" cy="125" r="105" fill="none" stroke="#a78bfa" stroke-opacity=".18" stroke-dasharray="3 7"/>
+<path d="M140 28 L60 56 L60 124 Q60 184 140 222 Q220 184 220 124 L220 56 Z" fill="url(#sec-1)" stroke="#a78bfa" stroke-opacity=".35" stroke-width="1.4"/>
+<path d="M140 50 L78 72 L78 128 Q78 174 140 204 Q202 174 202 128 L202 72 Z" fill="url(#sec-2)" stroke="#a78bfa" stroke-opacity=".55" stroke-width="1.4"/>
+<path d="M140 70 L96 86 L96 130 Q96 166 140 188 Q184 166 184 130 L184 86 Z" fill="url(#sec-3)" stroke="#7c3aed" stroke-opacity=".5" stroke-width="1"/>
+<path d="M140 70 L96 86 L96 124 Q140 112 184 124 L184 86 Z" fill="#ffffff" fill-opacity=".18"/>
+<g transform="translate(140 132)">
+<path d="M4 -28 L-12 4 L-2 4 L-4 22 L12 -10 L2 -10 Z" fill="url(#sec-bolt)" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-opacity=".85"/>
+</g>
+<g fill="#a78bfa" opacity=".55"><circle cx="34" cy="125" r="2.6"/><circle cx="246" cy="125" r="2.6"/><circle cx="140" cy="14" r="2.6"/></g>
+</svg>
+</div>
+</div>
 </header>
+
+<div class="lcard">
 
 <main class="lbody">
 
@@ -181,11 +215,12 @@ We will not claim certifications we do not hold. If this page says something is 
 For business inquiries about security posture, SIG / CAIQ / security questionnaires: <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=humanresource@aerovanttech.com" target="_blank" rel="noopener noreferrer">humanresource@aerovanttech.com</a></p>
 
 </main>
+</div>
 
 <footer class="lft">
 <div class="lft-c">
 <a href="index.html" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <ul class="lft-l">

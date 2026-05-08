@@ -6,10 +6,9 @@
 <meta name="description" content="Sample ThreatReady skill report — see exactly what your detailed report looks like after a session. Fictional user, real format.">
 <meta name="robots" content="index, follow">
 <title>Sample Skill Report · ThreatReady</title>
-<link rel="icon" href="favicon.svg">
-<!-- <link rel="icon" type="image/x-icon" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.svg"> -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <script>
 (function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
@@ -27,7 +26,10 @@
 .rcmeta{font-size:.875rem;color:var(--text-2)}
 .rcmeta span{margin-right:12px}
 .rlogo-org{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg-subtle);border-radius:var(--r-sm);border:1px solid var(--border-2)}
-.rlogo-org-i{width:28px;height:28px;border-radius:6px;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem}
+/* ROUND 45: bulletproof — single background-image, cannot dual-render */
+.rlogo-org-i{width:34px;height:28px;background:transparent;
+             background-image:var(--logo-img);
+             background-size:contain;background-repeat:no-repeat;background-position:center}
 .rlogo-org-t{font-size:.8125rem}
 .rlogo-org-t strong{display:block;color:var(--text);font-weight:600}
 .rlogo-org-t span{color:var(--text-3);font-size:.75rem}
@@ -240,7 +242,7 @@
 <nav class="lnav">
 <div class="lnav-c">
 <a href="index.html" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <div class="lnav-r">
@@ -282,7 +284,7 @@
 </div>
 </div>
 <div class="rlogo-org">
-<div class="rlogo-org-i">NW</div>
+<div class="rlogo-org-i" role="img" aria-label="ThreatReady"></div>
 <div class="rlogo-org-t">
 <strong>Cloud Security · Intermediate</strong>
 <span>Practice session · Career Genome update</span>
@@ -811,7 +813,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <footer class="lft">
 <div class="lft-c">
 <a href="index.html" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <ul class="lft-l">

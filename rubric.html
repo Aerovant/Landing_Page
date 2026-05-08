@@ -6,11 +6,9 @@
 <meta name="description" content="ThreatReady's public scoring rubric. The five anchored dimensions used by our 3-Pass AI engine — Threat Identification, Containment & Response, Architecture & Blast Radius, Communication Quality, Framework Application — with concrete score-band definitions for each.">
 <meta name="robots" content="index, follow">
 <title>Scoring Rubric — ThreatReady</title>
-
-<link rel="icon" href="favicon.svg">
-<!-- <link rel="icon" type="image/x-icon" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.svg"> -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <script>
 (function(){try{var s=localStorage.getItem('tr-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
@@ -39,7 +37,7 @@
 <nav class="lnav">
 <div class="lnav-c">
 <a href="index.html" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <div class="lnav-r">
@@ -52,14 +50,57 @@
 </div>
 </nav>
 
-<header class="lhead">
-<div class="lhead-c">
+<header class="lhero">
+<div class="lhero-c">
+<div class="lhero-text">
 <span class="eyebrow">Transparent evaluation</span>
-<h1>The ThreatReady Scoring Rubric</h1>
-<p class="meta">Version 1.0 · Published 22 April 2026</p>
+<h1>The ThreatReady <span class="grad">Scoring Rubric</span></h1>
+<p class="meta"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg>Version 1.0 · Published 22 April 2026</p>
 <p class="intro">We publish our scoring rubric because transparency is how we earn the trust of hiring managers and candidates alike. Read it. Challenge it. Calibrate against it. If we can't defend how we arrived at a score, we don't deserve to give it.</p>
 </div>
+<div class="lhero-art" aria-hidden="true">
+<svg viewBox="0 0 280 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs>
+<linearGradient id="rb-1" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#a855f7" stop-opacity=".55"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+<linearGradient id="rb-2" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#a855f7" stop-opacity=".60"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+<linearGradient id="rb-3" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#a855f7" stop-opacity=".65"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+<linearGradient id="rb-4" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#a855f7" stop-opacity=".70"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+<linearGradient id="rb-5" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#6d28d9"/></linearGradient>
+<linearGradient id="rb-crown" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fde68a"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient>
+<radialGradient id="rb-glow" cx="50%" cy="62%" r="52%">
+<stop offset="0%" stop-color="#a855f7" stop-opacity=".40"/><stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<circle cx="140" cy="138" r="100" fill="url(#rb-glow)"/>
+<line x1="34" y1="200" x2="246" y2="200" stroke="#a78bfa" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+<g><line x1="34" y1="170" x2="246" y2="170" stroke="#a78bfa" stroke-opacity=".15" stroke-dasharray="3 5"/>
+<line x1="34" y1="140" x2="246" y2="140" stroke="#a78bfa" stroke-opacity=".15" stroke-dasharray="3 5"/>
+<line x1="34" y1="110" x2="246" y2="110" stroke="#a78bfa" stroke-opacity=".15" stroke-dasharray="3 5"/>
+<line x1="34" y1="80"  x2="246" y2="80"  stroke="#a78bfa" stroke-opacity=".15" stroke-dasharray="3 5"/></g>
+<g><rect x="48"  y="158" width="30" height="42" rx="5" fill="url(#rb-1)" stroke="#7c3aed" stroke-opacity=".4" stroke-width="1"/>
+<rect x="88"  y="130" width="30" height="70" rx="5" fill="url(#rb-2)" stroke="#7c3aed" stroke-opacity=".4" stroke-width="1"/>
+<rect x="128" y="100" width="30" height="100" rx="5" fill="url(#rb-3)" stroke="#7c3aed" stroke-opacity=".4" stroke-width="1"/>
+<rect x="168" y="76"  width="30" height="124" rx="5" fill="url(#rb-4)" stroke="#7c3aed" stroke-opacity=".4" stroke-width="1"/>
+<rect x="208" y="56"  width="30" height="144" rx="5" fill="url(#rb-5)" stroke="#7c3aed" stroke-opacity=".5" stroke-width="1"/></g>
+<g fill="#ffffff" fill-opacity=".26">
+<rect x="48"  y="158" width="30" height="14" rx="5"/>
+<rect x="88"  y="130" width="30" height="20" rx="5"/>
+<rect x="128" y="100" width="30" height="28" rx="5"/>
+<rect x="168" y="76"  width="30" height="34" rx="5"/>
+<rect x="208" y="56"  width="30" height="40" rx="5"/></g>
+<g transform="translate(223 38)">
+<path d="M-14 8 L-14 -4 L-7 4 L0 -10 L7 4 L14 -4 L14 8 Z" fill="url(#rb-crown)" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" stroke-opacity=".85"/>
+<circle cx="-10" cy="-4" r="1.5" fill="#fff"/><circle cx="0" cy="-10" r="1.5" fill="#fff"/><circle cx="10" cy="-4" r="1.5" fill="#fff"/>
+</g>
+<g font-family="ui-monospace,SF Mono,monospace" font-size="8" font-weight="700" fill="#7c3aed" text-anchor="middle" opacity=".75">
+<text x="63" y="218">L1</text><text x="103" y="218">L2</text><text x="143" y="218">L3</text><text x="183" y="218">L4</text><text x="223" y="218">L5</text>
+</g>
+</svg>
+</div>
+</div>
 </header>
+
+<div class="lcard">
 
 <main class="lbody">
 
@@ -243,11 +284,12 @@
 </table>
 
 </main>
+</div>
 
 <footer class="lft">
 <div class="lft-c">
 <a href="index.html" class="logo">
-<span class="logo-i"><img class="logo-light" src="logo.png" alt="ThreatReady" width="44" height="30"/><img class="logo-dark" src="logo-dark.png" alt="ThreatReady" width="44" height="30"/></span>
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
 <span class="logo-t">ThreatReady</span>
 </a>
 <ul class="lft-l">
