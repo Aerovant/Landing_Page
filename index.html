@@ -113,7 +113,7 @@ h4{font-size:1.125rem}
 :root[data-theme="dark"] .nav.scrolled{border-bottom-color:rgba(255,255,255,.1);box-shadow:0 1px 0 rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}
 
 .nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:14px 24px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.125rem;color:var(--text);letter-spacing:-.02em}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.5rem;color:var(--text);letter-spacing:-.025em;line-height:1}
 .logo-t{display:inline-block}
 .logo-i{width:auto;height:32px;display:flex;align-items:center;justify-content:center;color:var(--text)}
 .logo-i img{height:100%;width:auto;display:block;object-fit:contain}
@@ -1601,16 +1601,14 @@ h2{font-size:1.375rem!important}
                     color:var(--text);transition:all .2s ease;z-index:10}
 .tcarousel-row .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary);
                           box-shadow:0 4px 16px rgba(124,58,237,.35)}
-.tcarousel-row .tarrow:disabled{opacity:.35;cursor:not-allowed;background:rgba(255,255,255,.7)}
-.tcarousel-row .tarrow:disabled:hover{background:rgba(255,255,255,.7);color:var(--text);border-color:var(--border);box-shadow:0 4px 14px rgba(15,10,26,.10)}
+/* ROUND 40: arrows always active (loop carousel) — no disabled styles */
 .tcarousel-row .tarrow svg{width:16px;height:16px}
 .tcarousel-row .tarrow-l{left:0!important;right:auto!important}
 .tcarousel-row .tarrow-r{right:0!important;left:auto!important}
 .tcarousel-row .tcarousel{margin-top:0!important}
 :root[data-theme="dark"] .tcarousel-row .tarrow{background:rgba(42,44,51,.96);border-color:#3a3c45;color:#e8e9ed}
 :root[data-theme="dark"] .tcarousel-row .tarrow:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-:root[data-theme="dark"] .tcarousel-row .tarrow:disabled{background:rgba(42,44,51,.5)}
-:root[data-theme="dark"] .tcarousel-row .tarrow:disabled:hover{background:rgba(42,44,51,.5);color:#e8e9ed;border-color:#3a3c45}
+/* dark-mode arrows always active */
 
 
 /* ROUND 33 polish: blog cards super-compact diagrams */
@@ -1840,6 +1838,10 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 
 /* ROUND 38: scroll offset for #trydemo anchor (sticky nav clearance) */
 #trydemo{scroll-margin-top:80px}
+
+/* ROUND 40: header product name responsive sizing */
+@media (max-width:760px){.logo{font-size:1.25rem!important}}
+@media (max-width:480px){.logo{font-size:1.125rem!important}.logo-i{height:28px!important}}
 
 
 /* ============================================================
@@ -2181,7 +2183,7 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 </div>
 
 <div class="rbl">
-<a href="rubric.html" target="_self" class="btn btn-secondary">Read the full scoring rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="rubric.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read the full scoring rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <p>Assessments are evaluated by Anthropic's Claude API across three sequential passes per question. The full anchored rubric, qualitative bands, confidence calculation, and per-category weighting are published. Transparency is the trust differentiator.</p>
 </div>
 </div>
@@ -2391,7 +2393,7 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 -->
 
 <div style="text-align:center;margin-top:32px">
-<a href="sample-report.html" target="_self" class="btn btn-secondary">View a sample skill report</a>
+<a href="sample-report.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View a sample skill report</a>
 </div>
 
 </div>
@@ -2637,7 +2639,7 @@ Retry the same scenario twice with different opening answers — you'll get diff
 <strong>Proof you can verify</strong>
 Read the full rubric before you buy. Compare a candidate's transcript against the published examples. Dispute any score within 14 days; we respond in 7 business days with a line-item re-evaluation.
 </div>
-<a href="rubric.html" target="_self" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="rubric.html" target="_blank" rel="noopener noreferrer" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 4 — —>
@@ -2652,7 +2654,7 @@ Read the full rubric before you buy. Compare a candidate's transcript against th
 <strong>Proof you can verify</strong>
 Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) and the rubric version. Re-run the same transcript; you get the same score within a small, documented variance band.
 </div>
-<a href="security.html" target="_self" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="security.html" target="_blank" rel="noopener noreferrer" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 5 — —>
@@ -2667,7 +2669,7 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <strong>Proof you can verify</strong>
 Every report includes an integrity block with violation count (must be zero), blocked-paste attempts, pause events, and the pool size from which the scenario was drawn. Visible on every PDF export.
 </div>
-<a href="sample-report.html" target="_self" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="sample-report.html" target="_blank" rel="noopener noreferrer" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 6 — —>
@@ -2725,7 +2727,7 @@ Retry the same scenario twice with different opening answers — you'll get diff
 <strong>Proof you can verify</strong>
 Read the full rubric before you buy. Compare a candidate's transcript against the published examples. Dispute any score within 14 days; we respond in 7 business days with a line-item re-evaluation.
 </div>
-<a href="rubric.html" target="_self" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="rubric.html" target="_blank" rel="noopener noreferrer" class="valc-link">Read the full rubric <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 4 — —>
@@ -2740,7 +2742,7 @@ Read the full rubric before you buy. Compare a candidate's transcript against th
 <strong>Proof you can verify</strong>
 Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) and the rubric version. Re-run the same transcript; you get the same score within a small, documented variance band.
 </div>
-<a href="security.html" target="_self" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="security.html" target="_blank" rel="noopener noreferrer" class="valc-link">See our security page <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 5 — —>
@@ -2755,7 +2757,7 @@ Every report footer shows the evaluation model (<code>claude-sonnet-4</code>) an
 <strong>Proof you can verify</strong>
 Every report includes an integrity block with violation count (must be zero), blocked-paste attempts, pause events, and the pool size from which the scenario was drawn. Visible on every PDF export.
 </div>
-<a href="sample-report.html" target="_self" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="sample-report.html" target="_blank" rel="noopener noreferrer" class="valc-link">Sample report <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:2px"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
 <!— — Module 6 — —>
@@ -3047,7 +3049,7 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 
 <div class="tcard tslide">
 <div class="tst"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
-<p class="tq">"I was the student nobody called back. No production experience, no bug bounties. ThreatReady's badges gave me actual proof I could hand to recruiters — not another certificate, something that showed I could reason through a breach. First internship offer came three weeks after hitting Silver on SOC Analyst. Life-changing."</p>
+<p class="tq">"I was the student nobody called back. No projects, no bug bounties. ThreatReady's badges gave me proof I could hand to recruiters — not another certificate. First internship offer came three weeks after hitting Silver on SOC Analyst."</p>
 <div class="tauth"><div class="tav">LS</div><div><div class="tan">Lochana S</div><div class="tar">Final-year student · SOC Analyst track<span class="tbdg">Verified user</span></div></div></div>
 </div>
 
@@ -3544,11 +3546,11 @@ Open the sample report. Pick any question. Compare the two answers. Read the eva
 <!-- ROUND 28: contact emails moved here from removed "Reach out to us" section -->
 <div class="fbr-contact">
 <span class="fbr-c-l">Contact</span>
-<a href="mailto:humanresource@aerovanttech.com?subject=ThreatReady%20%E2%80%94%20enquiry">
+<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=humanresource@aerovanttech.com&amp;su=ThreatReady%20%E2%80%94%20enquiry" target="_blank" rel="noopener noreferrer">
 <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
 humanresource@aerovanttech.com
 </a>
-<a href="mailto:admin@aerovanttech.com?subject=ThreatReady%20%E2%80%94%20support">
+<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=admin@aerovanttech.com&amp;su=ThreatReady%20%E2%80%94%20support" target="_blank" rel="noopener noreferrer">
 <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
 admin@aerovanttech.com
 </a>
@@ -3577,8 +3579,8 @@ admin@aerovanttech.com
 <div class="fcol">
 <h5>Product</h5>
 <ul>
-<li><a href="rubric.html" target="_self">Scoring rubric</a></li>
-<li><a href="sample-report.html" target="_self">Sample skill report</a></li>
+<li><a href="rubric.html" target="_blank" rel="noopener noreferrer">Scoring rubric</a></li>
+<li><a href="sample-report.html" target="_blank" rel="noopener noreferrer">Sample skill report</a></li>
 <li><a href="#blog">Attack of the Week</a></li>
 <li><a href="#faq">FAQ</a></li>
 <li><a href="https://threatready.io/app/auth" target="_blank" rel="noopener noreferrer">Sign in</a></li>
@@ -3588,11 +3590,10 @@ admin@aerovanttech.com
 <div class="fcol">
 <h5>Trust &amp; Legal</h5>
 <ul>
-<li><a href="privacy.html" target="_self">Privacy policy</a></li>
-<li><a href="terms.html" target="_self">Terms of service</a></li>
-<li><a href="security.html" target="_self">Security</a></li>
-<li><a href="dpa.html" target="_self">Data processing addendum</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
+<li><a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of service</a></li>
+<li><a href="security.html" target="_blank" rel="noopener noreferrer">Security</a></li>
+<li><a href="dpa.html" target="_blank" rel="noopener noreferrer">Data processing addendum</a></li>
 </ul>
 </div>
 
@@ -4466,9 +4467,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 
 <script>
-/* Testimonial carousel — ROUND 39: 3-up (or 2-up / 1-up responsive),
-   moves ONE card per arrow click, no auto-slide, bounds-aware.
-   Key formula: each slide is ~1/N of visible width; idx is current FIRST visible card. */
+/* Testimonial carousel — ROUND 40: 3-up (or 2-up / 1-up responsive),
+   moves ONE card per arrow click, NO auto-slide, WRAPS AROUND infinitely.
+   After last card, next loops to first; before first, prev loops to last. */
 (function(){
   const carousel = document.getElementById('tCarousel');
   const track = document.getElementById('tCarouselTrack');
@@ -4489,21 +4490,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
   function maxIdx(){ return Math.max(0, total - visibleCount()); }
 
+  // Wrap-around modulo (handles negative numbers correctly)
+  function wrap(i){
+    const max = maxIdx() + 1; // # of valid stop positions
+    return ((i % max) + max) % max;
+  }
+
   function applyTransform(){
     const vc = visibleCount();
-    // each slide width = (100% - (vc-1)*gap) / vc; with track using gap
-    // To shift: translate by idx slides + idx gaps
     const gapPx = (vc > 1) ? 18 : 0;
-    const trackEl = track;
-    const wrapEl = carousel;
-    // measure: the visible area is the carousel padded box
     const slideW = slides[0].getBoundingClientRect().width;
     const offset = idx * (slideW + gapPx);
-    trackEl.style.transform = `translateX(-${offset}px)`;
+    track.style.transform = `translateX(-${offset}px)`;
   }
 
   function syncDots(){
-    // dot N highlights the "page" the user is on (in 3-up: pages of 3)
     const vc = visibleCount();
     const pageIdx = Math.round(idx / vc);
     dots.forEach((d, n) => {
@@ -4512,34 +4513,33 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   }
 
-  function syncArrows(){
-    if (prev) prev.disabled = (idx <= 0);
-    if (next) next.disabled = (idx >= maxIdx());
-  }
-
   function show(i){
-    idx = Math.max(0, Math.min(maxIdx(), i));
+    idx = wrap(i); // wrap-around — no clamping, no disabled buttons
     applyTransform();
     syncDots();
-    syncArrows();
   }
 
-  if (prev) prev.addEventListener('click', () => show(idx - 1));
-  if (next) next.addEventListener('click', () => show(idx + 1));
+  // Arrows — never disabled, always loop
+  if (prev) {
+    prev.disabled = false;
+    prev.addEventListener('click', () => show(idx - 1));
+  }
+  if (next) {
+    next.disabled = false;
+    next.addEventListener('click', () => show(idx + 1));
+  }
 
   dots.forEach(d => d.addEventListener('click', () => {
     const target = parseInt(d.dataset.idx, 10) * visibleCount();
     show(target);
   }));
 
-  // Re-clamp on resize (visibleCount can change)
   let resizeT = null;
   window.addEventListener('resize', () => {
     clearTimeout(resizeT);
     resizeT = setTimeout(() => show(idx), 120);
   });
 
-  // Initial render after images/fonts settle (so getBoundingClientRect is accurate)
   requestAnimationFrame(() => show(0));
 })();
 </script>
@@ -4587,7 +4587,7 @@ Continue with Google
 </div>
 
 <div class="amodal-foot">
-By continuing you agree to our <a href="terms.html" target="_self">Terms</a> and <a href="privacy.html" target="_self">Privacy Policy</a>.
+By continuing you agree to our <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a> and <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
 </div>
 
 </div>
