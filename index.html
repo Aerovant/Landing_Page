@@ -2086,7 +2086,7 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
    the label sits cleanly below sticky nav and the whole panel fits.
    The .dw widget has min-height:600px from older rules; the label +
    widget + note total ~670px which fits in any desktop viewport. */
-#trydemo{scroll-margin-top:80px}
+#trydemo{scroll-margin-top:65px}
 #demo{scroll-margin-top:65px}
 
 /* InterviewPrep callout — slight tighten so it feels deliberate
@@ -2104,6 +2104,37 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 @media (max-width:760px){
   #faq{min-height:auto;padding:36px 0!important}
 }
+
+/* ============================================================
+   ROUND 52 — Tight nav landing
+   - Pricing & InterviewPrep: kill the empty band below sticky nav
+     so the eyebrow / pill sits flush against the nav border
+   - Try Free Demo: collapse the gap between "How we validate" and
+     "Try the demo" subsections so they feel like one connected
+     flow inside a single section, not two separate pages
+   ============================================================ */
+
+/* Pricing — content flush below nav */
+#pricing{padding-top:6px!important;scroll-margin-top:65px}
+
+/* InterviewPrep — content flush below nav. The .ipprep callout
+   has its own padding-top so we just need to remove section padding
+   above it. Also tighten the callout's own internal padding-top. */
+#modules{padding-top:6px!important;padding-bottom:18px!important}
+#modules .ipprep{padding-top:24px!important;margin-bottom:24px!important}
+
+/* Demo section — content flush below nav. Override the inline
+   style padding-top:36px from the section element. */
+#demo{padding-top:6px!important;padding-bottom:18px!important}
+#demo .dhead{margin-bottom:14px!important}
+
+/* Tighten the "How we validate" → "Try the demo" handoff so it
+   reads as one continuous section. The .dlabel wrapping each
+   subsection had margin:6px auto 12px; pull #02 closer to #01's
+   widget so they feel connected. */
+#demo #trydemo{margin-top:14px!important}
+#demo .dvshow{margin-bottom:0!important}
+#demo > .container > p{margin-top:10px!important}
 
 </style>
 <!--
