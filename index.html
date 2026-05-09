@@ -1993,6 +1993,27 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
   .hero .hl{display:inline;padding:.1em .35em;border-radius:.3em;margin-left:.2em}
 }
 
+/* ============================================================
+   ROUND 54 — Hero fills viewport edge-to-edge
+   - Wider h1 (1100→1320) so the heading breathes across the
+     full container width instead of leaving big side gaps
+   - Bigger font (max 2.875rem→3.625rem) to fill the space
+     visually like the user's reference
+   - Wider hero-sub so the description matches the new heading
+   - Min-height bumped slightly so next section ("Why it
+     matters now") doesn't bleed into the home viewport on
+     viewports a few px taller than expected
+   ============================================================ */
+@media (min-width:761px){
+  .hero h1{max-width:1320px!important;font-size:clamp(2rem,4.6vw,3.625rem)!important;
+           line-height:1.15!important;padding:0 24px!important;letter-spacing:-.02em!important}
+  .hero-sub{max-width:920px!important;font-size:1.0625rem!important;padding:0 32px!important;
+            line-height:1.55!important}
+  .hero{min-height:calc(100vh - 64px)!important;padding:32px 0!important}
+  .hero .container{width:100%}
+  .hero .eyebrow{font-size:.78rem!important;letter-spacing:.16em!important}
+}
+
 
 /* ============================================================
    ROUND 38: Pricing cards — compact (correct class names).
