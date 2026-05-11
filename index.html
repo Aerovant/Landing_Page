@@ -2276,6 +2276,89 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 /* Nav logo text — slightly bigger for better presence (was 1.75rem) */
 .nav .logo .logo-t{font-size:2rem!important;letter-spacing:-.02em!important;font-weight:700!important}
 
+/* ============================================================
+   ROUND 57 — Targeted fixes
+   A. Hero h1 → 2 lines max
+   B. Try Demo widget → fits in single viewport
+   C. FAQ → reduce big top gap, fill section
+   D. Footer → click only on text/links, not surrounding space
+   ============================================================ */
+
+/* A. HERO — reduce font so the heading wraps to 2 lines instead of 3.
+   The previous 4.625rem cap meant "We don't teach. We don't" filled
+   line 1, "run CTFs. We measure how" line 2, "you think under pressure."
+   line 3. Reducing the cap to ~3.5rem lets text-wrap:balance produce
+   2 lines: "We don't teach. We don't run CTFs. We measure how" / "you
+   think under pressure." */
+@media (min-width:761px){
+  .hero h1{font-size:clamp(2rem,4vw,3.5rem)!important;letter-spacing:-.022em!important;
+           line-height:1.12!important;max-width:1560px!important}
+  .hero h1 .hl{font-size:.92em!important;padding:6px 18px!important;border-radius:14px!important}
+  .hero-sub{font-size:1.0625rem!important;max-width:880px!important;margin-top:12px!important}
+}
+
+/* B. TRY DEMO WIDGET — cap SVG max-height so the diagram doesn't
+   grow taller than the right column. Round 56 removed the cap to
+   make the diagram fill the column width, but that made the widget
+   too tall for the viewport. 220px is the compromise: bigger than
+   round 53's 170px (so the diagram has more presence) but small
+   enough that the whole subsection fits in a 1366×768 viewport. */
+#demo .dw .dab svg{max-height:220px!important;width:auto!important;height:auto!important;
+                   max-width:100%!important;display:block;margin:0 auto}
+/* dvshow stays at unconstrained height (user said How we validate is fine) */
+
+/* Push the next section below the fold when user navigates to #trydemo
+   via the nav. The trydemo subsection (label + widget + footer note)
+   takes ~600px from the label top. We pad #demo so its bottom always
+   sits at the viewport bottom when scrolled to #trydemo — kills the
+   "HOW WE COMPARE" section bleed-through the user marked. */
+#demo{padding-bottom:max(32px,calc(100vh - 600px))!important}
+
+/* C. FAQ — heading near top with cards filling the rest of the
+   section. Earlier attempt used justify-content:center which pushed
+   the heading to mid-viewport (still felt like a big top gap). The
+   user wants heading near the top with cards proportionally enlarged
+   to absorb the remaining vertical space — no empty band above or below. */
+#faq{padding:32px 0 32px!important;min-height:calc(100vh - 65px)!important;
+     display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+#faq .container{width:100%;display:flex;flex-direction:column;flex:1}
+#faq .container > .tc{margin-bottom:8px!important;flex:0 0 auto}
+#faq .container > .tc h2{font-size:clamp(1.625rem,2.6vw,2.125rem)!important;margin-top:0!important}
+#faq .container > .tc .eyebrow{margin-bottom:6px!important}
+#faq .faq-flip-grid{margin-top:24px!important;margin-bottom:0!important;
+                    max-width:1320px!important;width:100%!important;
+                    grid-auto-rows:1fr!important;flex:1!important;gap:16px!important}
+/* Cards stretch to fill the remaining vertical space — flex:1 on the
+   grid plus grid-auto-rows:1fr makes both rows equal height and fill
+   what's left. Sets a sane min-height so cards don't get squashed. */
+#faq .faq-flip-card,
+#faq .faq-flip-grid > div{min-height:240px!important;height:100%!important}
+#faq .faq-flip-card .faq-q,
+#faq .faq-flip-grid > div h3{font-size:1.0625rem!important;line-height:1.4!important}
+@media (max-width:760px){
+  #faq{padding:24px 0!important;min-height:auto!important;display:block!important}
+  #faq .container{display:block}
+  #faq .faq-flip-grid{flex:none!important}
+  #faq .faq-flip-card,
+  #faq .faq-flip-grid > div{min-height:160px!important;height:auto!important}
+}
+
+/* D. FOOTER — restrict click area to the text/link itself, not the
+   surrounding flex/block space. The footer logo <a href="#"> with
+   display:flex was making its whole flex container clickable (about
+   200px wide × 40px tall instead of just the bolt-icon + text). */
+.ft a{width:fit-content!important;width:-moz-fit-content!important}
+.fbr .logo{display:inline-flex!important;width:fit-content!important;
+           width:-moz-fit-content!important;max-width:100%}
+.fbr-contact a,.fcol a,.fbr-social a,.aprod-col-link{display:inline-flex!important;
+           width:fit-content!important;width:-moz-fit-content!important}
+/* Social icons stay at their fixed 32×32 size — width:fit-content
+   would shrink them. Override back to original. */
+.fbr-social a{width:32px!important;height:32px!important;display:inline-flex!important}
+/* The "A PRODUCT OF" / AEROVANT row: the label span shouldn't be
+   clickable, only the link. Keep its layout intact. */
+.aprod-col{display:inline-flex!important;align-items:baseline;gap:6px;width:fit-content!important}
+
 </style>
 <!--
   SECURITY HEADERS — RECOMMENDED ORIGIN-LEVEL CONFIGURATION
