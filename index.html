@@ -2309,10 +2309,11 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 
 /* Push the next section below the fold when user navigates to #trydemo
    via the nav. The trydemo subsection (label + widget + footer note)
-   takes ~600px from the label top. We pad #demo so its bottom always
-   sits at the viewport bottom when scrolled to #trydemo — kills the
-   "HOW WE COMPARE" section bleed-through the user marked. */
-#demo{padding-bottom:max(32px,calc(100vh - 600px))!important}
+   takes ~510px from the label top after round 59 compaction. We pad
+   #demo so its bottom always sits past the viewport bottom when
+   scrolled to #trydemo — kills the "HOW WE COMPARE" section
+   bleed-through the user marked. */
+#demo{padding-bottom:max(32px,calc(100vh - 510px))!important}
 
 /* C. FAQ — moderate-size cards centered in the section.
    Round 57 v1 stretched cards to 327px tall to fill the section,
@@ -2343,6 +2344,48 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
   #faq .faq-flip-card,
   #faq .faq-flip-grid > div{min-height:140px!important}
 }
+
+/* ============================================================
+   ROUND 59 — Two targeted fixes
+   1. Platform dropdown hover gap — cursor moving from trigger
+      to menu lost hover because of the 8px gap. Make the menu
+      flush with the trigger (no dead zone) and use padding-top
+      for the visual spacing instead.
+   2. Try Demo "Demo simulates one scored question…" note
+      visibility — compact the widget further so the note
+      always lands within the viewport, even on smaller
+      browser windows.
+   ============================================================ */
+
+/* 1. Dropdown: kill the dead zone between trigger and menu */
+.nav-drop-menu{
+  top:100%!important;  /* was calc(100% + 8px) — no gap */
+  padding:16px 8px 8px 8px!important;  /* top padding replaces visual gap */
+}
+/* Hover-bridge: invisible pseudo-element extends .nav-drop's hover
+   area down by 12px so cursor crossing into the menu never leaves
+   the hover region. */
+.nav-drop::after{
+  content:'';
+  position:absolute;
+  left:0;right:0;
+  top:100%;
+  height:14px;
+}
+
+/* 2. Try Demo widget — compact further so the footer note fits
+   visibly above the bottom-of-viewport, even on browser windows
+   ~80-100px shorter than the nominal 1366×768 / 1440×900 size
+   due to chrome / bookmarks bar. */
+#demo .dw .dab svg{max-height:200px!important}  /* was 220 */
+#demo .dw .dctx{padding:7px 10px!important;font-size:.76rem!important;
+                line-height:1.4!important}
+#demo .dw .dta{min-height:64px!important}
+#demo .dw .dwh{padding:6px 14px!important}
+#demo .dw .dwb > div{padding:12px 14px!important}
+/* Pull the footer note closer to the widget so it's clearly part
+   of the trydemo subsection (no extra gap below widget). */
+#demo > .container > p{margin-top:6px!important;font-size:.78rem!important}
 
 /* D. FOOTER — restrict click area to the text/link itself, not the
    surrounding flex/block space. The footer logo <a href="#"> with
