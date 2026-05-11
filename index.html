@@ -2005,13 +2005,27 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
      viewports a few px taller than expected
    ============================================================ */
 @media (min-width:761px){
-  .hero h1{max-width:1320px!important;font-size:clamp(2rem,4.6vw,3.625rem)!important;
-           line-height:1.15!important;padding:0 24px!important;letter-spacing:-.02em!important}
-  .hero-sub{max-width:920px!important;font-size:1.0625rem!important;padding:0 32px!important;
-            line-height:1.55!important}
-  .hero{min-height:calc(100vh - 64px)!important;padding:32px 0!important}
-  .hero .container{width:100%}
+  .hero h1{max-width:1560px!important;font-size:clamp(2.25rem,5.6vw,4.625rem)!important;
+           line-height:1.1!important;padding:0 12px!important;letter-spacing:-.025em!important;
+           font-weight:800!important;margin-bottom:28px!important}
+  .hero h1 .hl{font-size:.94em!important;padding:8px 22px!important;border-radius:18px!important}
+  .hero-sub{max-width:980px!important;font-size:1.125rem!important;padding:0 32px!important;
+            line-height:1.55!important;margin-bottom:28px!important}
+  /* Hero fills viewport; flex-center the content vertically so it
+     doesn't sit at top with empty space at bottom. Extra buffer
+     ensures the "Why it matters now" section never bleeds in even
+     with browser chrome variations. */
+  .hero{min-height:calc(100vh - 56px)!important;padding:24px 0 28px!important;
+        display:flex!important;align-items:center!important;justify-content:center!important}
+  /* Override base .container max-width:1320 specifically inside the
+     hero so the heading can reach near the screen edges like the
+     user's reference. Other sections keep the standard 1320 width. */
+  .hero .container{max-width:1700px!important;padding:0 24px!important;width:100%}
+  .hero-c{width:100%}
   .hero .eyebrow{font-size:.78rem!important;letter-spacing:.16em!important}
+  .hero-aud{margin-bottom:14px!important}
+  .hb{margin-bottom:24px!important}
+  .hero-m{margin-top:8px}
 }
 
 
@@ -2205,6 +2219,62 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 
 /* MITRE chips below arch diagram — tighter */
 .dvshow .hscr-l > div[style*="display:flex"]{margin-top:4px!important}
+
+/* ============================================================
+   ROUND 56 — Architecture diagrams fill the column
+   - Remove SVG max-height cap so the diagram scales to the
+     full column width (was 170px → 322px wide; now ~510px
+     wide on a 1440 viewport, filling the left column edges)
+   - SVG labels grow proportionally with the larger SVG so
+     "Internet", "API Gateway" etc become readable
+   - Compact the right-column scoring/MODEL ANSWER block so
+     it matches the new natural left-column height (kills
+     the empty space below the diagram the user marked in
+     red on the "How we validate" widget)
+   - Bigger nav logo text "ThreatReady"
+   ============================================================ */
+
+/* Arch diagram fills the column width — SVG scales naturally */
+.dsec .dab svg{max-height:none!important;width:100%!important;height:auto!important;display:block}
+.dvshow .adiag svg{max-height:none!important;width:100%!important;height:auto!important;display:block}
+
+/* Bigger fonts inside arch diagram (text sizes in SVG are in viewBox units;
+   scaling the SVG up makes them bigger automatically. These rules nudge
+   them a notch larger so labels read clearly at the new size.) */
+.dsec .dab svg text,
+.dvshow .adiag svg text{font-size:12px!important;font-weight:600!important}
+.dsec .dab svg text[font-size="7"],
+.dvshow .adiag svg text[font-size="7"]{font-size:10px!important;font-weight:500!important}
+.dsec .dab svg text[font-size="8"],
+.dvshow .adiag svg text[font-size="8"]{font-size:11px!important}
+.dsec .dab svg text[font-size="9"],
+.dvshow .adiag svg text[font-size="9"]{font-size:12px!important}
+.dsec .dab svg text[font-size="10"],
+.dvshow .adiag svg text[font-size="10"]{font-size:13px!important;font-weight:600!important}
+
+/* Tighter wrapper padding so the diagram reaches closer to column edges */
+.dsec .dab{padding:8px 10px!important;margin-bottom:8px!important}
+.dvshow .adiag{padding:8px 10px!important;margin-bottom:8px!important}
+
+/* RIGHT COLUMN COMPACTING — kill the height mismatch that left empty
+   space below the diagram in the user's screenshot. The right column
+   has scoring rows + MODEL ANSWER; we tighten both so it matches the
+   natural left-column height. */
+.dvshow .sp{gap:6px!important}
+.dvshow .sb{padding:7px 12px!important;font-size:.82rem!important}
+.dvshow .hscr-r > div[style*="margin-top"]{margin-top:10px!important;padding:10px 12px!important}
+.dvshow .hscr-r > div[style*="margin-top"] > div:first-child{font-size:.78rem!important;margin-bottom:6px!important}
+.dvshow .hscr-r > div[style*="margin-top"] > div:nth-child(2){font-size:.85rem!important;line-height:1.45!important}
+
+/* Header tighter so the diagram has more room */
+.dvshow .qb{font-size:.78rem!important;margin-bottom:6px!important}
+.dvshow .qt{font-size:1rem!important;line-height:1.4!important;margin-bottom:10px!important}
+
+/* MITRE chips: tighter margin */
+.dvshow .hscr-l > div[style*="display:flex"]{margin-top:6px!important}
+
+/* Nav logo text — slightly bigger for better presence (was 1.75rem) */
+.nav .logo .logo-t{font-size:2rem!important;letter-spacing:-.02em!important;font-weight:700!important}
 
 </style>
 <!--
