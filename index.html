@@ -2314,33 +2314,34 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
    "HOW WE COMPARE" section bleed-through the user marked. */
 #demo{padding-bottom:max(32px,calc(100vh - 600px))!important}
 
-/* C. FAQ — heading near top with cards filling the rest of the
-   section. Earlier attempt used justify-content:center which pushed
-   the heading to mid-viewport (still felt like a big top gap). The
-   user wants heading near the top with cards proportionally enlarged
-   to absorb the remaining vertical space — no empty band above or below. */
-#faq{padding:32px 0 32px!important;min-height:calc(100vh - 65px)!important;
-     display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
-#faq .container{width:100%;display:flex;flex-direction:column;flex:1}
-#faq .container > .tc{margin-bottom:8px!important;flex:0 0 auto}
+/* C. FAQ — moderate-size cards centered in the section.
+   Round 57 v1 stretched cards to 327px tall to fill the section,
+   but the user pointed out that creates a lot of empty space INSIDE
+   each card (icon + title + tap-to-read only takes ~120px, the rest
+   is dead space inside the card).
+   This version uses moderate card heights (~200px) and centers the
+   whole grid + heading group vertically in the section, so any
+   leftover space is split evenly above/below the content rather
+   than being trapped inside each card. */
+#faq{padding:32px 0!important;min-height:calc(100vh - 65px)!important;
+     display:flex!important;flex-direction:column!important;justify-content:center!important}
+#faq .container{width:100%}
+#faq .container > .tc{margin-bottom:8px!important}
 #faq .container > .tc h2{font-size:clamp(1.625rem,2.6vw,2.125rem)!important;margin-top:0!important}
 #faq .container > .tc .eyebrow{margin-bottom:6px!important}
 #faq .faq-flip-grid{margin-top:24px!important;margin-bottom:0!important;
-                    max-width:1320px!important;width:100%!important;
-                    grid-auto-rows:1fr!important;flex:1!important;gap:16px!important}
-/* Cards stretch to fill the remaining vertical space — flex:1 on the
-   grid plus grid-auto-rows:1fr makes both rows equal height and fill
-   what's left. Sets a sane min-height so cards don't get squashed. */
+                    max-width:1320px!important;width:100%!important;gap:16px!important}
+/* Cards sized to their content + a small breathing buffer.
+   No stretching, no flex:1, no grid-auto-rows:1fr — those caused
+   the dead-space-inside-card the user marked in red. */
 #faq .faq-flip-card,
-#faq .faq-flip-grid > div{min-height:240px!important;height:100%!important}
+#faq .faq-flip-grid > div{min-height:180px!important;height:auto!important}
 #faq .faq-flip-card .faq-q,
 #faq .faq-flip-grid > div h3{font-size:1.0625rem!important;line-height:1.4!important}
 @media (max-width:760px){
   #faq{padding:24px 0!important;min-height:auto!important;display:block!important}
-  #faq .container{display:block}
-  #faq .faq-flip-grid{flex:none!important}
   #faq .faq-flip-card,
-  #faq .faq-flip-grid > div{min-height:160px!important;height:auto!important}
+  #faq .faq-flip-grid > div{min-height:140px!important}
 }
 
 /* D. FOOTER — restrict click area to the text/link itself, not the
