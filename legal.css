@@ -1694,3 +1694,184 @@ body{
   width:32px !important;
   height:28px !important;
 }
+
+
+/* ============================================================
+   ROUND 65 — Restore old hero-illustration size on legal pages
+   The uploaded redesign made the hero SVG art 380px wide; round
+   62 had it at ~180px. Bringing it back to 200px so the page
+   feels balanced (illustration supports, doesn't dominate).
+   ============================================================ */
+.lhero-art{
+  max-width:200px !important;
+}
+@media(max-width:900px){
+  .lhero-art{max-width:160px !important}
+}
+
+/* ============================================================
+   ROUND 65 — Mobile overflow fix for legal page TOC sidebar
+   The .lbody-side / .ltoc-sticky was overflowing the viewport
+   by ~23px on phones because nested padding wasn't accounted
+   for. Force everything to honor the box-sizing math.
+   ============================================================ */
+@media (max-width:640px){
+  /* The grid column itself: force a hard cap to the viewport content area,
+     and let children shrink with min-width:0 (otherwise grid items default
+     to min-content which expands to the widest line). */
+  .lbody-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  .lbody-grid > *{
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+  .lbody-side,
+  .ltoc-sticky,
+  .ltoc-sticky ol.toc-list{
+    max-width:100% !important;
+    width:auto !important;
+    box-sizing:border-box !important;
+    min-width:0 !important;
+  }
+  /* TOC items shouldn't stretch beyond container */
+  .ltoc-sticky ol.toc-list li,
+  .ltoc-sticky ol.toc-list a{
+    max-width:100% !important;
+    word-break:break-word;
+  }
+}
+
+/* Wide tables (e.g. rubric weighting matrix) should scroll horizontally
+   inside their own container on phones, not push the whole page sideways. */
+@media (max-width:640px){
+  .lbody table{
+    display:block;
+    overflow-x:auto;
+    width:100%;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+
+/* ============================================================
+   ROUND 66 — Match additional-page footer to the landing-page
+   footer: solid dark background (not purple gradient), tighter
+   padding, logo at landing-page size (1.625rem), no decorative
+   overlay, no extra borders between aprod / lft-bot rows.
+   ============================================================ */
+
+/* 1. Background: solid dark, kill the gradient and the radial overlay.
+   Use the same hex as the landing-page footer (#0F0A1A) so both feel
+   like one design system rather than two slightly different darks. */
+.lft{
+  background:#0F0A1A !important;
+  padding:40px 0 18px !important;
+  margin-top:48px !important;
+}
+.lft::before{display:none !important}
+
+/* 2. Inner container — slimmer + tidy column gap */
+.lft-c{
+  max-width:1320px !important;
+  padding:0 24px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:14px !important;
+  margin:0 auto !important;
+}
+
+/* 3. Logo — match landing-page footer (1.625rem, white) */
+.lft .logo{
+  color:#fff !important;
+  font-size:1.625rem !important;
+  letter-spacing:-.025em !important;
+  line-height:1 !important;
+  gap:10px !important;
+  margin:0 !important;
+}
+.lft .logo .logo-i{
+  width:34px !important;
+  height:28px !important;
+}
+.lft .logo .logo-t{
+  font-size:inherit !important;
+  color:#fff !important;
+}
+
+/* 4. Links row — tight horizontal list, no border */
+.lft-l{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  justify-content:center !important;
+  gap:8px 28px !important;
+  margin:0 !important;
+  padding:0 !important;
+  list-style:none !important;
+}
+.lft-l li{margin:0 !important}
+.lft-l a{
+  color:rgba(255,255,255,.65) !important;
+  font-size:.8125rem !important;
+  text-decoration:none !important;
+  transition:color .15s ease !important;
+}
+.lft-l a:hover{
+  color:#fff !important;
+  text-decoration:none !important;
+}
+
+/* 5. AEROVANT attribution row — no top border, tight spacing */
+.aprod{
+  margin:14px auto 0 !important;
+  padding:14px 24px 0 !important;
+  border-top:1px solid rgba(255,255,255,.08) !important;
+  max-width:1320px !important;
+  display:flex !important;
+  align-items:baseline !important;
+  justify-content:center !important;
+  gap:10px !important;
+  flex-wrap:wrap !important;
+}
+.aprod span{
+  color:rgba(255,255,255,.45) !important;
+  font-size:.6875rem !important;
+  font-weight:600 !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+}
+.aprod a{
+  color:#fff !important;
+  font-size:.8125rem !important;
+  font-weight:700 !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:6px !important;
+}
+.aprod a:hover{color:#C4B5FD !important}
+.aprod a svg{width:12px !important;height:12px !important;opacity:.7 !important}
+
+/* 6. Copyright line — bottom, slim, no border */
+.lft-bot{
+  max-width:1320px !important;
+  margin:10px auto 0 !important;
+  padding:10px 24px 0 !important;
+  border-top:1px solid rgba(255,255,255,.06) !important;
+  font-size:.75rem !important;
+  color:rgba(255,255,255,.45) !important;
+  text-align:center !important;
+}
+.lft-bot a{color:rgba(255,255,255,.7) !important}
+
+/* 7. Mobile — stack tidy, reduced padding */
+@media (max-width:640px){
+  .lft{padding:32px 0 14px !important;margin-top:32px !important}
+  .lft-c{gap:12px !important}
+  .lft-l{gap:8px 18px !important}
+  .lft .logo{font-size:1.375rem !important}
+  .aprod{padding:12px 24px 0 !important;gap:8px !important}
+  .lft-bot{padding:8px 24px 0 !important;font-size:.7rem !important}
+}
