@@ -15,21 +15,18 @@
 <link rel="stylesheet" href="legal.css">
 <style>
 /* Report-specific styling */
-.rbanner{background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;padding:14px 0;text-align:center;font-size:.875rem;font-weight:500}
+.rbanner{background:linear-gradient(135deg,var(--primary) 0%,#8B5CF6 100%);color:#fff;padding:14px 0;text-align:center;font-size:.875rem;font-weight:500}
 .rbanner a{color:#fff;text-decoration:underline;font-weight:600}
-.rwrap{max-width:920px;margin:0 auto;padding:40px 24px 64px}
+.rwrap{max-width:1400px;margin:0 auto;padding:40px 24px 64px}
 .rhead{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;margin-bottom:24px;box-shadow:var(--shadow-md)}
 .rhead-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border-2)}
 .rcandid{display:flex;gap:16px;align-items:center}
-.ravatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--primary) 0%,#a855f7 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem;flex-shrink:0}
+.ravatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--primary) 0%,#8B5CF6 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem;flex-shrink:0}
 .rcname{font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:2px}
 .rcmeta{font-size:.875rem;color:var(--text-2)}
 .rcmeta span{margin-right:12px}
 .rlogo-org{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg-subtle);border-radius:var(--r-sm);border:1px solid var(--border-2)}
-/* ROUND 45: bulletproof — single background-image, cannot dual-render */
-.rlogo-org-i{width:34px;height:28px;background:transparent;
-             background-image:var(--logo-img);
-             background-size:contain;background-repeat:no-repeat;background-position:center}
+.rlogo-org-i{width:28px;height:28px;border-radius:6px;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem}
 .rlogo-org-t{font-size:.8125rem}
 .rlogo-org-t strong{display:block;color:var(--text);font-weight:600}
 .rlogo-org-t span{color:var(--text-3);font-size:.75rem}
@@ -51,7 +48,7 @@
 .rbar-l{font-weight:600;color:var(--text)}
 .rbar-l small{display:block;font-weight:400;color:var(--text-3);font-size:.75rem}
 .rbar-t{height:8px;background:var(--bg-alt);border-radius:999px;overflow:hidden;position:relative}
-.rbar-f{height:100%;background:linear-gradient(90deg,var(--primary) 0%,#a855f7 100%);border-radius:999px;transition:width .6s ease}
+.rbar-f{height:100%;background:linear-gradient(90deg,var(--primary) 0%,#8B5CF6 100%);border-radius:999px;transition:width .6s ease}
 .rbar-v{font-family:var(--mono);font-weight:700;color:var(--text);text-align:right;font-size:.9375rem}
 .rbar-v small{color:var(--text-3);font-weight:500}
 
@@ -150,7 +147,7 @@
 
 /* Proctoring artifacts */
 .rcandid-wrap{display:flex;gap:18px;align-items:flex-start}
-.rcandid-photo{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#ede9fe 0%,#c4b5fd 100%);flex-shrink:0;overflow:hidden;border:3px solid var(--surface);box-shadow:0 2px 12px rgba(124,58,237,.15);position:relative}
+.rcandid-photo{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#EDE4FF 0%,#c4b5fd 100%);flex-shrink:0;overflow:hidden;border:3px solid var(--surface);box-shadow:0 2px 12px rgba(109, 40, 255,.15);position:relative}
 .rcandid-photo svg{width:100%;height:100%;display:block}
 .rcandid-photo::after{content:'';position:absolute;bottom:0;right:0;width:22px;height:22px;border-radius:50%;background:var(--success);border:3px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,.1)}
 .rcandid-photo .cap{position:absolute;bottom:2px;right:2px;width:16px;height:16px;color:#fff;z-index:2}
@@ -169,10 +166,10 @@
 /* Session recording */
 .rrec{margin-top:14px}
 .rrec-player{position:relative;background:#0a0612;border-radius:var(--r-md);overflow:hidden;aspect-ratio:16/9;max-width:520px;margin:0 auto;box-shadow:0 12px 40px -8px rgba(0,0,0,.35);border:1px solid #1e1a2c}
-.rrec-player::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(124,58,237,.12) 0%,transparent 70%);pointer-events:none}
+.rrec-player::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(109, 40, 255,.12) 0%,transparent 70%);pointer-events:none}
 .rrec-thumb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
-.rrec-play{width:64px;height:64px;border-radius:50%;background:rgba(124,58,237,.95);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(124,58,237,.5),0 0 0 6px rgba(124,58,237,.15);transition:all .2s ease;border:none}
-.rrec-play:hover{transform:scale(1.08);background:rgba(124,58,237,1);box-shadow:0 12px 32px rgba(124,58,237,.7),0 0 0 8px rgba(124,58,237,.2)}
+.rrec-play{width:64px;height:64px;border-radius:50%;background:rgba(109, 40, 255,.95);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(109, 40, 255,.5),0 0 0 6px rgba(109, 40, 255,.15);transition:all .2s ease;border:none}
+.rrec-play:hover{transform:scale(1.08);background:rgba(109, 40, 255,1);box-shadow:0 12px 32px rgba(109, 40, 255,.7),0 0 0 8px rgba(109, 40, 255,.2)}
 .rrec-play svg{width:26px;height:26px;margin-left:3px}
 .rrec-thumb-lbl{color:#ece9f4;font-size:.875rem;font-family:var(--mono);text-align:center;padding:0 20px}
 .rrec-thumb-lbl small{display:block;color:#7a7688;font-size:.75rem;margin-top:4px}
@@ -220,15 +217,15 @@
 .rsnap-t{position:absolute;bottom:4px;left:4px;right:4px;font-family:var(--mono);font-size:.625rem;color:#ece9f4;background:rgba(0,0,0,.7);padding:1px 4px;border-radius:3px;text-align:center}
 
 /* Q&A references panel — added in round 16 */
-.rrefs{margin-top:14px;padding:14px 16px;background:linear-gradient(135deg,rgba(124,58,237,.04) 0%,rgba(168,85,247,.06) 100%);border:1px solid rgba(124,58,237,.12);border-radius:var(--r-md);font-size:.8125rem;line-height:1.6}
-:root[data-theme="dark"] .rrefs{background:linear-gradient(135deg,rgba(124,58,237,.1) 0%,rgba(168,85,247,.06) 100%);border-color:rgba(167,139,250,.2)}
+.rrefs{margin-top:14px;padding:14px 16px;background:linear-gradient(135deg,rgba(109, 40, 255,.04) 0%,rgba(245,158,11,.06) 100%);border:1px solid rgba(109, 40, 255,.12);border-radius:var(--r-md);font-size:.8125rem;line-height:1.6}
+:root[data-theme="dark"] .rrefs{background:linear-gradient(135deg,rgba(109, 40, 255,.1) 0%,rgba(245,158,11,.06) 100%);border-color:rgba(94,234,212,.2)}
 .rrefs-h{display:flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
 .rrefs-h svg{width:13px;height:13px}
 .rrefs-grid{display:grid;grid-template-columns:140px 1fr;gap:6px 14px;color:var(--text-2)}
 @media (max-width:520px){.rrefs-grid{grid-template-columns:1fr;gap:2px 0}.rrefs-grid > *:nth-child(odd){font-weight:700;color:var(--primary);margin-top:8px}.rrefs-grid > *:first-child{margin-top:0}}
 .rrefs-grid > *:nth-child(odd){font-weight:600;color:var(--text);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
 .rrefs-grid code{font-family:var(--mono);font-size:.85em;background:var(--surface);padding:1px 6px;border-radius:4px;color:var(--text);border:1px solid var(--border-2)}
-.rrefs-grid a{color:var(--primary);text-decoration:none;border-bottom:1px solid rgba(124,58,237,.3)}
+.rrefs-grid a{color:var(--primary);text-decoration:none;border-bottom:1px solid rgba(109, 40, 255,.3)}
 .rrefs-grid a:hover{border-bottom-color:var(--primary)}
 </style>
 </head>
@@ -255,6 +252,103 @@
 </div>
 </nav>
 
+<header class="lhero">
+<div class="lhero-c">
+<div class="lhero-l">
+<span class="lhero-eyebrow">
+<svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6M9 9h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+Sample skill report
+</span>
+<h1>See exactly what <span class="accent">hiring managers receive</span></h1>
+<p class="meta">Fictional user · Real format</p>
+<p class="intro">This is the exact report you get after each ThreatReady session — the candidate's full transcript, side-by-side with the ideal answer, scores per question, the reasoning behind every deduction, and a skills chart you can use in real hiring decisions. Scroll down to explore.</p>
+<div class="lhero-badges">
+<span class="lhero-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>Full Q&amp;A transcript</span>
+<span class="lhero-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8M14 7h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Skills chart</span>
+<span class="lhero-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Reasoning per deduction</span>
+<span class="lhero-badge"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>Integrity audit included</span>
+</div>
+</div>
+<div class="lhero-r">
+<svg class="lhero-art" viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs>
+<linearGradient id="srP" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#C4B5FD"/><stop offset="100%" stop-color="#6D28FF"/>
+</linearGradient>
+<linearGradient id="srBar" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#C4B5FD"/><stop offset="100%" stop-color="#6D28FF"/>
+</linearGradient>
+<radialGradient id="srGlow" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#8B5CF6" stop-opacity=".22"/>
+<stop offset="100%" stop-color="#6D28FF" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<circle cx="180" cy="160" r="140" fill="url(#srGlow)"/>
+<circle cx="60" cy="60" r="3" fill="#C4B5FD" opacity=".5"/>
+<circle cx="320" cy="80" r="4" fill="#c4b5fd"/>
+<circle cx="40" cy="240" r="3" fill="#10b981" opacity=".6"/>
+<circle cx="310" cy="260" r="3" fill="#fbbf24" opacity=".7"/>
+<g transform="translate(54,46)">
+<rect x="6" y="6" width="246" height="228" rx="14" fill="#6D28FF" opacity=".12"/>
+<rect width="246" height="228" rx="14" fill="#fff" stroke="#e7e5eb" stroke-width="1.5"/>
+<g transform="translate(16,16)">
+<circle cx="14" cy="14" r="14" fill="url(#srP)"/>
+<text x="14" y="18" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="#fff">PR</text>
+</g>
+<g transform="translate(40,16)">
+<rect x="0" y="2" width="74" height="5" rx="2" fill="#0B1020"/>
+<rect x="0" y="12" width="100" height="3" rx="1.5" fill="#a1a1aa"/>
+<rect x="0" y="20" width="62" height="3" rx="1.5" fill="#a1a1aa"/>
+</g>
+<g transform="translate(170,16)">
+<rect width="60" height="44" rx="10" fill="url(#srP)" opacity=".12"/>
+<text x="30" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#6D28FF" letter-spacing="0.5">SCORE</text>
+<text x="30" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="16" font-weight="800" fill="#6D28FF">8.1</text>
+</g>
+<line x1="16" y1="76" x2="230" y2="76" stroke="#f0eef3" stroke-width="1"/>
+<g transform="translate(16,90)">
+<rect width="64" height="3" rx="1.5" fill="#0B1020"/>
+<rect x="0" y="10" width="160" height="6" rx="3" fill="#F3EEFF"/>
+<rect x="0" y="10" width="142" height="6" rx="3" fill="url(#srBar)"/>
+<text x="170" y="16" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#6D28FF">8.8</text>
+</g>
+<g transform="translate(16,114)">
+<rect width="80" height="3" rx="1.5" fill="#0B1020"/>
+<rect x="0" y="10" width="160" height="6" rx="3" fill="#F3EEFF"/>
+<rect x="0" y="10" width="126" height="6" rx="3" fill="url(#srBar)"/>
+<text x="170" y="16" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#6D28FF">7.9</text>
+</g>
+<g transform="translate(16,138)">
+<rect width="56" height="3" rx="1.5" fill="#0B1020"/>
+<rect x="0" y="10" width="160" height="6" rx="3" fill="#F3EEFF"/>
+<rect x="0" y="10" width="100" height="6" rx="3" fill="url(#srBar)"/>
+<text x="170" y="16" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#6D28FF">6.2</text>
+</g>
+<g transform="translate(16,162)">
+<rect width="72" height="3" rx="1.5" fill="#0B1020"/>
+<rect x="0" y="10" width="160" height="6" rx="3" fill="#F3EEFF"/>
+<rect x="0" y="10" width="114" height="6" rx="3" fill="url(#srBar)"/>
+<text x="170" y="16" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#6D28FF">7.1</text>
+</g>
+<g transform="translate(16,196)">
+<rect width="36" height="14" rx="3" fill="#ecfdf5"/>
+<text x="18" y="9.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#059669">RECOMMEND</text>
+<rect x="46" y="0" width="40" height="14" rx="3" fill="#F3EEFF"/>
+<text x="66" y="9.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#6D28FF">VERIFIED</text>
+</g>
+</g>
+<g transform="translate(296,86) rotate(15)">
+<path d="M0 -14 L3 -4 L14 -2 L6 5 L8 16 L0 10 L-8 16 L-6 5 L-14 -2 L-3 -4 Z" fill="#fbbf24" stroke="#d97706" stroke-width="1"/>
+</g>
+<g transform="translate(26,288)">
+<circle cx="0" cy="0" r="14" fill="#10b981"/>
+<path d="M-5 0 L-1 4 L6 -5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+</svg>
+</div>
+</div>
+</header>
+
 <div class="rwrap">
 
 <!-- ===== HEADER: Candidate + Overall Score ===== -->
@@ -264,9 +358,9 @@
 <div class="rcandid-photo" title="Identity-verified headshot captured at session start">
 <!-- Representative silhouette. Real reports show the webcam frame from session start, timestamped. -->
 <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-<rect width="72" height="72" fill="#ede9fe"/>
-<circle cx="36" cy="30" r="13" fill="#a78bfa"/>
-<path d="M8 72 C8 54 20 46 36 46 C52 46 64 54 64 72 Z" fill="#a78bfa"/>
+<rect width="72" height="72" fill="#EDE4FF"/>
+<circle cx="36" cy="30" r="13" fill="#C4B5FD"/>
+<path d="M8 72 C8 54 20 46 36 46 C52 46 64 54 64 72 Z" fill="#C4B5FD"/>
 </svg>
 <svg class="cap" viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" fill="currentColor"/><circle cx="12" cy="13" r="4" fill="#fff"/></svg>
 </div>
@@ -284,7 +378,7 @@
 </div>
 </div>
 <div class="rlogo-org">
-<div class="rlogo-org-i" role="img" aria-label="ThreatReady"></div>
+<div class="rlogo-org-i">NW</div>
 <div class="rlogo-org-t">
 <strong>Cloud Security · Intermediate</strong>
 <span>Practice session · Career Genome update</span>
@@ -405,7 +499,7 @@
 
 <div class="rrec-access">
 <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>
-<div><strong>Consent &amp; access.</strong> You explicitly consented to webcam + screen recording before starting, per our <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. Recordings are encrypted at rest, auto-deleted after 90 days unless you extend retention from settings. Your reports are visible only to you — and to anyone you choose to share a verification link with. Account access is logged for 12 months.</div>
+<div><strong>Consent &amp; access.</strong> You explicitly consented to webcam + screen recording before starting, per our <a href="privacy.html">Privacy Policy</a>. Recordings are encrypted at rest, auto-deleted after 90 days unless you extend retention from settings. Your reports are visible only to you — and to anyone you choose to share a verification link with. Account access is logged for 12 months.</div>
 </div>
 </div>
 </div>
@@ -428,37 +522,37 @@
 <div class="rarch">
 <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
 <!-- title -->
-<text x="300" y="20" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0f0a1a">AWS Multi-Account Architecture · Production VPC</text>
+<text x="300" y="20" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0B1020">AWS Multi-Account Architecture · Production VPC</text>
 <!-- internet -->
-<rect x="20" y="50" width="90" height="40" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
-<text x="65" y="74" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#7c3aed">Internet</text>
+<rect x="20" y="50" width="90" height="40" rx="6" fill="#F3EEFF" stroke="#6D28FF" stroke-width="1.5"/>
+<text x="65" y="74" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#6D28FF">Internet</text>
 <!-- API GW -->
 <rect x="170" y="50" width="100" height="40" rx="6" fill="#fff" stroke="#d4d1d9"/>
-<text x="220" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0f0a1a">API Gateway</text>
+<text x="220" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0B1020">API Gateway</text>
 <text x="220" y="83" text-anchor="middle" font-family="Inter" font-size="8" fill="#737383">AWS · us-east-1</text>
 <!-- Lambda -->
 <rect x="330" y="50" width="100" height="40" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
-<text x="380" y="68" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0f0a1a">Lambda: invoice-svc</text>
+<text x="380" y="68" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0B1020">Lambda: invoice-svc</text>
 <text x="380" y="82" text-anchor="middle" font-family="Inter" font-size="8" fill="#ef4444">⚠ outbound to 45.x.x.x</text>
 <!-- S3 -->
 <rect x="20" y="160" width="90" height="40" rx="6" fill="#fff" stroke="#d4d1d9"/>
-<text x="65" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0f0a1a">S3 Bucket</text>
+<text x="65" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0B1020">S3 Bucket</text>
 <text x="65" y="192" text-anchor="middle" font-family="Inter" font-size="8" fill="#737383">customer-pii-prod</text>
 <!-- IAM -->
 <rect x="170" y="160" width="100" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-<text x="220" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0f0a1a">Lambda IAM Role</text>
+<text x="220" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0B1020">Lambda IAM Role</text>
 <text x="220" y="192" text-anchor="middle" font-family="Inter" font-size="8" fill="#d97706">s3:* + secrets:* (wide)</text>
 <!-- RDS -->
 <rect x="330" y="160" width="100" height="40" rx="6" fill="#fff" stroke="#d4d1d9"/>
-<text x="380" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0f0a1a">RDS Postgres</text>
+<text x="380" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0B1020">RDS Postgres</text>
 <text x="380" y="192" text-anchor="middle" font-family="Inter" font-size="8" fill="#737383">prod-db · multi-AZ</text>
 <!-- SM -->
 <rect x="470" y="160" width="110" height="40" rx="6" fill="#fff" stroke="#d4d1d9"/>
-<text x="525" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0f0a1a">Secrets Manager</text>
+<text x="525" y="178" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#0B1020">Secrets Manager</text>
 <text x="525" y="192" text-anchor="middle" font-family="Inter" font-size="8" fill="#737383">rds-master-creds</text>
 <!-- CT -->
-<rect x="170" y="240" width="100" height="34" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
-<text x="220" y="261" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#7c3aed">CloudTrail (enabled)</text>
+<rect x="170" y="240" width="100" height="34" rx="6" fill="#F3EEFF" stroke="#6D28FF"/>
+<text x="220" y="261" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#6D28FF">CloudTrail (enabled)</text>
 <!-- connections -->
 <path d="M110 70 L170 70" stroke="#737383" stroke-width="1" fill="none" marker-end="url(#arr)"/>
 <path d="M270 70 L330 70" stroke="#737383" stroke-width="1" fill="none" marker-end="url(#arr)"/>
@@ -686,19 +780,19 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 <line x1="150" y1="150" x2="55" y2="100"/>
 </g>
 <!-- candidate shape (values shown below) -->
-<polygon points="150,62 229,110 200,205 100,200 70,110" fill="rgba(124,58,237,0.15)" stroke="#7c3aed" stroke-width="2"/>
+<polygon points="150,62 229,110 200,205 100,200 70,110" fill="rgba(109, 40, 255,0.15)" stroke="#6D28FF" stroke-width="2"/>
 <!-- value dots -->
-<circle cx="150" cy="62" r="4" fill="#7c3aed"/>
-<circle cx="229" cy="110" r="4" fill="#7c3aed"/>
-<circle cx="200" cy="205" r="4" fill="#7c3aed"/>
-<circle cx="100" cy="200" r="4" fill="#7c3aed"/>
-<circle cx="70" cy="110" r="4" fill="#7c3aed"/>
+<circle cx="150" cy="62" r="4" fill="#6D28FF"/>
+<circle cx="229" cy="110" r="4" fill="#6D28FF"/>
+<circle cx="200" cy="205" r="4" fill="#6D28FF"/>
+<circle cx="100" cy="200" r="4" fill="#6D28FF"/>
+<circle cx="70" cy="110" r="4" fill="#6D28FF"/>
 <!-- labels -->
-<text x="150" y="30" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0f0a1a">IAM</text>
-<text x="260" y="103" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0f0a1a">Detection</text>
-<text x="215" y="232" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0f0a1a">Remediation</text>
-<text x="85" y="232" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0f0a1a">Architecture</text>
-<text x="40" y="103" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0f0a1a">Communication</text>
+<text x="150" y="30" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0B1020">IAM</text>
+<text x="260" y="103" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0B1020">Detection</text>
+<text x="215" y="232" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0B1020">Remediation</text>
+<text x="85" y="232" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0B1020">Architecture</text>
+<text x="40" y="103" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#0B1020">Communication</text>
 </svg>
 <div class="rradar-legend">
 <div class="rradar-item"><strong>IAM &amp; Identity</strong><span>8.8</span></div>
@@ -740,7 +834,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 </div>
 <div class="rintl-i">
 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<div><strong>Rubric-based AI evaluation</strong> · Anthropic Claude API · <a href="rubric.html" target="_blank" rel="noopener noreferrer">rubric</a></div>
+<div><strong>Rubric-based AI evaluation</strong> · Anthropic Claude API · <a href="rubric.html">rubric</a></div>
 </div>
 </div>
 <div class="raudit">
@@ -798,7 +892,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 
 <div class="ractions">
 <a href="https://app.threatready.io/" target="_blank" rel="noopener" class="btn btn-primary">Start your free pilot</a>
-<a href="rubric.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read the scoring rubric</a>
+<a href="rubric.html" class="btn btn-secondary">Read the scoring rubric</a>
 </div>
 </div>
 
@@ -810,23 +904,7 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
 
 </div>
 
-<footer class="lft">
-<div class="lft-c">
-<a href="index.html" class="logo">
-<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
-<span class="logo-t">ThreatReady</span>
-</a>
-<ul class="lft-l">
-<li><a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></li>
-<li><a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a></li>
-<li><a href="security.html" target="_blank" rel="noopener noreferrer">Security</a></li>
-<li><a href="rubric.html" target="_blank" rel="noopener noreferrer">Scoring Rubric</a></li>
-<li><a href="sample-report.html" target="_blank" rel="noopener noreferrer">Sample Report</a></li>
-<li><a href="dpa.html" target="_blank" rel="noopener noreferrer">DPA</a></li>
-</ul>
-</div>
-<div class="aprod"><span>A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div><div class="lft-bot">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aerovant Technologies Pvt. Ltd.</a> All rights reserved.</div>
-</footer>
+<div class="lclose">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer">Aerovant Technologies Pvt. Ltd.</a> &middot; All rights reserved.</div>
 
 <script>
 (function(){var t=document.getElementById('themeTog');if(!t)return;t.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tr-theme',n);}catch(e){}});})();
@@ -864,5 +942,6 @@ Your on-call pager fires at 02:14. AWS GuardDuty reports unusual outbound traffi
   if(tn) tn.nodeValue = label;
 })();
 </script>
+<script src="back-to-top.js" defer></script>
 </body>
 </html>

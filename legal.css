@@ -1,25 +1,24 @@
 /* ThreatReady — legal & subpage shared styles */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
---primary:#7c3aed;--primary-hover:#6d28d9;--primary-light:#a78bfa;
---primary-subtle:#ede9fe;--primary-whisper:#f5f3ff;
---bg:#fff;--bg-subtle:#faf8ff;--bg-alt:#f5f3ff;--bg-dark:#0f0a1a;
---surface:#fff;--surface-2:#faf8ff;
+--primary:#6D28FF;--primary-hover:#5B1FE0;--primary-light:#C4B5FD;
+--primary-subtle:#EDE4FF;--primary-whisper:#F3EEFF;
+--bg:#fff;--bg-subtle:#F8F9FC;--bg-alt:#F3EEFF;--bg-dark:#0B1020;
+--surface:#fff;--surface-2:#F8F9FC;
 --nav-bg:rgba(255,255,255,.9);
---text:#0f0a1a;--text-2:#52525b;--text-3:#737383;
+--text:#0B1020;--text-2:#52525b;--text-3:#737383;
 --border:#e7e5eb;--border-2:#f0eef3;
 --success:#10b981;--warning:#f59e0b;--danger:#ef4444;
 --shadow-sm:0 1px 2px rgba(15,10,26,.04);
 --shadow-md:0 4px 16px rgba(15,10,26,.06);
---shadow-lg:0 16px 48px rgba(124,58,237,.12);
---glow:0 0 0 4px rgba(124,58,237,.12);
+--shadow-lg:0 16px 48px rgba(109, 40, 255,.12);
+--glow:0 0 0 4px rgba(109, 40, 255,.12);
 --r-sm:8px;--r-md:12px;--r-lg:20px;--r-full:999px;
 --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 --mono:'SF Mono',Monaco,Menlo,'Courier New',monospace;
 }
 :root[data-theme="dark"]{
-color-scheme: dark;
---primary:#8b5cf6;--primary-hover:#a78bfa;--primary-light:#a78bfa;
+--primary:#8b5cf6;--primary-hover:#C4B5FD;--primary-light:#C4B5FD;
 --primary-subtle:rgba(139,92,246,.22);--primary-whisper:rgba(139,92,246,.08);
 --bg:#0c0816;--bg-subtle:#120e1e;--bg-alt:#171224;
 --surface:#1a1525;--surface-2:#221c30;
@@ -39,23 +38,13 @@ a:hover{color:var(--primary-hover);text-decoration:underline}
 img,svg{display:block;max-width:100%}
 
 /* Nav */
-.lnav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--border-2)}
+.lnav{position:sticky;top:0;z-index:50;background:var(--nav-bg);-webkit-border-bottom:1px solid var(--border-2)}
 .lnav-c{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.75rem;color:var(--text);letter-spacing:-.025em;line-height:1}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.125rem;color:var(--text);letter-spacing:-.02em}
 .logo-t{display:inline-block}
 .logo:hover{text-decoration:none}
-/* ROUND 45: bulletproof logo — single CSS background-image swapped via
-   custom property. There is physically only ever ONE image referenced at
-   any time, so dual-render glitches are impossible (cache, FOUC, or CSS
-   load failure all cannot produce a doubled logo). */
-:root{--logo-img:url("logo.png")}
-:root[data-theme="dark"]{--logo-img:url("logo-dark.png")}
-.logo-i{width:42px;height:36px;display:inline-block;
-        background-image:var(--logo-img);
-        background-size:contain;
-        background-repeat:no-repeat;
-        background-position:center;
-        flex-shrink:0}
+.logo-i{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary) 0%,#8B5CF6 100%);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 2px 8px rgba(109, 40, 255,.3)}
+.logo-i svg{width:18px;height:18px}
 .logo .dot{color:var(--primary)}
 .lnav a.back{font-size:.875rem;color:var(--text-2);font-weight:500;display:inline-flex;align-items:center;gap:6px}
 .lnav a.back:hover{color:var(--primary);text-decoration:none}
@@ -63,14 +52,14 @@ img,svg{display:block;max-width:100%}
 
 /* Header */
 .lhead{background:linear-gradient(180deg,var(--bg-subtle) 0%,var(--bg) 100%);padding:56px 0 40px;border-bottom:1px solid var(--border-2)}
-.lhead-c{max-width:760px;margin:0 auto;padding:0 24px}
+.lhead-c{max-width:1400px;margin:0 auto;padding:0 24px}
 .lhead .eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--primary);margin-bottom:14px;display:inline-block}
 .lhead h1{font-size:clamp(1.875rem,4vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--text);margin-bottom:14px}
 .lhead .meta{font-size:.875rem;color:var(--text-3)}
 .lhead .intro{font-size:1.05rem;color:var(--text-2);margin-top:16px;line-height:1.55}
 
 /* Body */
-.lbody{max-width:760px;margin:0 auto;padding:48px 24px 64px}
+.lbody{max-width:1400px;margin:0 auto;padding:48px 24px 64px}
 .lbody h2{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--text);margin:40px 0 12px;padding-top:8px}
 .lbody h2:first-child{margin-top:0}
 .lbody h3{font-size:1.125rem;font-weight:700;color:var(--text);margin:24px 0 8px}
@@ -111,8 +100,8 @@ img,svg{display:block;max-width:100%}
 /* Buttons (shared) */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;font-size:.95rem;font-weight:600;border-radius:var(--r-full);transition:all .18s ease;white-space:nowrap;cursor:pointer;border:1.5px solid transparent}
 .btn-lg{padding:16px 32px;font-size:1rem}
-.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,.3)}
-.btn-primary:hover{background:var(--primary-hover);color:#fff;text-decoration:none;transform:translateY(-1px);box-shadow:0 6px 20px rgba(124,58,237,.4)}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(109, 40, 255,.3)}
+.btn-primary:hover{background:var(--primary-hover);color:#fff;text-decoration:none;transform:translateY(-1px);box-shadow:0 6px 20px rgba(109, 40, 255,.4)}
 .btn-secondary{background:var(--surface);color:var(--text);border-color:var(--border);box-shadow:var(--shadow-sm)}
 .btn-secondary:hover{border-color:var(--primary);color:var(--primary);text-decoration:none}
 .btn svg{width:16px;height:16px}
@@ -127,7 +116,7 @@ img,svg{display:block;max-width:100%}
 .lft-bot{max-width:1200px;margin:28px auto 0;padding:16px 24px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.8125rem;color:rgba(255,255,255,.5)}
 
 /* Pilot page form */
-.pilot-wrap{max-width:680px;margin:0 auto;padding:48px 24px 72px}
+.pilot-wrap{max-width:1400px;margin:0 auto;padding:48px 24px 72px}
 .pilot-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:36px;box-shadow:var(--shadow-md)}
 .pilot-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 @media (max-width:640px){.pilot-grid{grid-template-columns:1fr}}
@@ -135,13 +124,7 @@ img,svg{display:block;max-width:100%}
 .pilot-field.full{grid-column:1/-1}
 .pilot-field label{display:block;font-size:.8125rem;font-weight:600;color:var(--text);margin-bottom:6px}
 .pilot-field label .req{color:var(--danger);margin-left:2px}
-.pilot-field input[type=text],.pilot-field input[type=email],.pilot-field input[type=number],.pilot-field select,.pilot-field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:inherit;font-size:.95rem;color:var(--text);background:var(--surface);transition:border-color .15s ease;color-scheme:light dark}
-:root[data-theme="dark"] .pilot-field input,
-:root[data-theme="dark"] .pilot-field select,
-:root[data-theme="dark"] .pilot-field textarea{background:var(--surface);color:var(--text);border-color:var(--border)}
-:root[data-theme="dark"] .pilot-field select option{background:var(--surface);color:var(--text)}
-:root[data-theme="dark"] .pilot-field input::placeholder,
-:root[data-theme="dark"] .pilot-field textarea::placeholder{color:var(--text-3)}
+.pilot-field input[type=text],.pilot-field input[type=email],.pilot-field select,.pilot-field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:inherit;font-size:.95rem;color:var(--text);background:var(--surface);transition:border-color .15s ease}
 .pilot-field input:focus,.pilot-field select:focus,.pilot-field textarea:focus{outline:none;border-color:var(--primary);box-shadow:var(--glow)}
 .pilot-field textarea{min-height:100px;resize:vertical;line-height:1.5}
 .pilot-roles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
@@ -182,231 +165,1532 @@ img,svg{display:block;max-width:100%}
 .aprod a:hover{color:var(--primary-light);text-decoration:none}
 .aprod a svg{width:12px;height:12px;opacity:.7}
 
-/* ROUND 41: brand-stack/brand-tag deprecated — render as plain logo only */
-.brand-stack{display:inline-flex;align-items:center}
-.brand-tag{display:none!important}
+/* Brand stack — ThreatReady + 'By AEROVANT TECHNOLOGIES' under logo */
+.brand-stack{display:inline-flex;flex-direction:column;gap:1px;align-items:flex-start;line-height:1}
+.brand-stack .logo{margin:0;line-height:1.2}
+.brand-tag{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);text-decoration:none;display:inline-block;padding-left:42px;transition:color .15s ease;line-height:1.1;margin-top:1px;white-space:nowrap}
+.brand-tag:hover{color:var(--primary);text-decoration:none}
+.brand-tag-pre{color:var(--text-3);font-weight:500;letter-spacing:.1em;margin-right:3px;text-transform:none;font-size:.85em}
+.brand-tag:hover .brand-tag-pre{color:var(--primary-light)}
+/* Ensure nav bar centers both sides vertically */
 .lnav-c{align-items:center;min-height:60px}
+@media (max-width:480px){.brand-tag{padding-left:0;font-size:.625rem;letter-spacing:.1em}}
 
-/* ============================================================================
-   ROUND 47/48: Compact polished hero for legal/policy/rubric/security/dpa pages
-   Round 48 tightens dimensions: hero ~40% shorter, art ~30% smaller, body
-   card pulls content above the fold on common laptop viewports.
-   sample-report.html intentionally keeps its own report styling.
-   ============================================================================ */
+/* ============================================================
+   Round 3 — colourful illustrated hero + visual upgrades
+   ============================================================ */
 
+/* Two-column hero with topic illustration */
 .lhero{
   position:relative;
-  background:linear-gradient(135deg,var(--bg-subtle) 0%,var(--primary-whisper) 50%,var(--bg-alt) 100%);
   overflow:hidden;
+  padding:64px 0 56px;
   border-bottom:1px solid var(--border-2);
-  padding:48px 0 68px;
+  background:
+    radial-gradient(ellipse 80% 60% at 90% 0%, rgba(109, 40, 255,.12), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 10% 100%, rgba(168,85,247,.08), transparent 60%),
+    linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 100%);
 }
 .lhero::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(circle at 18% 78%, rgba(124,58,237,.10) 0%, transparent 42%),
-    radial-gradient(circle at 82% 22%, rgba(168,85,247,.08) 0%, transparent 42%);
-}
-.lhero::after{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(to right,rgba(124,58,237,.045) 1px,transparent 1px),
-    linear-gradient(to bottom,rgba(124,58,237,.045) 1px,transparent 1px);
-  background-size:42px 42px;
-  -webkit-mask-image:radial-gradient(ellipse at center,black 0%,transparent 75%);
-          mask-image:radial-gradient(ellipse at center,black 0%,transparent 75%);
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle at 1px 1px, rgba(109, 40, 255,.08) 1px, transparent 0);
+  background-size:24px 24px;
+  opacity:.4;pointer-events:none;
 }
 .lhero-c{
-  max-width:1080px;margin:0 auto;padding:0 28px;
-  display:grid;grid-template-columns:1fr 200px;gap:36px;align-items:center;
-  position:relative;z-index:2;
+  position:relative;z-index:1;
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:center;
 }
-.lhero-text{max-width:640px}
-.lhero-text .eyebrow{
+.lhero-l{max-width:900px}
+.lhero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--mono);font-size:.66rem;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--primary);
-  padding:5px 12px;border-radius:var(--r-full);
-  background:rgba(124,58,237,.10);
-  border:1px solid rgba(124,58,237,.18);
-  margin-bottom:14px;
-  box-shadow:0 1px 3px rgba(124,58,237,.06);
+  padding:6px 14px;background:var(--primary-subtle);
+  border-radius:999px;
+  font-size:.75rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--primary);margin-bottom:18px;
 }
-.lhero-text .eyebrow::before{
-  content:'';width:5px;height:5px;border-radius:50%;
-  background:var(--primary);
-  box-shadow:0 0 0 2.5px rgba(124,58,237,.22);
+.lhero-eyebrow svg{width:13px;height:13px}
+.lhero h1{
+  font-size:clamp(2rem,4.5vw,2.75rem);font-weight:800;
+  letter-spacing:-.025em;line-height:1.08;color:var(--text);margin-bottom:14px;
 }
-.lhero-text h1{
-  font-size:clamp(1.625rem,3.2vw,2.25rem);
-  font-weight:800;letter-spacing:-.02em;line-height:1.12;
-  color:var(--text);margin:0 0 14px;
+.lhero h1 .accent{ color: #6D28FF; background: none; -webkit-text-fill-color: currentColor; }
+.lhero .meta{
+  font-size:.875rem;color:var(--text-3);
+  display:inline-flex;align-items:center;gap:8px;
+  padding:4px 12px;background:var(--surface);border:1px solid var(--border);
+  border-radius:999px;margin-top:4px;
 }
-.lhero-text h1 .grad{
-  background:linear-gradient(135deg,var(--primary),#a855f7);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+.lhero .meta::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--success);box-shadow:0 0 0 3px rgba(16,185,129,.18);
 }
-.lhero-text .meta{
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:var(--mono);font-size:.74rem;color:var(--text-2);
-  padding:5px 11px;border-radius:var(--r-full);
-  background:var(--surface);border:1px solid var(--border);
-  margin:0 0 14px;
-  box-shadow:var(--shadow-sm);
+.lhero .intro{
+  font-size:1.0625rem;color:var(--text-2);
+  margin-top:18px;line-height:1.6;
 }
-.lhero-text .meta svg{width:12px;height:12px;color:var(--primary);flex-shrink:0}
-.lhero-text .intro{
-  font-size:.96rem;color:var(--text-2);line-height:1.55;
-  margin:4px 0 0;max-width:580px;
-}
-.lhero-text .intro a{color:var(--primary);font-weight:500}
-
+.lhero .intro a{font-weight:600}
+.lhero-r{position:relative;display:flex;align-items:center;justify-content:center}
 .lhero-art{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
+  width:100%;max-width:380px;height:auto;
+  filter:drop-shadow(0 24px 48px rgba(109, 40, 255,.18));
 }
-.lhero-art svg{
-  width:100%;max-width:200px;height:auto;
-  filter:drop-shadow(0 14px 28px rgba(124,58,237,.22)) drop-shadow(0 3px 10px rgba(15,10,26,.05));
-}
-
-/* Floating content card */
-.lcard{
-  max-width:880px;margin:-32px auto 0;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:18px;
-  box-shadow:0 18px 48px -16px rgba(15,10,26,.12),0 4px 14px -4px rgba(15,10,26,.04);
-  position:relative;z-index:3;
-}
-.lcard .lbody{padding:36px 44px 48px;max-width:none}
-.lcard + .lft{margin-top:48px}
-
-/* Tablet — stack art above text but keep proportions sane */
-@media (max-width:880px){
-  .lhero{padding:36px 0 56px}
-  .lhero-c{grid-template-columns:1fr;gap:22px;padding:0 24px}
-  .lhero-art{order:-1}
-  .lhero-art svg{max-width:140px}
-  .lhero-text h1{font-size:clamp(1.5rem,5vw,2rem)}
-  .lhero-text .intro{font-size:.94rem}
-  .lcard{margin:-28px 20px 0}
-  .lcard .lbody{padding:28px 28px 36px}
+@media(max-width:900px){
+  .lhero{padding:48px 0 40px}
+  .lhero-c{grid-template-columns:1fr;gap:32px}
+  .lhero-r{order:-1}
+  .lhero-art{max-width:240px;margin:0 auto}
 }
 
-/* Phone — tighter still */
-@media (max-width:520px){
-  .lhero{padding:24px 0 40px}
-  .lhero-c{padding:0 20px;gap:16px}
-  .lhero-art svg{max-width:110px}
-  .lhero-text .eyebrow{font-size:.62rem;padding:4px 10px;margin-bottom:10px}
-  .lhero-text h1{font-size:1.5rem;margin-bottom:10px}
-  .lhero-text .meta{font-size:.7rem;margin-bottom:10px}
-  .lhero-text .intro{font-size:.9rem;line-height:1.5}
-  .lcard{margin:-24px 14px 0;border-radius:14px}
-  .lcard .lbody{padding:22px 18px 28px}
-  .lcard + .lft{margin-top:32px}
+/* Trust badges row */
+.lhero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.lhero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:999px;
+  font-size:.8125rem;font-weight:500;color:var(--text-2);
+  box-shadow:var(--shadow-sm);
+  transition:all .18s ease;
+}
+.lhero-badge:hover{
+  border-color:var(--primary-light);
+  color:var(--primary);
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-md);
+}
+.lhero-badge svg{width:14px;height:14px;color:var(--primary);flex-shrink:0}
+
+/* Color-coded callouts */
+.lbody .callout-info{background:var(--primary-whisper);border-left-color:var(--primary)}
+.lbody .callout-info strong{color:var(--primary)}
+.lbody .callout-success{background:#ecfdf5;border-left-color:var(--success)}
+.lbody .callout-success strong{color:#059669}
+.lbody .callout-warning{background:#fffbeb;border-left-color:var(--warning)}
+.lbody .callout-warning strong{color:#d97706}
+:root[data-theme="dark"] .lbody .callout-success{background:rgba(16,185,129,.10);border-left-color:#10b981}
+:root[data-theme="dark"] .lbody .callout-success strong{color:#34d399}
+:root[data-theme="dark"] .lbody .callout-warning{background:rgba(245,158,11,.10);border-left-color:#f59e0b}
+:root[data-theme="dark"] .lbody .callout-warning strong{color:#fbbf24}
+
+/* Section header with decorative icon */
+.lbody .section-h{
+  display:flex;align-items:center;gap:12px;
+  margin:44px 0 14px;padding-top:8px;
+}
+.lbody .section-h-ic{
+  width:34px;height:34px;border-radius:9px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--primary) 0%,#8B5CF6 100%);
+  color:#fff;display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 14px rgba(109, 40, 255,.25);
+}
+.lbody .section-h-ic svg{width:18px;height:18px}
+.lbody .section-h h2{margin:0;padding:0}
+
+/* Highlight cards (key feature blocks) */
+.lbody .hicards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;margin:24px 0 28px;
+}
+.lbody .hicard{
+  padding:20px;border-radius:14px;
+  background:var(--surface);border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  transition:all .2s ease;
+}
+.lbody .hicard:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+  border-color:var(--primary-light);
+}
+.lbody .hicard-ic{
+  width:38px;height:38px;border-radius:10px;
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-bottom:10px;color:#fff;
+}
+.lbody .hicard h4{
+  font-size:.9375rem;font-weight:700;color:var(--text);
+  margin:0 0 4px;letter-spacing:-.005em;
+}
+.lbody .hicard p{
+  font-size:.8125rem;color:var(--text-2);line-height:1.55;margin:0;
 }
 
-/* Dark mode hero */
-:root[data-theme="dark"] .lhero{
-  background:linear-gradient(135deg,#110c1d 0%,#1a1228 45%,#150f22 100%);
+
+
+/* ============================================================
+   FINAL — Obsidian White + Royal Amethyst (clean, no overrides)
+   - Light mode: Obsidian White background, Royal Amethyst accents
+   - Dark mode: deep purple-black with lighter Royal Amethyst
+   - Full-width layout (no narrow side margins)
+   - Better reading typography
+   ============================================================ */
+
+/* LIGHT MODE BODY — soft Obsidian White with subtle lavender hints */
+body{
+  font-size: 17px;
+  background: #FFFFFF;
+  min-height: 100vh;
+  color: var(--text);
 }
-:root[data-theme="dark"] .lhero::before{
+
+/* DARK MODE BODY — rich deep purple-black */
+:root[data-theme="dark"] body{
   background:
-    radial-gradient(circle at 18% 78%, rgba(167,139,250,.14) 0%, transparent 42%),
-    radial-gradient(circle at 82% 22%, rgba(139,92,246,.12) 0%, transparent 42%);
-}
-:root[data-theme="dark"] .lhero::after{
-  background-image:
-    linear-gradient(to right,rgba(167,139,250,.06) 1px,transparent 1px),
-    linear-gradient(to bottom,rgba(167,139,250,.06) 1px,transparent 1px);
-}
-:root[data-theme="dark"] .lhero-text .eyebrow{
-  background:rgba(167,139,250,.14);border-color:rgba(167,139,250,.28);color:var(--primary-light);
-}
-:root[data-theme="dark"] .lhero-text .eyebrow::before{
-  background:var(--primary-light);box-shadow:0 0 0 2.5px rgba(167,139,250,.25);
-}
-:root[data-theme="dark"] .lhero-text .meta{
-  background:var(--surface);border-color:var(--border);color:var(--text-2);
-}
-:root[data-theme="dark"] .lhero-text .meta svg{color:var(--primary-light)}
-:root[data-theme="dark"] .lcard{
-  background:var(--surface);border-color:#2e2640;
-  box-shadow:0 18px 48px -12px rgba(0,0,0,.55),0 4px 14px -4px rgba(0,0,0,.3);
-}
-:root[data-theme="dark"] .lhero-art svg{
-  filter:drop-shadow(0 16px 32px rgba(139,92,246,.32)) drop-shadow(0 3px 10px rgba(0,0,0,.4));
+    radial-gradient(ellipse 70% 50% at 15% 0%, rgba(139, 92, 246, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 100%, rgba(196, 181, 253, 0.06), transparent 55%),
+    linear-gradient(180deg, #0c0816 0%, #120e1e 100%);
+  background-attachment: fixed;
 }
 
-/* The old .lhead becomes a hidden fallback in case any page still uses it */
-
-/* ROUND 48: .lcontainer needed a max-width — how-it-works.html and
-   transparent-scoring.html were stretching edge-to-edge on wide displays. */
-.lcontainer{max-width:1040px;margin:0 auto;padding:32px 24px 56px}
-@media (max-width:760px){.lcontainer{padding:24px 18px 44px}}
-@media (max-width:480px){.lcontainer{padding:18px 14px 36px}}
-
-/* ROUND 48: TOC inside .lcard should blend, not look like a nested box */
-.lcard .ltoc{
-  background:var(--bg-subtle);
-  border:1px solid var(--border-2);
-  box-shadow:none;
-  margin-bottom:24px;
-  padding:16px 18px;
+/* HERO — light gradient with subtle purple radial in light mode */
+.lhero{
+  background:
+    radial-gradient(ellipse 80% 60% at 90% 0%, rgba(109, 40, 255, 0.10), transparent 55%),
+    radial-gradient(ellipse 60% 80% at 10% 100%, rgba(196, 181, 253, 0.16), transparent 55%);
+  border-bottom: 1px solid var(--border-2);
 }
-:root[data-theme="dark"] .lcard .ltoc{
-  background:rgba(167,139,250,.05);
-  border-color:rgba(167,139,250,.10);
+.lhero::before{
+  background-image: radial-gradient(circle at 1px 1px, rgba(109, 40, 255, 0.06) 1px, transparent 0);
+  opacity: 0.4;
 }
 
-/* ROUND 48: Final hero size pass — slightly less chrome, smaller art */
-.lhero{padding:40px 0 60px}
-.lhero-c{max-width:1000px;gap:32px;grid-template-columns:1fr 180px}
-.lhero-text{max-width:600px}
-.lhero-text h1{font-size:clamp(1.5rem,2.6vw,2rem);margin:0 0 12px}
-.lhero-text .intro{font-size:.925rem;line-height:1.55;max-width:560px}
-.lhero-text .meta{margin:0 0 12px}
-.lhero-art svg{max-width:180px}
-.lcard{max-width:860px;margin:-28px auto 0;border-radius:16px}
-.lcard .lbody{padding:32px 38px 44px}
+/* HERO h1 accent — Royal Amethyst gradient */
+.lhero h1 .accent{ color: #6D28FF; background: none; -webkit-text-fill-color: currentColor; }
 
-/* Body typography inside the card */
-.lcard .lbody h2{font-size:1.3125rem;margin:28px 0 8px;font-weight:700}
-.lcard .lbody h2:first-child{margin-top:0}
-.lcard .lbody h3{font-size:1.0625rem;margin:18px 0 6px;font-weight:700}
-.lcard .lbody p{font-size:.9375rem;line-height:1.6;margin-bottom:11px}
-.lcard .lbody ul,.lcard .lbody ol{font-size:.9375rem;padding-left:22px;margin-bottom:11px}
-.lcard .lbody li{margin-bottom:6px;line-height:1.55}
-.lcard .lbody table{font-size:.825rem;margin:14px 0}
-.lcard .lbody table th,.lcard .lbody table td{padding:8px 10px}
-.lcard .lbody .callout{padding:12px 16px;font-size:.9rem;margin:16px 0}
-.lcard .lbody .deflist dt{font-size:.95rem;margin-top:10px}
-.lcard .lbody .deflist dd{font-size:.9rem}
-
-/* Mobile / tablet */
-@media (max-width:880px){
-  .lhero{padding:28px 0 44px}
-  .lhero-c{grid-template-columns:1fr;gap:18px}
-  .lhero-art{order:-1}
-  .lhero-art svg{max-width:130px}
-  .lhero-text h1{font-size:clamp(1.375rem,4.6vw,1.75rem)}
-  .lhero-text .intro{font-size:.9rem}
-  .lcard{margin:-22px 18px 0}
-  .lcard .lbody{padding:26px 24px 32px}
+/* DARK MODE HERO */
+:root[data-theme="dark"] .lhero{
+  background:
+    radial-gradient(ellipse 80% 60% at 90% 0%, rgba(139, 92, 246, 0.20), transparent 55%),
+    radial-gradient(ellipse 60% 80% at 10% 100%, rgba(196, 181, 253, 0.10), transparent 55%);
+  border-bottom: 1px solid var(--border-2);
 }
-@media (max-width:520px){
-  .lhero{padding:22px 0 36px}
-  .lhero-c{padding:0 18px;gap:14px}
-  .lhero-art svg{max-width:104px}
-  .lhero-text .eyebrow{font-size:.6rem;padding:4px 10px;margin-bottom:10px}
-  .lhero-text h1{font-size:1.4375rem;margin-bottom:10px}
-  .lhero-text .meta{font-size:.68rem}
-  .lhero-text .intro{font-size:.875rem;line-height:1.5}
-  .lcard{margin:-18px 12px 0;border-radius:12px}
-  .lcard .lbody{padding:20px 16px 26px}
-  .lcard .lbody h2{font-size:1.125rem}
-  .lcard .lbody h3{font-size:1rem}
-  .lcard .lbody p,.lcard .lbody li,.lcard .lbody ul,.lcard .lbody ol{font-size:.875rem}
+:root[data-theme="dark"] .lhero h1 .accent{ color: #C4B5FD; background: none; -webkit-text-fill-color: currentColor; }
+
+/* FULL-WIDTH LAYOUT — content fills the viewport, no narrow side margins */
+.lnav-c{
+  max-width: none;
+  padding: 14px clamp(20px, 4vw, 56px);
+}
+.lhero-c{
+  max-width: none;
+  padding: 0 clamp(24px, 4vw, 64px);
+  gap: 48px;
+}
+.lhero-l{ max-width: 1100px; }
+
+.lbody{
+  max-width: none;
+  margin: 32px 0;
+  padding: 48px clamp(24px, 5vw, 72px) 56px;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(11, 16, 32, 0.04);
+}
+:root[data-theme="dark"] .lbody{
+  background: var(--surface);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.30);
+}
+
+/* Inner content stays readable inside full-width card */
+.lbody > *{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lbody > h2:first-child{ margin-top: 0; }
+
+.lclose{
+  max-width: none;
+  margin: 0 0 40px;
+  padding: 22px clamp(24px, 4vw, 56px) 0;
+}
+
+/* Footer also full-width */
+.lft-c{ max-width: none; padding: 0 clamp(24px, 4vw, 56px); }
+.lft-bot{ max-width: none; padding: 16px clamp(24px, 4vw, 56px) 0; }
+.aprod{ max-width: none; padding: 14px clamp(24px, 4vw, 56px); }
+
+/* Responsive — slightly tighter on small screens */
+@media (max-width: 720px){
+  .lbody{ margin: 20px 0; padding: 32px 20px; }
+  .lhero-c{ gap: 32px; }
+}
+
+/* TYPOGRAPHY — comfortable reading */
+.lbody p{ font-size: 1.0625rem; line-height: 1.75; margin-bottom: 16px; }
+.lbody li{ font-size: 1.0625rem; line-height: 1.7; margin-bottom: 10px; }
+.lbody h2{ font-size: 1.625rem; margin: 44px 0 14px; letter-spacing: -0.018em; }
+.lbody h2:first-child{ margin-top: 0; }
+.lbody h3{ font-size: 1.1875rem; margin: 28px 0 10px; }
+.lbody table{ font-size: 1rem; }
+.lbody table th, .lbody table td{ padding: 12px 14px; }
+.lbody .callout{ font-size: 1.0625rem; line-height: 1.7; padding: 16px 20px; margin: 24px 0; border-left-width: 4px; }
+.lhero .intro{ font-size: 1.125rem; line-height: 1.65; }
+.lhero h1{ font-size: clamp(2.125rem, 4.5vw, 2.875rem); }
+
+/* DARK MODE — ensure body content text colors flip correctly */
+:root[data-theme="dark"] .lbody p,
+:root[data-theme="dark"] .lbody li{ color: var(--text-2); }
+:root[data-theme="dark"] .lbody h2,
+:root[data-theme="dark"] .lbody h3,
+:root[data-theme="dark"] .lbody strong{ color: var(--text); }
+
+/* Code blocks — light in light mode, dark in dark mode */
+.lbody code{
+  background: var(--primary-whisper);
+  color: var(--primary-hover);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+:root[data-theme="dark"] .lbody code{
+  background: rgba(196, 181, 253, 0.10);
+  color: #C4B5FD;
+}
+
+/* CALLOUTS — work in both modes */
+.lbody .callout,
+.lbody .callout-info{
+  background: var(--primary-whisper);
+  border-left-color: var(--primary);
+}
+.lbody .callout strong,
+.lbody .callout-info strong{ color: var(--primary); }
+.lbody .callout-success{ background: rgba(16, 185, 129, 0.08); border-left-color: #10b981; }
+.lbody .callout-success strong{ color: #059669; }
+.lbody .callout-warning{ background: rgba(245, 158, 11, 0.10); border-left-color: #f59e0b; }
+.lbody .callout-warning strong{ color: #d97706; }
+
+:root[data-theme="dark"] .lbody .callout,
+:root[data-theme="dark"] .lbody .callout-info{
+  background: rgba(139, 92, 246, 0.12);
+  border-left-color: #8B5CF6;
+}
+:root[data-theme="dark"] .lbody .callout strong{ color: #C4B5FD; }
+:root[data-theme="dark"] .lbody .callout-success{ background: rgba(16, 185, 129, 0.12); }
+:root[data-theme="dark"] .lbody .callout-success strong{ color: #34d399; }
+:root[data-theme="dark"] .lbody .callout-warning{ background: rgba(245, 158, 11, 0.12); }
+:root[data-theme="dark"] .lbody .callout-warning strong{ color: #fbbf24; }
+
+/* Section icon tile — Royal Amethyst gradient */
+.lbody .section-h-ic{
+  background: #6D28FF;
+  box-shadow: 0 6px 14px rgba(109, 40, 255, 0.25);
+}
+
+/* Cards inside body — light/dark aware */
+.lbody .hicard,
+.ltoc,
+.dim-card,
+.lbody .example{
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+/* Tables */
+.lbody table th, .lbody table td{ border-bottom-color: var(--border-2); color: var(--text-2); }
+.lbody thead th{ background: var(--surface-2); color: var(--text); }
+
+/* Definitions */
+.lbody .deflist dt{ color: var(--text); }
+.lbody .deflist dd{ color: var(--text-2); border-left-color: var(--border-2); }
+
+/* Sample-report banner — Royal Amethyst gradient */
+.rbanner{
+  background: #6D28FF;
+}
+
+/* Logo brand mark — Royal Amethyst */
+.logo-i{
+  background: #6D28FF;
+  box-shadow: 0 2px 10px rgba(109, 40, 255, 0.30);
+}
+
+/* Body links */
+.lbody a{ color: var(--primary); }
+.lbody a:hover{ color: var(--primary-hover); }
+
+/* Hero badges — light/dark aware */
+.lhero-badge{
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-2);
+  box-shadow: var(--shadow-sm);
+}
+.lhero-badge:hover{
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-whisper);
+  transform: translateY(-1px);
+}
+.lhero-badge svg{ color: var(--primary); }
+
+/* Hero meta */
+.lhero .meta{
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-2);
+}
+
+/* Hero eyebrow */
+.lhero-eyebrow{
+  background: var(--primary-subtle);
+  color: var(--primary);
+}
+.lhero-eyebrow svg{ color: var(--primary); }
+
+/* Sample report — make sure it works in both modes */
+.rhead, .rsec, .rtimeline, .rcandid-card, .rscoreboard,
+.rqcard, .rqa, .rqa-row, .rfeedback, .rrec, .rinteg,
+.rmeta-card, .rdims-card, .rdim, .rbar-card{
+  background: var(--surface);
+  border-color: var(--border);
+}
+.rhead-top, .rcandid-id, .rmeta-cell{
+  background: var(--surface-2);
+  border-color: var(--border-2);
+  color: var(--text-2);
+}
+.rmeta-cell .l{ color: var(--text-3); }
+.rmeta-cell .v{ color: var(--text); }
+.rcname, .rqcard h3, .rsec h2, .rover-score{ color: var(--text); }
+.rcmeta, .rqcard p{ color: var(--text-2); }
+.rbar-l{ color: var(--text); }
+.rbar-l small{ color: var(--text-3); }
+.rbar-t{ background: var(--primary-whisper); }
+.rbar-v{ color: var(--text); }
+.roverall{ background: var(--surface-2); }
+.rover-label{ color: var(--text-3); }
+.rlogo-org{ background: var(--surface-2); border-color: var(--border-2); }
+.rlogo-org-t strong{ color: var(--text); }
+.rlogo-org-t span{ color: var(--text-3); }
+
+/* Theme toggle visible and styled */
+.theme-tog{ color: var(--text-2); }
+.theme-tog:hover{ background: var(--primary-subtle); color: var(--primary); }
+
+
+
+/* ============================================================
+   PROFESSIONAL TOUCHES (per design guidelines)
+   - Smooth gradients instead of solid dark
+   - Soft purple-tinted shadows on cards
+   - Rounded corners refined
+   - 3-color palette: Purple + White + Soft Lavender + Indigo accent
+   ============================================================ */
+
+/* FOOTER — replace solid dark with smooth indigo-purple gradient */
+.lft{
+  background: linear-gradient(135deg, #6D28FF 0%, #5B1FE0 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+.lft::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(196, 181, 253, 0.18), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 10% 90%, rgba(109, 40, 255, 0.20), transparent 60%);
+  pointer-events: none;
+}
+.lft > *{ position: relative; z-index: 1; }
+
+/* Footer text uses lavender-tinted whites */
+.lft .logo{ color: #FFFFFF; }
+.lft-l a{ color: rgba(237, 228, 255, 0.78); transition: color 0.15s; }
+.lft-l a:hover{ color: #FFFFFF; }
+.lft-bot{ border-top: 1px solid rgba(237, 228, 255, 0.18); color: rgba(237, 228, 255, 0.6); }
+.aprod{ border-top: 1px solid rgba(237, 228, 255, 0.12); }
+.aprod span{ color: rgba(237, 228, 255, 0.55); }
+.aprod a{ color: #FFFFFF; }
+.aprod a:hover{ color: #C4B5FD; }
+
+/* CARDS — soft purple-tinted shadows + refined rounded corners */
+.lbody,
+.rhead, .rsec, .rqcard, .rqa, .rfeedback, .rtimeline,
+.rcandid-card, .rscoreboard, .rmeta-card, .rdims-card,
+.rdim, .rbar-card, .rrec, .rinteg{
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.04),
+    0 8px 24px rgba(109, 40, 255, 0.06) !important;
+  transition: box-shadow 0.2s ease;
+}
+
+.lbody:hover,
+.rhead:hover, .rsec:hover, .rqcard:hover{
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.04),
+    0 12px 36px rgba(109, 40, 255, 0.10) !important;
+}
+
+/* Dark mode card shadows */
+:root[data-theme="dark"] .lbody,
+:root[data-theme="dark"] .rhead,
+:root[data-theme="dark"] .rsec,
+:root[data-theme="dark"] .rqcard,
+:root[data-theme="dark"] .rqa,
+:root[data-theme="dark"] .rfeedback{
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 8px 28px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Inner cards — slightly tighter rounded corners */
+.lbody .hicard, .ltoc, .dim-card, .lbody .example,
+.rmeta-cell, .rcandid-id, .rhead-top{
+  border-radius: 12px;
+}
+
+/* HERO H1 — multi-color gradient (Royal Amethyst + Indigo + Soft Lavender) */
+.lhero h1 .accent{ color: #6D28FF; background: none; -webkit-text-fill-color: currentColor; }
+
+/* BUTTONS — Royal Amethyst → Indigo gradient with soft glow */
+.btn-primary, .pilot-submit{
+  background: #6D28FF !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  box-shadow:
+    0 4px 14px rgba(109, 40, 255, 0.30),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover, .pilot-submit:hover{
+  background: #5B1FE0 !important;
+  transform: translateY(-1px) !important;
+  box-shadow:
+    0 8px 24px rgba(109, 40, 255, 0.40),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset !important;
+}
+
+/* SECTION DIVIDERS — subtle gradient line instead of solid border */
+.lbody h2{
+  position: relative;
+  padding-bottom: 12px;
+}
+.lbody h2::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: #6D28FF;
+  border-radius: 2px;
+}
+:root[data-theme="dark"] .lbody h2::after{
+  background: #C4B5FD;
+}
+
+/* HERO BADGES — pill shape, soft lavender background, purple text */
+.lhero-badge{
+  background: #FFFFFF !important;
+  border: 1px solid #EDE4FF !important;
+  border-radius: 999px !important;
+  padding: 8px 16px !important;
+  color: #6D28FF !important;
+  font-weight: 500 !important;
+  box-shadow: 0 2px 8px rgba(109, 40, 255, 0.06) !important;
+}
+
+.lhero-badge:hover{
+  border-color: #6D28FF !important;
+  color: #6D28FF !important;
+  background: #F3EEFF !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(109, 40, 255, 0.12) !important;
+}
+
+:root[data-theme="dark"] .lhero-badge{
+  background: rgba(46, 28, 65, 0.40) !important;
+  border-color: rgba(196, 181, 253, 0.20) !important;
+  color: #C4B5FD !important;
+}
+
+/* HERO EYEBROW — refined pill with gradient */
+.lhero-eyebrow{
+  background: #EDE4FF !important;
+  color: #6D28FF !important;
+  border: 1px solid rgba(109, 40, 255, 0.12) !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 6px rgba(109, 40, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .lhero-eyebrow{
+  background: rgba(139, 92, 246, 0.18) !important;
+  color: #C4B5FD !important;
+  border-color: rgba(196, 181, 253, 0.20) !important;
+}
+
+/* META PILL on hero */
+.lhero .meta{
+  background: #FFFFFF !important;
+  border: 1px solid #E7E5EB !important;
+  border-radius: 999px !important;
+  padding: 6px 14px !important;
+  box-shadow: 0 1px 3px rgba(11, 16, 32, 0.04) !important;
+}
+
+/* SAMPLE REPORT BANNER — gradient with shimmer */
+.rbanner{
+  background: #6D28FF !important;
+  position: relative;
+  overflow: hidden;
+}
+.rbanner::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.10) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* SECTION ICON TILES — gradient backgrounds */
+.lbody .section-h-ic{
+  background: #6D28FF !important;
+  box-shadow: 0 6px 16px rgba(109, 40, 255, 0.30) !important;
+  border-radius: 12px !important;
+}
+
+/* PILOT REASSURE BOXES — refined cards */
+.pilot-rbox{
+  background: #FFFFFF !important;
+  border: 1px solid #EDE4FF !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 16px rgba(109, 40, 255, 0.06) !important;
+  transition: all 0.2s ease;
+}
+.pilot-rbox:hover{
+  border-color: rgba(109, 40, 255, 0.20) !important;
+  box-shadow: 0 8px 24px rgba(109, 40, 255, 0.12) !important;
+  transform: translateY(-2px);
+}
+.pilot-rbox svg{
+  background: #EDE4FF !important;
+  color: #6D28FF !important;
+  padding: 8px !important;
+  border-radius: 10px !important;
+  width: 36px !important;
+  height: 36px !important;
+  margin-bottom: 12px !important;
+}
+
+/* FORM INPUTS — clean with purple focus */
+.pilot-field input,
+.pilot-field select,
+.pilot-field textarea{
+  background: #FFFFFF !important;
+  border: 1px solid #E7E5EB !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  transition: all 0.15s ease;
+}
+.pilot-field input:focus,
+.pilot-field select:focus,
+.pilot-field textarea:focus{
+  border-color: #6D28FF !important;
+  box-shadow: 0 0 0 4px rgba(109, 40, 255, 0.10) !important;
+  outline: none !important;
+}
+
+/* PILOT NEXT-STEPS box */
+.pilot-next{
+  background: #F3EEFF !important;
+  border: 1px solid #EDE4FF !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 16px rgba(109, 40, 255, 0.06) !important;
+}
+.pilot-next h4{
+  color: #6D28FF !important;
+}
+
+
+/* TABLES — purple themed */
+.lbody table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(11, 16, 32, 0.04), 0 4px 16px rgba(109, 40, 255, 0.06);
+  border: 1px solid #EDE4FF;
+}
+.lbody table thead th{
+  background: #6D28FF !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8125rem;
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: none;
+}
+.lbody table tbody tr{
+  background: #FFFFFF;
+  transition: background 0.15s ease;
+}
+.lbody table tbody tr:nth-child(even){
+  background: #F8F9FC;
+}
+.lbody table tbody tr:hover{
+  background: #F3EEFF;
+}
+.lbody table td{
+  padding: 14px 18px;
+  border-bottom: 1px solid #EDE4FF !important;
+  color: #0B1020;
+  font-size: 0.9375rem;
+}
+.lbody table tbody tr:last-child td{
+  border-bottom: none !important;
+}
+.lbody table tbody tr td:first-child{
+  font-weight: 500;
+  color: #6D28FF;
+}
+
+/* Dark mode tables */
+:root[data-theme="dark"] .lbody table{
+  border-color: rgba(196, 181, 253, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+:root[data-theme="dark"] .lbody table tbody tr{
+  background: var(--surface);
+}
+:root[data-theme="dark"] .lbody table tbody tr:nth-child(even){
+  background: var(--surface-2);
+}
+:root[data-theme="dark"] .lbody table tbody tr:hover{
+  background: rgba(139, 92, 246, 0.10);
+}
+:root[data-theme="dark"] .lbody table td{
+  color: var(--text-2);
+  border-bottom-color: var(--border-2) !important;
+}
+:root[data-theme="dark"] .lbody table tbody tr td:first-child{
+  color: #C4B5FD;
+}
+
+
+/* LIGHTNING BOLT LOGO — transparent, no background container, aligned with text */
+.logo{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+.logo-i{
+  background: transparent !important;
+  box-shadow: none !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0;
+}
+.logo-i svg, .logo-i img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  display: block;
+}
+.logo-t{
+  line-height: 1 !important;
+}
+
+/* Footer logo — slightly larger, same alignment */
+.lft .logo-i{
+  width: 30px !important;
+  height: 30px !important;
+}
+
+/* ============================================================
+   PRIVACY-STYLE LAYOUT — 2-column TOC sidebar + numbered sections
+   ============================================================ */
+
+/* 2-column body layout: sticky TOC sidebar + main content */
+.lbody-grid{
+  display: grid !important;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 56px;
+  max-width: 1320px !important;
+  margin: 32px auto !important;
+  padding: 48px clamp(24px, 4vw, 56px) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.lbody-grid > *{
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 980px){
+  .lbody-grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Sidebar — sticky on scroll */
+.lbody-side{
+  position: relative;
+}
+
+.ltoc-sticky{
+  position: sticky;
+  top: 88px;
+  background: transparent;
+  padding: 0;
+}
+
+.ltoc-sticky h4{
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6B7280;
+  margin: 0 0 16px 0;
+  padding: 0 14px;
+}
+
+.ltoc-sticky ol.toc-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ltoc-sticky ol.toc-list li{
+  margin: 0;
+  padding: 0;
+}
+
+.ltoc-sticky ol.toc-list a{
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 14px;
+  border-left: 3px solid transparent;
+  font-size: 0.9375rem;
+  color: #4B5563;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.15s ease;
+  font-weight: 400;
+}
+
+.ltoc-sticky ol.toc-list a:hover{
+  color: #6D28FF;
+  background: rgba(109, 40, 255, 0.04);
+  border-left-color: rgba(109, 40, 255, 0.20);
+}
+
+.ltoc-sticky ol.toc-list a.active,
+.ltoc-sticky ol.toc-list a.is-active{
+  background: #EDE4FF;
+  color: #6D28FF;
+  border-left-color: #6D28FF;
+  font-weight: 600;
+}
+
+.ltoc-sticky .toc-num{
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  min-width: 22px;
+}
+
+/* Dark mode TOC */
+:root[data-theme="dark"] .ltoc-sticky h4{ color: var(--text-3); }
+:root[data-theme="dark"] .ltoc-sticky ol.toc-list a{ color: var(--text-2); }
+:root[data-theme="dark"] .ltoc-sticky ol.toc-list a:hover{
+  color: #C4B5FD;
+  background: rgba(139, 92, 246, 0.10);
+  border-left-color: rgba(196, 181, 253, 0.30);
+}
+:root[data-theme="dark"] .ltoc-sticky ol.toc-list a.active,
+:root[data-theme="dark"] .ltoc-sticky ol.toc-list a.is-active{
+  background: rgba(139, 92, 246, 0.18);
+  color: #C4B5FD;
+  border-left-color: #C4B5FD;
+}
+
+/* Numbered section headings — purple square badge */
+.num-h2{
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin: 56px 0 18px 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 1.625rem !important;
+  font-weight: 700;
+  color: #0B1020;
+  scroll-margin-top: 96px;
+}
+
+.num-h2:first-child{ margin-top: 0 !important; }
+
+.num-h2::after{
+  display: none !important;
+}
+
+.num-badge{
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #6D28FF;
+  color: #FFFFFF;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(109, 40, 255, 0.20);
+  line-height: 1;
+}
+
+.num-title{
+  display: inline-block;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.num-title::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: #6D28FF;
+  border-radius: 2px;
+}
+
+:root[data-theme="dark"] .num-h2{ color: var(--text); }
+:root[data-theme="dark"] .num-badge{
+  background: #8B5CF6;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.30);
+}
+:root[data-theme="dark"] .num-title::after{ background: #C4B5FD; }
+
+/* Body content holder — contains all the section text */
+.lbody-content{
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 40px 48px;
+  box-shadow: 0 1px 3px rgba(11, 16, 32, 0.04), 0 8px 24px rgba(109, 40, 255, 0.04);
+}
+
+:root[data-theme="dark"] .lbody-content{
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.30), 0 8px 24px rgba(0, 0, 0, 0.40);
+}
+
+@media (max-width: 720px){
+  .lbody-content{ padding: 28px 22px; }
+  .num-badge{ width: 30px; height: 30px; font-size: 0.875rem; }
+  .num-h2{ font-size: 1.375rem !important; gap: 10px !important; }
+}
+
+/* Company info card (used in section 1) */
+.company-card{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  background: linear-gradient(135deg, #F8F6FF 0%, #F3EEFF 100%);
+  border: 1px solid #EDE4FF;
+  border-radius: 14px;
+  margin: 24px 0;
+}
+
+.company-avatar{
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #EDE4FF 0%, #C4B5FD 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6D28FF;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(109, 40, 255, 0.15);
+}
+
+.company-avatar svg{
+  width: 26px;
+  height: 26px;
+}
+
+.company-info{ flex: 1; min-width: 0; }
+.company-name{ font-weight: 700; font-size: 1.0625rem; color: #0B1020; margin-bottom: 2px; }
+.company-meta{ font-size: 0.875rem; color: #6B7280; margin-bottom: 6px; }
+.company-contact{ font-size: 0.875rem; color: #4B5563; }
+.company-contact a{ color: #6D28FF; font-weight: 500; }
+
+:root[data-theme="dark"] .company-card{
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(196, 181, 253, 0.20);
+}
+:root[data-theme="dark"] .company-name{ color: var(--text); }
+:root[data-theme="dark"] .company-meta{ color: var(--text-3); }
+:root[data-theme="dark"] .company-contact{ color: var(--text-2); }
+:root[data-theme="dark"] .company-contact a{ color: #C4B5FD; }
+
+@media (max-width: 600px){
+  .company-card{ flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px; }
+}
+
+
+/* ============================================================
+   PREMIUM POLISH — distinguishes report pages from index page
+   Subtle mesh background, gradient accents, refined cards
+   ============================================================ */
+
+/* Subtle purple mesh background — adds depth vs flat white */
+body{
+  background:
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(196, 181, 253, 0.14), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 0% 100%, rgba(109, 40, 255, 0.06), transparent 55%),
+    radial-gradient(ellipse 30% 25% at 50% 50%, rgba(168, 85, 247, 0.03), transparent 55%),
+    #FFFFFF !important;
+  background-attachment: fixed !important;
+}
+
+:root[data-theme="dark"] body{
+  background:
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(139, 92, 246, 0.18), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 0% 100%, rgba(196, 181, 253, 0.08), transparent 55%),
+    linear-gradient(180deg, #0c0816 0%, #120e1e 100%) !important;
+}
+
+/* Numbered badges — gradient with depth + glow */
+.num-badge{
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28FF 50%, #5B21B6 100%) !important;
+  box-shadow:
+    0 4px 14px rgba(109, 40, 255, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.10) !important;
+  border-radius: 9px !important;
+}
+
+/* Title accent line — subtle gradient + slightly bolder */
+.num-title::after{
+  width: 40px !important;
+  height: 2.5px !important;
+  background: linear-gradient(90deg, #6D28FF 0%, #C4B5FD 100%) !important;
+}
+
+.lbody h2::after{
+  width: 56px !important;
+  height: 2.5px !important;
+  background: linear-gradient(90deg, #6D28FF 0%, #C4B5FD 100%) !important;
+}
+
+/* Body content card — premium depth with inner highlight */
+.lbody-content{
+  background: #FFFFFF !important;
+  border: 1px solid #EDE4FF !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.03),
+    0 16px 48px rgba(109, 40, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+:root[data-theme="dark"] .lbody-content{
+  background: rgba(26, 21, 37, 0.85) !important;
+  border-color: rgba(196, 181, 253, 0.12) !important;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.30),
+    0 16px 48px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* TOC sidebar — refined active state */
+.ltoc-sticky ol.toc-list a{
+  border-radius: 0 !important;
+  margin-bottom: 2px;
+  transition: all 0.18s ease !important;
+}
+
+.ltoc-sticky ol.toc-list a.active,
+.ltoc-sticky ol.toc-list a.is-active{
+  background: linear-gradient(90deg, #EDE4FF 0%, rgba(243, 238, 255, 0.4) 100%) !important;
+  border-left-color: #6D28FF !important;
+  color: #5B21B6 !important;
+  box-shadow: 0 1px 2px rgba(109, 40, 255, 0.08);
+}
+
+/* Hero eyebrow pill — refined */
+.lhero-eyebrow{
+  background: linear-gradient(135deg, #EDE4FF 0%, #F3EEFF 100%) !important;
+  border: 1px solid rgba(109, 40, 255, 0.14) !important;
+  box-shadow:
+    0 2px 8px rgba(109, 40, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  font-weight: 700 !important;
+}
+
+/* Hero badges (pill row) — refined */
+.lhero-badge{
+  background: #FFFFFF !important;
+  border: 1px solid #EDE4FF !important;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.03),
+    0 4px 12px rgba(109, 40, 255, 0.05) !important;
+  transition: all 0.18s ease !important;
+}
+
+.lhero-badge:hover{
+  border-color: #C4B5FD !important;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F6FF 100%) !important;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.04),
+    0 8px 20px rgba(109, 40, 255, 0.12) !important;
+  transform: translateY(-1px);
+}
+
+/* Hero meta date pill */
+.lhero .meta{
+  background: #FFFFFF !important;
+  border: 1px solid #EDE4FF !important;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.03),
+    0 4px 12px rgba(109, 40, 255, 0.05) !important;
+  font-weight: 500;
+}
+
+/* Tables — premium */
+.lbody table{
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.03),
+    0 12px 32px rgba(109, 40, 255, 0.08) !important;
+  border: 1px solid #EDE4FF !important;
+}
+
+.lbody table thead th{
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28FF 50%, #5B21B6 100%) !important;
+  position: relative;
+}
+
+/* Section icon tile — gradient with glow */
+.lbody .section-h-ic{
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28FF 100%) !important;
+  box-shadow:
+    0 6px 18px rgba(109, 40, 255, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Buttons — premium gradient with depth */
+.btn-primary,
+.pilot-submit{
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28FF 100%) !important;
+  box-shadow:
+    0 4px 14px rgba(109, 40, 255, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
+}
+
+.btn-primary:hover,
+.pilot-submit:hover{
+  background: linear-gradient(135deg, #6D28FF 0%, #5B21B6 100%) !important;
+  box-shadow:
+    0 8px 24px rgba(109, 40, 255, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
+}
+
+/* Pilot reassure boxes — refined hover */
+.pilot-rbox{
+  border-radius: 14px !important;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.03),
+    0 4px 16px rgba(109, 40, 255, 0.05) !important;
+  transition: all 0.20s ease !important;
+}
+
+.pilot-rbox:hover{
+  border-color: #C4B5FD !important;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.04),
+    0 12px 32px rgba(109, 40, 255, 0.14) !important;
+  transform: translateY(-2px);
+}
+
+.pilot-rbox svg{
+  background: linear-gradient(135deg, #C4B5FD 0%, #A78BFA 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow:
+    0 4px 12px rgba(109, 40, 255, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
+}
+
+/* Footer — refined gradient */
+.lft{
+  background: linear-gradient(135deg, #5B21B6 0%, #6D28FF 60%, #7C3AED 100%) !important;
+  box-shadow: 0 -1px 0 rgba(196, 181, 253, 0.15) inset;
+}
+
+/* Company info card — premium gradient */
+.company-card{
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F6FF 50%, #F3EEFF 100%) !important;
+  border: 1px solid #EDE4FF !important;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.03),
+    0 8px 24px rgba(109, 40, 255, 0.06) !important;
+}
+
+.company-avatar{
+  background: linear-gradient(135deg, #C4B5FD 0%, #A78BFA 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow:
+    0 4px 14px rgba(109, 40, 255, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
+}
+
+/* Refined typography on content */
+.lbody-content h2,
+.lbody h2{
+  letter-spacing: -0.022em !important;
+}
+
+.lbody p, .lbody li{
+  color: #4B5563 !important;
+}
+
+:root[data-theme="dark"] .lbody p,
+:root[data-theme="dark"] .lbody li{
+  color: var(--text-2) !important;
+}
+
+
+/* ============================================================
+   FINAL — Header (transparent purple) + Footer (highlighted, centered)
+   ============================================================ */
+
+/* Nav — DARK purple theme (distinguishes report pages from light index page) */
+.lnav{
+  background: linear-gradient(135deg, #1A0F2E 0%, #2D1B4E 100%) !important;
+  backdrop-filter: saturate(180%) blur(12px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(12px) !important;
+  border-bottom: 1px solid rgba(109, 40, 255, 0.30) !important;
+  box-shadow: 0 1px 0 rgba(109, 40, 255, 0.10), 0 4px 16px rgba(11, 6, 23, 0.20) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.lnav::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(139, 92, 246, 0.18), transparent 60%);
+  pointer-events: none;
+}
+
+.lnav > *{ position: relative; z-index: 1; }
+
+/* Logo text and back link become light on dark nav */
+.lnav .logo,
+.lnav .logo-t,
+.lnav .logo .dot{ color: #FFFFFF !important; }
+.lnav a.back{ color: rgba(237, 228, 255, 0.78) !important; }
+.lnav a.back:hover{ color: #FFFFFF !important; }
+.lnav a.back svg{ color: rgba(237, 228, 255, 0.78); }
+.theme-tog{ color: rgba(237, 228, 255, 0.78) !important; }
+.theme-tog:hover{ background: rgba(196, 181, 253, 0.12) !important; color: #FFFFFF !important; }
+
+/* Dark mode — slightly different shade so the toggle still feels distinct */
+:root[data-theme="dark"] .lnav{
+  background: linear-gradient(135deg, #0c0816 0%, #1a0f2e 100%) !important;
+  border-bottom: 1px solid rgba(196, 181, 253, 0.20) !important;
+}
+
+/* Footer — already has gradient, but center everything inside */
+.lft{
+  text-align: center !important;
+  padding: 56px 0 32px !important;
+}
+
+.lft-c{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 24px !important;
+}
+
+.lft .logo{
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+.lft-l{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 24px !important;
+  margin: 0 auto !important;
+}
+
+.lft-bot{
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-top: 1px solid rgba(237, 228, 255, 0.18) !important;
+  margin: 28px auto 0 !important;
+}
+
+.aprod{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  flex-wrap: wrap !important;
+}
+
+
+
+/* ============================================================
+   FIXED NAV — header stays at top while content scrolls
+   ============================================================ */
+
+.lnav{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  /* Strong glass / mirror effect - more transparent so you see content blurred through */
+  background: linear-gradient(135deg, rgba(26, 15, 46, 0.65) 0%, rgba(45, 27, 78, 0.65) 100%) !important;
+  backdrop-filter: saturate(200%) blur(28px) !important;
+  -webkit-backdrop-filter: saturate(200%) blur(28px) !important;
+  border-bottom: 1px solid rgba(196, 181, 253, 0.22) !important;
+  box-shadow: 0 4px 24px rgba(11, 6, 23, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme="dark"] .lnav{
+  background: linear-gradient(135deg, rgba(12, 8, 22, 0.85) 0%, rgba(26, 15, 46, 0.85) 100%) !important;
+  border-bottom: 1px solid rgba(196, 181, 253, 0.22) !important;
+}
+
+/* Body needs top padding so content doesn't hide under fixed nav */
+body{
+  padding-top: 72px !important;
+}
+
+@media (max-width: 720px){
+  body{ padding-top: 64px !important; }
+}
+
+
+/* ============================================================
+   FINAL — sample-report .lclose footer (centered + highlighted)
+   ============================================================ */
+
+.lclose{
+  background: linear-gradient(135deg, #5B21B6 0%, #6D28FF 50%, #7C3AED 100%) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-align: center !important;
+  padding: 24px clamp(20px, 4vw, 56px) !important;
+  margin: 32px 0 0 0 !important;
+  max-width: none !important;
+  font-size: 0.875rem !important;
+  border-top: 1px solid rgba(196, 181, 253, 0.20) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.lclose::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196, 181, 253, 0.18), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 50%, rgba(109, 40, 255, 0.20), transparent 60%);
+  pointer-events: none;
+}
+
+.lclose > *{ position: relative; z-index: 1; }
+
+.lclose a{
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(255, 255, 255, 0.4) !important;
+  font-weight: 500;
+}
+
+.lclose a:hover{
+  color: #C4B5FD !important;
+  text-decoration-color: #C4B5FD !important;
+}
+
+@media (max-width: 720px){
+  .lclose{ margin: 24px 0 0 0 !important; }
+}
+
+/* ============================================================
+   ROUND 63 — Back-to-top floating button
+   Invisible at top of page, fades + slides in once user has
+   scrolled past 300px. Click smoothly scrolls to top.
+   The button itself is injected by back-to-top.js — this CSS
+   styles whatever element gets the .b2t class.
+   ============================================================ */
+.b2t{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:60;
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--primary) 0%,#8B5CF6 100%);
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  /* Hidden by default — fade + slide in when .visible is added */
+  opacity:0;
+  transform:translateY(16px);
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow:0 6px 20px -4px rgba(109,40,255,.45),
+             0 2px 4px rgba(15,10,26,.1);
+}
+.b2t.visible{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+.b2t:hover{
+  background:linear-gradient(135deg,var(--primary-hover) 0%,#7c3aed 100%);
+  box-shadow:0 10px 28px -4px rgba(109,40,255,.55),
+             0 3px 6px rgba(15,10,26,.12);
+  transform:translateY(-2px);
+}
+.b2t:focus-visible{
+  outline:none;
+  box-shadow:0 6px 20px -4px rgba(109,40,255,.45),
+             0 0 0 4px rgba(109,40,255,.25);
+}
+.b2t:active{
+  transform:translateY(0) scale(.96);
+}
+.b2t svg{
+  width:22px;
+  height:22px;
+  stroke:currentColor;
+}
+/* Dark mode — slightly different shadow tint for contrast */
+:root[data-theme="dark"] .b2t{
+  box-shadow:0 6px 20px -4px rgba(139,92,246,.5),
+             0 2px 4px rgba(0,0,0,.3);
+}
+:root[data-theme="dark"] .b2t:hover{
+  box-shadow:0 10px 28px -4px rgba(139,92,246,.6),
+             0 3px 6px rgba(0,0,0,.4);
+}
+/* Mobile — smaller button, tighter to edge */
+@media (max-width:640px){
+  .b2t{
+    right:16px;
+    bottom:16px;
+    width:42px;
+    height:42px;
+  }
+  .b2t svg{width:18px;height:18px}
+}
+/* Respect users who prefer reduced motion — no slide, just fade */
+@media (prefers-reduced-motion:reduce){
+  .b2t{transition:opacity .15s ease}
+  .b2t,
+  .b2t:hover,
+  .b2t:active{transform:none}
+}
+
+/* ============================================================
+   ROUND 64 — Restore old nav logo style (per user request)
+   Bring back the pre-overlay format: larger "ThreatReady" text
+   (1.75rem / 28px) and CSS-painted logo using the logo.png /
+   logo-dark.png background-image (no <img> tag inside the span).
+   Sits at the end of the file so it overrides every earlier
+   .logo / .logo-i / .logo-t rule including the line 893+ block.
+   ============================================================ */
+:root{--logo-img:url("logo.png")}
+:root[data-theme="dark"]{--logo-img:url("logo-dark.png")}
+
+.lnav .logo,
+.logo{
+  display:flex !important;
+  align-items:center !important;
+  gap:11px !important;
+  font-weight:700 !important;
+  font-size:1.75rem !important;       /* 28px — old size */
+  color:var(--text) !important;
+  letter-spacing:-.025em !important;
+  line-height:1 !important;
+}
+.lnav .logo .logo-i,
+.logo .logo-i{
+  width:42px !important;              /* old: 42x36 */
+  height:36px !important;
+  display:inline-block !important;
+  background-image:var(--logo-img) !important;
+  background-size:contain !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-color:transparent !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  flex-shrink:0 !important;
+}
+/* If any page still has a nested <img> inside .logo-i (footer of pilot.html
+   may, for instance), hide it — the CSS background-image is the source of
+   truth now and we don't want two lightning bolts stacked. */
+.logo-i img,
+.logo-i svg{display:none !important}
+
+.logo .logo-t,
+.lnav .logo .logo-t{
+  display:inline-block !important;
+  line-height:1 !important;
+  font-size:inherit !important;       /* inherits 1.75rem from .logo */
+}
+
+/* Footer logo — keep its own slightly different size if present.
+   Footer typically uses .lft .logo, override the proportions:  */
+.lft .logo{
+  font-size:1.25rem !important;       /* footer is a bit smaller than nav */
+}
+.lft .logo .logo-i{
+  width:32px !important;
+  height:28px !important;
 }

@@ -1751,7 +1751,7 @@ h2{font-size:1.375rem!important}
    ROUND 34: Static showcase moved into demo section
    Restyles .hero-visual when nested inside .dvshow wrapper
    ============================================================ */
-.dvshow{max-width:1080px;margin:18px auto 28px;padding:0}
+.dvshow{max-width:1200px;margin:18px auto 28px;padding:0}
 .dvshow .hero-visual{margin:0!important;max-width:100%!important;padding:0!important}
 .dvshow .browser{box-shadow:0 8px 32px rgba(15,10,26,.08);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:#fff}
 :root[data-theme="dark"] .dvshow .browser{background:#1a1c22;border-color:#3a3c45;box-shadow:0 8px 32px rgba(0,0,0,.4)}
@@ -2402,6 +2402,116 @@ body.mmenu-locked{overflow:hidden;touch-action:none}
 /* The "A PRODUCT OF" / AEROVANT row: the label span shouldn't be
    clickable, only the link. Keep its layout intact. */
 .aprod-col{display:inline-flex!important;align-items:baseline;gap:6px;width:fit-content!important}
+
+/* ============================================================
+   ROUND 62 — Widen demo widgets to fill more of the page
+   The user's screenshots showed visible side-gaps on the
+   "How we validate" widget. Round 61 made dvshow = dw = 1200px,
+   but both still leave ~360px gap per side at 1920 viewport.
+   Round 62 bumps both widgets to 1440px and widens the demo
+   container to 1500px so they get more breathing room.
+   The section header (.dhead) and footer note are constrained
+   so they don't stretch beyond comfortable reading width.
+   ============================================================ */
+@media (min-width:1080px){
+  /* Wider container — demo section only (other sections keep 1320) */
+  #demo > .container{max-width:1500px!important}
+  /* Both widgets fill the wider container */
+  .dvshow,
+  #demo .dsec .dw,
+  .dsec#demo .dw{max-width:1440px!important}
+  /* Keep section header at readable width, centered */
+  #demo .dhead{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+  /* Keep footer note at readable width, centered */
+  #demo > .container > p{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+}
+
+/* ============================================================
+   ROUND 63 — Back-to-top floating button (parity with legal pages)
+   Same rules as in legal.css — duplicated here because index.html
+   doesn't link legal.css. The button itself is injected by
+   back-to-top.js — these rules style whatever gets the .b2t class.
+   ============================================================ */
+.b2t{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:60;
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,#7c3aed 0%,#8B5CF6 100%);
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform:translateY(16px);
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow:0 6px 20px -4px rgba(124,58,237,.45),
+             0 2px 4px rgba(15,10,26,.1);
+}
+.b2t.visible{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+.b2t:hover{
+  background:linear-gradient(135deg,#6d28d9 0%,#7c3aed 100%);
+  box-shadow:0 10px 28px -4px rgba(124,58,237,.55),
+             0 3px 6px rgba(15,10,26,.12);
+  transform:translateY(-2px);
+}
+.b2t:focus-visible{
+  outline:none;
+  box-shadow:0 6px 20px -4px rgba(124,58,237,.45),
+             0 0 0 4px rgba(124,58,237,.25);
+}
+.b2t:active{
+  transform:translateY(0) scale(.96);
+}
+.b2t svg{
+  width:22px;
+  height:22px;
+  stroke:currentColor;
+}
+:root[data-theme="dark"] .b2t{
+  box-shadow:0 6px 20px -4px rgba(139,92,246,.5),
+             0 2px 4px rgba(0,0,0,.3);
+}
+:root[data-theme="dark"] .b2t:hover{
+  box-shadow:0 10px 28px -4px rgba(139,92,246,.6),
+             0 3px 6px rgba(0,0,0,.4);
+}
+/* Mobile — smaller, tighter, and lifted 60px so it never collides
+   with the bottom-centred cookie banner on phones */
+@media (max-width:640px){
+  .b2t{
+    right:16px;
+    bottom:16px;
+    width:42px;
+    height:42px;
+  }
+  .b2t svg{width:18px;height:18px}
+}
+/* When the cookie banner is showing (.cb has .s class), hide the
+   back-to-top button to avoid overlap. The banner disappears as soon
+   as the user clicks Accept/Essential → button reappears via the
+   normal scroll-position logic. */
+.cb.s ~ .b2t{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:translateY(16px)!important;
+}
+@media (prefers-reduced-motion:reduce){
+  .b2t{transition:opacity .15s ease}
+  .b2t,
+  .b2t:hover,
+  .b2t:active{transform:none}
+}
 
 </style>
 <!--
@@ -4072,7 +4182,7 @@ admin@aerovanttech.com
 <li><a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
 <li><a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of service</a></li>
 <li><a href="security.html" target="_blank" rel="noopener noreferrer">Security</a></li>
-<li><a href="dpa.html" target="_blank" rel="noopener noreferrer">Data processing addendum</a></li>
+<li><a href="dpa.html" target="_blank" rel="noopener noreferrer">Data processing agreement</a></li>
 </ul>
 </div>
 
@@ -4345,6 +4455,14 @@ async function submitDemo() {
     return;
   }
 
+  // ROUND 62: stop voice recognition if it's still listening — submit shouldn't
+  // leave the mic active after the answer's been sent. Programmatic click on the
+  // mic button triggers the existing stop() handler inside setupVoice().
+  const voiceBtn = document.getElementById('dVoiceBtn');
+  if (voiceBtn && voiceBtn.classList.contains('recording')) {
+    voiceBtn.click();
+  }
+
   document.getElementById('dStage1').style.display = 'none';
   document.getElementById('dLoad').classList.add('a');
 
@@ -4365,21 +4483,27 @@ async function submitDemo() {
     document.getElementById('dLoad').classList.remove('a');
     document.getElementById('dRes').classList.add('a');
 
-    // Show overall score
-    document.getElementById('dScore').textContent = (result.score || 0) + ' / 10';
+    // Show overall score (null-safe: 0 is a legitimate score, not "missing")
+    document.getElementById('dScore').textContent = (result.score != null ? result.score : 0) + ' / 10';
 
-    // Map backend 3-dim response (tech/comm/dec) to 5 visible bars
-    // (Backend returns: tech, comm, dec — frontend has: ti, cr, ab, cq, fa)
-    const tech = +result.tech || +result.ti || 5;
-    const comm = +result.comm || +result.cq || 5;
-    const dec  = +result.dec  || +result.cr || 5;
+    // ROUND 62 FIX: replaced || with != null checks.
+    // The old `+result.x || fallback` collapsed legitimate 0 scores to the
+    // fallback because 0 is falsy. With the new backend returning 0 for
+    // gibberish answers, the per-dimension bars were rendering 5 (heuristic
+    // fallback) instead of 0. != null preserves 0 while still catching
+    // undefined/null/missing fields.
 
-    // If new 5-dim format ever lands, prefer it; else map from 3-dim:
-    const ti = +result.ti || tech;       // Threat Identification ← tech
-    const cr = +result.cr || dec;        // Containment & Response ← decision-making
-    const ab = +result.ab || tech;       // Architecture & Blast Radius ← tech
-    const cq = +result.cq || comm;       // Communication Quality ← comm
-    const fa = +result.fa || dec;        // Framework Application ← decision-making
+    // Legacy 3-dim heuristic (still useful if backend ever returns tech/comm/dec)
+    const tech = result.tech != null ? +result.tech : (result.ti != null ? +result.ti : 5);
+    const comm = result.comm != null ? +result.comm : (result.cq != null ? +result.cq : 5);
+    const dec  = result.dec  != null ? +result.dec  : (result.cr != null ? +result.cr : 5);
+
+    // Primary 5-dim mapping (backend returns ti/cr/ab/cq/fa directly)
+    const ti = result.ti != null ? +result.ti : tech;       // Threat Identification
+    const cr = result.cr != null ? +result.cr : dec;        // Containment & Response
+    const ab = result.ab != null ? +result.ab : tech;       // Architecture & Blast Radius
+    const cq = result.cq != null ? +result.cq : comm;       // Communication Quality
+    const fa = result.fa != null ? +result.fa : dec;        // Framework Application
 
     document.getElementById('dTIS').textContent = ti;
     document.getElementById('dCRS').textContent = cr;
@@ -5534,5 +5658,6 @@ document.getElementById('aModal')?.addEventListener('click', (e) => {
 })();
 </script>
 
+<script src="back-to-top.js" defer></script>
 </body>
 </html>
