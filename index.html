@@ -4771,61 +4771,32 @@ renderScenario();
       setStatus('🎙 Listening', 'listening');
     };
 
-    recognition.onresult = (e) => {
-      // DEBUG: log everything to the status bar
-      const debugLog = [];
-      debugLog.push('resultIndex=' + e.resultIndex + ' total=' + e.results.length);
-      
-      let newCommittedThisCall = '';
+   recognition.onresult = (e) => {
       let newInterim = '';
-      for (let i = e.resultIndex; i < e.results.length; i++){
+      // Walk every result in this callback. For finals, only process indices
+      // we haven't already committed (tracked in processedFinalIndices).
+      // This is the only reliable dedup on Android Chrome where each final
+      // result can fire isFinal=true multiple times across consecutive
+      // onresult callbacks.
+      for (let i = 0; i < e.results.length; i++){
         const result = e.results[i];
         const best = bestAlternative(result);
-        const phrase = best.transcript.trim();
-        
-        debugLog.push('[' + i + '] ' + (result.isFinal ? 'FINAL' : 'interim') + ': "' + phrase + '"');
-        
         if (result.isFinal){
+          if (processedFinalIndices.has(i)) continue;  // already committed
+          processedFinalIndices.add(i);
+          const phrase = best.transcript.trim();
           if (!phrase) continue;
-          const normalizedCommitted = committed.toLowerCase().replace(/[.,!?]/g, '').trim();
-          const normalizedPhrase = phrase.toLowerCase().replace(/[.,!?]/g, '').trim();
-          if (normalizedCommitted.endsWith(normalizedPhrase)) {
-            debugLog.push('  -> SKIPPED (already at end)');
-            continue;
-          }
-          debugLog.push('  -> ADDED');
-          newCommittedThisCall += (newCommittedThisCall ? ' ' : '') + phrase;
+          committed = (maybeInsertPause(committed) + phrase).replace(/\s+/g, ' ').trim();
         } else {
-          newInterim += best.transcript;
+          // Only show the latest interim (after all finalized indices)
+          if (i >= e.resultIndex) {
+            newInterim += best.transcript;
+          }
         }
-      }
-      
-      // Show the last 8 debug events on the page so we can see what's happening
-      const debugEl = document.getElementById('dVoiceStatus');
-      if (debugEl) {
-        const existing = debugEl.getAttribute('data-debug') || '';
-        const allLogs = (existing + '\n' + debugLog.join('\n')).split('\n').slice(-12).join('\n');
-        debugEl.setAttribute('data-debug', allLogs);
-        debugEl.textContent = '🎙 ' + allLogs;
-        debugEl.style.whiteSpace = 'pre-wrap';
-        debugEl.style.fontFamily = 'monospace';
-        debugEl.style.fontSize = '10px';
-        debugEl.style.maxHeight = '200px';
-        debugEl.style.overflow = 'auto';
-        debugEl.style.background = '#1a1525';
-        debugEl.style.color = '#a78bfa';
-        debugEl.style.padding = '8px';
-        debugEl.style.border = '1px solid #a78bfa';
-        debugEl.style.borderRadius = '4px';
-      }
-      
-      if (newCommittedThisCall){
-        committed = (maybeInsertPause(committed) + newCommittedThisCall).replace(/\s+/g, ' ').trim();
       }
       interim = newInterim.trim();
       render();
     };
-
 
     recognition.onerror = (e) => {
       let msg;
@@ -4850,6 +4821,10 @@ renderScenario();
 
     recognition.onend = () => {
       if (isListening && !document.hidden){
+        // On auto-restart, mobile Chrome resets the results array to index 0.
+        // Clear our processed-indices set so the new session's indices aren't
+        // confused with the old session's.
+        processedFinalIndices = new Set();
         try { recognition.start(); }
         catch(err){ stop(true); }
       } else if (isListening){
