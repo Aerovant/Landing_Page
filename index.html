@@ -4559,6 +4559,7 @@ renderScenario();
 // Voice-to-text — Web Speech API
 // Graceful degradation: if browser doesn't support, disable the button
 // ============================================================
+
 (function setupVoice(){
   const btn = document.getElementById('dVoiceBtn');
   const label = document.getElementById('dVoiceLabel');
@@ -4576,23 +4577,14 @@ renderScenario();
     return;
   }
 
-  /* Voice recognition with security-domain accuracy upgrades:
-     - maxAlternatives = 5 with domain-aware ranking
-     - Homophone correction for common security/cloud terms
-     - Auto-capitalisation of acronyms
-     - VOICE PUNCTUATION COMMANDS — say "comma", "period", "question mark"
-     - Tab change / window blur ENDS recognition (interview-grade behaviour)
-     - Auto-restart on Chrome's 60s timeout (preserved state)
-     - Status: simple "Listening" (no scores or percentages on screen) */
-
   let recognition = null;
   let isListening = false;
   let committed = '';
   let interim = '';
   let lastResultTime = Date.now();
+  let processedFinalIndices = new Set();
+  let lastSessionFinalCount = 0;
 
-  // Security & cloud domain vocabulary — boosts likelihood when ASR returns
-  // an alternative containing these terms.
   const DOMAIN_TERMS = new Set([
     'mitre','att&ck','attck','cve','cvss','iam','rbac','soc','siem','soar','xdr','edr','dlp',
     'tls','ssl','vpn','dns','tcp','udp','xss','csrf','sql','sqli','rce','ssrf','xxe','idor',
@@ -4608,7 +4600,6 @@ renderScenario();
     't1078','t1110','t1190','t1486','t1537','t1059','t1611','t1195'
   ]);
 
-  // Voice punctuation commands — say these and we insert the symbol
   const PUNCTUATION_COMMANDS = [
     [/\b(comma)\b/gi, ','],
     [/\b(period|full stop|fullstop|dot)\b/gi, '.'],
@@ -4626,7 +4617,6 @@ renderScenario();
     [/\b(space)\b/gi, ' '],
   ];
 
-  // Common ASR-misheard terms in security context — corrected on the fly.
   const HOMOPHONE_FIXES = [
     [/\bL\s*A\s*M\s*A\b/gi, 'Lambda'],
     [/\bLama\b/gi, 'Lambda'],
@@ -4689,7 +4679,6 @@ renderScenario();
   function applyPunctuation(text){
     let out = text;
     PUNCTUATION_COMMANDS.forEach(([re, repl]) => { out = out.replace(re, repl); });
-    // Tidy up spacing around inserted punctuation
     out = out.replace(/\s+([,.!?:;])/g, '$1');
     out = out.replace(/([,.!?:;])(?=\S)/g, '$1 ');
     out = out.replace(/\(\s+/g, '(').replace(/\s+\)/g, ')');
@@ -4705,7 +4694,6 @@ renderScenario();
       const re = new RegExp('\\b' + escaped + '\\b', 'gi');
       out = out.replace(re, term);
     });
-    // Capitalise sentence starts
     out = out.replace(/(^|[.!?]\s+)([a-z])/g, (m, pre, c) => pre + c.toUpperCase());
     return out;
   }
@@ -4772,8 +4760,8 @@ renderScenario();
     committed = textarea.value.trim();
     interim = '';
     lastResultTime = Date.now();
-    processedFinalIndices = new Set();   // ← NEW
-    lastSessionFinalCount = 0;           // ← NEW
+    processedFinalIndices = new Set();
+    lastSessionFinalCount = 0;
 
     recognition.onstart = () => {
       isListening = true;
@@ -4783,37 +4771,28 @@ renderScenario();
       setStatus('🎙 Listening', 'listening');
     };
 
-    // Track which final result indices we've already committed (prevents mobile double-counting on auto-restart)
-let processedFinalIndices = new Set();
-let lastSessionFinalCount = 0;
-
-  recognition.onresult = (e) => {
-    let newCommittedThisCall = '';
-    let newInterim = '';
-    
-    for (let i = e.resultIndex; i < e.results.length; i++){
-      const result = e.results[i];
-      const best = bestAlternative(result);
-      
-      if (result.isFinal){
-        // Create a unique key for this final result to prevent double-counting
-        const resultKey = `${lastSessionFinalCount}-${i}-${best.transcript.slice(0, 20)}`;
-        if (!processedFinalIndices.has(resultKey)){
-          processedFinalIndices.add(resultKey);
-          newCommittedThisCall += best.transcript;
+    recognition.onresult = (e) => {
+      let newCommittedThisCall = '';
+      let newInterim = '';
+      for (let i = e.resultIndex; i < e.results.length; i++){
+        const result = e.results[i];
+        const best = bestAlternative(result);
+        if (result.isFinal){
+          const resultKey = `${lastSessionFinalCount}-${i}-${best.transcript.slice(0, 20)}`;
+          if (!processedFinalIndices.has(resultKey)){
+            processedFinalIndices.add(resultKey);
+            newCommittedThisCall += best.transcript;
+          }
+        } else {
+          newInterim += best.transcript;
         }
-      } else {
-        newInterim += best.transcript;
       }
-    }
-    
-    if (newCommittedThisCall){
-      committed = (maybeInsertPause(committed) + newCommittedThisCall).replace(/\s+/g, ' ').trim();
-    }
-    interim = newInterim.trim();
-    render();
-  };
-    
+      if (newCommittedThisCall){
+        committed = (maybeInsertPause(committed) + newCommittedThisCall).replace(/\s+/g, ' ').trim();
+      }
+      interim = newInterim.trim();
+      render();
+    };
 
     recognition.onerror = (e) => {
       let msg;
@@ -4838,15 +4817,14 @@ let lastSessionFinalCount = 0;
 
     recognition.onend = () => {
       if (isListening && !document.hidden){
-        lastSessionFinalCount++;           // ← session 0 → 1 → 2 → ...
-        processedFinalIndices.clear();     // ← wipe old keys
+        lastSessionFinalCount++;
+        processedFinalIndices.clear();
         try { recognition.start(); }
         catch(err){ stop(true); }
       } else if (isListening){
         stop(true);
       }
     };
-
 
     try {
       recognition.start();
@@ -4871,7 +4849,6 @@ let lastSessionFinalCount = 0;
       render();
     }
     if (!silent){
-      // Final pass — apply punctuation + domain fixes once more
       let finalText = applyPunctuation(committed);
       finalText = applyDomainFixes(finalText);
       textarea.value = finalText.trim();
@@ -4890,8 +4867,6 @@ let lastSessionFinalCount = 0;
     }
   });
 
-  // INTERVIEW-GRADE BEHAVIOR: stop voice when user switches tabs / minimises window
-  // (mimics what a real proctored interview does — leaving the page invalidates input)
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && isListening){
       stop(false);
