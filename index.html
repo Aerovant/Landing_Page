@@ -437,7 +437,7 @@ h4{font-size:1.125rem}
 @media (max-width:768px){.roi-g{grid-template-columns:1fr}.roi{padding:28px}}
 .roi-in{display:flex;flex-direction:column;gap:18px}
 .roi-ig label{display:block;font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
-.roi-ig input{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);border-radius:var(--r-sm);color:#fff;font-family:inherit;font-size:1rem;font-weight:600;-moz-appearance:textfield}
+.roi-ig input{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);border-radius:var(--r-sm);color:#fff;font-family:inherit;font-size:1rem;font-weight:600;appearance:textfield;-moz-appearance:textfield}
 .roi-ig input::-webkit-outer-spin-button,.roi-ig input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .roi-ig input:focus{outline:none;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.15)}
 .roi-r{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-md);padding:24px}
@@ -686,7 +686,7 @@ section{padding:48px 0}
 .nav-act{flex-shrink:0;gap:8px}
 .nav-act .btn-sm{padding:7px 14px;font-size:.8125rem}
 @media (max-width:1180px){.nav-c .nav-links{gap:14px}.nav-c .nav-links a,.nav-c .nav-drop-trig{font-size:.825rem}.nav-act{gap:6px}}
-@media (max-width:1080px){.nav-c > .brand-stack .brand-tag{font-size:.5625rem;letter-spacing:.1em}.nav-c .nav-links{gap:12px}}}
+@media (max-width:1080px){.nav-c > .brand-stack .brand-tag{font-size:.5625rem;letter-spacing:.1em}.nav-c .nav-links{gap:12px}}
 @media (max-width:480px){.brand-tag{padding-left:0;font-size:.625rem;letter-spacing:.1em}}
 
 .abrand{margin:40px auto 0;max-width:520px}
@@ -4772,25 +4772,53 @@ renderScenario();
     };
 
     recognition.onresult = (e) => {
+      // DEBUG: log everything to the status bar
+      const debugLog = [];
+      debugLog.push('resultIndex=' + e.resultIndex + ' total=' + e.results.length);
+      
       let newCommittedThisCall = '';
       let newInterim = '';
       for (let i = e.resultIndex; i < e.results.length; i++){
         const result = e.results[i];
         const best = bestAlternative(result);
+        const phrase = best.transcript.trim();
+        
+        debugLog.push('[' + i + '] ' + (result.isFinal ? 'FINAL' : 'interim') + ': "' + phrase + '"');
+        
         if (result.isFinal){
-          const phrase = best.transcript.trim();
           if (!phrase) continue;
-          // Content-based dedup: skip if the exact phrase is already at the end of committed text
           const normalizedCommitted = committed.toLowerCase().replace(/[.,!?]/g, '').trim();
           const normalizedPhrase = phrase.toLowerCase().replace(/[.,!?]/g, '').trim();
           if (normalizedCommitted.endsWith(normalizedPhrase)) {
-            continue;  // already there, skip
+            debugLog.push('  -> SKIPPED (already at end)');
+            continue;
           }
+          debugLog.push('  -> ADDED');
           newCommittedThisCall += (newCommittedThisCall ? ' ' : '') + phrase;
         } else {
           newInterim += best.transcript;
         }
       }
+      
+      // Show the last 8 debug events on the page so we can see what's happening
+      const debugEl = document.getElementById('dVoiceStatus');
+      if (debugEl) {
+        const existing = debugEl.getAttribute('data-debug') || '';
+        const allLogs = (existing + '\n' + debugLog.join('\n')).split('\n').slice(-12).join('\n');
+        debugEl.setAttribute('data-debug', allLogs);
+        debugEl.textContent = '🎙 ' + allLogs;
+        debugEl.style.whiteSpace = 'pre-wrap';
+        debugEl.style.fontFamily = 'monospace';
+        debugEl.style.fontSize = '10px';
+        debugEl.style.maxHeight = '200px';
+        debugEl.style.overflow = 'auto';
+        debugEl.style.background = '#1a1525';
+        debugEl.style.color = '#a78bfa';
+        debugEl.style.padding = '8px';
+        debugEl.style.border = '1px solid #a78bfa';
+        debugEl.style.borderRadius = '4px';
+      }
+      
       if (newCommittedThisCall){
         committed = (maybeInsertPause(committed) + newCommittedThisCall).replace(/\s+/g, ' ').trim();
       }
