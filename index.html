@@ -4772,6 +4772,8 @@ renderScenario();
     committed = textarea.value.trim();
     interim = '';
     lastResultTime = Date.now();
+    processedFinalIndices = new Set();   // ← NEW
+    lastSessionFinalCount = 0;           // ← NEW
 
     recognition.onstart = () => {
       isListening = true;
@@ -4781,24 +4783,37 @@ renderScenario();
       setStatus('🎙 Listening', 'listening');
     };
 
-    recognition.onresult = (e) => {
-      let newCommitted = '';
-      let newInterim = '';
-      for (let i = e.resultIndex; i < e.results.length; i++){
-        const result = e.results[i];
-        const best = bestAlternative(result);
-        if (result.isFinal){
-          newCommitted += best.transcript;
-        } else {
-          newInterim += best.transcript;
+    // Track which final result indices we've already committed (prevents mobile double-counting on auto-restart)
+let processedFinalIndices = new Set();
+let lastSessionFinalCount = 0;
+
+  recognition.onresult = (e) => {
+    let newCommittedThisCall = '';
+    let newInterim = '';
+    
+    for (let i = e.resultIndex; i < e.results.length; i++){
+      const result = e.results[i];
+      const best = bestAlternative(result);
+      
+      if (result.isFinal){
+        // Create a unique key for this final result to prevent double-counting
+        const resultKey = `${lastSessionFinalCount}-${i}-${best.transcript.slice(0, 20)}`;
+        if (!processedFinalIndices.has(resultKey)){
+          processedFinalIndices.add(resultKey);
+          newCommittedThisCall += best.transcript;
         }
+      } else {
+        newInterim += best.transcript;
       }
-      if (newCommitted){
-        committed = (maybeInsertPause(committed) + newCommitted).replace(/\s+/g, ' ').trim();
-      }
-      interim = newInterim.trim();
-      render();
-    };
+    }
+    
+    if (newCommittedThisCall){
+      committed = (maybeInsertPause(committed) + newCommittedThisCall).replace(/\s+/g, ' ').trim();
+    }
+    interim = newInterim.trim();
+    render();
+  };
+    
 
     recognition.onerror = (e) => {
       let msg;
@@ -4822,16 +4837,16 @@ renderScenario();
     };
 
     recognition.onend = () => {
-      // Auto-restart with preserved state if user is still actively listening
-      // and the page tab is still visible
       if (isListening && !document.hidden){
+        lastSessionFinalCount++;           // ← session 0 → 1 → 2 → ...
+        processedFinalIndices.clear();     // ← wipe old keys
         try { recognition.start(); }
         catch(err){ stop(true); }
       } else if (isListening){
-        // tab is hidden — stop properly so the user comes back to a clean state
         stop(true);
       }
     };
+
 
     try {
       recognition.start();
