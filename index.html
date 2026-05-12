@@ -4778,6 +4778,32 @@ renderScenario();
         const result = e.results[i];
         const best = bestAlternative(result);
         if (result.isFinal){
+          const phrase = best.transcript.trim();
+          if (!phrase) continue;
+          // Content-based dedup: skip if the exact phrase is already at the end of committed text
+          const normalizedCommitted = committed.toLowerCase().replace(/[.,!?]/g, '').trim();
+          const normalizedPhrase = phrase.toLowerCase().replace(/[.,!?]/g, '').trim();
+          if (normalizedCommitted.endsWith(normalizedPhrase)) {
+            continue;  // already there, skip
+          }
+          newCommittedThisCall += (newCommittedThisCall ? ' ' : '') + phrase;
+        } else {
+          newInterim += best.transcript;
+        }
+      }
+      if (newCommittedThisCall){
+        committed = (maybeInsertPause(committed) + newCommittedThisCall).replace(/\s+/g, ' ').trim();
+      }
+      interim = newInterim.trim();
+      render();
+    };
+
+      let newCommittedThisCall = '';
+      let newInterim = '';
+      for (let i = e.resultIndex; i < e.results.length; i++){
+        const result = e.results[i];
+        const best = bestAlternative(result);
+        if (result.isFinal){
           const resultKey = `${lastSessionFinalCount}-${i}-${best.transcript.slice(0, 20)}`;
           if (!processedFinalIndices.has(resultKey)){
             processedFinalIndices.add(resultKey);
@@ -4817,8 +4843,6 @@ renderScenario();
 
     recognition.onend = () => {
       if (isListening && !document.hidden){
-        lastSessionFinalCount++;
-        processedFinalIndices.clear();
         try { recognition.start(); }
         catch(err){ stop(true); }
       } else if (isListening){
