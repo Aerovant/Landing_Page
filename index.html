@@ -4772,19 +4772,53 @@ renderScenario();
     };
 
     recognition.onresult = (e) => {
-      const debugLog = ['evt resultIndex=' + e.resultIndex + ' len=' + e.results.length];
       let newInterim = '';
+      // Mobile Chrome bug: each new final result is the CUMULATIVE transcript,
+      // not just new words. We track the last appended final string and only
+      // append the delta (new content beyond what we already have).
       for (let i = 0; i < e.results.length; i++){
         const result = e.results[i];
         const best = bestAlternative(result);
-        const phrase = best.transcript.trim();
-        const alreadyProcessed = processedFinalIndices.has(i);
-        debugLog.push('[' + i + '] ' + (result.isFinal ? 'F' : 'i') + (alreadyProcessed ? ' SKIP' : '') + ' "' + phrase.slice(0, 30) + '"');
         if (result.isFinal){
-          if (alreadyProcessed) continue;
+          if (processedFinalIndices.has(i)) continue;
           processedFinalIndices.add(i);
+          const phrase = best.transcript.trim();
           if (!phrase) continue;
-          committed = (maybeInsertPause(committed) + phrase).replace(/\s+/g, ' ').trim();
+          
+          // Check if this phrase is an extension of something we already committed.
+          // Compare normalized text (lowercase, no punctuation).
+          const committedNorm = committed.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+          const phraseNorm = phrase.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+          
+          let toAppend = phrase;
+          
+          // Case 1: phrase is identical to or already contained in committed → skip
+          if (committedNorm.endsWith(phraseNorm)) continue;
+          
+          // Case 2: phrase EXTENDS committed (committed ends with the start of phrase)
+          // Find the longest suffix of committed that's a prefix of phrase
+          if (committedNorm.length > 0) {
+            const committedWords = committedNorm.split(' ');
+            const phraseWords = phraseNorm.split(' ');
+            let overlapWords = 0;
+            // Try matching the last N words of committed to first N words of phrase
+            for (let n = Math.min(committedWords.length, phraseWords.length); n > 0; n--) {
+              const committedTail = committedWords.slice(-n).join(' ');
+              const phraseHead = phraseWords.slice(0, n).join(' ');
+              if (committedTail === phraseHead) {
+                overlapWords = n;
+                break;
+              }
+            }
+            if (overlapWords > 0) {
+              // Strip the overlapping prefix from the original (non-normalized) phrase
+              const originalWords = phrase.split(/\s+/);
+              toAppend = originalWords.slice(overlapWords).join(' ').trim();
+              if (!toAppend) continue;  // entire phrase was overlap
+            }
+          }
+          
+          committed = (maybeInsertPause(committed) + toAppend).replace(/\s+/g, ' ').trim();
         } else {
           if (i >= e.resultIndex) {
             newInterim += best.transcript;
@@ -4793,27 +4827,6 @@ renderScenario();
       }
       interim = newInterim.trim();
       render();
-      
-      // Show debug log in status bar
-      const debugEl = document.getElementById('dVoiceStatus');
-      if (debugEl) {
-        const prev = debugEl.getAttribute('data-log') || '';
-        const next = (prev + '\n---\n' + debugLog.join('\n')).split('\n').slice(-25).join('\n');
-        debugEl.setAttribute('data-log', next);
-        debugEl.textContent = next;
-        debugEl.style.whiteSpace = 'pre-wrap';
-        debugEl.style.fontFamily = 'monospace';
-        debugEl.style.fontSize = '11px';
-        debugEl.style.lineHeight = '1.3';
-        debugEl.style.maxHeight = '300px';
-        debugEl.style.overflow = 'auto';
-        debugEl.style.background = '#1a1525';
-        debugEl.style.color = '#a78bfa';
-        debugEl.style.padding = '8px';
-        debugEl.style.border = '1px solid #a78bfa';
-        debugEl.style.borderRadius = '4px';
-        debugEl.style.textAlign = 'left';
-      }
     };
 
     recognition.onerror = (e) => {
