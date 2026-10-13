@@ -133,40 +133,111 @@
       </p>
     </div>
 
-    <div class="frame">
-      <div class="frame-bar"><span class="frame-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="frame-url" data-frame-url>threatready.io/app · Attack Reasoning Lab</span></div>
-      <div class="tabs" role="tablist" aria-label="Product views">
-        <button class="tab" role="tab" id="t-reason" aria-controls="p-reason" aria-selected="true" data-url="threatready.io/app · Attack Reasoning Lab"><span class="dot dot-lab" aria-hidden="true"></span>Reason</button>
-        <button class="tab" role="tab" id="t-sim" aria-controls="p-sim" aria-selected="false" tabindex="-1" data-url="Lab Simulations · preview"><span class="dot dot-sim" aria-hidden="true"></span>Simulate</button>
-        <button class="tab" role="tab" id="t-int" aria-controls="p-int" aria-selected="false" tabindex="-1" data-url="threatready.io/app · InterviewPrep"><span class="dot dot-int" aria-hidden="true"></span>Interview</button>
-      </div>
-      <div role="tabpanel" id="p-reason" aria-labelledby="t-reason" tabindex="0" class="hero-shot">
-        <img class="shot shot-d" src="assets/img/product/lab-session-dark.webp" width="1600" height="829" alt="ThreatReady Lab session: S3 misconfiguration attack chain diagram, question 1 of 5 on threat identification, and the answer box with type or dictate options">
-        <img class="shot shot-l" src="assets/img/product/lab-session-light.webp" width="1600" height="829" alt="ThreatReady Lab session in light theme: S3 Bucket Misconfiguration Chain, Intermediate, question 1 of 5 on threat identification, with the attack chain diagram and answer box"  loading="lazy">
-        <p class="shot-fallback" hidden>The product screenshot could not be loaded.</p>
-        <div class="caption"><span><b>Product screenshot</b> · Lab session, S3 misconfiguration chain, question 1 of 5</span><a href="attack-reasoning-lab.html">Attack Reasoning Lab</a></div>
-      </div>
-      <div role="tabpanel" id="p-sim" aria-labelledby="t-sim" tabindex="0" class="hero-shot" hidden>
-        <div class="tabpanel">
-          <div class="ui-meta"><span class="ui-label">Lab Simulations</span><span class="tag tag-soon">In development</span></div>
-          <div class="ui-box">
-            <div class="ui-row"><span class="muted">Track</span><span>SOC Analyst · Beginner</span></div>
-            <div class="ui-row"><span class="muted">Task</span><span>Triage a sign-in alert</span></div>
-          </div>
-          <ol class="ui-steps">
-            <li><b>01</b>Read the alert and the related sign-in logs</li>
-            <li class="cur"><b>02</b>Decide: true positive or false positive — and why</li>
-            <li><b>03</b>Choose a containment action</li>
-            <li><b>04</b>Write the hand-off note for the next shift</li>
-          </ol>
+    <div class="showcase" aria-label="ThreatReady product overview">
+      <div class="sc-bar">
+        <div class="sc-tabs" role="tablist" aria-label="Products">
+          <button class="sc-tab" role="tab" id="t-reason" aria-controls="p-reason" aria-selected="true"><span class="dot dot-lab" aria-hidden="true"></span>Reason</button>
+          <button class="sc-tab" role="tab" id="t-sim" aria-controls="p-sim" aria-selected="false" tabindex="-1"><span class="dot dot-sim" aria-hidden="true"></span>Simulate</button>
+          <button class="sc-tab" role="tab" id="t-int" aria-controls="p-int" aria-selected="false" tabindex="-1"><span class="dot dot-int" aria-hidden="true"></span>Interview</button>
         </div>
-        <div class="caption"><span><b>Preview</b> · illustrative format, not yet available</span><a href="lab-simulations.html">Lab Simulations</a></div>
+        <span class="sc-note">Product overview</span>
       </div>
-      <div role="tabpanel" id="p-int" aria-labelledby="t-int" tabindex="0" class="hero-shot" hidden>
-        <img class="shot shot-d" src="assets/img/product/iprep-dark.webp" width="1600" height="1089" alt="InterviewPrep setup screen: upload a job description and resume, choose session duration and difficulty" loading="lazy">
-        <img class="shot shot-l" src="assets/img/product/iprep-light.webp" width="1600" height="1089" alt="InterviewPrep setup screen in light theme"  loading="lazy">
-        <p class="shot-fallback" hidden>The product screenshot could not be loaded.</p>
-        <div class="caption"><span><b>Product screenshot</b> · InterviewPrep session setup</span><a href="interviewprep.html">InterviewPrep</a></div>
+
+      <div class="sc-panels">
+        <!-- REASON -->
+        <div class="sc-panel" role="tabpanel" id="p-reason" aria-labelledby="t-reason" tabindex="0">
+          <div class="sc-head">
+            <div>
+              <p class="sc-kicker">Attack Reasoning Lab</p>
+              <p class="sc-title">Cloud Security · Intermediate</p>
+            </div>
+            <div class="sc-tags"><span class="mitre">T1078 Valid Accounts</span><span class="mitre">T1537 Transfer Data to Cloud Account</span></div>
+          </div>
+          <div class="sc-grid">
+            <figure class="sc-arch">
+              <svg viewBox="0 0 372 160" role="img" aria-label="Scenario architecture: requests from the internet reach a Lambda function through an API gateway. The Lambda's role can read an S3 bucket with customer data and Secrets Manager. CloudTrail keeps the audit log.">
+                <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" class="a-arrowhead"/></marker></defs>
+                <g class="a-edge"><path d="M92 32H126" marker-end="url(#ah)"/><path d="M226 32H260" marker-end="url(#ah)"/><path d="M290 50L190 106" marker-end="url(#ah)"/><path d="M305 50V106" marker-end="url(#ah)"/></g>
+                <g class="a-edge a-edge-dash"><path d="M104 126H128"/></g>
+                <g class="a-node"><rect x="8" y="12" width="84" height="40" rx="7"/><text x="50" y="36">Internet</text></g>
+                <g class="a-node"><rect x="128" y="12" width="98" height="40" rx="7"/><text x="177" y="36">API Gateway</text></g>
+                <g class="a-node a-hot"><rect x="262" y="12" width="90" height="40" rx="7"/><text x="307" y="30">Lambda</text><text x="307" y="44" class="a-sub">unusual egress</text></g>
+                <g class="a-node a-mon"><rect x="8" y="106" width="96" height="40" rx="7"/><text x="56" y="124">CloudTrail</text><text x="56" y="138" class="a-sub">audit log</text></g>
+                <g class="a-node a-data"><rect x="130" y="106" width="104" height="40" rx="7"/><text x="182" y="124">S3 bucket</text><text x="182" y="138" class="a-sub">customer PII</text></g>
+                <g class="a-node a-data"><rect x="248" y="106" width="118" height="40" rx="7"/><text x="307" y="124">Secrets Manager</text><text x="307" y="138" class="a-sub">db credentials</text></g>
+              </svg>
+              <figcaption>Scenario architecture · public demo scenario</figcaption>
+            </figure>
+            <div class="sc-side">
+              <p class="sc-label">Adaptive questions</p>
+              <ol class="sc-progress" aria-label="Question 3 of 5">
+                <li class="done"><span class="sr-only">Question 1 answered</span></li><li class="done"><span class="sr-only">Question 2 answered</span></li><li class="cur"><span class="sr-only">Question 3 in progress</span></li><li><span class="sr-only">Question 4</span></li><li><span class="sr-only">Question 5</span></li>
+              </ol>
+              <p class="sc-meta">Question 3 of 5 · built from your last answer</p>
+              <p class="sc-label" style="margin-top:14px">Weighting · containment question</p>
+              <ul class="sc-weights">
+                <li><span>Threat Identification</span><i style="--v:10"></i><b>10%</b></li>
+                <li><span>Containment &amp; Response</span><i style="--v:40"></i><b>40%</b></li>
+                <li><span>Architecture &amp; Blast Radius</span><i style="--v:20"></i><b>20%</b></li>
+                <li><span>Communication Quality</span><i style="--v:15"></i><b>15%</b></li>
+                <li><span>Framework Application</span><i style="--v:15"></i><b>15%</b></li>
+              </ul>
+              <p class="sc-src">From the published rubric</p>
+            </div>
+          </div>
+          <div class="sc-foot"><span>Report includes</span><span class="sc-pill">Dimension scores</span><span class="sc-pill">Model answer</span><span class="sc-pill">Confidence flag</span><span class="sc-pill">Shareable badge</span></div>
+        </div>
+
+        <!-- SIMULATE -->
+        <div class="sc-panel" role="tabpanel" id="p-sim" aria-labelledby="t-sim" tabindex="0" hidden>
+          <div class="sc-head">
+            <div>
+              <p class="sc-kicker">Lab Simulations</p>
+              <p class="sc-title">SOC Analyst · Beginner</p>
+            </div>
+            <span class="tag tag-soon">In development</span>
+          </div>
+          <div class="sc-steps">
+            <div class="sc-step done"><b>01</b><span>Read the alert and sign-in logs</span></div>
+            <div class="sc-step cur"><b>02</b><span>Decide: true or false positive — and why</span></div>
+            <div class="sc-step"><b>03</b><span>Choose a containment action</span></div>
+            <div class="sc-step"><b>04</b><span>Write the hand-off note</span></div>
+          </div>
+          <div class="sc-cols">
+            <div class="sc-box"><p class="sc-label">You identified</p><p class="sc-meta">Feedback lists what you caught, with evidence.</p></div>
+            <div class="sc-box"><p class="sc-label">You missed</p><p class="sc-meta">…and what you overlooked, and why it mattered.</p></div>
+          </div>
+          <div class="sc-row"><span class="sc-label" style="margin:0">Progression</span><span class="lv">Beginner</span><span aria-hidden="true">→</span><span class="lv">Intermediate</span><span aria-hidden="true">→</span><span class="lv">Advanced</span><span aria-hidden="true">→</span><span class="lv">Expert</span></div>
+          <div class="sc-foot"><span>Preview of the planned format · released one role track at a time</span></div>
+        </div>
+
+        <!-- INTERVIEW -->
+        <div class="sc-panel" role="tabpanel" id="p-int" aria-labelledby="t-int" tabindex="0" hidden>
+          <div class="sc-head">
+            <div>
+              <p class="sc-kicker">InterviewPrep</p>
+              <p class="sc-title">An interview built from a real job</p>
+            </div>
+            <span class="tag tag-live">Available</span>
+          </div>
+          <div class="sc-flow">
+            <div class="sc-box"><p class="sc-label">Job description</p><p class="sc-meta">PDF · DOC · TXT, up to 5 MB</p></div>
+            <span class="sc-plus" aria-hidden="true">+</span>
+            <div class="sc-box"><p class="sc-label">Your resume</p><p class="sc-meta">Optional · tailors the questions</p></div>
+            <span class="sc-arrow" aria-hidden="true">→</span>
+            <div class="sc-box"><p class="sc-label">Session</p><p class="sc-meta">Duration and difficulty you choose</p></div>
+          </div>
+          <p class="sc-label" style="margin-top:16px">Modules a session can cover</p>
+          <ul class="sc-mods">
+            <li><b>Architecture &amp; Design</b><span>Architecture design</span></li>
+            <li><b>Incident Simulator</b><span>Incident response</span></li>
+            <li><b>Threat Brief</b><span>Crisis communication</span></li>
+            <li><b>Threat Hunt</b><span>Log analysis</span></li>
+            <li><b>Vuln Vault</b><span>Vulnerability prioritisation</span></li>
+          </ul>
+          <div class="sc-row"><span class="sc-label" style="margin:0">Difficulty</span><span class="lv">Beginner</span><span class="lv">Intermediate</span><span class="lv">Expert</span><span class="lv">Custom</span></div>
+          <div class="sc-foot"><span>Ends with a scored report you can review and keep</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -453,25 +524,23 @@
 
 <!-- 8 · ROLES & PLANS -->
 <section class="section section-alt" aria-labelledby="roles-h">
-  <div class="wrap split">
-    <div>
-      <span class="eyebrow">Roles</span>
-      <h2 class="h2" id="roles-h">Built around the role you want.</h2>
-      <ul class="chips" style="margin-top:24px" aria-label="15 role tracks">
+  <div class="wrap">
+    <div class="rp-head">
+      <div><span class="eyebrow">Roles and plans</span><h2 class="h2" id="roles-h">Built around the role you want.</h2></div>
+      <p class="levels" aria-label="15 role tracks, four levels: Beginner, Intermediate, Advanced, Expert"><span>15 role tracks</span><span class="lv">Beginner</span><span aria-hidden="true">→</span><span class="lv">Intermediate</span><span aria-hidden="true">→</span><span class="lv">Advanced</span><span aria-hidden="true">→</span><span class="lv">Expert</span></p>
+    </div>
+    <div class="rp-grid">
+      <ul class="role-grid" aria-label="15 role tracks">
         <li>Cloud Security</li><li>DevSecOps</li><li>Application Security</li><li>Network Security</li><li>Product Security</li>
         <li>Security Architect</li><li>DFIR &amp; Incident Response</li><li>GRC &amp; Compliance</li><li>IAM Security</li><li>Data Security</li>
         <li>SOC Analyst</li><li>Threat Hunter</li><li>Red Team</li><li>Blue Team</li><li>AI/LLM Security</li>
       </ul>
-      <p class="levels"><span>15 role tracks ·</span><span class="mono">Beginner</span>→<span class="mono">Intermediate</span>→<span class="mono">Advanced</span>→<span class="mono">Expert</span></p>
-    </div>
-    <div>
-      <span class="eyebrow">Plans</span>
-      <div class="grid" style="gap:12px">
-        <div class="card plan"><h3>Free</h3><p class="plan-for">Two Beginner scenarios on any role. No card required.</p></div>
-        <div class="card plan"><h3>Individual</h3><p class="plan-for">Full access to the role you're preparing for.</p></div>
-        <div class="card plan"><h3>Teams &amp; hiring</h3><p class="plan-for">Custom options for teams, recruiters and colleges.</p></div>
+      <div class="plan-list">
+        <div class="plan-row"><h3>Free</h3><p>Two Beginner scenarios on any role. No card required.</p></div>
+        <div class="plan-row"><h3>Individual</h3><p>Full access to the role you're preparing for.</p></div>
+        <div class="plan-row"><h3>Teams &amp; hiring</h3><p>Custom options for teams, recruiters and colleges.</p></div>
+        <div class="plan-cta"><a class="btn btn-secondary btn-sm" href="pricing.html">See plans and pricing</a></div>
       </div>
-      <div class="section-foot"><a class="btn btn-secondary" href="pricing.html">See plans and pricing</a></div>
     </div>
   </div>
 </section>
